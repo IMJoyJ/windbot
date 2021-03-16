@@ -21,7 +21,7 @@ namespace WindBot.Game.AI
         protected MainPhase Main { get; private set; }
         protected BattlePhase Battle { get; private set; }
 
-        protected ExecutorType ExecType { get; private set; }
+        public ExecutorType ExecType { get; private set; }
         protected ClientCard Card { get; private set; }
         protected int ActivateDescription { get; private set; }
 

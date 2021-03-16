@@ -67,6 +67,14 @@ namespace WindBot.Game.AI
             return Enum.IsDefined(typeof(Floodgate), card.Id);
         }
 
+        public static bool IsMonsterCanPierce(this ClientCard card)
+        {
+            return Enum.IsDefined(typeof(Pierce), card.Id)
+                || card.EquipCards.ContainsCardWithId(47819246,48308134,48716139,
+                    49328340,55046718,60879050,65079854,82270047,88540324)
+                || card.UserData.ContainsKey("Pierce");
+        }
+
         public static bool IsOneForXyz(this ClientCard card)
         {
             return Enum.IsDefined(typeof(OneForXyz), card.Id);

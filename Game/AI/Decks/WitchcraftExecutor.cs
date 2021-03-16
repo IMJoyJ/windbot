@@ -3204,8 +3204,10 @@ namespace WindBot.Game.AI.Decks
         // activate of KnightmarePhoenix
         public bool KnightmarePhoenixActivate()
         {
-            List<ClientCard> targets = new List<ClientCard>();
-            targets.Add(this.Util.GetProblematicEnemySpell());
+            List<ClientCard> targets = new List<ClientCard>
+            {
+                this.Util.GetProblematicEnemySpell()
+            };
             List<ClientCard> spells = this.Enemy.GetSpells();
             List<ClientCard> faceups = new List<ClientCard>();
             List<ClientCard> facedowns = new List<ClientCard>();

@@ -12,6 +12,8 @@ namespace WindBot.Game
         public NamedCard Data { get; private set; }
         public string Name { get; private set; }
 
+        public Dictionary<object, object> UserData = new Dictionary<object, object>();
+
         public int Position { get; set; }
         public int Sequence { get; set; }
         public CardLocation Location { get; set; }

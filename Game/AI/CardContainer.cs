@@ -107,7 +107,7 @@ namespace WindBot.Game.AI
             return cards.Where(card => card?.Data != null).Any(card => card.HasType(CardType.Xyz) && card.Rank == rank);
         }
 
-        public static bool ContainsCardWithId(this IEnumerable<ClientCard> cards, int id)
+        public static bool ContainsCardWithId(this IEnumerable<ClientCard> cards, params int[] id)
         {
             return cards.Where(card => card?.Data != null).Any(card => card.IsCode(id));
         }

@@ -252,10 +252,12 @@ namespace WindBot.Game.AI.Decks
             bool a = this.Bot.HasInMonstersZone(CardId.MathmechSubtra) || this.Bot.HasInMonstersZone(CardId.securitytoken) || this.Bot.HasInMonstersZone(CardId.MathmechSigma) || this.Bot.HasInMonstersZone(CardId.MathmechAddition) || this.Bot.HasInMonstersZone(CardId.Mathmechalem) || this.Bot.HasInMonstersZone(CardId.MathmechDivision);
             if (a)
             {
-                List<int> cards = new List<int>();
-                cards.Add(CardId.MathmechSigma);
-                cards.Add(CardId.MathmechSubtra);
-                cards.Add(CardId.MathmechAddition);
+                List<int> cards = new List<int>
+                {
+                    CardId.MathmechSigma,
+                    CardId.MathmechSubtra,
+                    CardId.MathmechAddition
+                };
                 cards.Add(item:CardId.MathmechDivision);
                 cards.Add(item:CardId.Mathmechalem);
                 cards.Add(CardId.securitytoken);

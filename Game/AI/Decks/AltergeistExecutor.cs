@@ -407,12 +407,14 @@ namespace WindBot.Game.AI.Decks
 
         public int SelectSetPlace(List<int> avoid_list=null)
         {
-            List<int> list = new List<int>();
-            list.Add(0);
-            list.Add(1);
-            list.Add(2);
-            list.Add(3);
-            list.Add(4);
+            List<int> list = new List<int>
+            {
+                0,
+                1,
+                2,
+                3,
+                4
+            };
             int n = list.Count;
             while (n-- > 1)
             {
@@ -2061,13 +2063,15 @@ namespace WindBot.Game.AI.Decks
                         return true;
                     }
                 }
-                List<int> choose_list = new List<int>();
-                choose_list.Add(CardId.Hexstia);
-                choose_list.Add(CardId.Silquitous);
-                choose_list.Add(CardId.Meluseek);
-                choose_list.Add(CardId.Marionetter);
-                choose_list.Add(CardId.Kunquery);
-                foreach(int id in choose_list)
+                List<int> choose_list = new List<int>
+                {
+                    CardId.Hexstia,
+                    CardId.Silquitous,
+                    CardId.Meluseek,
+                    CardId.Marionetter,
+                    CardId.Kunquery
+                };
+                foreach (int id in choose_list)
                 {
                     if (this.Bot.HasInGraveyard(id)){
                         if (id == CardId.Kunquery

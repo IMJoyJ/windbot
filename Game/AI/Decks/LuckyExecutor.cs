@@ -1,8 +1,5 @@
 ﻿using YGOSharp.OCGWrapper.Enums;
 using System.Collections.Generic;
-using WindBot;
-using WindBot.Game;
-using WindBot.Game.AI;
 
 namespace WindBot.Game.AI.Decks
 {
@@ -96,17 +93,27 @@ namespace WindBot.Game.AI.Decks
             return Program._rand.Next(options.Count);
         }
 
-        private bool ImFeelingLucky()
+        private LuckyCards.LuckyCard GetLuckyCardByCardId(int id)
         {
-            var typ = System.Type.GetType($"WindBot.Game.AI.LuckyCards.C{this.Card.Id}", false);
+            var typ = System.Type.GetType($"WindBot.Game.AI.LuckyCards.C{id}", false);
             if (typ == null)
             {
                 typ = System.Type.GetType($"WindBot.Game.AI.LuckyCards.LuckyCard", false);
             }
             object o = System.Activator.CreateInstance(typ);
+            return (LuckyCards.LuckyCard)o;
+        }
 
-            return ((LuckyCards.LuckyCard)o).ShouldExec(this.Duel, Bot, Enemy,this.Card)
+        private bool ImFeelingLucky()
+        {
+            var lc = this.GetLuckyCardByCardId(this.Card.Id);
+            return lc.ShouldExec(this, this.AI, this.Duel, Bot, Enemy, this.Card)
                 && this.DefaultDontChainMyself();
+        }
+        public override CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
+        {
+            var lc = this.GetLuckyCardByCardId(this.Card.Id);
+            return lc.GetSummonPosition(this, this.AI, this.Duel, Bot, Enemy, this.Card);
         }
     }
 }

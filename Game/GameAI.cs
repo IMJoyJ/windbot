@@ -583,6 +583,22 @@ namespace WindBot.Game
             {
                 return executor_selected;
             }
+            else
+            {
+                CardPosition secondSelect = CardPosition.FaceUpAttack;
+                if (executor_selected == CardPosition.FaceUpDefence)
+                {
+                    secondSelect = CardPosition.FaceDownDefence;
+                }
+                if (executor_selected == CardPosition.FaceUpAttack)
+                {
+                    secondSelect = CardPosition.FaceDownAttack;
+                }
+                if (positions.Contains(secondSelect))
+                {
+                    return secondSelect;
+                }
+            }
 
             if (positions.Contains(selector_selected))
             {
