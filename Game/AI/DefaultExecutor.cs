@@ -934,11 +934,14 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultDontChainMyself()
         {
+            if (ExecType != ExecutorType.Activate)
+            {
+                return true;
+            }
             if (this.Executors.Any(exec => exec.Type == this.ExecType && exec.CardId == this.Card.Id))
             {
                 return false;
             }
-
             return this.Duel.LastChainPlayer != 0;
         }
 
@@ -951,7 +954,10 @@ namespace WindBot.Game.AI
             {
                 return false;
             }
-
+            if (Card.IsFacedown())
+            {
+                return true;
+            }
             if (this.Bot.LifePoints <= 1000)
             {
                 return false;
@@ -1285,7 +1291,7 @@ namespace WindBot.Game.AI
 
             if (this.Util.IsTurn1OrMain2() && this.honestEffectCount <= 5)
             {
-                this.honestEffectCount++;
+                //this.honestEffectCount++;
                 return true;
             }
 

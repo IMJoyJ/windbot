@@ -11,6 +11,9 @@ namespace WindBot.Game
         public Duel Duel { get; private set; }
         public Executor Executor { get; set; }
 
+        // record activated count to prevent infinite actions
+        private Dictionary<int, int> activatedCards;
+
         private readonly Dialogs dialogs;
 
         public GameAI(GameClient game, Duel duel)
@@ -19,6 +22,7 @@ namespace WindBot.Game
             this.Duel = duel;
 
             this.dialogs = new Dialogs(game);
+            activatedCards = new Dictionary<int, int>();
         }
 
         /// <summary>
@@ -81,6 +85,7 @@ namespace WindBot.Game
         /// </summary>
         public void OnNewTurn()
         {
+            _activatedCards.Clear();
             this.Executor.OnNewTurn();
         }
 
@@ -586,9 +591,17 @@ namespace WindBot.Game
             else
             {
                 CardPosition secondSelect = CardPosition.FaceUpAttack;
+                if (executor_selected == CardPosition.Defence)
+                {
+                    secondSelect = CardPosition.FaceUpDefence;
+                }
                 if (executor_selected == CardPosition.FaceUpDefence)
                 {
                     secondSelect = CardPosition.FaceDownDefence;
+                }
+                if (executor_selected == CardPosition.FaceDownDefence)
+                {
+                    secondSelect = CardPosition.FaceUpDefence;
                 }
                 if (executor_selected == CardPosition.FaceUpAttack)
                 {
@@ -1220,11 +1233,28 @@ namespace WindBot.Game
 
         private bool ShouldExecute(CardExecutor exec, ClientCard card, ExecutorType type, int desc = -1)
         {
+            if (card.Id != 0 && type == ExecutorType.Activate &&
+       activatedCards.ContainsKey(card.Id) && activatedCards[card.Id] >= 9)
+            {
+                return false;
+            }
             this.Executor.SetCard(type, card, desc);
-            return card != null &&
-                   exec.Type == type &&
-                   (exec.CardId == -1 || exec.CardId == card.Id) &&
-                   (exec.Func == null || exec.Func());
+            bool result = card != null && exec.Type == type &&
+                (exec.CardId == -1 || exec.CardId == card.Id) &&
+                (exec.Func == null || exec.Func());
+            if (card.Id != 0 && type == ExecutorType.Activate && result)
+            {
+                int count = card.IsDisabled() ? 3 : 1;
+                if (!activatedCards.ContainsKey(card.Id))
+                {
+                    activatedCards.Add(card.Id, count);
+                }
+                else
+                {
+                    activatedCards[card.Id] += count;
+                }
+            }
+            return result;
         }
     }
 }

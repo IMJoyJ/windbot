@@ -12,6 +12,25 @@ namespace WindBot.Game.AI.LuckyCards
         {
             return Program._rand.Next(9) >= 3;
         }
+        public virtual int GetAppearPlace(Executor exec, GameAI ai, Duel duel, ClientField bot, ClientField enemy, int id, int player, CardLocation location, int available)
+        {
+            if (location == CardLocation.MonsterZone)
+            {
+                if ((available & ~bot.GetLinkedZones()) > 0)
+                {
+                    available = available & ~bot.GetLinkedZones();
+                }
+                if ((available & Zones.MonsterZone1) > 0)
+                {
+                    return Zones.MonsterZone1;
+                }
+                return available;
+            }
+            else
+            {
+                return available;
+            }
+        }
 
         public virtual CardPosition GetSummonPosition(Executor exec, GameAI ai, Duel duel, ClientField bot, ClientField enemy, ClientCard card)
         {
