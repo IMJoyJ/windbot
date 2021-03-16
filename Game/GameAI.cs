@@ -85,7 +85,7 @@ namespace WindBot.Game
         /// </summary>
         public void OnNewTurn()
         {
-            _activatedCards.Clear();
+            activatedCards.Clear();
             this.Executor.OnNewTurn();
         }
 
@@ -1246,9 +1246,7 @@ namespace WindBot.Game
             {
                 int count = card.IsDisabled() ? 3 : 1;
                 if (!activatedCards.ContainsKey(card.Id))
-                {
                     activatedCards.Add(card.Id, count);
-                }
                 else
                 {
                     activatedCards[card.Id] += count;
