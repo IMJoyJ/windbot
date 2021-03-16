@@ -14,12 +14,12 @@ namespace WindBot.Game.AI
             Location
         }
 
-        private SelectType type;
-        private ClientCard card;
-        private IList<ClientCard> cards;
-        private int id;
-        private IList<int> ids;
-        private CardLocation location;
+        private readonly SelectType type;
+        private readonly ClientCard card;
+        private readonly IList<ClientCard> cards;
+        private readonly int id;
+        private readonly IList<int> ids;
+        private readonly CardLocation location;
 
         public CardSelector(ClientCard card)
         {

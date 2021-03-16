@@ -11,7 +11,7 @@ namespace WindBot.Game
         public Duel Duel { get; private set; }
         public Executor Executor { get; set; }
 
-        private Dialogs dialogs;
+        private readonly Dialogs dialogs;
 
         public GameAI(GameClient game, Duel duel)
         {
@@ -846,11 +846,11 @@ namespace WindBot.Game
         private int m_number;
         private int m_announce;
         private int m_yesno;
-        private IList<CardAttribute> m_attributes = new List<CardAttribute>();
-        private IList<CardSelector> m_selector = new List<CardSelector>();
-        private IList<CardPosition> m_position = new List<CardPosition>();
+        private readonly IList<CardAttribute> m_attributes = new List<CardAttribute>();
+        private readonly IList<CardSelector> m_selector = new List<CardSelector>();
+        private readonly IList<CardPosition> m_position = new List<CardPosition>();
         private int m_selector_pointer = -1;
-        private IList<CardRace> m_races = new List<CardRace>();
+        private readonly IList<CardRace> m_races = new List<CardRace>();
 
         public void SelectCard(ClientCard card)
         {
@@ -1137,7 +1137,7 @@ namespace WindBot.Game
                 return numbers.IndexOf(this.m_number);
             }
 
-            return Program.Rand.Next(0, numbers.Count); // Returns a random number.
+            return Program._rand.Next(0, numbers.Count); // Returns a random number.
         }
 
         /// <summary>

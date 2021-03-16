@@ -43,7 +43,7 @@ namespace WindBot.Game.AI.Decks
             public const int SylvanPrincessprite = 33909817;
         }
 
-        private List<ClientCard> UsedAlternativeWhiteDragon = new List<ClientCard>();
+        private readonly List<ClientCard> UsedAlternativeWhiteDragon = new List<ClientCard>();
         ClientCard UsedGalaxyEyesCipherDragon;
         bool AlternativeWhiteDragonSummoned = false;
         bool SoulChargeUsed = false;

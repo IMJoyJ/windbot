@@ -175,19 +175,18 @@ namespace WindBot.Game.AI.Decks
             this.AddExecutor(ExecutorType.SpellSet, this.SpellSet);
         }
 
-        int Witchcraft_setcode = 0x128;
-        int TimeLord_setcode = 0x4a;
-        int[] important_witchcraft = { CardId.Haine, CardId.MadameVerre };
-        Dictionary<int, int> witchcraft_level = new Dictionary<int, int> {
+        readonly int Witchcraft_setcode = 0x128;
+        readonly int TimeLord_setcode = 0x4a;
+        readonly int[] important_witchcraft = { CardId.Haine, CardId.MadameVerre };
+        readonly Dictionary<int, int> witchcraft_level = new Dictionary<int, int> {
             {CardId.GolemAruru, 8}, {CardId.MadameVerre, 7}, {CardId.Haine, 7}, {CardId.Schmietta, 4},
             {CardId.Pittore, 3}, {CardId.Potterie, 2}, {CardId.Genni, 1}
         };
-
-        List<int> Impermanence_list = new List<int>();
-        List<int> FirstCheckSS = new List<int>();
-        List<int> UseSSEffect = new List<int>();
-        List<int> ActivatedCards = new List<int>();
-        Dictionary<int, int> CalledbytheGraveCount = new Dictionary<int, int>();
+        readonly List<int> Impermanence_list = new List<int>();
+        readonly List<int> FirstCheckSS = new List<int>();
+        readonly List<int> UseSSEffect = new List<int>();
+        readonly List<int> ActivatedCards = new List<int>();
+        readonly Dictionary<int, int> CalledbytheGraveCount = new Dictionary<int, int>();
         int CrossoutDesignatorTarget = 0;
         bool MadameVerreGainedATK = false;
         bool summoned = false;
@@ -448,7 +447,7 @@ namespace WindBot.Game.AI.Decks
             int n = result.Count;
             while (n-- > 1)
             {
-                int index = Program.Rand.Next(n + 1);
+                int index = Program._rand.Next(n + 1);
                 ClientCard temp = result[index];
                 result[index] = result[n];
                 result[n] = temp;
@@ -958,7 +957,7 @@ namespace WindBot.Game.AI.Decks
             int n = list.Count;
             while (n-- > 1)
             {
-                int index = Program.Rand.Next(n + 1);
+                int index = Program._rand.Next(n + 1);
                 int temp = list[index];
                 list[index] = list[n];
                 list[n] = temp;
@@ -1319,7 +1318,7 @@ namespace WindBot.Game.AI.Decks
                 this.SelectSTPlace(this.Card, true);
                 return true;
             }
-            return Program.Rand.Next(2) > 0;
+            return Program._rand.Next(2) > 0;
         }
 
         /// <summary>
@@ -1684,7 +1683,7 @@ namespace WindBot.Game.AI.Decks
                 {
                     Logger.DebugWriteLine("*** Haine pendulum destroy");
                     this.SelectDiscardSpell();
-                    this.AI.SelectNextCard(Program.Rand.Next(2) == 1 ? l : r);
+                    this.AI.SelectNextCard(Program._rand.Next(2) == 1 ? l : r);
                     return true;
                 }
             }

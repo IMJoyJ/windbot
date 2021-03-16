@@ -142,7 +142,7 @@ namespace WindBot.Game.AI.Decks
             int n = list.Count;
             while (n-- > 1)
             {
-                int index = Program.Rand.Next(n + 1);
+                int index = Program._rand.Next(n + 1);
                 int temp = list[index];
                 list[index] = list[n];
                 list[n] = temp;

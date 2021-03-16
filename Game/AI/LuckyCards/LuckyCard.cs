@@ -9,7 +9,7 @@ namespace WindBot.Game.AI.LuckyCards
     {
         public virtual bool ShouldExec(Duel duel, ClientField bot, ClientField enemy, ClientCard card)
         {
-            return Program.Rand.Next(9) >= 3;
+            return Program._rand.Next(9) >= 3;
         }
     }
 }

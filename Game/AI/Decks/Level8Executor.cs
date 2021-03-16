@@ -186,7 +186,7 @@ namespace WindBot.Game.AI.Decks
         private bool MaskedChameleonUsed = false;
         private int ShootingRiserDragonCount = 0;
 
-        private int[] HandCosts = new[]
+        private readonly int[] HandCosts = new[]
         {
             CardId.PerformageTrickClown,
             CardId.JetSynchron,
@@ -195,7 +195,7 @@ namespace WindBot.Game.AI.Decks
             CardId.WorldCarrotweightChampion
         };
 
-        private int[] L4NonTuners = new[]
+        private readonly int[] L4NonTuners = new[]
         {
             CardId.PhotonThrasher,
             CardId.WorldCarrotweightChampion,
@@ -204,7 +204,7 @@ namespace WindBot.Game.AI.Decks
             CardId.WhiteRoseDragon
         };
 
-        private int[] L4Tuners = new[]
+        private readonly int[] L4Tuners = new[]
         {
             CardId.RaidenHandofTheLightsworn,
             CardId.ScrapBeast,

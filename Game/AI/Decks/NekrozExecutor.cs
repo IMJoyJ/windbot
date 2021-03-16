@@ -39,8 +39,8 @@ namespace WindBot.Game.AI.Decks
             public const int HeraldOfTheArcLight = 79606837;
         }
 
-        List<int> NekrozRituelCard = new List<int>();
-        List<int> NekrozSpellCard = new List<int>();
+        readonly List<int> NekrozRituelCard = new List<int>();
+        readonly List<int> NekrozSpellCard = new List<int>();
 
         public NekrozExecutor(GameAI ai, Duel duel)
             : base(ai, duel)

@@ -83,7 +83,7 @@ namespace WindBot.Game.AI.Decks
             // select random cards
             while (selected.Count < max)
             {
-                ClientCard card = cards[Program.Rand.Next(cards.Count)];
+                ClientCard card = cards[Program._rand.Next(cards.Count)];
                 selected.Add(card);
                 cards.Remove(card);
             }
@@ -93,7 +93,7 @@ namespace WindBot.Game.AI.Decks
 
         public override int OnSelectOption(IList<int> options)
         {
-            return Program.Rand.Next(options.Count);
+            return Program._rand.Next(options.Count);
         }
 
         private bool ImFeelingLucky()

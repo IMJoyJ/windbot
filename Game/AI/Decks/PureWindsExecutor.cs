@@ -61,15 +61,14 @@ namespace WindBot.Game.AI.Decks
             public const int OnlyOne = 24207889;
         }
 
-        List<int> ReposTargets = new List<int>
+        readonly List<int> ReposTargets = new List<int>
         { CardId.GustoGulldo,
             CardId.WindaPriestessOfGusto,
             CardId.GustoEgul,
             CardId.PilicaDescendantOfGusto,
             CardId.DaigustoGulldos
         };
-
-        List<int> taketomborgSpList = new List<int>
+        readonly List<int> taketomborgSpList = new List<int>
         {   CardId.WindwitchGlassBell,
             CardId.GustoGulldo,
             CardId.GustoEgul,
@@ -77,26 +76,23 @@ namespace WindBot.Game.AI.Decks
             CardId.WindwitchSnowBell,
             CardId.SpeedroidTerrortop
         };
-
-        List<int> level1 = new List<int>
+        readonly List<int> level1 = new List<int>
         { CardId.GustoEgul,
             CardId.SpeedroidRedEyedDice,
             CardId.WindwitchSnowBell
         };
-
-        List<int> Pilica = new List<int>
+        readonly List<int> Pilica = new List<int>
         { 
             CardId.ClearWingSynchroDragon,
             CardId.WindwitchWinterBell,
             CardId.StardustChargeWarrior
         };
-
-        List<int> level3 = new List<int>
+        readonly List<int> level3 = new List<int>
         { CardId.PilicaDescendantOfGusto,
             CardId.WindwitchIceBell,
             CardId.SpeedroidTaketomborg
         };
-        List<int> KeepSynchro = new List<int>
+        readonly List<int> KeepSynchro = new List<int>
         { CardId.DaigustoSphreez,
             CardId.CrystalWingSynchroDragon,
             CardId.ClearWingSynchroDragon,
@@ -104,14 +100,14 @@ namespace WindBot.Game.AI.Decks
             CardId.GreatFly,
             CardId.WynnTheWindCharmerVerdant
         };
-        List<int> KeepSynchro2 = new List<int>
+        readonly List<int> KeepSynchro2 = new List<int>
         { 
             CardId.CrystalWingSynchroDragon,
             CardId.DaigustoSphreez,
             CardId.ClearWingSynchroDragon,
             CardId.WindwitchWinterBell
         };
-        List<int> reborn = new List<int>
+        readonly List<int> reborn = new List<int>
         { CardId.ClearWingSynchroDragon,
             CardId.DaigustoSphreez,
             CardId.WindwitchWinterBell,
@@ -120,7 +116,7 @@ namespace WindBot.Game.AI.Decks
             CardId.HiSpeedroidChanbara,
             CardId.DaigustoGulldos
         };
-        List<int> Gulldosulist = new List<int>
+        readonly List<int> Gulldosulist = new List<int>
         { CardId.CrystalWingSynchroDragon,
             CardId.MistWurm,
             CardId.ClearWingSynchroDragon,
@@ -128,7 +124,7 @@ namespace WindBot.Game.AI.Decks
             CardId.ClearWingSynchroDragon,
             CardId.StardustChargeWarrior
         };
-        List<int> Gulldosulist2 = new List<int>
+        readonly List<int> Gulldosulist2 = new List<int>
         {
             CardId.SpeedroidTerrortop,
             CardId.PilicaDescendantOfGusto,
@@ -140,7 +136,7 @@ namespace WindBot.Game.AI.Decks
             CardId.DaigustoGulldos,
             CardId.DaigustoSphreez
         };
-        List<int> EgulsuList = new List<int>
+        readonly List<int> EgulsuList = new List<int>
         {
             CardId.SpeedroidTerrortop,
             CardId.PilicaDescendantOfGusto,
@@ -155,7 +151,7 @@ namespace WindBot.Game.AI.Decks
             CardId.WindwitchWinterBell,
             CardId.ClearWingSynchroDragon
         };
-        List<int> SynchroList = new List<int>
+        readonly List<int> SynchroList = new List<int>
         {
             CardId.SpeedroidTerrortop,
             CardId.PilicaDescendantOfGusto,
@@ -171,7 +167,7 @@ namespace WindBot.Game.AI.Decks
             CardId.CrystalWingSynchroDragon,
             CardId.MistWurm
         };
-        List<int> SynchroFull = new List<int>
+        readonly List<int> SynchroFull = new List<int>
         {
             CardId.OldEntityHastorr,
             CardId.HiSpeedroidChanbara,
@@ -183,12 +179,12 @@ namespace WindBot.Game.AI.Decks
             CardId.CrystalWingSynchroDragon,
             CardId.MistWurm
         };
-        List<int> LinkList = new List<int>
+        readonly List<int> LinkList = new List<int>
         {
             CardId.WynnTheWindCharmerVerdant,
             CardId.GreatFly
         };
-        List<int> tuner = new List<int>
+        readonly List<int> tuner = new List<int>
         {
             CardId.GustoGulldo,
             CardId.GustoEgul,
@@ -196,7 +192,7 @@ namespace WindBot.Game.AI.Decks
             CardId.WindwitchGlassBell,
             CardId.WindwitchSnowBell
         };
-        List<int> gusto = new List<int>
+        readonly List<int> gusto = new List<int>
         {
             CardId.GustoGulldo,
             CardId.GustoEgul,
@@ -205,7 +201,7 @@ namespace WindBot.Game.AI.Decks
             CardId.DaigustoGulldos,
             CardId.DaigustoSphreez
         };
-        List<int> ET = new List<int>
+        readonly List<int> ET = new List<int>
         {
             CardId.ClearWingSynchroDragon,
             CardId.WindwitchWinterBell

@@ -183,7 +183,7 @@ namespace WindBot.Game.AI.Decks
         private ClientCard RustyBardicheTarget = null;
         private int ShootingRiserDragonCount = 0;
 
-        private int[] HandCosts = new[]
+        private readonly int[] HandCosts = new[]
         {
             CardId.OrcustCymbalSkeleton,
             CardId.OrcustKnightmare,

@@ -38,21 +38,21 @@ namespace WindBot.Game.AI
     }
     public class Dialogs
     {
-        private GameClient game;
+        private readonly GameClient game;
 
-        private string[] welcome;
-        private string[] deckError;
-        private string[] duelStart;
-        private string[] newTurn;
-        private string[] endTurn;
-        private string[] directAttack;
-        private string[] attack;
-        private string[] onDirectAttack;
-        private string facedownMonsterName;
-        private string[] activate;
-        private string[] summon;
-        private string[] setMonster;
-        private string[] chaining;
+        private readonly string[] welcome;
+        private readonly string[] deckError;
+        private readonly string[] duelStart;
+        private readonly string[] newTurn;
+        private readonly string[] endTurn;
+        private readonly string[] directAttack;
+        private readonly string[] attack;
+        private readonly string[] onDirectAttack;
+        private readonly string facedownMonsterName;
+        private readonly string[] activate;
+        private readonly string[] summon;
+        private readonly string[] setMonster;
+        private readonly string[] chaining;
         
         public Dialogs(GameClient game)
         {
@@ -62,19 +62,19 @@ namespace WindBot.Game.AI
             using (FileStream fs = File.OpenRead("Dialogs/" + dialogfilename + ".json"))
             {
                 DialogsData data = (DialogsData)serializer.ReadObject(fs);
-                this.welcome = data.Welcome;
-                this.deckError = data.DeckError;
-                this.duelStart = data.DuelStart;
-                this.newTurn = data.NewTurn;
-                this.endTurn = data.EndTurn;
-                this.directAttack = data.DirectAttack;
-                this.attack = data.Attack;
-                this.onDirectAttack = data.OnDirectAttack;
-                this.facedownMonsterName = data.FacedownMonsterName;
-                this.activate = data.Activate;
-                this.summon = data.Summon;
-                this.setMonster = data.SetMonster;
-                this.chaining = data.Chaining;
+                this.welcome = data.Welcome ?? new string[1] {"" };
+                this.deckError = data.DeckError ?? new string[1] { "" }; ;
+                this.duelStart = data.DuelStart ?? new string[1] { "" }; ;
+                this.newTurn = data.NewTurn ?? new string[1] { "" }; ;
+                this.endTurn = data.EndTurn ?? new string[1] { "" }; ;
+                this.directAttack = data.DirectAttack ?? new string[1] { "" }; ;
+                this.attack = data.Attack ?? new string[1] { "" }; ;
+                this.onDirectAttack = data.OnDirectAttack ?? new string[1] { "" }; ;
+                this.facedownMonsterName = data.FacedownMonsterName ?? "";
+                this.activate = data.Activate ?? new string[1] { "" }; ;
+                this.summon = data.Summon ?? new string[1] { "" }; ;
+                this.setMonster = data.SetMonster ?? new string[1] { "" }; ;
+                this.chaining = data.Chaining ?? new string[1] { "" }; ;
             }
         }
 
@@ -169,7 +169,7 @@ namespace WindBot.Game.AI
                 return;
             }
 
-            string message = string.Format(array[Program.Rand.Next(array.Count)], opts);
+            string message = string.Format(array[Program._rand.Next(array.Count)], opts);
             if (message != "")
             {
                 this.game.Chat(message);
@@ -178,7 +178,7 @@ namespace WindBot.Game.AI
 
         private void InternalSendMessageForced(IList<string> array, params object[] opts)
         {
-            string message = string.Format(array[Program.Rand.Next(array.Count)], opts);
+            string message = string.Format(array[Program._rand.Next(array.Count)], opts);
             if (message != "")
 			{
                 this.game.Chat(message);

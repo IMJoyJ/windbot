@@ -11,7 +11,7 @@ namespace WindBot
 {
     public class Program
     {
-        internal static Random Rand;
+        internal static Random _rand;
 
         internal static void Main(string[] args)
         {
@@ -46,7 +46,7 @@ namespace WindBot
 
         public static void InitDatas(string databasePath)
         {
-            Rand = new Random();
+            _rand = new Random();
             DecksManager.Init();
             string absolutePath = Path.GetFullPath(databasePath);
             if (!File.Exists(absolutePath))

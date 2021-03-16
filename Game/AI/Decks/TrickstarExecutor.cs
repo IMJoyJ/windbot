@@ -92,8 +92,7 @@ namespace WindBot.Game.AI.Decks
         bool lockbird_used = false;
         int GraveCall_id = 0;
         int GraveCall_count = 0;
-
-        List<int> SkyStrike_list = new List<int> {
+        readonly List<int> SkyStrike_list = new List<int> {
             26077387, 8491308, 63288573, 90673288,
             21623008, 25955749, 63166095, 99550630,
             25733157, 51227866, 52340444,98338152,
@@ -218,7 +217,7 @@ namespace WindBot.Game.AI.Decks
             int n = list.Count;
             while (n-- > 1)
             {
-                int index = Program.Rand.Next(n + 1);
+                int index = Program._rand.Next(n + 1);
                 int temp = list[index];
                 list[index] = list[n];
                 list[n] = temp;
@@ -543,7 +542,7 @@ namespace WindBot.Game.AI.Decks
             int n = list.Count;
             while(n-- > 1)
             {
-                int index = Program.Rand.Next(n + 1);
+                int index = Program._rand.Next(n + 1);
                 ClientCard temp = list[index];
                 list[index] = list[n];
                 list[n] = temp;

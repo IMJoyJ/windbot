@@ -17,9 +17,7 @@ namespace WindBot.Game.AI.Decks
         bool wasVeilynxSummonedThisTurn = false;
         bool falcoHitGY = false;
         List<int> CombosInHand;
-
-
-        List<int> Impermanence_list = new List<int>();
+        readonly List<int> Impermanence_list = new List<int>();
         public class CardId
         {
             public const int JackJaguar = 56003780;
@@ -70,7 +68,7 @@ namespace WindBot.Game.AI.Decks
             public const int TornadoDragon = 6983839;
         }
 
-        List<int> Combo_cards = new List<int>()
+        readonly List<int> Combo_cards = new List<int>()
         {
             CardId.Spinny,
             CardId.JackJaguar,
@@ -81,8 +79,7 @@ namespace WindBot.Game.AI.Decks
             CardId.Gazelle,
             CardId.FoolishBurial
         };
-
-        List<int> normal_counter = new List<int>
+        readonly List<int> normal_counter = new List<int>
         {
             53262004, 98338152, 32617464, 45041488, CardId.SolemnStrike,
             61257789, 23440231, 27354732, 12408276, 82419869, CardId.Impermanence,
@@ -93,28 +90,23 @@ namespace WindBot.Game.AI.Decks
             5818294,  2948263,  6150044,  26268488, 51447164, DefaultExecutor.CardId.JizukirutheStarDestroyingKaiju,
             97268402
         };
-
-        List<int> should_not_negate = new List<int>
+        readonly List<int> should_not_negate = new List<int>
         {
             81275020, 28985331
         };
-
-        List<int> salamangreat_links = new List<int>
+        readonly List<int> salamangreat_links = new List<int>
         {
             CardId.HeatLeo,
             CardId.SunlightWolf,
             CardId.Veilynx
         };
-
-        List<int> JackJaguarTargets = new List<int>
+        readonly List<int> JackJaguarTargets = new List<int>
         {
             CardId.SunlightWolf,
             CardId.MirageStallio,
             CardId.HeatLeo
         };
-
-
-        List<int> salamangreat_combopieces = new List<int>
+        readonly List<int> salamangreat_combopieces = new List<int>
         {
             CardId.Gazelle,
             CardId.Spinny,
@@ -123,8 +115,7 @@ namespace WindBot.Game.AI.Decks
             CardId.Circle,
             CardId.Falco
         };
-
-        List<int> WolfMaterials = new List<int>
+        readonly List<int> WolfMaterials = new List<int>
         {
             CardId.Veilynx,
             CardId.JackJaguar,
@@ -133,8 +124,7 @@ namespace WindBot.Game.AI.Decks
             CardId.MirageStallio,
             CardId.Gazelle
         };
-
-        List<int> salamangreat_spellTrap = new List<int>
+        readonly List<int> salamangreat_spellTrap = new List<int>
         {
             CardId.SalamangreatRoar,
             CardId.SalamangreatRage,
@@ -1086,7 +1076,7 @@ namespace WindBot.Game.AI.Decks
             int n = list.Count;
             while (n-- > 1)
             {
-                int index = Program.Rand.Next(n + 1);
+                int index = Program._rand.Next(n + 1);
                 int temp = list[index];
                 list[index] = list[n];
                 list[n] = temp;
@@ -1378,7 +1368,7 @@ namespace WindBot.Game.AI.Decks
             int n = list.Count;
             while (n-- > 1)
             {
-                int index = Program.Rand.Next(n + 1);
+                int index = Program._rand.Next(n + 1);
                 int temp = list[index];
                 list[index] = list[n];
                 list[n] = temp;

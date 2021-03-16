@@ -19,11 +19,11 @@ namespace WindBot.Game
         public int Hand;
         public bool Debug;
         public bool _chat;
-        private string _serverHost;
-        private int _serverPort;
-        private short _proVersion;
+        private readonly string _serverHost;
+        private readonly int _serverPort;
+        private readonly short _proVersion;
 
-        private string _roomInfo;
+        private readonly string _roomInfo;
 
         private GameBehavior _behavior;
 

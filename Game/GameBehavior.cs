@@ -20,15 +20,15 @@ namespace WindBot.Game
         public Deck DeckForLose { get; private set; }
         public string DeckCode { get; private set; }
 
-        private GameAI ai;
+        private readonly GameAI ai;
 
-        private IDictionary<StocMessage, Action<BinaryReader>> packets;
-        private IDictionary<GameMessage, Action<BinaryReader>> messages;
+        private readonly IDictionary<StocMessage, Action<BinaryReader>> packets;
+        private readonly IDictionary<GameMessage, Action<BinaryReader>> messages;
 
-        private Room room;
-        private Duel duel;
-        private int hand;
-        private bool debug;        
+        private readonly Room room;
+        private readonly Duel duel;
+        private readonly int hand;
+        private readonly bool debug;        
         private int selectHint;
         private GameMessage lastMessage;
         private int lastDuelResult;

@@ -6,9 +6,9 @@ namespace WindBot
 {
     public static class Config
     {
-        private static string CONFIG_FILE_OPTION = "Config";
-        private static char SEPARATOR_CHAR = '=';
-        private static char COMMENT_CHAR = '#';
+        private static readonly string _configFileOption = "Config";
+        private static readonly char _separatorChar = '=';
+        private static readonly char _commentChar = '#';
 
         private static Dictionary<string, string> _fields;
         private static Dictionary<string, int> _integerCache;
@@ -21,7 +21,7 @@ namespace WindBot
 
             _fields = LoadArgs(args);
 
-            string filename = GetString(CONFIG_FILE_OPTION);
+            string filename = GetString(_configFileOption);
             if (filename != null)
             {
                 Dictionary<string, string> fileFields = LoadFile(filename);
@@ -42,7 +42,7 @@ namespace WindBot
             {
                 string option = args[i];
 
-                int position = option.IndexOf(SEPARATOR_CHAR);
+                int position = option.IndexOf(_separatorChar);
 
                 if (position == -1)
                 {
@@ -74,12 +74,12 @@ namespace WindBot
                     ++lineNumber;
 
                     // Ignore empty lines and comments
-                    if (line.Length == 0 || line[0] == COMMENT_CHAR)
+                    if (line.Length == 0 || line[0] == _commentChar)
                     {
                         continue;
                     }
 
-                    int position = line.IndexOf(SEPARATOR_CHAR);
+                    int position = line.IndexOf(_separatorChar);
 
                     if (position == -1)
                     {

@@ -41,12 +41,12 @@ namespace WindBot.Game.AI
 
         public virtual int OnRockPaperScissors()
         {
-            return Program.Rand.Next(1, 4);
+            return Program._rand.Next(1, 4);
         }
 
         public virtual bool OnSelectHand()
         {
-            return Program.Rand.Next(2) > 0;
+            return Program._rand.Next(2) > 0;
         }
 
         public virtual bool IsEffectUsedInTurn(int code, bool IsEnemy = false)

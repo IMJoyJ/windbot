@@ -62,7 +62,7 @@ namespace WindBot.Game.AI.Decks
             public const int Iblee = 10158145;
         }
 
-        List<int> Impermanence_list = new List<int>();
+        readonly List<int> Impermanence_list = new List<int>();
         bool Multifaker_ssfromhand = false;
         bool Multifaker_ssfromdeck = false;
         bool Marionetter_reborn = false;
@@ -72,16 +72,14 @@ namespace WindBot.Game.AI.Decks
         bool Silquitous_bounced = false;
         bool Silquitous_recycled = false;
         bool ss_other_monster = false;
-        List<ClientCard> attacked_Meluseek = new List<ClientCard>();
-
-        List<int> SkyStrike_list = new List<int> {
+        readonly List<ClientCard> attacked_Meluseek = new List<ClientCard>();
+        readonly List<int> SkyStrike_list = new List<int> {
             CardId.Raye, CardId.Hayate, CardId.Kagari, CardId.Shizuku,
             21623008, 25955749, 63166095, 99550630,
             25733157, 51227866, CardId.Drones_Token-1,98338152,
             24010609, 97616504, 50005218
         };
-
-        List<int> cards_improper = new List<int>
+        readonly List<int> cards_improper = new List<int>
         {
             0,CardId.WakingtheDragon, CardId.SolemnStrike, CardId.Spoofing,   CardId.OneForOne, CardId.PotofDesires,
             CardId.Manifestation, CardId.SecretVillage, CardId.ImperialOrder,   DefaultExecutor.CardId.HarpiesFeatherDuster, CardId.GR_WC,
@@ -89,8 +87,7 @@ namespace WindBot.Game.AI.Decks
             CardId.MaxxC,  CardId.Impermanence, CardId.Meluseek,   CardId.AB_JS, CardId.Kunquery,
             CardId.Marionetter, CardId.Multifaker
         };
-
-        List<int> normal_counter = new List<int>
+        readonly List<int> normal_counter = new List<int>
         {
             53262004, 98338152, 32617464, 45041488, CardId.SolemnStrike,
             61257789, 23440231, 27354732, 12408276, 82419869, CardId.Impermanence,
@@ -101,8 +98,7 @@ namespace WindBot.Game.AI.Decks
             5818294,  2948263,  6150044,  26268488, 51447164, DefaultExecutor.CardId.JizukirutheStarDestroyingKaiju,
             97268402
         };
-
-        List<int> should_not_negate = new List<int>
+        readonly List<int> should_not_negate = new List<int>
         {
             81275020, 28985331
         };
@@ -388,7 +384,7 @@ namespace WindBot.Game.AI.Decks
             int n = list.Count;
             while (n-- > 1)
             {
-                int index = Program.Rand.Next(n + 1);
+                int index = Program._rand.Next(n + 1);
                 int temp = list[index];
                 list[index] = list[n];
                 list[n] = temp;
@@ -420,7 +416,7 @@ namespace WindBot.Game.AI.Decks
             int n = list.Count;
             while (n-- > 1)
             {
-                int index = Program.Rand.Next(n + 1);
+                int index = Program._rand.Next(n + 1);
                 int temp = list[index];
                 list[index] = list[n];
                 list[n] = temp;
@@ -496,7 +492,7 @@ namespace WindBot.Game.AI.Decks
             int n = list.Count;
             while (n-- > 1)
             {
-                int index = Program.Rand.Next(n + 1);
+                int index = Program._rand.Next(n + 1);
                 ClientCard temp = list[index];
                 list[index] = list[n];
                 list[n] = temp;
