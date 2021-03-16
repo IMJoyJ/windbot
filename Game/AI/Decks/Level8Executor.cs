@@ -58,126 +58,126 @@ namespace WindBot.Game.AI.Decks
         public Level8Executor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.Activate, CardId.CalledbyTheGrave, DefaultCalledByTheGrave);
-            AddExecutor(ExecutorType.Activate, CardId.Raigeki);
-            AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster);
+            this.AddExecutor(ExecutorType.Activate, CardId.CalledbyTheGrave, this.DefaultCalledByTheGrave);
+            this.AddExecutor(ExecutorType.Activate, CardId.Raigeki);
+            this.AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster);
 
-            AddExecutor(ExecutorType.Repos, CardId.Number41BagooskaTheTerriblyTiredTapir, MonsterRepos);
+            this.AddExecutor(ExecutorType.Repos, CardId.Number41BagooskaTheTerriblyTiredTapir, this.MonsterRepos);
 
-            AddExecutor(ExecutorType.Activate, CardId.CrystalWingSynchroDragon, CrystalWingSynchroDragonEffect);
-            AddExecutor(ExecutorType.Activate, CardId.BorreloadSavageDragon, BorreloadSavageDragonEffect);
-            AddExecutor(ExecutorType.Activate, CardId.ScrapGolem, ScrapGolemEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.CrystalWingSynchroDragon, this.CrystalWingSynchroDragonEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.BorreloadSavageDragon, this.BorreloadSavageDragonEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.ScrapGolem, this.ScrapGolemEffect);
 
             // empty field
-            AddExecutor(ExecutorType.Activate, CardId.UnexpectedDai, UnexpectedDaiFirst);
-            AddExecutor(ExecutorType.SpSummon, CardId.PhotonThrasher, PhotonThrasherSummonFirst);
-            AddExecutor(ExecutorType.Activate, CardId.UnexpectedDai);
-            AddExecutor(ExecutorType.SpSummon, CardId.PhotonThrasher);
+            this.AddExecutor(ExecutorType.Activate, CardId.UnexpectedDai, this.UnexpectedDaiFirst);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.PhotonThrasher, this.PhotonThrasherSummonFirst);
+            this.AddExecutor(ExecutorType.Activate, CardId.UnexpectedDai);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.PhotonThrasher);
 
             // 
-            AddExecutor(ExecutorType.Activate, CardId.ReinforcementofTheArmy, ReinforcementofTheArmyEffect);
-            AddExecutor(ExecutorType.Activate, CardId.FoolishBurial, FoolishBurialEffect);
-            AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, DefaultCallOfTheHaunted);
+            this.AddExecutor(ExecutorType.Activate, CardId.ReinforcementofTheArmy, this.ReinforcementofTheArmyEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.FoolishBurial, this.FoolishBurialEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, this.DefaultCallOfTheHaunted);
 
             // scrap combo
-            AddExecutor(ExecutorType.Summon, CardId.ScrapRecycler, ScrapRecyclerSummonFirst);
-            AddExecutor(ExecutorType.Activate, CardId.ScrapRecycler, ScrapRecyclerEffect);
-            AddExecutor(ExecutorType.Activate, CardId.MechaPhantomBeastOLion, MechaPhantomBeastOLionEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.ScrapWyvern, ScrapWyvernSummon);
-            AddExecutor(ExecutorType.Activate, CardId.ScrapWyvern, ScrapWyvernEffect);
+            this.AddExecutor(ExecutorType.Summon, CardId.ScrapRecycler, this.ScrapRecyclerSummonFirst);
+            this.AddExecutor(ExecutorType.Activate, CardId.ScrapRecycler, this.ScrapRecyclerEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.MechaPhantomBeastOLion, this.MechaPhantomBeastOLionEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.ScrapWyvern, this.ScrapWyvernSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.ScrapWyvern, this.ScrapWyvernEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.JetSynchron, JetSynchronEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.CrystronNeedlefiber, CrystronNeedlefiberSummon);
-            AddExecutor(ExecutorType.Activate, CardId.CrystronNeedlefiber, CrystronNeedlefiberEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.JetSynchron, this.JetSynchronEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CrystronNeedlefiber, this.CrystronNeedlefiberSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.CrystronNeedlefiber, this.CrystronNeedlefiberEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.MekkKnightCrusadiaAstram, MekkKnightCrusadiaAstramSummon);
-            AddExecutor(ExecutorType.Activate, CardId.MekkKnightCrusadiaAstram, MekkKnightCrusadiaAstramEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.MekkKnightCrusadiaAstram, this.MekkKnightCrusadiaAstramSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.MekkKnightCrusadiaAstram, this.MekkKnightCrusadiaAstramEffect);
 
             //
-            AddExecutor(ExecutorType.Activate, CardId.ChargeofTheLightBrigade);
+            this.AddExecutor(ExecutorType.Activate, CardId.ChargeofTheLightBrigade);
 
             // other summon
-            AddExecutor(ExecutorType.Summon, CardId.Goblindbergh, GoblindberghSummonFirst);
-            AddExecutor(ExecutorType.Activate, CardId.Goblindbergh, GoblindberghEffect);
-            AddExecutor(ExecutorType.Summon, CardId.MaskedChameleon, MaskedChameleonSummonFirst);
-            AddExecutor(ExecutorType.Activate, CardId.MaskedChameleon, MaskedChameleonEffect);
+            this.AddExecutor(ExecutorType.Summon, CardId.Goblindbergh, this.GoblindberghSummonFirst);
+            this.AddExecutor(ExecutorType.Activate, CardId.Goblindbergh, this.GoblindberghEffect);
+            this.AddExecutor(ExecutorType.Summon, CardId.MaskedChameleon, this.MaskedChameleonSummonFirst);
+            this.AddExecutor(ExecutorType.Activate, CardId.MaskedChameleon, this.MaskedChameleonEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.WhiteRoseDragon);
-            AddExecutor(ExecutorType.Summon, CardId.WhiteRoseDragon, WhiteRoseDragonSummonFirst);
-            AddExecutor(ExecutorType.Activate, CardId.WhiteRoseDragon, WhiteRoseDragonEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.WhiteRoseDragon);
+            this.AddExecutor(ExecutorType.Summon, CardId.WhiteRoseDragon, this.WhiteRoseDragonSummonFirst);
+            this.AddExecutor(ExecutorType.Activate, CardId.WhiteRoseDragon, this.WhiteRoseDragonEffect);
 
             //
-            AddExecutor(ExecutorType.Summon, CardId.RaidenHandofTheLightsworn, L4TunerSummonFirst);
-            AddExecutor(ExecutorType.Summon, CardId.ScrapBeast, L4TunerSummonFirst);
-            AddExecutor(ExecutorType.Summon, CardId.AngelTrumpeter, L4TunerSummonFirst);
-            AddExecutor(ExecutorType.Summon, CardId.MaskedChameleon, L4TunerSummonFirst);
+            this.AddExecutor(ExecutorType.Summon, CardId.RaidenHandofTheLightsworn, this.L4TunerSummonFirst);
+            this.AddExecutor(ExecutorType.Summon, CardId.ScrapBeast, this.L4TunerSummonFirst);
+            this.AddExecutor(ExecutorType.Summon, CardId.AngelTrumpeter, this.L4TunerSummonFirst);
+            this.AddExecutor(ExecutorType.Summon, CardId.MaskedChameleon, this.L4TunerSummonFirst);
 
-            AddExecutor(ExecutorType.Summon, CardId.PerformageTrickClown, L4NonTunerSummonFirst);
-            AddExecutor(ExecutorType.Summon, CardId.Goblindbergh, L4NonTunerSummonFirst);
-            AddExecutor(ExecutorType.Summon, CardId.WorldCarrotweightChampion, L4NonTunerSummonFirst);
-            AddExecutor(ExecutorType.Summon, CardId.WhiteRoseDragon, L4NonTunerSummonFirst);
+            this.AddExecutor(ExecutorType.Summon, CardId.PerformageTrickClown, this.L4NonTunerSummonFirst);
+            this.AddExecutor(ExecutorType.Summon, CardId.Goblindbergh, this.L4NonTunerSummonFirst);
+            this.AddExecutor(ExecutorType.Summon, CardId.WorldCarrotweightChampion, this.L4NonTunerSummonFirst);
+            this.AddExecutor(ExecutorType.Summon, CardId.WhiteRoseDragon, this.L4NonTunerSummonFirst);
 
-            AddExecutor(ExecutorType.Summon, CardId.RedRoseDragon, OtherTunerSummonFirst);
-            AddExecutor(ExecutorType.Summon, CardId.JetSynchron, OtherTunerSummonFirst);
-            AddExecutor(ExecutorType.Summon, CardId.MechaPhantomBeastOLion, OtherTunerSummonFirst);
+            this.AddExecutor(ExecutorType.Summon, CardId.RedRoseDragon, this.OtherTunerSummonFirst);
+            this.AddExecutor(ExecutorType.Summon, CardId.JetSynchron, this.OtherTunerSummonFirst);
+            this.AddExecutor(ExecutorType.Summon, CardId.MechaPhantomBeastOLion, this.OtherTunerSummonFirst);
 
-            AddExecutor(ExecutorType.Summon, CardId.RaidenHandofTheLightsworn);
-            AddExecutor(ExecutorType.Summon, CardId.Goblindbergh);
-            AddExecutor(ExecutorType.Summon, CardId.ScrapBeast);
-            AddExecutor(ExecutorType.Summon, CardId.PerformageTrickClown);
-            AddExecutor(ExecutorType.Summon, CardId.AngelTrumpeter);
-            AddExecutor(ExecutorType.Summon, CardId.WorldCarrotweightChampion);
-            AddExecutor(ExecutorType.Summon, CardId.MaskedChameleon);
-            AddExecutor(ExecutorType.Summon, CardId.WhiteRoseDragon);
+            this.AddExecutor(ExecutorType.Summon, CardId.RaidenHandofTheLightsworn);
+            this.AddExecutor(ExecutorType.Summon, CardId.Goblindbergh);
+            this.AddExecutor(ExecutorType.Summon, CardId.ScrapBeast);
+            this.AddExecutor(ExecutorType.Summon, CardId.PerformageTrickClown);
+            this.AddExecutor(ExecutorType.Summon, CardId.AngelTrumpeter);
+            this.AddExecutor(ExecutorType.Summon, CardId.WorldCarrotweightChampion);
+            this.AddExecutor(ExecutorType.Summon, CardId.MaskedChameleon);
+            this.AddExecutor(ExecutorType.Summon, CardId.WhiteRoseDragon);
 
-            AddExecutor(ExecutorType.Summon, CardId.RedRoseDragon);
-            AddExecutor(ExecutorType.Summon, CardId.JetSynchron);
-            AddExecutor(ExecutorType.Summon, CardId.MechaPhantomBeastOLion);
+            this.AddExecutor(ExecutorType.Summon, CardId.RedRoseDragon);
+            this.AddExecutor(ExecutorType.Summon, CardId.JetSynchron);
+            this.AddExecutor(ExecutorType.Summon, CardId.MechaPhantomBeastOLion);
 
-            AddExecutor(ExecutorType.Summon, CardId.ScrapRecycler);
+            this.AddExecutor(ExecutorType.Summon, CardId.ScrapRecycler);
 
-            AddExecutor(ExecutorType.Activate, CardId.RedRoseDragon);
-            AddExecutor(ExecutorType.Activate, CardId.RaidenHandofTheLightsworn);
-            AddExecutor(ExecutorType.Activate, CardId.PerformageTrickClown, PerformageTrickClownEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.RedRoseDragon);
+            this.AddExecutor(ExecutorType.Activate, CardId.RaidenHandofTheLightsworn);
+            this.AddExecutor(ExecutorType.Activate, CardId.PerformageTrickClown, this.PerformageTrickClownEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.WorldCarrotweightChampion, WorldCarrotweightChampionEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.WorldCarrotweightChampion, this.WorldCarrotweightChampionEffect);
 
             // extra monsters
-            AddExecutor(ExecutorType.SpSummon, CardId.BorreloadSavageDragon, BorreloadSavageDragonSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.BorreloadSavageDragon, this.BorreloadSavageDragonSummon);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.ScrapDragon, ScrapDragonSummon);
-            AddExecutor(ExecutorType.Activate, CardId.ScrapDragon, ScrapDragonEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.ScrapDragon, this.ScrapDragonSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.ScrapDragon, this.ScrapDragonEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.CrystalWingSynchroDragon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CrystalWingSynchroDragon);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.ScarlightRedDragonArchfiend, DefaultScarlightRedDragonArchfiendSummon);
-            AddExecutor(ExecutorType.Activate, CardId.ScarlightRedDragonArchfiend, DefaultScarlightRedDragonArchfiendEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.ScarlightRedDragonArchfiend, this.DefaultScarlightRedDragonArchfiendSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.ScarlightRedDragonArchfiend, this.DefaultScarlightRedDragonArchfiendEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.PSYFramelordOmega);
-            AddExecutor(ExecutorType.Activate, CardId.PSYFramelordOmega, PSYFramelordOmegaEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.PSYFramelordOmega);
+            this.AddExecutor(ExecutorType.Activate, CardId.PSYFramelordOmega, this.PSYFramelordOmegaEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.WhiteAuraBihamut);
-            AddExecutor(ExecutorType.Activate, CardId.WhiteAuraBihamut);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.WhiteAuraBihamut);
+            this.AddExecutor(ExecutorType.Activate, CardId.WhiteAuraBihamut);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.GardenRoseMaiden);
-            AddExecutor(ExecutorType.Activate, CardId.GardenRoseMaiden);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.GardenRoseMaiden);
+            this.AddExecutor(ExecutorType.Activate, CardId.GardenRoseMaiden);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.CoralDragon);
-            AddExecutor(ExecutorType.Activate, CardId.CoralDragon, CoralDragonEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CoralDragon);
+            this.AddExecutor(ExecutorType.Activate, CardId.CoralDragon, this.CoralDragonEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.ShootingRiserDragon, ShootingRiserDragonSummon);
-            AddExecutor(ExecutorType.Activate, CardId.ShootingRiserDragon, ShootingRiserDragonEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.ShootingRiserDragon, this.ShootingRiserDragonSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.ShootingRiserDragon, this.ShootingRiserDragonEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.BlackRoseMoonlightDragon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.BlackRoseMoonlightDragon);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.Number41BagooskaTheTerriblyTiredTapir, Number41BagooskaTheTerriblyTiredTapirSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Number41BagooskaTheTerriblyTiredTapir, this.Number41BagooskaTheTerriblyTiredTapirSummon);
 
-            AddExecutor(ExecutorType.Summon, CardId.ScrapGolem, ScrapGolemSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.ScrapGolem, this.ScrapGolemSummon);
 
-            AddExecutor(ExecutorType.SpellSet, CardId.CalledbyTheGrave);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, DefaultSolemnStrike);
-            AddExecutor(ExecutorType.Repos, MonsterRepos);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.CalledbyTheGrave);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, this.DefaultSolemnStrike);
+            this.AddExecutor(ExecutorType.Repos, this.MonsterRepos);
         }
 
         private bool BeastOLionUsed = false;
@@ -214,11 +214,11 @@ namespace WindBot.Game.AI.Decks
 
         public override void OnNewTurn()
         {
-            BeastOLionUsed = false;
-            JetSynchronUsed = false;
-            ScrapWyvernUsed = false;
-            MaskedChameleonUsed = false;
-            ShootingRiserDragonCount = 0;
+            this.BeastOLionUsed = false;
+            this.JetSynchronUsed = false;
+            this.ScrapWyvernUsed = false;
+            this.MaskedChameleonUsed = false;
+            this.ShootingRiserDragonCount = 0;
         }
 
         public override void OnChainEnd()
@@ -232,7 +232,9 @@ namespace WindBot.Game.AI.Decks
             if (cardData != null)
             {
                 if (cardData.Attack <= 1000)
+                {
                     return CardPosition.FaceUpDefence;
+                }
             }
             return 0;
         }
@@ -243,38 +245,74 @@ namespace WindBot.Game.AI.Decks
             {
                 if (cardId == CardId.MekkKnightCrusadiaAstram || cardId == CardId.ScrapWyvern || cardId == CardId.CrystronNeedlefiber)
                 {
-                    ClientCard b = Bot.MonsterZone.GetFirstMatchingCard(card => card.Id == CardId.BorreloadSavageDragon);
+                    ClientCard b = this.Bot.MonsterZone.GetFirstMatchingCard(card => card.Id == CardId.BorreloadSavageDragon);
                     int zone = (1 << (b?.Sequence ?? 0)) & available;
                     if (zone > 0)
+                    {
                         return zone;
+                    }
                 }
-                if ((available & Zones.z4) > 0)
-                    return Zones.z4;
-                if ((available & Zones.z3) > 0)
-                    return Zones.z3;
-                if ((available & Zones.z2) > 0)
-                    return Zones.z2;
-                if ((available & Zones.z1) > 0)
-                    return Zones.z1;
-                if ((available & Zones.z0) > 0)
-                    return Zones.z0;
+                if ((available & Zones.MonsterZone5) > 0)
+                {
+                    return Zones.MonsterZone5;
+                }
+
+                if ((available & Zones.MonsterZone4) > 0)
+                {
+                    return Zones.MonsterZone4;
+                }
+
+                if ((available & Zones.MonsterZone3) > 0)
+                {
+                    return Zones.MonsterZone3;
+                }
+
+                if ((available & Zones.MonsterZone2) > 0)
+                {
+                    return Zones.MonsterZone2;
+                }
+
+                if ((available & Zones.MonsterZone1) > 0)
+                {
+                    return Zones.MonsterZone1;
+                }
             }
             if (location == CardLocation.MonsterZone)
             {
-                if ((available & Zones.z6) > 0)
-                    return Zones.z6;
-                if ((available & Zones.z5) > 0)
-                    return Zones.z5;
-                if ((available & Zones.z0) > 0)
-                    return Zones.z0;
-                if ((available & Zones.z2) > 0)
-                    return Zones.z2;
-                if ((available & Zones.z4) > 0)
-                    return Zones.z4;
-                if ((available & Zones.z1) > 0)
-                    return Zones.z1;
-                if ((available & Zones.z3) > 0)
-                    return Zones.z3;
+                if ((available & Zones.ExtraZone2) > 0)
+                {
+                    return Zones.ExtraZone2;
+                }
+
+                if ((available & Zones.ExtraZone1) > 0)
+                {
+                    return Zones.ExtraZone1;
+                }
+
+                if ((available & Zones.MonsterZone1) > 0)
+                {
+                    return Zones.MonsterZone1;
+                }
+
+                if ((available & Zones.MonsterZone3) > 0)
+                {
+                    return Zones.MonsterZone3;
+                }
+
+                if ((available & Zones.MonsterZone5) > 0)
+                {
+                    return Zones.MonsterZone5;
+                }
+
+                if ((available & Zones.MonsterZone2) > 0)
+                {
+                    return Zones.MonsterZone2;
+                }
+
+                if ((available & Zones.MonsterZone4) > 0)
+                {
+                    return Zones.MonsterZone4;
+                }
             }
             return 0;
         }
@@ -294,40 +332,52 @@ namespace WindBot.Game.AI.Decks
 
         private bool UnexpectedDaiFirst()
         {
-            if (Bot.HasInHand(CardId.ScrapRecycler))
+            if (this.Bot.HasInHand(CardId.ScrapRecycler))
+            {
                 return true;
-            if (Bot.HasInHand(new[] {
+            }
+
+            if (this.Bot.HasInHand(new[] {
                 CardId.WorldCarrotweightChampion,
                 CardId.PerformageTrickClown,
                 CardId.Goblindbergh,
                 CardId.WhiteRoseDragon
             }))
+            {
                 return true;
+            }
+
             return false;
         }
 
         private bool PhotonThrasherSummonFirst()
         {
-            if (Bot.HasInHand(CardId.ScrapRecycler))
+            if (this.Bot.HasInHand(CardId.ScrapRecycler))
+            {
                 return true;
-            if (Bot.HasInHand(L4Tuners))
+            }
+
+            if (this.Bot.HasInHand(this.L4Tuners))
+            {
                 return true;
+            }
+
             return false;
         }
 
         private bool ReinforcementofTheArmyEffect()
         {
-            if (Bot.GetMonsterCount() == 0 && PhotonThrasherSummonFirst() && !Bot.HasInHand(CardId.PhotonThrasher))
+            if (this.Bot.GetMonsterCount() == 0 && this.PhotonThrasherSummonFirst() && !this.Bot.HasInHand(CardId.PhotonThrasher))
             {
-                AI.SelectCard(CardId.PhotonThrasher);
+                this.AI.SelectCard(CardId.PhotonThrasher);
                 return true;
             }
-            if (GoblindberghSummonFirst() && !Bot.HasInHand(CardId.Goblindbergh))
+            if (this.GoblindberghSummonFirst() && !this.Bot.HasInHand(CardId.Goblindbergh))
             {
-                AI.SelectCard(CardId.Goblindbergh);
+                this.AI.SelectCard(CardId.Goblindbergh);
                 return true;
             }
-            AI.SelectCard(new[] {
+            this.AI.SelectCard(new[] {
                 CardId.Goblindbergh,
                 CardId.RaidenHandofTheLightsworn,
                 CardId.PhotonThrasher
@@ -337,17 +387,17 @@ namespace WindBot.Game.AI.Decks
 
         private bool FoolishBurialEffect()
         {
-            if (!Bot.HasInHandOrInMonstersZoneOrInGraveyard(CardId.ScrapRecycler))
+            if (!this.Bot.HasInHandOrInMonstersZoneOrInGraveyard(CardId.ScrapRecycler))
             {
-                AI.SelectCard(CardId.ScrapRecycler);
+                this.AI.SelectCard(CardId.ScrapRecycler);
                 return true;
             }
-            if (L4NonTunerSummonFirst() && Bot.GetRemainingCount(CardId.PerformageTrickClown, 1) > 0)
+            if (this.L4NonTunerSummonFirst() && this.Bot.GetRemainingCount(CardId.PerformageTrickClown, 1) > 0)
             {
-                AI.SelectCard(CardId.PerformageTrickClown);
+                this.AI.SelectCard(CardId.PerformageTrickClown);
                 return true;
             }
-            AI.SelectCard(new[] {
+            this.AI.SelectCard(new[] {
                 CardId.JetSynchron,
                 CardId.MechaPhantomBeastOLion,
                 CardId.ScrapBeast,
@@ -358,45 +408,50 @@ namespace WindBot.Game.AI.Decks
 
         private bool ScrapRecyclerSummonFirst()
         {
-            return Bot.GetRemainingCount(CardId.ScrapGolem, 2) > 0 && Bot.GetRemainingCount(CardId.MechaPhantomBeastOLion, 2) > 0 && Bot.GetRemainingCount(CardId.JetSynchron, 2) > 0;
+            return this.Bot.GetRemainingCount(CardId.ScrapGolem, 2) > 0 && this.Bot.GetRemainingCount(CardId.MechaPhantomBeastOLion, 2) > 0 && this.Bot.GetRemainingCount(CardId.JetSynchron, 2) > 0;
         }
 
         private bool ScrapRecyclerEffect()
         {
-            if ((Bot.HasInMonstersZone(CardId.ScrapGolem) && !JetSynchronUsed) || BeastOLionUsed)
+            if ((this.Bot.HasInMonstersZone(CardId.ScrapGolem) && !this.JetSynchronUsed) || this.BeastOLionUsed)
             {
-                AI.SelectCard(new[] { CardId.JetSynchron, CardId.MechaPhantomBeastOLion });
+                this.AI.SelectCard(new[] { CardId.JetSynchron, CardId.MechaPhantomBeastOLion });
             }
             else
             {
-                AI.SelectCard(new[] { CardId.MechaPhantomBeastOLion, CardId.JetSynchron });
+                this.AI.SelectCard(new[] { CardId.MechaPhantomBeastOLion, CardId.JetSynchron });
             }
             return true;
         }
 
         private bool MechaPhantomBeastOLionEffect()
         {
-            if (ActivateDescription == -1)
+            if (this.ActivateDescription == -1)
             {
-                BeastOLionUsed = true;
+                this.BeastOLionUsed = true;
                 return true;
             }
             // todo: need tuner check
-            return !BeastOLionUsed;
+            return !this.BeastOLionUsed;
         }
 
         private bool ScrapWyvernSummon()
         {
-            if (ScrapWyvernUsed || MaskedChameleonUsed || Bot.HasInMonstersZone(CardId.ScrapWyvern))
+            if (this.ScrapWyvernUsed || this.MaskedChameleonUsed || this.Bot.HasInMonstersZone(CardId.ScrapWyvern))
+            {
                 return false;
-            if (!Bot.HasInMonstersZone(new[] {
+            }
+
+            if (!this.Bot.HasInMonstersZone(new[] {
                 CardId.ScrapBeast,
                 CardId.ScrapGolem,
                 CardId.ScrapRecycler,
-            }) || !Bot.HasInMonstersZoneOrInGraveyard(CardId.ScrapRecycler))
+            }) || !this.Bot.HasInMonstersZoneOrInGraveyard(CardId.ScrapRecycler))
+            {
                 return false;
+            }
 
-            AI.SelectMaterials(new[] {
+            this.AI.SelectMaterials(new[] {
                 CardId.MechaPhantomBeastOLionToken,
                 CardId.PhotonThrasher,
                 CardId.Goblindbergh,
@@ -413,7 +468,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool ScrapWyvernEffect()
         {
-            if(ActivateDescription != -1)
+            if(this.ActivateDescription != -1)
             {
                 int[] targets = new[]
                 {
@@ -422,23 +477,26 @@ namespace WindBot.Game.AI.Decks
                     CardId.ScrapGolem,
                     CardId.ScrapDragon
                 };
-                AI.SelectCard(targets);
-                AI.SelectNextCard(targets);
-                ScrapWyvernUsed = true;
+                this.AI.SelectCard(targets);
+                this.AI.SelectNextCard(targets);
+                this.ScrapWyvernUsed = true;
                 return true;
             }
             else
             {
-                AI.SelectCard(new[]
+                this.AI.SelectCard(new[]
                 {
                     CardId.ScrapGolem,
                     CardId.ScrapBeast
                 });
-                ClientCard target = Util.GetBestEnemyCard();
+                ClientCard target = this.Util.GetBestEnemyCard();
                 if (target != null)
-                    AI.SelectNextCard(target);
+                {
+                    this.AI.SelectNextCard(target);
+                }
                 else
-                    AI.SelectNextCard(new[]
+                {
+                    this.AI.SelectNextCard(new[]
                     {
                         CardId.CalledbyTheGrave,
                         CardId.PhotonThrasher,
@@ -450,38 +508,52 @@ namespace WindBot.Game.AI.Decks
                         CardId.AngelTrumpeter,
                         CardId.ScrapWyvern
                     });
+                }
+
                 return true;
             }
         }
 
         private bool ScrapGolemEffect()
         {
-            if (Bot.GetMonstersInMainZone().Count == 5)
+            if (this.Bot.GetMonstersInMainZone().Count == 5)
+            {
                 return false;
-            AI.SelectCard(CardId.ScrapRecycler);
-            AI.SelectOption(0);
+            }
+
+            this.AI.SelectCard(CardId.ScrapRecycler);
+            this.AI.SelectOption(0);
             return true;
         }
 
         private bool JetSynchronEffect()
         {
-            if (!Bot.HasInMonstersZone(CardId.BlackRoseMoonlightDragon)
-                && Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup() && card.Level >= 2 && card.Level <= 5) < 2)
+            if (!this.Bot.HasInMonstersZone(CardId.BlackRoseMoonlightDragon)
+                && this.Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup() && card.Level >= 2 && card.Level <= 5) < 2)
+            {
                 return false;
-            AI.SelectCard(HandCosts);
+            }
+
+            this.AI.SelectCard(this.HandCosts);
             return true;
         }
 
         private bool CrystronNeedlefiberSummon()
         {
-            if (MaskedChameleonUsed)
+            if (this.MaskedChameleonUsed)
+            {
                 return false;
-            int nonTunerCount = Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup() && !card.IsTuner());
-            if (Bot.GetMonsterCount() < 3 || nonTunerCount == 0)
+            }
+
+            int nonTunerCount = this.Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup() && !card.IsTuner());
+            if (this.Bot.GetMonsterCount() < 3 || nonTunerCount == 0)
+            {
                 return false;
+            }
+
             if (nonTunerCount == 1)
             {
-                AI.SelectMaterials(new[] {
+                this.AI.SelectMaterials(new[] {
                     CardId.JetSynchron,
                     CardId.MechaPhantomBeastOLion,
                     CardId.AngelTrumpeter,
@@ -500,7 +572,7 @@ namespace WindBot.Game.AI.Decks
             }
             else
             {
-                AI.SelectMaterials(new[] {
+                this.AI.SelectMaterials(new[] {
                     CardId.MechaPhantomBeastOLionToken,
                     CardId.ScrapRecycler,
                     CardId.WhiteRoseDragon,
@@ -522,21 +594,21 @@ namespace WindBot.Game.AI.Decks
 
         private bool CrystronNeedlefiberEffect()
         {
-            if (Duel.Player == 0)
+            if (this.Duel.Player == 0)
             {
-                AI.SelectCard(CardId.RedRoseDragon);
+                this.AI.SelectCard(CardId.RedRoseDragon);
                 return true;
             }
             else
             {
-                if (Bot.HasInExtra(CardId.ShootingRiserDragon) && Bot.MonsterZone.IsExistingMatchingCard(card => card.Level >= 3 && card.Level <= 5 && card.IsFaceup() && !card.IsTuner()))
+                if (this.Bot.HasInExtra(CardId.ShootingRiserDragon) && this.Bot.MonsterZone.IsExistingMatchingCard(card => card.Level >= 3 && card.Level <= 5 && card.IsFaceup() && !card.IsTuner()))
                 {
-                    AI.SelectCard(CardId.ShootingRiserDragon);
+                    this.AI.SelectCard(CardId.ShootingRiserDragon);
                     return true;
                 }
-                if (Util.IsOneEnemyBetterThanValue(1500, true) || DefaultOnBecomeTarget())
+                if (this.Util.IsOneEnemyBetterThanValue(1500, true) || this.DefaultOnBecomeTarget())
                 {
-                    AI.SelectCard(CardId.CoralDragon);
+                    this.AI.SelectCard(CardId.CoralDragon);
                     return true;
                 }
                 return false;
@@ -549,58 +621,70 @@ namespace WindBot.Game.AI.Decks
                 CardId.ScrapWyvern,
                 CardId.CrystronNeedlefiber
             };
-            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(matcodes)) < 2)
+            if (this.Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(matcodes)) < 2)
+            {
                 return false;
-            AI.SelectMaterials(matcodes);
+            }
+
+            this.AI.SelectMaterials(matcodes);
             return true;
         }
 
         private bool MekkKnightCrusadiaAstramEffect()
         {
-            if (Card.Location == CardLocation.MonsterZone)
+            if (this.Card.Location == CardLocation.MonsterZone)
             {
                 return true;
             }
             else
             {
-                ClientCard target = Util.GetBestEnemyCard();
+                ClientCard target = this.Util.GetBestEnemyCard();
                 if (target == null)
+                {
                     return false;
-                AI.SelectCard(target);
+                }
+
+                this.AI.SelectCard(target);
                 return true;
             }
         }
 
         private bool GoblindberghSummonFirst()
         {
-            if (Bot.HasInHand(L4Tuners))
+            if (this.Bot.HasInHand(this.L4Tuners))
+            {
                 return true;
+            }
+
             return false;
         }
 
         private bool GoblindberghEffect()
         {
-            AI.SelectCard(L4Tuners);
+            this.AI.SelectCard(this.L4Tuners);
             return true;
         }
 
         private bool MaskedChameleonSummonFirst()
         {
-            if (Bot.HasInGraveyard(new[] {
+            if (this.Bot.HasInGraveyard(new[] {
                 CardId.PhotonThrasher,
                 CardId.WorldCarrotweightChampion,
                 CardId.Goblindbergh
             }))
+            {
                 return true;
+            }
+
             return false;
         }
 
         private bool MaskedChameleonEffect()
         {
-            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup() && !card.IsTuner()) == 0)
+            if (this.Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup() && !card.IsTuner()) == 0)
             {
-                MaskedChameleonUsed = true;
-                AI.SelectCard(L4NonTuners);
+                this.MaskedChameleonUsed = true;
+                this.AI.SelectCard(this.L4NonTuners);
                 return true;
             }
             return false;
@@ -608,20 +692,23 @@ namespace WindBot.Game.AI.Decks
 
         private bool WhiteRoseDragonSummonFirst()
         {
-            if (Bot.HasInGraveyard(new[] {
+            if (this.Bot.HasInGraveyard(new[] {
                 CardId.RedRoseDragon
             }))
+            {
                 return true;
+            }
+
             return false;
         }
 
         private bool WhiteRoseDragonEffect()
         {
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
-                if (Bot.GetRemainingCount(CardId.WorldCarrotweightChampion, 1) > 0)
+                if (this.Bot.GetRemainingCount(CardId.WorldCarrotweightChampion, 1) > 0)
                 {
-                    AI.SelectCard(CardId.WorldCarrotweightChampion);
+                    this.AI.SelectCard(CardId.WorldCarrotweightChampion);
                     return true;
                 }
                 return false;
@@ -631,53 +718,59 @@ namespace WindBot.Game.AI.Decks
 
         private bool L4TunerSummonFirst()
         {
-            return Bot.HasInMonstersZone(L4NonTuners, faceUp: true);
+            return this.Bot.HasInMonstersZone(this.L4NonTuners, faceUp: true);
         }
 
         private bool L4NonTunerSummonFirst()
         {
-            return Bot.HasInMonstersZone(L4Tuners, faceUp: true);
+            return this.Bot.HasInMonstersZone(this.L4Tuners, faceUp: true);
         }
 
         private bool OtherTunerSummonFirst()
         {
-            return Bot.HasInMonstersZone(L4NonTuners, faceUp: true);
+            return this.Bot.HasInMonstersZone(this.L4NonTuners, faceUp: true);
         }
 
         private bool PerformageTrickClownEffect()
         {
-            if (Bot.LifePoints <= 1000)
+            if (this.Bot.LifePoints <= 1000)
+            {
                 return false;
-            AI.SelectPosition(CardPosition.FaceUpDefence);
+            }
+
+            this.AI.SelectPosition(CardPosition.FaceUpDefence);
             return true;
         }
 
         private bool WorldCarrotweightChampionEffect()
         {
-            return !Bot.HasInMonstersZone(L4NonTuners);
+            return !this.Bot.HasInMonstersZone(this.L4NonTuners);
         }
 
         private bool ScrapGolemSummon()
         {
-            return Bot.GetMonsterCount() <= 2 && Bot.HasInMonstersZoneOrInGraveyard(CardId.ScrapRecycler);
+            return this.Bot.GetMonsterCount() <= 2 && this.Bot.HasInMonstersZoneOrInGraveyard(CardId.ScrapRecycler);
         }
 
         private bool BorreloadSavageDragonSummon()
         {
-            if (!Bot.HasInGraveyard(new[] {
+            if (!this.Bot.HasInGraveyard(new[] {
                 CardId.ScrapWyvern,
                 CardId.CrystronNeedlefiber,
                 CardId.MekkKnightCrusadiaAstram
             }))
+            {
                 return false;
+            }
+
             return true;
         }
 
         private bool BorreloadSavageDragonEffect()
         {
-            if (ActivateDescription == -1)
+            if (this.ActivateDescription == -1)
             {
-                AI.SelectCard(new[] { CardId.MekkKnightCrusadiaAstram, CardId.CrystronNeedlefiber, CardId.ScrapWyvern });
+                this.AI.SelectCard(new[] { CardId.MekkKnightCrusadiaAstram, CardId.CrystronNeedlefiber, CardId.ScrapWyvern });
                 return true;
             }
             else
@@ -688,11 +781,11 @@ namespace WindBot.Game.AI.Decks
 
         private bool ScrapDragonSummon()
         {
-            if (Util.GetProblematicEnemyCard(3000) != null)
+            if (this.Util.GetProblematicEnemyCard(3000) != null)
             {
                 return true;
             }
-            if (Bot.HasInGraveyard(new[] { CardId.ScrapBeast, CardId.ScrapRecycler, CardId.ScrapGolem, CardId.ScrapWyvern }))
+            if (this.Bot.HasInGraveyard(new[] { CardId.ScrapBeast, CardId.ScrapRecycler, CardId.ScrapGolem, CardId.ScrapWyvern }))
             {
                 return true;
             }
@@ -701,11 +794,13 @@ namespace WindBot.Game.AI.Decks
 
         private bool ScrapDragonEffect()
         {
-            ClientCard invincible = Util.GetProblematicEnemyCard(3000);
-            if (invincible == null && !Util.IsOneEnemyBetterThanValue(2800 - 1, false))
+            ClientCard invincible = this.Util.GetProblematicEnemyCard(3000);
+            if (invincible == null && !this.Util.IsOneEnemyBetterThanValue(2800 - 1, false))
+            {
                 return false;
+            }
 
-            List<ClientCard> monsters = Enemy.GetMonsters();
+            List<ClientCard> monsters = this.Enemy.GetMonsters();
             monsters.Sort(CardContainer.CompareCardAttack);
 
             ClientCard destroyCard = invincible;
@@ -722,9 +817,11 @@ namespace WindBot.Game.AI.Decks
             }
 
             if (destroyCard == null)
+            {
                 return false;
+            }
 
-            AI.SelectCard(new[] {
+            this.AI.SelectCard(new[] {
                 CardId.CalledbyTheGrave,
                 CardId.MechaPhantomBeastOLionToken,
                 CardId.ScrapRecycler,
@@ -740,46 +837,49 @@ namespace WindBot.Game.AI.Decks
                 CardId.ScrapBeast,
                 CardId.MaskedChameleon
             });
-            AI.SelectNextCard(destroyCard);
+            this.AI.SelectNextCard(destroyCard);
 
             return true;
         }
 
         private bool CrystalWingSynchroDragonEffect()
         {
-            return Duel.LastChainPlayer != 0;
+            return this.Duel.LastChainPlayer != 0;
         }
 
         private bool PSYFramelordOmegaEffect()
         {
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
                 // todo
                 return false;
             }
-            if (Duel.Player == 0)
+            if (this.Duel.Player == 0)
             {
-                return DefaultOnBecomeTarget();
+                return this.DefaultOnBecomeTarget();
             }
-            if (Duel.Player == 1)
+            if (this.Duel.Player == 1)
             {
-                if (Duel.Phase == DuelPhase.Standby)
+                if (this.Duel.Phase == DuelPhase.Standby)
                 {
-                    if (Bot.HasInBanished(CardId.JetSynchron) && !Bot.HasInGraveyard(CardId.JetSynchron))
+                    if (this.Bot.HasInBanished(CardId.JetSynchron) && !this.Bot.HasInGraveyard(CardId.JetSynchron))
                     {
-                        AI.SelectCard(CardId.JetSynchron);
+                        this.AI.SelectCard(CardId.JetSynchron);
                         return true;
                     }
-                    if (Bot.HasInBanished(CardId.CrystronNeedlefiber))
+                    if (this.Bot.HasInBanished(CardId.CrystronNeedlefiber))
                     {
-                        AI.SelectCard(CardId.CrystronNeedlefiber);
+                        this.AI.SelectCard(CardId.CrystronNeedlefiber);
                         return true;
                     }
                 }
                 else
                 {
-                    if (Enemy.MonsterZone.GetMatchingCards(card => card.IsAttack()).Sum(card => card.Attack) >= Bot.LifePoints)
+                    if (this.Enemy.MonsterZone.GetMatchingCards(card => card.IsAttack()).Sum(card => card.Attack) >= this.Bot.LifePoints)
+                    {
                         return false;
+                    }
+
                     return true;// DefaultOnBecomeTarget() || Util.IsOneEnemyBetterThanValue(2800, true);
                 }
             }
@@ -788,14 +888,16 @@ namespace WindBot.Game.AI.Decks
 
         private bool CoralDragonEffect()
         {
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
+            {
                 return true;
+            }
 
-            ClientCard target = Util.GetProblematicEnemyCard(canBeTarget: true);
+            ClientCard target = this.Util.GetProblematicEnemyCard(canBeTarget: true);
             if (target != null)
             {
-                AI.SelectCard(HandCosts);
-                AI.SelectNextCard(target);
+                this.AI.SelectCard(this.HandCosts);
+                this.AI.SelectNextCard(target);
                 return true;
             }
             return false;
@@ -803,29 +905,29 @@ namespace WindBot.Game.AI.Decks
 
         private bool ShootingRiserDragonSummon()
         {
-            return Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup() && !card.IsTuner()) >= 2;
+            return this.Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup() && !card.IsTuner()) >= 2;
         }
 
         private bool ShootingRiserDragonEffect()
         {
-            if (ActivateDescription == -1 || (ActivateDescription == Util.GetStringId(CardId.ShootingRiserDragon, 0)))
+            if (this.ActivateDescription == -1 || (this.ActivateDescription == this.Util.GetStringId(CardId.ShootingRiserDragon, 0)))
             {
                 int targetLevel = 8;
 
-                if (Bot.MonsterZone.IsExistingMatchingCard(card => card.Level == targetLevel - 5 && card.IsFaceup() && !card.IsTuner()) && Bot.GetRemainingCount(CardId.MechaPhantomBeastOLion, 2) > 0)
+                if (this.Bot.MonsterZone.IsExistingMatchingCard(card => card.Level == targetLevel - 5 && card.IsFaceup() && !card.IsTuner()) && this.Bot.GetRemainingCount(CardId.MechaPhantomBeastOLion, 2) > 0)
                 {
-                    AI.SelectCard(CardId.MechaPhantomBeastOLion);
+                    this.AI.SelectCard(CardId.MechaPhantomBeastOLion);
                 }
-                else if (Bot.MonsterZone.IsExistingMatchingCard(card => card.Level == targetLevel - 4 && card.IsFaceup() && !card.IsTuner()))
+                else if (this.Bot.MonsterZone.IsExistingMatchingCard(card => card.Level == targetLevel - 4 && card.IsFaceup() && !card.IsTuner()))
                 {
-                    AI.SelectCard(new[] {
+                    this.AI.SelectCard(new[] {
                         CardId.ScrapRecycler,
                         CardId.RedRoseDragon
                     });
                 }
-                else if (Bot.MonsterZone.IsExistingMatchingCard(card => card.Level == targetLevel - 3 && card.IsFaceup() && !card.IsTuner()))
+                else if (this.Bot.MonsterZone.IsExistingMatchingCard(card => card.Level == targetLevel - 3 && card.IsFaceup() && !card.IsTuner()))
                 {
-                    AI.SelectCard(new[] {
+                    this.AI.SelectCard(new[] {
                         CardId.ScrapBeast,
                         CardId.PhotonThrasher,
                         CardId.Goblindbergh,
@@ -839,16 +941,19 @@ namespace WindBot.Game.AI.Decks
                 }
                 else
                 {
-                    FoolishBurialEffect();
+                    this.FoolishBurialEffect();
                 }
                 return true;
             }
             else
             {
-                if (Duel.LastChainPlayer == 0 || ShootingRiserDragonCount >= 10)
+                if (this.Duel.LastChainPlayer == 0 || this.ShootingRiserDragonCount >= 10)
+                {
                     return false;
-                ShootingRiserDragonCount++;
-                AI.SelectCard(new[] {
+                }
+
+                this.ShootingRiserDragonCount++;
+                this.AI.SelectCard(new[] {
                     CardId.BlackRoseMoonlightDragon,
                     CardId.ScrapDragon,
                     CardId.PSYFramelordOmega
@@ -859,21 +964,33 @@ namespace WindBot.Game.AI.Decks
 
         private bool Number41BagooskaTheTerriblyTiredTapirSummon()
         {
-            if (!Util.IsTurn1OrMain2())
+            if (!this.Util.IsTurn1OrMain2())
+            {
                 return false;
-            if (Bot.GetMonsterCount() > 3)
+            }
+
+            if (this.Bot.GetMonsterCount() > 3)
+            {
                 return false;
-            AI.SelectPosition(CardPosition.FaceUpDefence);
+            }
+
+            this.AI.SelectPosition(CardPosition.FaceUpDefence);
             return true;
         }
 
         private bool MonsterRepos()
         {
-            if (Card.IsFacedown())
+            if (this.Card.IsFacedown())
+            {
                 return true;
-            if (Card.IsCode(CardId.Number41BagooskaTheTerriblyTiredTapir) && Card.IsDefense())
-                return Card.Overlays.Count == 0;
-            return DefaultMonsterRepos();
+            }
+
+            if (this.Card.IsCode(CardId.Number41BagooskaTheTerriblyTiredTapir) && this.Card.IsDefense())
+            {
+                return this.Card.Overlays.Count == 0;
+            }
+
+            return this.DefaultMonsterRepos();
         }
     }
 }

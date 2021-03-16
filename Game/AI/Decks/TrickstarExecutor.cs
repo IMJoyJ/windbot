@@ -60,10 +60,23 @@ namespace WindBot.Game.AI.Decks
 
         public int getLinkMarker(int id)
         {
-            if (id == CardId.Borrel || id == CardId.Snake) return 4;
-            else if (id == CardId.Abyss || id == CardId.Beelze || id == CardId.Exterio || id == CardId.Ultimate || id == CardId.Cardian) return 5;
-            else if (id == CardId.Unicorn) return 3;
-            else if (id == CardId.Crystal || id == CardId.Phoneix || id == CardId.SafeDra || id == CardId.Missus) return 2;
+            if (id == CardId.Borrel || id == CardId.Snake)
+            {
+                return 4;
+            }
+            else if (id == CardId.Abyss || id == CardId.Beelze || id == CardId.Exterio || id == CardId.Ultimate || id == CardId.Cardian)
+            {
+                return 5;
+            }
+            else if (id == CardId.Unicorn)
+            {
+                return 3;
+            }
+            else if (id == CardId.Crystal || id == CardId.Phoneix || id == CardId.SafeDra || id == CardId.Missus)
+            {
+                return 2;
+            }
+
             return 1;
         }
 
@@ -91,101 +104,109 @@ namespace WindBot.Game.AI.Decks
             : base(ai, duel)
         {
             // counter
-            AddExecutor(ExecutorType.Activate, CardId.MG, G_act);
-            AddExecutor(ExecutorType.Activate, CardId.Strike, DefaultSolemnStrike);
-            AddExecutor(ExecutorType.Activate, CardId.Warn, DefaultSolemnWarning);
-            AddExecutor(ExecutorType.Activate, CardId.Awaken, Awaken_ss);
-            AddExecutor(ExecutorType.Activate, CardId.Urara, Hand_act_eff);
-            AddExecutor(ExecutorType.Activate, CardId.Ghost, Hand_act_eff);
-            AddExecutor(ExecutorType.Activate, CardId.Ring, Ring_act);
-            AddExecutor(ExecutorType.Activate, CardId.Abyss, Abyss_eff);
-            AddExecutor(ExecutorType.Activate, CardId.Exterio, Exterio_counter);
-            AddExecutor(ExecutorType.Activate, CardId.Cardian);
-            AddExecutor(ExecutorType.Activate, CardId.GraveCall, GraveCall_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.MG, this.G_act);
+            this.AddExecutor(ExecutorType.Activate, CardId.Strike, this.DefaultSolemnStrike);
+            this.AddExecutor(ExecutorType.Activate, CardId.Warn, this.DefaultSolemnWarning);
+            this.AddExecutor(ExecutorType.Activate, CardId.Awaken, this.Awaken_ss);
+            this.AddExecutor(ExecutorType.Activate, CardId.Urara, this.Hand_act_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.Ghost, this.Hand_act_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.Ring, this.Ring_act);
+            this.AddExecutor(ExecutorType.Activate, CardId.Abyss, this.Abyss_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.Exterio, this.Exterio_counter);
+            this.AddExecutor(ExecutorType.Activate, CardId.Cardian);
+            this.AddExecutor(ExecutorType.Activate, CardId.GraveCall, this.GraveCall_eff);
 
-            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DarkHole_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkHole, this.DarkHole_eff);
 
             // spell clean
-            AddExecutor(ExecutorType.Activate, field_activate);
-            AddExecutor(ExecutorType.Activate, CardId.Stage, Stage_Lock);
-            AddExecutor(ExecutorType.Activate, CardId.Feather, Feather_Act);
-            AddExecutor(ExecutorType.Activate, CardId.Stage, Stage_act);
-            AddExecutor(ExecutorType.Activate, CardId.Galaxy, GalaxyCyclone);
-            AddExecutor(ExecutorType.Activate, CardId.TG, TG_eff);
+            this.AddExecutor(ExecutorType.Activate, this.field_activate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Stage, this.Stage_Lock);
+            this.AddExecutor(ExecutorType.Activate, CardId.Feather, this.Feather_Act);
+            this.AddExecutor(ExecutorType.Activate, CardId.Stage, this.Stage_act);
+            this.AddExecutor(ExecutorType.Activate, CardId.Galaxy, this.GalaxyCyclone);
+            this.AddExecutor(ExecutorType.Activate, CardId.TG, this.TG_eff);
 
-            AddExecutor(ExecutorType.Activate, CardId.Tuner,Tuner_eff);
-            AddExecutor(ExecutorType.SpellSet, Five_Rainbow);
+            this.AddExecutor(ExecutorType.Activate, CardId.Tuner, this.Tuner_eff);
+            this.AddExecutor(ExecutorType.SpellSet, this.Five_Rainbow);
 
             // ex ss
-            AddExecutor(ExecutorType.SpSummon, CardId.Borrel, Borrel_ss);
-            AddExecutor(ExecutorType.SpSummon, CardId.Missus, Missus_ss);
-            AddExecutor(ExecutorType.SpSummon, CardId.Phoneix, Phoneix_ss);
-            AddExecutor(ExecutorType.SpSummon, CardId.Snake, Snake_ss);
-            AddExecutor(ExecutorType.SpSummon, CardId.Crystal, Crystal_ss);
-            AddExecutor(ExecutorType.SpSummon, CardId.SafeDra, Safedragon_ss);
-            AddExecutor(ExecutorType.Activate, CardId.SafeDra, DefaultCompulsoryEvacuationDevice);
-            AddExecutor(ExecutorType.Activate, CardId.Linkuri, Linkuri_eff);
-            AddExecutor(ExecutorType.SpSummon, CardId.Linkuri, Linkuri_ss);
-            AddExecutor(ExecutorType.SpSummon, CardId.Unicorn, Unicorn_ss);
-            AddExecutor(ExecutorType.SpSummon, CardId.Linkspi);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Borrel, this.Borrel_ss);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Missus, this.Missus_ss);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Phoneix, this.Phoneix_ss);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Snake, this.Snake_ss);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Crystal, this.Crystal_ss);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.SafeDra, this.Safedragon_ss);
+            this.AddExecutor(ExecutorType.Activate, CardId.SafeDra, this.DefaultCompulsoryEvacuationDevice);
+            this.AddExecutor(ExecutorType.Activate, CardId.Linkuri, this.Linkuri_eff);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Linkuri, this.Linkuri_ss);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Unicorn, this.Unicorn_ss);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Linkspi);
 
             // ex_monster act
-            AddExecutor(ExecutorType.Activate, CardId.Beelze);
-            AddExecutor(ExecutorType.Activate, CardId.Missus, Missus_eff);
-            AddExecutor(ExecutorType.Activate, CardId.Crystal, Crystal_eff);
-            AddExecutor(ExecutorType.Activate, CardId.Phoneix, Phoneix_eff);
-            AddExecutor(ExecutorType.Activate, CardId.Unicorn, Unicorn_eff);
-            AddExecutor(ExecutorType.Activate, CardId.Snake, Snake_eff);
-            AddExecutor(ExecutorType.Activate, CardId.Borrel, Borrel_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.Beelze);
+            this.AddExecutor(ExecutorType.Activate, CardId.Missus, this.Missus_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.Crystal, this.Crystal_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.Phoneix, this.Phoneix_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.Unicorn, this.Unicorn_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.Snake, this.Snake_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.Borrel, this.Borrel_eff);
 
             // normal act
-            AddExecutor(ExecutorType.Activate, CardId.Trans);
-            AddExecutor(ExecutorType.SpSummon, CardId.BF, BF_pos);
-            AddExecutor(ExecutorType.Activate, CardId.BF, BF_pos);
-            AddExecutor(ExecutorType.Activate, CardId.Sheep, Sheep_Act);
-            AddExecutor(ExecutorType.Activate, CardId.Eater,Eater_eff);
-            AddExecutor(ExecutorType.Activate, CardId.LockBird, LockBird_act);
+            this.AddExecutor(ExecutorType.Activate, CardId.Trans);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.BF, this.BF_pos);
+            this.AddExecutor(ExecutorType.Activate, CardId.BF, this.BF_pos);
+            this.AddExecutor(ExecutorType.Activate, CardId.Sheep, this.Sheep_Act);
+            this.AddExecutor(ExecutorType.Activate, CardId.Eater, this.Eater_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.LockBird, this.LockBird_act);
 
             // ts
-            AddExecutor(ExecutorType.Activate, CardId.Pink, Pink_eff);
-            AddExecutor(ExecutorType.Activate, CardId.Re, Reincarnation);
-            AddExecutor(ExecutorType.Activate, CardId.Red, Red_ss);
-            AddExecutor(ExecutorType.Activate, CardId.Yellow, Yellow_eff);
-            AddExecutor(ExecutorType.Activate, CardId.White, White_eff);
-            AddExecutor(ExecutorType.Activate, CardId.Crown, Crown_eff);
-            AddExecutor(ExecutorType.Summon, CardId.Yellow, Yellow_sum);
-            AddExecutor(ExecutorType.Summon, CardId.Red, Red_sum);
-            AddExecutor(ExecutorType.Summon, CardId.Pink, Pink_sum);
+            this.AddExecutor(ExecutorType.Activate, CardId.Pink, this.Pink_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.Re, this.Reincarnation);
+            this.AddExecutor(ExecutorType.Activate, CardId.Red, this.Red_ss);
+            this.AddExecutor(ExecutorType.Activate, CardId.Yellow, this.Yellow_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.White, this.White_eff);
+            this.AddExecutor(ExecutorType.Activate, CardId.Crown, this.Crown_eff);
+            this.AddExecutor(ExecutorType.Summon, CardId.Yellow, this.Yellow_sum);
+            this.AddExecutor(ExecutorType.Summon, CardId.Red, this.Red_sum);
+            this.AddExecutor(ExecutorType.Summon, CardId.Pink, this.Pink_sum);
 
             // normal
-            AddExecutor(ExecutorType.SpSummon, CardId.Eater, Eater_ss);
-            AddExecutor(ExecutorType.Summon, CardId.Tuner, Tuner_ns);
-            AddExecutor(ExecutorType.Summon, CardId.Urara,Tuner_ns);
-            AddExecutor(ExecutorType.Summon, CardId.Ghost, Tuner_ns);
-            AddExecutor(ExecutorType.Activate, CardId.Pot, Pot_Act);
-            AddExecutor(ExecutorType.Repos, MonsterRepos);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.Red);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.Pink);
-            AddExecutor(ExecutorType.SpellSet, SpellSet);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Eater, this.Eater_ss);
+            this.AddExecutor(ExecutorType.Summon, CardId.Tuner, this.Tuner_ns);
+            this.AddExecutor(ExecutorType.Summon, CardId.Urara, this.Tuner_ns);
+            this.AddExecutor(ExecutorType.Summon, CardId.Ghost, this.Tuner_ns);
+            this.AddExecutor(ExecutorType.Activate, CardId.Pot, this.Pot_Act);
+            this.AddExecutor(ExecutorType.Repos, this.MonsterRepos);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.Red);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.Pink);
+            this.AddExecutor(ExecutorType.SpellSet, this.SpellSet);
         }
 
         public bool Five_Rainbow()
         {
-            if (Enemy.HasInSpellZone(19619755,true) || Bot.HasInSpellZone(19619755, true))
+            if (this.Enemy.HasInSpellZone(19619755,true) || this.Bot.HasInSpellZone(19619755, true))
             {
-                if (Card.HasType(CardType.Field)) return false;
+                if (this.Card.HasType(CardType.Field))
+                {
+                    return false;
+                }
+
                 bool has_setcard = false;
                 for (int i = 0; i < 5; ++i)
                 {
-                    ClientCard sp = Bot.SpellZone[i];
+                    ClientCard sp = this.Bot.SpellZone[i];
                     if (sp != null && sp.HasPosition(CardPosition.FaceDown))
                     {
                         has_setcard = true;
                         break;
                     }
                 }
-                if (has_setcard) return false;
-                AI.SelectPlace(SelectSTPlace());
+                if (has_setcard)
+                {
+                    return false;
+                }
+
+                this.AI.SelectPlace(this.SelectSTPlace());
                 return true;
             }
             return false;
@@ -205,24 +226,35 @@ namespace WindBot.Game.AI.Decks
             foreach(int seq in list)
             {
                 int zone = (int)System.Math.Pow(2, seq);
-                if (Bot.SpellZone[seq] == null) return zone;
+                if (this.Bot.SpellZone[seq] == null)
+                {
+                    return zone;
+                }
             }
             return 0;
         }
 
         public bool SpellSet()
         {
-            if (Card.IsCode(CardId.Sheep) && Bot.HasInSpellZone(CardId.Sheep)) return false;
-            if (DefaultSpellSet())
+            if (this.Card.IsCode(CardId.Sheep) && this.Bot.HasInSpellZone(CardId.Sheep))
             {
-                AI.SelectPlace(SelectSTPlace());
+                return false;
+            }
+
+            if (this.DefaultSpellSet())
+            {
+                this.AI.SelectPlace(this.SelectSTPlace());
                 return true;
-            } else if (Enemy.HasInSpellZone(58921041,true) || Bot.HasInSpellZone(58921041, true))
+            } else if (this.Enemy.HasInSpellZone(58921041,true) || this.Bot.HasInSpellZone(58921041, true))
             {
-                if (Card.IsCode(CardId.Stage)) return !Bot.HasInSpellZone(CardId.Stage);
-                if (Card.IsSpell())
+                if (this.Card.IsCode(CardId.Stage))
                 {
-                    AI.SelectPlace(SelectSTPlace());
+                    return !this.Bot.HasInSpellZone(CardId.Stage);
+                }
+
+                if (this.Card.IsSpell())
+                {
+                    this.AI.SelectPlace(this.SelectSTPlace());
                     return true;
                 }
             }
@@ -236,29 +268,57 @@ namespace WindBot.Game.AI.Decks
 
         public bool field_activate()
         {
-            if (Card.HasPosition(CardPosition.FaceDown) && Card.HasType(CardType.Field) && Card.Location == CardLocation.SpellZone)
+            if (this.Card.HasPosition(CardPosition.FaceDown) && this.Card.HasType(CardType.Field) && this.Card.Location == CardLocation.SpellZone)
             {
                 // field spells that forbid other fields' activate
-                return !Card.IsCode(71650854, 78082039);
+                return !this.Card.IsCode(71650854, 78082039);
             }
             return false;
         }
 
         public bool spell_trap_activate()
         {
-            if (Card.Location != CardLocation.SpellZone && Card.Location != CardLocation.Hand) return true;
-            if (Enemy.HasInMonstersZone(CardId.Exterio,true) && !Bot.HasInHandOrHasInMonstersZone(CardId.Ghost)) return false;
-            if (Card.IsSpell())
+            if (this.Card.Location != CardLocation.SpellZone && this.Card.Location != CardLocation.Hand)
             {
-                if (Enemy.HasInMonstersZone(33198837, true) && !Bot.HasInHandOrHasInMonstersZone(CardId.Ghost)) return false;
-                if (Enemy.HasInSpellZone(61740673, true) || Bot.HasInSpellZone(61740673,true)) return false;
-                if (Enemy.HasInMonstersZone(37267041, true) || Bot.HasInMonstersZone(37267041, true)) return false;
                 return true;
             }
-            if (Card.IsTrap())
+
+            if (this.Enemy.HasInMonstersZone(CardId.Exterio,true) && !this.Bot.HasInHandOrHasInMonstersZone(CardId.Ghost))
             {
-                if (Enemy.HasInSpellZone(51452091, true) || Bot.HasInSpellZone(51452091, true)) return false;
-                if (Enemy.HasInSpellZone(51452091, true) || Bot.HasInSpellZone(51452091, true)) return false;
+                return false;
+            }
+
+            if (this.Card.IsSpell())
+            {
+                if (this.Enemy.HasInMonstersZone(33198837, true) && !this.Bot.HasInHandOrHasInMonstersZone(CardId.Ghost))
+                {
+                    return false;
+                }
+
+                if (this.Enemy.HasInSpellZone(61740673, true) || this.Bot.HasInSpellZone(61740673,true))
+                {
+                    return false;
+                }
+
+                if (this.Enemy.HasInMonstersZone(37267041, true) || this.Bot.HasInMonstersZone(37267041, true))
+                {
+                    return false;
+                }
+
+                return true;
+            }
+            if (this.Card.IsTrap())
+            {
+                if (this.Enemy.HasInSpellZone(51452091, true) || this.Bot.HasInSpellZone(51452091, true))
+                {
+                    return false;
+                }
+
+                if (this.Enemy.HasInSpellZone(51452091, true) || this.Bot.HasInSpellZone(51452091, true))
+                {
+                    return false;
+                }
+
                 return true;
             }
             // how to get here?
@@ -299,7 +359,11 @@ namespace WindBot.Game.AI.Decks
             int atk = 0;
             foreach(ClientCard c in list)
             {
-                if (c == null) continue;
+                if (c == null)
+                {
+                    continue;
+                }
+
                 atk += c.Attack;
             }
             return atk;
@@ -308,31 +372,38 @@ namespace WindBot.Game.AI.Decks
         public bool Awaken_ss()
         {
             // judge whether can ss from exdeck
-            bool judge = (Bot.ExtraDeck.Count > 0);
-            if (Enemy.GetMonstersExtraZoneCount() > 1) judge = false; // exlink
-            if (Bot.GetMonstersExtraZoneCount() >= 1)
+            bool judge = (this.Bot.ExtraDeck.Count > 0);
+            if (this.Enemy.GetMonstersExtraZoneCount() > 1)
             {
-                foreach (ClientCard card in Bot.GetMonstersInExtraZone())
+                judge = false; // exlink
+            }
+
+            if (this.Bot.GetMonstersExtraZoneCount() >= 1)
+            {
+                foreach (ClientCard card in this.Bot.GetMonstersInExtraZone())
                 {
-                    if (getLinkMarker(card.Id) == 5) judge = false;
+                    if (this.getLinkMarker(card.Id) == 5)
+                    {
+                        judge = false;
+                    }
                 }
             }
             // can ss from exdeck
             if (judge)
             {
-                bool fornextss = Util.ChainContainsCard(CardId.Awaken);
-                IList<ClientCard> ex = Bot.ExtraDeck;
+                bool fornextss = this.Util.ChainContainsCard(CardId.Awaken);
+                IList<ClientCard> ex = this.Bot.ExtraDeck;
                 ClientCard ex_best = null;
                 foreach (ClientCard ex_card in ex)
                 {
                     if (!fornextss)
                     {
-                        if (Bot.HasInExtra(CardId.Exterio))
+                        if (this.Bot.HasInExtra(CardId.Exterio))
                         {
                             bool has_skystriker = false;
-                            foreach (ClientCard card in Enemy.Graveyard)
+                            foreach (ClientCard card in this.Enemy.Graveyard)
                             {
-                                if (card != null && card.IsCode(SkyStrike_list))
+                                if (card != null && card.IsCode(this.SkyStrike_list))
                                 {
                                     has_skystriker = true;
                                     break;
@@ -340,9 +411,9 @@ namespace WindBot.Game.AI.Decks
                             }
                             if (!has_skystriker)
                             {
-                                foreach (ClientCard card in Enemy.GetSpells())
+                                foreach (ClientCard card in this.Enemy.GetSpells())
                                 {
-                                    if (card != null && card.IsCode(SkyStrike_list))
+                                    if (card != null && card.IsCode(this.SkyStrike_list))
                                     {
                                         has_skystriker = true;
                                         break;
@@ -351,9 +422,9 @@ namespace WindBot.Game.AI.Decks
                             }
                             if (!has_skystriker)
                             {
-                                foreach (ClientCard card in Enemy.GetSpells())
+                                foreach (ClientCard card in this.Enemy.GetSpells())
                                 {
-                                    if (card != null && card.IsCode(SkyStrike_list))
+                                    if (card != null && card.IsCode(this.SkyStrike_list))
                                     {
                                         has_skystriker = true;
                                         break;
@@ -362,29 +433,38 @@ namespace WindBot.Game.AI.Decks
                             }
                             if (has_skystriker)
                             {
-                                AI.SelectCard(CardId.Exterio);
+                                this.AI.SelectCard(CardId.Exterio);
                                 return true;
                             } else
                             {
-                                if (ex_best == null || ex_card.Attack > ex_best.Attack) ex_best = ex_card;
+                                if (ex_best == null || ex_card.Attack > ex_best.Attack)
+                                {
+                                    ex_best = ex_card;
+                                }
                             }
                         }
                         else
                         {
-                            if (ex_best == null || ex_card.Attack > ex_best.Attack) ex_best = ex_card;
+                            if (ex_best == null || ex_card.Attack > ex_best.Attack)
+                            {
+                                ex_best = ex_card;
+                            }
                         }
                     } 
                     else
                     {
-                        if (getLinkMarker(ex_card.Id) != 5 && (ex_best == null || ex_card.Attack > ex_best.Attack)) ex_best = ex_card;
+                        if (this.getLinkMarker(ex_card.Id) != 5 && (ex_best == null || ex_card.Attack > ex_best.Attack))
+                        {
+                            ex_best = ex_card;
+                        }
                     }
                 }
                 if (ex_best != null)
                 {
-                    AI.SelectCard(ex_best);
+                    this.AI.SelectCard(ex_best);
                 }
             }
-            if (!judge || Util.ChainContainsCard(CardId.Awaken))
+            if (!judge || this.Util.ChainContainsCard(CardId.Awaken))
             {
                 // cannot ss from exdeck or have more than 1 grass in chain
                 int[] secondselect = new[]
@@ -400,22 +480,27 @@ namespace WindBot.Game.AI.Decks
                     CardId.Yellow,
                     CardId.Pink
                 };
-                if (!Util.ChainContainsCard(CardId.Awaken))
+                if (!this.Util.ChainContainsCard(CardId.Awaken))
                 {
-                    if (!judge && Bot.GetRemainingCount(CardId.Ghost, 2) > 0)
+                    if (!judge && this.Bot.GetRemainingCount(CardId.Ghost, 2) > 0)
                     {
-                        AI.SelectCard(CardId.Ghost);
-                        AI.SelectPosition(CardPosition.FaceUpDefence);
+                        this.AI.SelectCard(CardId.Ghost);
+                        this.AI.SelectPosition(CardPosition.FaceUpDefence);
                     }
                     else
-                        AI.SelectCard(secondselect);
+                    {
+                        this.AI.SelectCard(secondselect);
+                    }
                 }
                 else
                 {
                     if (!judge)
-                        AI.SelectCard(secondselect);
-                    AI.SelectNextCard(secondselect);
-                    AI.SelectThirdCard(secondselect);
+                    {
+                        this.AI.SelectCard(secondselect);
+                    }
+
+                    this.AI.SelectNextCard(secondselect);
+                    this.AI.SelectThirdCard(secondselect);
                 }
             }
             return true;
@@ -424,26 +509,29 @@ namespace WindBot.Game.AI.Decks
         public bool Abyss_eff()
         {
             // tuner ss
-            if (ActivateDescription == -1)
+            if (this.ActivateDescription == -1)
             {
-                AI.SelectCard(CardId.Ghost, CardId.TG, CardId.Tuner, CardId.Urara, CardId.BF);
+                this.AI.SelectCard(CardId.Ghost, CardId.TG, CardId.Tuner, CardId.Urara, CardId.BF);
                 return true;
             };
             // counter
-            if (!Enemy.HasInMonstersZone(CardId.Ghost) || Enemy.GetHandCount() <= 1)
+            if (!this.Enemy.HasInMonstersZone(CardId.Ghost) || this.Enemy.GetHandCount() <= 1)
             {
-                ClientCard tosolve = Util.GetProblematicEnemyCard();
+                ClientCard tosolve = this.Util.GetProblematicEnemyCard();
                 if (tosolve == null)
                 {
-                    if (Duel.LastChainPlayer == 1 && Util.GetLastChainCard() != null)
+                    if (this.Duel.LastChainPlayer == 1 && this.Util.GetLastChainCard() != null)
                     {
-                        ClientCard target = Util.GetLastChainCard();
-                        if (target.HasPosition(CardPosition.FaceUp) && (target.Location == CardLocation.MonsterZone || target.Location == CardLocation.SpellZone)) tosolve = target;
+                        ClientCard target = this.Util.GetLastChainCard();
+                        if (target.HasPosition(CardPosition.FaceUp) && (target.Location == CardLocation.MonsterZone || target.Location == CardLocation.SpellZone))
+                        {
+                            tosolve = target;
+                        }
                     }
                 }
                 if (tosolve != null)
                 {
-                    AI.SelectCard(tosolve);
+                    this.AI.SelectCard(tosolve);
                     return true;
                 }
             }
@@ -464,16 +552,24 @@ namespace WindBot.Game.AI.Decks
 
         public bool Stage_Lock()
         {
-            if (Card.Location != CardLocation.SpellZone) return false;
-            List<ClientCard> spells = Enemy.GetSpells();
-            RandomSort(spells);
-            if (spells.Count == 0) return false;
+            if (this.Card.Location != CardLocation.SpellZone)
+            {
+                return false;
+            }
+
+            List<ClientCard> spells = this.Enemy.GetSpells();
+            this.RandomSort(spells);
+            if (spells.Count == 0)
+            {
+                return false;
+            }
+
             foreach (ClientCard card in spells)
             {
                 if (card.IsFacedown())
                 {
-                    AI.SelectCard(card);
-                    stage_locked = card;
+                    this.AI.SelectCard(card);
+                    this.stage_locked = card;
                     return true;
                 }
             }
@@ -482,21 +578,32 @@ namespace WindBot.Game.AI.Decks
 
         public bool GalaxyCyclone()
         {
-            if (!Bot.HasInSpellZone(CardId.Stage)) stage_locked = null;
-            List<ClientCard> spells = Enemy.GetSpells();
-            if (spells.Count == 0)
-                return false;
-            ClientCard selected = null;
-            if (Card.Location == CardLocation.Grave)
+            if (!this.Bot.HasInSpellZone(CardId.Stage))
             {
-                selected = Util.GetBestEnemySpell(true);
+                this.stage_locked = null;
+            }
+
+            List<ClientCard> spells = this.Enemy.GetSpells();
+            if (spells.Count == 0)
+            {
+                return false;
+            }
+
+            ClientCard selected = null;
+            if (this.Card.Location == CardLocation.Grave)
+            {
+                selected = this.Util.GetBestEnemySpell(true);
             }
             else
             {
-                if (!spell_trap_activate()) return false;
+                if (!this.spell_trap_activate())
+                {
+                    return false;
+                }
+
                 foreach (ClientCard card in spells)
                 {
-                    if (card.IsFacedown() && card != stage_locked)
+                    if (card.IsFacedown() && card != this.stage_locked)
                     {
                         selected = card;
                         break;
@@ -504,131 +611,177 @@ namespace WindBot.Game.AI.Decks
                 }
             }
             if (selected == null)
+            {
                 return false;
-            AI.SelectCard(selected);
-            AI.SelectPlace(SelectSTPlace());
+            }
+
+            this.AI.SelectCard(selected);
+            this.AI.SelectPlace(this.SelectSTPlace());
             return true;
         }
 
         public bool BF_pos()
         {
-            AI.SelectPosition(CardPosition.FaceUpDefence);
+            this.AI.SelectPosition(CardPosition.FaceUpDefence);
             return true;
         }
 
         public bool Feather_Act()
         {
-            if (!spell_trap_activate()) return false;
-            if (Util.GetProblematicEnemySpell() != null)
+            if (!this.spell_trap_activate())
             {
-                List<ClientCard> grave = Bot.GetGraveyardSpells();
+                return false;
+            }
+
+            if (this.Util.GetProblematicEnemySpell() != null)
+            {
+                List<ClientCard> grave = this.Bot.GetGraveyardSpells();
                 foreach (ClientCard self_card in grave)
                 {
                     if (self_card.IsCode(CardId.Galaxy))
+                    {
                         return false;
+                    }
                 }
-                AI.SelectPlace(SelectSTPlace());
+                this.AI.SelectPlace(this.SelectSTPlace());
                 return true;
             }
             // activate when more than 2 cards
-            if (Enemy.GetSpellCount() <= 1)
+            if (this.Enemy.GetSpellCount() <= 1)
+            {
                 return false;
-            AI.SelectPlace(SelectSTPlace());
+            }
+
+            this.AI.SelectPlace(this.SelectSTPlace());
             return true;
         }
 
         public bool Sheep_Act()
         {
-            if (!spell_trap_activate()) return false;
-            if (Duel.Player == 0) return false;
-            if (Duel.Phase == DuelPhase.End) return true;
-            if (Duel.LastChainPlayer == 1 && (Util.IsChainTarget(Card) || (Util.GetLastChainCard().IsCode(CardId.Feather) && !Bot.HasInSpellZone(CardId.Awaken)))) return true;
-            if (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2)
+            if (!this.spell_trap_activate())
+            {
+                return false;
+            }
+
+            if (this.Duel.Player == 0)
+            {
+                return false;
+            }
+
+            if (this.Duel.Phase == DuelPhase.End)
+            {
+                return true;
+            }
+
+            if (this.Duel.LastChainPlayer == 1 && (this.Util.IsChainTarget(this.Card) || (this.Util.GetLastChainCard().IsCode(CardId.Feather) && !this.Bot.HasInSpellZone(CardId.Awaken))))
+            {
+                return true;
+            }
+
+            if (this.Duel.Phase > DuelPhase.Main1 && this.Duel.Phase < DuelPhase.Main2)
             {
                 int total_atk = 0;
-                List<ClientCard> enemy_monster = Enemy.GetMonsters();
+                List<ClientCard> enemy_monster = this.Enemy.GetMonsters();
                 foreach (ClientCard m in enemy_monster)
                 {
-                    if (m.IsAttack() && !m.Attacked) total_atk += m.Attack;
+                    if (m.IsAttack() && !m.Attacked)
+                    {
+                        total_atk += m.Attack;
+                    }
                 }
-                if (total_atk >= Bot.LifePoints) return true;
+                if (total_atk >= this.Bot.LifePoints)
+                {
+                    return true;
+                }
             }
             return false;
         }
 
         public bool Stage_act()
         {
-            if (Card.Location == CardLocation.SpellZone && Card.HasPosition(CardPosition.FaceUp)) return false;
-            if (!spell_trap_activate()) return false;
-            if (!NormalSummoned)
+            if (this.Card.Location == CardLocation.SpellZone && this.Card.HasPosition(CardPosition.FaceUp))
             {
-                if (!Bot.HasInHand(CardId.Yellow))
+                return false;
+            }
+
+            if (!this.spell_trap_activate())
+            {
+                return false;
+            }
+
+            if (!this.NormalSummoned)
+            {
+                if (!this.Bot.HasInHand(CardId.Yellow))
                 {
-                    AI.SelectCard(CardId.Yellow, CardId.Pink, CardId.Red, CardId.White);
-                    stage_locked = null;
+                    this.AI.SelectCard(CardId.Yellow, CardId.Pink, CardId.Red, CardId.White);
+                    this.stage_locked = null;
                     return true;
                 }
-                else if (Enemy.LifePoints <= 1000 && Bot.GetRemainingCount(CardId.Pink,1) > 0)
+                else if (this.Enemy.LifePoints <= 1000 && this.Bot.GetRemainingCount(CardId.Pink,1) > 0)
                 {
-                    AI.SelectCard(CardId.Pink, CardId.Yellow, CardId.Red, CardId.White);
-                    stage_locked = null;
+                    this.AI.SelectCard(CardId.Pink, CardId.Yellow, CardId.Red, CardId.White);
+                    this.stage_locked = null;
                     return true;
                 }
-                else if (Bot.HasInHand(CardId.Yellow) && ! Bot.HasInHand(CardId.Red))
+                else if (this.Bot.HasInHand(CardId.Yellow) && !this.Bot.HasInHand(CardId.Red))
                 {
-                    AI.SelectCard(CardId.Red, CardId.Pink, CardId.Yellow, CardId.White);
-                    stage_locked = null;
+                    this.AI.SelectCard(CardId.Red, CardId.Pink, CardId.Yellow, CardId.White);
+                    this.stage_locked = null;
                     return true;
                 }
-                else if (Enemy.GetMonsterCount() > 0 && Util.GetBestEnemyMonster().Attack >= Util.GetBestAttack(Bot))
+                else if (this.Enemy.GetMonsterCount() > 0 && this.Util.GetBestEnemyMonster().Attack >= this.Util.GetBestAttack(this.Bot))
                 {
-                    AI.SelectCard(CardId.White, CardId.Yellow, CardId.Pink, CardId.Red);
-                    stage_locked = null;
+                    this.AI.SelectCard(CardId.White, CardId.Yellow, CardId.Pink, CardId.Red);
+                    this.stage_locked = null;
                     return true;
                 }
-                else if (!Bot.HasInSpellZone(CardId.Stage))
+                else if (!this.Bot.HasInSpellZone(CardId.Stage))
                 {
-                    AI.SelectCard(CardId.Yellow, CardId.Pink, CardId.Red, CardId.White);
-                    stage_locked = null;
+                    this.AI.SelectCard(CardId.Yellow, CardId.Pink, CardId.Red, CardId.White);
+                    this.stage_locked = null;
                     return true;
                 }
                 return false;
             }
 
-            if (NormalSummoned)
+            if (this.NormalSummoned)
             {
-                if (Enemy.LifePoints <= 1000 && !pink_ss && Bot.GetRemainingCount(CardId.Pink,1) > 0)
+                if (this.Enemy.LifePoints <= 1000 && !this.pink_ss && this.Bot.GetRemainingCount(CardId.Pink,1) > 0)
                 {
-                    AI.SelectCard(CardId.Pink, CardId.Yellow, CardId.Red, CardId.White);
-                    stage_locked = null;
+                    this.AI.SelectCard(CardId.Pink, CardId.Yellow, CardId.Red, CardId.White);
+                    this.stage_locked = null;
                     return true;
                 }
-                if (Enemy.GetMonsterCount() > 0 && Util.GetBestEnemyMonster().Attack >= Util.GetBestAttack(Bot) && !Bot.HasInHand(CardId.White))
+                if (this.Enemy.GetMonsterCount() > 0 && this.Util.GetBestEnemyMonster().Attack >= this.Util.GetBestAttack(this.Bot) && !this.Bot.HasInHand(CardId.White))
                 {
-                    AI.SelectCard(CardId.White, CardId.Yellow, CardId.Pink, CardId.Red);
-                    stage_locked = null;
+                    this.AI.SelectCard(CardId.White, CardId.Yellow, CardId.Pink, CardId.Red);
+                    this.stage_locked = null;
                     return true;
                 }
-                if (Bot.HasInMonstersZone(CardId.Yellow) && !Bot.HasInHand(CardId.Red))
+                if (this.Bot.HasInMonstersZone(CardId.Yellow) && !this.Bot.HasInHand(CardId.Red))
                 {
-                    AI.SelectCard(CardId.Red, CardId.Pink, CardId.Yellow, CardId.White);
-                    stage_locked = null;
+                    this.AI.SelectCard(CardId.Red, CardId.Pink, CardId.Yellow, CardId.White);
+                    this.stage_locked = null;
                     return true;
                 }
-                AI.SelectCard(CardId.Yellow, CardId.Pink, CardId.Red, CardId.White);
-                stage_locked = null;
+                this.AI.SelectCard(CardId.Yellow, CardId.Pink, CardId.Red, CardId.White);
+                this.stage_locked = null;
                 return true;
             }
-            stage_locked = null;
+            this.stage_locked = null;
             return false;
         }
 
         public bool Pot_Act()
         {
-            if (!spell_trap_activate()) return false;
-            if (Bot.Deck.Count > 15)
+            if (!this.spell_trap_activate())
             {
-                AI.SelectPlace(SelectSTPlace());
+                return false;
+            }
+
+            if (this.Bot.Deck.Count > 15)
+            {
+                this.AI.SelectPlace(this.SelectSTPlace());
                 return true;
             }
             return false;
@@ -636,19 +789,34 @@ namespace WindBot.Game.AI.Decks
 
         public bool Hand_act_eff()
         {
-            if (GraveCall_count > 0 && GraveCall_id == Card.Id) return false;
-            if (Card.IsCode(CardId.Urara) && Util.GetLastChainCard().HasSetcode(0x11e) && Util.GetLastChainCard().Location == CardLocation.Hand) // Danger! archtype hand effect
+            if (this.GraveCall_count > 0 && this.GraveCall_id == this.Card.Id)
+            {
                 return false;
-            if (Card.IsCode(CardId.Urara) && Bot.HasInHand(CardId.LockBird) && Bot.HasInSpellZone(CardId.Re)) return false;
-            if (Card.IsCode(CardId.Ghost) && Card.Location == CardLocation.Hand && Bot.HasInMonstersZone(CardId.Ghost)) return false;
-            return (Duel.LastChainPlayer == 1);
+            }
+
+            if (this.Card.IsCode(CardId.Urara) && this.Util.GetLastChainCard().HasSetcode(0x11e) && this.Util.GetLastChainCard().Location == CardLocation.Hand) // Danger! archtype hand effect
+            {
+                return false;
+            }
+
+            if (this.Card.IsCode(CardId.Urara) && this.Bot.HasInHand(CardId.LockBird) && this.Bot.HasInSpellZone(CardId.Re))
+            {
+                return false;
+            }
+
+            if (this.Card.IsCode(CardId.Ghost) && this.Card.Location == CardLocation.Hand && this.Bot.HasInMonstersZone(CardId.Ghost))
+            {
+                return false;
+            }
+
+            return (this.Duel.LastChainPlayer == 1);
         }
 
         public bool Exterio_counter()
         {
-            if (Duel.LastChainPlayer == 1)
+            if (this.Duel.LastChainPlayer == 1)
             {
-                AI.SelectCard(Useless_List());
+                this.AI.SelectCard(this.Useless_List());
                 return true;
             }
             return false;
@@ -656,34 +824,38 @@ namespace WindBot.Game.AI.Decks
 
         public bool G_act()
         {
-            return (Duel.Player == 1 && !(GraveCall_count > 0 && GraveCall_id == Card.Id));
+            return (this.Duel.Player == 1 && !(this.GraveCall_count > 0 && this.GraveCall_id == this.Card.Id));
         }
 
         public bool Pink_eff()
         {
-            if (Card.Location == CardLocation.Hand)
+            if (this.Card.Location == CardLocation.Hand)
             {
-                if ((Enemy.LifePoints <= 1000 && Bot.HasInSpellZone(CardId.Stage))
-                || Enemy.LifePoints <= 800
-                || (!NormalSummoned && Bot.HasInGraveyard(CardId.Red))
+                if ((this.Enemy.LifePoints <= 1000 && this.Bot.HasInSpellZone(CardId.Stage))
+                || this.Enemy.LifePoints <= 800
+                || (!this.NormalSummoned && this.Bot.HasInGraveyard(CardId.Red))
                 )
                 {
-                    pink_ss = true;
+                    this.pink_ss = true;
                     return true;
                 }
-                else if (Enemy.GetMonsterCount() > 0 && (Util.GetBestEnemyMonster().Attack - 800 >= Bot.LifePoints)) return false;
-                pink_ss = true;
+                else if (this.Enemy.GetMonsterCount() > 0 && (this.Util.GetBestEnemyMonster().Attack - 800 >= this.Bot.LifePoints))
+                {
+                    return false;
+                }
+
+                this.pink_ss = true;
                 return true;
             }
-            else if (Card.Location == CardLocation.Onfield)
+            else if (this.Card.Location == CardLocation.Onfield)
             {
-                if (!NormalSummoned && Bot.HasInGraveyard(CardId.Yellow))
+                if (!this.NormalSummoned && this.Bot.HasInGraveyard(CardId.Yellow))
                 {
-                    AI.SelectCard(CardId.Yellow, CardId.Red, CardId.White);
+                    this.AI.SelectCard(CardId.Yellow, CardId.Red, CardId.White);
                     return true;
                 } else
                 {
-                    AI.SelectCard(CardId.Red, CardId.Yellow, CardId.White);
+                    this.AI.SelectCard(CardId.Red, CardId.Yellow, CardId.White);
                     return true;
                 }
             }
@@ -692,35 +864,47 @@ namespace WindBot.Game.AI.Decks
 
         public bool Eater_ss()
         {
-            if (Util.GetProblematicEnemyMonster() == null && Bot.ExtraDeck.Count < 5) return false;
-            if (Bot.GetMonstersInMainZone().Count >= 5) return false;
-            if (Util.IsTurn1OrMain2()) return false;
-            AI.SelectPosition(CardPosition.FaceUpAttack);
+            if (this.Util.GetProblematicEnemyMonster() == null && this.Bot.ExtraDeck.Count < 5)
+            {
+                return false;
+            }
+
+            if (this.Bot.GetMonstersInMainZone().Count >= 5)
+            {
+                return false;
+            }
+
+            if (this.Util.IsTurn1OrMain2())
+            {
+                return false;
+            }
+
+            this.AI.SelectPosition(CardPosition.FaceUpAttack);
             IList<ClientCard> targets = new List<ClientCard>();
-            if (Bot.SpellZone[5] != null && !Bot.SpellZone[5].IsCode(CardId.Stage))
+            if (this.Bot.SpellZone[5] != null && !this.Bot.SpellZone[5].IsCode(CardId.Stage))
             {
-                targets.Add(Bot.SpellZone[5]);
+                targets.Add(this.Bot.SpellZone[5]);
             }
-            if (Bot.SpellZone[5] != null && Bot.SpellZone[5].IsCode(CardId.Stage) && Bot.HasInHand(CardId.Stage))
+            if (this.Bot.SpellZone[5] != null && this.Bot.SpellZone[5].IsCode(CardId.Stage) && this.Bot.HasInHand(CardId.Stage))
             {
-                targets.Add(Bot.SpellZone[5]);
+                targets.Add(this.Bot.SpellZone[5]);
             }
-            foreach (ClientCard e_c in Bot.ExtraDeck)
+            foreach (ClientCard e_c in this.Bot.ExtraDeck)
             {
                 targets.Add(e_c);
                 if (targets.Count >= 5)
                 {
-                    AI.SelectCard(targets);
+                    this.AI.SelectCard(targets);
                     return true;
                 }
             }
             Logger.DebugWriteLine("*** Eater use up the extra deck.");
-            foreach (ClientCard s_c in Bot.GetSpells())
+            foreach (ClientCard s_c in this.Bot.GetSpells())
             {
                 targets.Add(s_c);
                 if (targets.Count >= 5)
                 {
-                    AI.SelectCard(targets);
+                    this.AI.SelectCard(targets);
                     return true;
                 }
             }
@@ -729,102 +913,158 @@ namespace WindBot.Game.AI.Decks
 
         public bool Eater_eff()
         {
-            if (Enemy.BattlingMonster.HasPosition(CardPosition.Attack) && (Bot.BattlingMonster.Attack - Enemy.BattlingMonster.GetDefensePower() >= Enemy.LifePoints)) return false;
+            if (this.Enemy.BattlingMonster.HasPosition(CardPosition.Attack) && (this.Bot.BattlingMonster.Attack - this.Enemy.BattlingMonster.GetDefensePower() >= this.Enemy.LifePoints))
+            {
+                return false;
+            }
+
             return true;
         }
 
         public void Red_SelectPos(ClientCard return_card = null)
         {
-            int self_power = (Bot.HasInHand(CardId.White) && !white_eff_used) ? 3200 : 1600;
-            if (Duel.Player == 0)
+            int self_power = (this.Bot.HasInHand(CardId.White) && !this.white_eff_used) ? 3200 : 1600;
+            if (this.Duel.Player == 0)
             {
-                List<ClientCard> monster_list = Bot.GetMonsters();
+                List<ClientCard> monster_list = this.Bot.GetMonsters();
                 monster_list.Sort(CardContainer.CompareCardAttack);
                 monster_list.Reverse();
                 foreach(ClientCard card in monster_list)
                 {
-                    if (IsTrickstar(card.Id) && card != return_card && card.HasPosition(CardPosition.Attack))
+                    if (this.IsTrickstar(card.Id) && card != return_card && card.HasPosition(CardPosition.Attack))
                     {
-                        int this_power = (Bot.HasInHand(CardId.White) && !white_eff_used) ? (card.RealPower + card.Attack) : card.RealPower;
-                        if (this_power >= self_power) self_power = this_power;
-                    } else if (card.RealPower >= self_power) self_power = card.RealPower;
+                        int this_power = (this.Bot.HasInHand(CardId.White) && !this.white_eff_used) ? (card.RealPower + card.Attack) : card.RealPower;
+                        if (this_power >= self_power)
+                        {
+                            self_power = this_power;
+                        }
+                    } else if (card.RealPower >= self_power)
+                    {
+                        self_power = card.RealPower;
+                    }
                 }
             }
-            ClientCard bestenemy = Util.GetOneEnemyBetterThanValue(self_power, true);
-            if (bestenemy != null) AI.SelectPosition(CardPosition.FaceUpDefence);
-            else AI.SelectPosition(CardPosition.FaceUpAttack);
+            ClientCard bestenemy = this.Util.GetOneEnemyBetterThanValue(self_power, true);
+            if (bestenemy != null)
+            {
+                this.AI.SelectPosition(CardPosition.FaceUpDefence);
+            }
+            else
+            {
+                this.AI.SelectPosition(CardPosition.FaceUpAttack);
+            }
+
             return;
         }
 
         public bool Red_ss()
         {
-            if (red_ss_count >= 6) return false;
-            if ((Util.ChainContainsCard(CardId.DarkHole) || Util.ChainContainsCard(99330325) || Util.ChainContainsCard(53582587)) && Util.ChainContainsCard(CardId.Red)) return false;
-            if (Duel.LastChainPlayer == 0 && Util.GetLastChainCard().IsCode(CardId.Red))
+            if (this.red_ss_count >= 6)
             {
-                foreach (ClientCard m in Bot.GetMonsters())
+                return false;
+            }
+
+            if ((this.Util.ChainContainsCard(CardId.DarkHole) || this.Util.ChainContainsCard(99330325) || this.Util.ChainContainsCard(53582587)) && this.Util.ChainContainsCard(CardId.Red))
+            {
+                return false;
+            }
+
+            if (this.Duel.LastChainPlayer == 0 && this.Util.GetLastChainCard().IsCode(CardId.Red))
+            {
+                foreach (ClientCard m in this.Bot.GetMonsters())
                 {
-                    if (Util.IsChainTarget(m) && IsTrickstar(m.Id))
+                    if (this.Util.IsChainTarget(m) && this.IsTrickstar(m.Id))
                     {
-                        red_ss_count += 1;
-                        AI.SelectCard(m);
-                        Red_SelectPos();
+                        this.red_ss_count += 1;
+                        this.AI.SelectCard(m);
+                        this.Red_SelectPos();
                         return true;
                     }
                 }
             }
-            if (Duel.LastChainPlayer == 1) return true;
-            if (Duel.Player == 0)
+            if (this.Duel.LastChainPlayer == 1)
             {
-                if (Util.IsTurn1OrMain2()) return false;
-                if (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2)
+                return true;
+            }
+
+            if (this.Duel.Player == 0)
+            {
+                if (this.Util.IsTurn1OrMain2())
                 {
-                    List<ClientCard> self_m = Bot.GetMonsters();
-                    ClientCard tosolve_enemy = Util.GetOneEnemyBetterThanMyBest();
+                    return false;
+                }
+
+                if (this.Duel.Phase > DuelPhase.Main1 && this.Duel.Phase < DuelPhase.Main2)
+                {
+                    List<ClientCard> self_m = this.Bot.GetMonsters();
+                    ClientCard tosolve_enemy = this.Util.GetOneEnemyBetterThanMyBest();
                     foreach (ClientCard c in self_m)
                     {
-                        if (IsTrickstar(c.Id) && !c.IsCode(CardId.Red))
+                        if (this.IsTrickstar(c.Id) && !c.IsCode(CardId.Red))
                         {
                             if (c.Attacked)
                             {
-                                AI.SelectCard(c);
-                                Red_SelectPos(c);
-                                red_ss_count += 1;
+                                this.AI.SelectCard(c);
+                                this.Red_SelectPos(c);
+                                this.red_ss_count += 1;
                                 return true;
                             }
-                            if (c.IsCode(CardId.Pink)) return false;
+                            if (c.IsCode(CardId.Pink))
+                            {
+                                return false;
+                            }
+
                             if (tosolve_enemy != null)
                             {
-                                if (Bot.HasInHand(CardId.White) && c.Attack + c.BaseAttack < tosolve_enemy.Attack)
+                                if (this.Bot.HasInHand(CardId.White) && c.Attack + c.BaseAttack < tosolve_enemy.Attack)
                                 {
-                                    if (tosolve_enemy.Attack > 3200) AI.SelectPosition(CardPosition.FaceUpDefence);
-                                    AI.SelectCard(c);
-                                    Red_SelectPos(c);
-                                    red_ss_count += 1;
+                                    if (tosolve_enemy.Attack > 3200)
+                                    {
+                                        this.AI.SelectPosition(CardPosition.FaceUpDefence);
+                                    }
+
+                                    this.AI.SelectCard(c);
+                                    this.Red_SelectPos(c);
+                                    this.red_ss_count += 1;
                                     return true;
                                 }
-                                if (!Bot.HasInHand(CardId.White) && tosolve_enemy.Attack <= 3200 && c.IsCode(CardId.White))
+                                if (!this.Bot.HasInHand(CardId.White) && tosolve_enemy.Attack <= 3200 && c.IsCode(CardId.White))
                                 {
-                                    AI.SelectCard(c);
-                                    Red_SelectPos(c);
-                                    red_ss_count += 1;
+                                    this.AI.SelectCard(c);
+                                    this.Red_SelectPos(c);
+                                    this.red_ss_count += 1;
                                     return true;
                                 }
-                                if (!Bot.HasInHand(CardId.White) && c.Attack < tosolve_enemy.Attack)
+                                if (!this.Bot.HasInHand(CardId.White) && c.Attack < tosolve_enemy.Attack)
                                 {
                                     if (!c.Attacked)
                                     {
-                                        ClientCard badatk = Enemy.GetMonsters().GetLowestAttackMonster();
-                                        ClientCard baddef = Enemy.GetMonsters().GetLowestDefenseMonster();
+                                        ClientCard badatk = this.Enemy.GetMonsters().GetLowestAttackMonster();
+                                        ClientCard baddef = this.Enemy.GetMonsters().GetLowestDefenseMonster();
                                         int enemy_power = 99999;
-                                        if (badatk != null && badatk.Attack <= enemy_power) enemy_power = badatk.Attack;
-                                        if (baddef != null && baddef.Defense <= enemy_power) enemy_power = baddef.Defense;
-                                        if (c.Attack > enemy_power) return false;
+                                        if (badatk != null && badatk.Attack <= enemy_power)
+                                        {
+                                            enemy_power = badatk.Attack;
+                                        }
+
+                                        if (baddef != null && baddef.Defense <= enemy_power)
+                                        {
+                                            enemy_power = baddef.Defense;
+                                        }
+
+                                        if (c.Attack > enemy_power)
+                                        {
+                                            return false;
+                                        }
                                     }
-                                    if (tosolve_enemy.Attack > 1600) AI.SelectPosition(CardPosition.FaceUpDefence);
-                                    AI.SelectCard(c);
-                                    Red_SelectPos(c);
-                                    red_ss_count += 1;
+                                    if (tosolve_enemy.Attack > 1600)
+                                    {
+                                        this.AI.SelectPosition(CardPosition.FaceUpDefence);
+                                    }
+
+                                    this.AI.SelectCard(c);
+                                    this.Red_SelectPos(c);
+                                    this.red_ss_count += 1;
                                     return true;
                                 }
                             }
@@ -833,19 +1073,19 @@ namespace WindBot.Game.AI.Decks
                 }
             } else
             {
-                if (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2)
+                if (this.Duel.Phase > DuelPhase.Main1 && this.Duel.Phase < DuelPhase.Main2)
                 {
-                    if (Util.GetOneEnemyBetterThanMyBest() != null)
+                    if (this.Util.GetOneEnemyBetterThanMyBest() != null)
                     {
-                        List<ClientCard> self_monster = Bot.GetMonsters();
+                        List<ClientCard> self_monster = this.Bot.GetMonsters();
                         self_monster.Sort(CardContainer.CompareDefensePower);
                         foreach(ClientCard card in self_monster)
                         {
-                            if (IsTrickstar(card.Id) && !card.IsCode(CardId.Red))
+                            if (this.IsTrickstar(card.Id) && !card.IsCode(CardId.Red))
                             {
-                                AI.SelectCard(card);
-                                Red_SelectPos(card);
-                                red_ss_count += 1;
+                                this.AI.SelectCard(card);
+                                this.Red_SelectPos(card);
+                                this.red_ss_count += 1;
                                 return true;
                             }
                         }
@@ -857,107 +1097,118 @@ namespace WindBot.Game.AI.Decks
 
         public bool Yellow_eff()
         {
-            if (!Bot.HasInHand(CardId.Stage) && !Bot.HasInSpellZone(CardId.Stage) && Bot.GetRemainingCount(CardId.Stage, 3) > 0)
+            if (!this.Bot.HasInHand(CardId.Stage) && !this.Bot.HasInSpellZone(CardId.Stage) && this.Bot.GetRemainingCount(CardId.Stage, 3) > 0)
             {
-                AI.SelectCard(CardId.Stage, CardId.Red, CardId.White, CardId.Pink, CardId.Re, CardId.Crown, CardId.Yellow);
+                this.AI.SelectCard(CardId.Stage, CardId.Red, CardId.White, CardId.Pink, CardId.Re, CardId.Crown, CardId.Yellow);
                 return true;
             }
-            if (Enemy.LifePoints <= 1000)
+            if (this.Enemy.LifePoints <= 1000)
             {
-                if (Bot.GetRemainingCount(CardId.Pink, 1) > 0 && !pink_ss)
+                if (this.Bot.GetRemainingCount(CardId.Pink, 1) > 0 && !this.pink_ss)
                 {
-                    AI.SelectCard(CardId.Pink, CardId.Stage, CardId.Red, CardId.White, CardId.Re, CardId.Crown, CardId.Yellow);
+                    this.AI.SelectCard(CardId.Pink, CardId.Stage, CardId.Red, CardId.White, CardId.Re, CardId.Crown, CardId.Yellow);
                     return true;
                 }
-                else if (Bot.HasInGraveyard(CardId.Pink) && Bot.GetRemainingCount(CardId.Crown, 1) > 0)
+                else if (this.Bot.HasInGraveyard(CardId.Pink) && this.Bot.GetRemainingCount(CardId.Crown, 1) > 0)
                 {
-                    AI.SelectCard(CardId.Crown, CardId.Pink, CardId.Re, CardId.Stage, CardId.Red, CardId.White, CardId.Yellow);
+                    this.AI.SelectCard(CardId.Crown, CardId.Pink, CardId.Re, CardId.Stage, CardId.Red, CardId.White, CardId.Yellow);
                     return true;
                 }
             }
-            if (Enemy.GetMonsterCount() == 0 && !Util.IsTurn1OrMain2())
+            if (this.Enemy.GetMonsterCount() == 0 && !this.Util.IsTurn1OrMain2())
             {
-                if (Bot.HasInGraveyard(CardId.Red) && Bot.GetRemainingCount(CardId.Pink, 1) > 0 && !pink_ss)
+                if (this.Bot.HasInGraveyard(CardId.Red) && this.Bot.GetRemainingCount(CardId.Pink, 1) > 0 && !this.pink_ss)
                 {
-                    AI.SelectCard(CardId.Pink, CardId.Red, CardId.White, CardId.Re, CardId.Stage, CardId.Crown, CardId.Yellow);
+                    this.AI.SelectCard(CardId.Pink, CardId.Red, CardId.White, CardId.Re, CardId.Stage, CardId.Crown, CardId.Yellow);
                 }
-                else if (Bot.HasInGraveyard(CardId.Pink) && Bot.HasInGraveyard(CardId.Red) && Bot.GetRemainingCount(CardId.Ring, 1) > 0)
+                else if (this.Bot.HasInGraveyard(CardId.Pink) && this.Bot.HasInGraveyard(CardId.Red) && this.Bot.GetRemainingCount(CardId.Ring, 1) > 0)
                 {
-                    AI.SelectCard(CardId.Crown, CardId.Red, CardId.White, CardId.Re, CardId.Stage, CardId.Pink, CardId.Yellow);
+                    this.AI.SelectCard(CardId.Crown, CardId.Red, CardId.White, CardId.Re, CardId.Stage, CardId.Pink, CardId.Yellow);
                 }
-                else if (Bot.GetRemainingCount(CardId.White, 2) > 0 && Enemy.LifePoints <= 4000)
+                else if (this.Bot.GetRemainingCount(CardId.White, 2) > 0 && this.Enemy.LifePoints <= 4000)
                 {
-                    AI.SelectCard(CardId.White, CardId.Red, CardId.Pink, CardId.Re, CardId.Stage, CardId.Crown, CardId.Yellow);
+                    this.AI.SelectCard(CardId.White, CardId.Red, CardId.Pink, CardId.Re, CardId.Stage, CardId.Crown, CardId.Yellow);
                 }
-                else if (Bot.HasInGraveyard(CardId.White) && Bot.GetRemainingCount(CardId.Crown, 1) > 0)
+                else if (this.Bot.HasInGraveyard(CardId.White) && this.Bot.GetRemainingCount(CardId.Crown, 1) > 0)
                 {
-                    AI.SelectCard(CardId.Crown, CardId.Red, CardId.Pink, CardId.Re, CardId.Stage, CardId.White, CardId.Yellow);
+                    this.AI.SelectCard(CardId.Crown, CardId.Red, CardId.Pink, CardId.Re, CardId.Stage, CardId.White, CardId.Yellow);
                 }
                 else
                 {
-                    AI.SelectCard(CardId.Red, CardId.Pink, CardId.Re, CardId.Crown, CardId.Stage, CardId.White, CardId.Yellow);
+                    this.AI.SelectCard(CardId.Red, CardId.Pink, CardId.Re, CardId.Crown, CardId.Stage, CardId.White, CardId.Yellow);
                 }
                 return true;
             }
-            if (Util.GetProblematicEnemyMonster() != null)
+            if (this.Util.GetProblematicEnemyMonster() != null)
             {
-                int power = Util.GetProblematicEnemyMonster().GetDefensePower();
-                if (power >= 1800 && power <= 3600 && Bot.GetRemainingCount(CardId.White, 2) > 0 && !Bot.HasInHand(CardId.White))
+                int power = this.Util.GetProblematicEnemyMonster().GetDefensePower();
+                if (power >= 1800 && power <= 3600 && this.Bot.GetRemainingCount(CardId.White, 2) > 0 && !this.Bot.HasInHand(CardId.White))
                 {
-                    AI.SelectCard(CardId.White, CardId.Red, CardId.Pink, CardId.Re, CardId.Stage, CardId.Crown, CardId.Yellow);
+                    this.AI.SelectCard(CardId.White, CardId.Red, CardId.Pink, CardId.Re, CardId.Stage, CardId.Crown, CardId.Yellow);
                 }
                 else
                 {
-                    AI.SelectCard(CardId.Red, CardId.Pink, CardId.Re, CardId.Crown, CardId.Stage, CardId.White, CardId.Yellow);
+                    this.AI.SelectCard(CardId.Red, CardId.Pink, CardId.Re, CardId.Crown, CardId.Stage, CardId.White, CardId.Yellow);
                 }
                 return true;
             }
-            if ((Bot.HasInHand(CardId.Red) || Bot.HasInHand(CardId.Stage) || Bot.HasInHand(CardId.Yellow)) && Bot.GetRemainingCount(CardId.Re,1) > 0) {
-                AI.SelectCard(CardId.Re, CardId.Red, CardId.White, CardId.Crown, CardId.Pink, CardId.Stage, CardId.Yellow);
+            if ((this.Bot.HasInHand(CardId.Red) || this.Bot.HasInHand(CardId.Stage) || this.Bot.HasInHand(CardId.Yellow)) && this.Bot.GetRemainingCount(CardId.Re,1) > 0) {
+                this.AI.SelectCard(CardId.Re, CardId.Red, CardId.White, CardId.Crown, CardId.Pink, CardId.Stage, CardId.Yellow);
                 return true;
             }
-            AI.SelectCard(CardId.Red, CardId.Pink, CardId.Re, CardId.Crown, CardId.Stage, CardId.White, CardId.Yellow);
+            this.AI.SelectCard(CardId.Red, CardId.Pink, CardId.Re, CardId.Crown, CardId.Stage, CardId.White, CardId.Yellow);
             return true;
         }
 
         public bool White_eff()
         {
-            if (Duel.Phase >= DuelPhase.Main2) return false;
-            if (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2)
+            if (this.Duel.Phase >= DuelPhase.Main2)
             {
-                if (Bot.BattlingMonster == null || Enemy.BattlingMonster == null || !IsTrickstar(Bot.BattlingMonster.Id) || Bot.BattlingMonster.HasPosition(CardPosition.Defence)) return false;
-                if (Bot.BattlingMonster.Attack <= Enemy.BattlingMonster.RealPower && Bot.BattlingMonster.Attack + Bot.BattlingMonster.BaseAttack >= Enemy.BattlingMonster.RealPower)
+                return false;
+            }
+
+            if (this.Duel.Phase > DuelPhase.Main1 && this.Duel.Phase < DuelPhase.Main2)
+            {
+                if (this.Bot.BattlingMonster == null || this.Enemy.BattlingMonster == null || !this.IsTrickstar(this.Bot.BattlingMonster.Id) || this.Bot.BattlingMonster.HasPosition(CardPosition.Defence))
                 {
-                    white_eff_used = true;
+                    return false;
+                }
+
+                if (this.Bot.BattlingMonster.Attack <= this.Enemy.BattlingMonster.RealPower && this.Bot.BattlingMonster.Attack + this.Bot.BattlingMonster.BaseAttack >= this.Enemy.BattlingMonster.RealPower)
+                {
+                    this.white_eff_used = true;
                     return true;
                 }
                 return false; 
             } else
             {
-                if (Enemy.GetMonsterCount() == 0 && !Util.IsTurn1OrMain2()) {
-                    white_eff_used = true;
+                if (this.Enemy.GetMonsterCount() == 0 && !this.Util.IsTurn1OrMain2()) {
+                    this.white_eff_used = true;
                     return true;
                 }
-                else if (Enemy.GetMonsterCount() != 0)
+                else if (this.Enemy.GetMonsterCount() != 0)
                 {
-                    ClientCard tosolve = Util.GetBestEnemyMonster(true);
-                    ClientCard self_card = Bot.GetMonsters().GetHighestAttackMonster();
-                    if (tosolve == null || self_card == null || (tosolve != null && self_card != null && !IsTrickstar(self_card.Id)))
+                    ClientCard tosolve = this.Util.GetBestEnemyMonster(true);
+                    ClientCard self_card = this.Bot.GetMonsters().GetHighestAttackMonster();
+                    if (tosolve == null || self_card == null || (tosolve != null && self_card != null && !this.IsTrickstar(self_card.Id)))
                     {
-                        if (Enemy.GetMonsters().GetHighestAttackMonster()== null ||
-                            Enemy.GetMonsters().GetHighestDefenseMonster() == null ||
-                            Enemy.GetMonsters().GetHighestAttackMonster().GetDefensePower() < 2000 ||
-                            Enemy.GetMonsters().GetHighestDefenseMonster().GetDefensePower() < 2000)
+                        if (this.Enemy.GetMonsters().GetHighestAttackMonster()== null ||
+                            this.Enemy.GetMonsters().GetHighestDefenseMonster() == null ||
+                            this.Enemy.GetMonsters().GetHighestAttackMonster().GetDefensePower() < 2000 ||
+                            this.Enemy.GetMonsters().GetHighestDefenseMonster().GetDefensePower() < 2000)
                         {
-                            white_eff_used = true;
+                            this.white_eff_used = true;
                             return true;
                         }
-                        else return false;
+                        else
+                        {
+                            return false;
+                        }
                     }
-                    if (tosolve != null && self_card != null && IsTrickstar(self_card.Id) && !tosolve.IsMonsterHasPreventActivationEffectInBattle())
+                    if (tosolve != null && self_card != null && this.IsTrickstar(self_card.Id) && !tosolve.IsMonsterHasPreventActivationEffectInBattle())
                     {
                         int defender_power = tosolve.GetDefensePower();
-                        Logger.DebugWriteLine("battle check 0:" + Duel.Phase.ToString());
+                        Logger.DebugWriteLine("battle check 0:" + this.Duel.Phase.ToString());
                         Logger.DebugWriteLine("battle check 1:" + self_card.Attack.ToString());
                         Logger.DebugWriteLine("battle check 2:" + (self_card.Attack+self_card.BaseAttack).ToString());
                         Logger.DebugWriteLine("battle check 3:" + defender_power.ToString());
@@ -967,7 +1218,7 @@ namespace WindBot.Game.AI.Decks
                         }
                         else if (defender_power <= 2000)
                         {
-                            white_eff_used = true;
+                            this.white_eff_used = true;
                             return true;
                         }
                     }
@@ -978,25 +1229,41 @@ namespace WindBot.Game.AI.Decks
 
         public bool LockBird_act()
         {
-            if (Duel.Player == 0 || lockbird_used) return false;
-            lockbird_useful = true;
-            if (Bot.HasInSpellZone(CardId.Re))
+            if (this.Duel.Player == 0 || this.lockbird_used)
             {
-                if (Util.ChainContainsCard(CardId.Re)) lockbird_used = true;
-                return Util.ChainContainsCard(CardId.Re);
+                return false;
             }
-            lockbird_used = true;
+
+            this.lockbird_useful = true;
+            if (this.Bot.HasInSpellZone(CardId.Re))
+            {
+                if (this.Util.ChainContainsCard(CardId.Re))
+                {
+                    this.lockbird_used = true;
+                }
+
+                return this.Util.ChainContainsCard(CardId.Re);
+            }
+            this.lockbird_used = true;
             return true;
         }
 
         public bool Reincarnation()
         {
-            if (Card.Location == CardLocation.Grave) return Ts_reborn();
-            if (!spell_trap_activate()) return false;
-            if (Bot.HasInHand(CardId.LockBird))
+            if (this.Card.Location == CardLocation.Grave)
             {
-                if (lockbird_useful || Util.IsChainTarget(Card) || (Duel.Player == 1 && Util.ChainContainsCard(CardId.Feather))) {
-                    lockbird_useful = false;
+                return this.Ts_reborn();
+            }
+
+            if (!this.spell_trap_activate())
+            {
+                return false;
+            }
+
+            if (this.Bot.HasInHand(CardId.LockBird))
+            {
+                if (this.lockbird_useful || this.Util.IsChainTarget(this.Card) || (this.Duel.Player == 1 && this.Util.ChainContainsCard(CardId.Feather))) {
+                    this.lockbird_useful = false;
                     return true;
                 }
                 return false;
@@ -1006,31 +1273,42 @@ namespace WindBot.Game.AI.Decks
 
         public bool Crown_eff()
         {
-            if (Card.Location == CardLocation.Hand || (Card.Location == CardLocation.SpellZone && Card.HasPosition(CardPosition.FaceDown)))
+            if (this.Card.Location == CardLocation.Hand || (this.Card.Location == CardLocation.SpellZone && this.Card.HasPosition(CardPosition.FaceDown)))
             {
-                if (!spell_trap_activate()) return false;
-                if (Duel.Phase <= DuelPhase.Main1 && Ts_reborn())
+                if (!this.spell_trap_activate())
                 {
-                    AI.SelectPlace(SelectSTPlace());
+                    return false;
+                }
+
+                if (this.Duel.Phase <= DuelPhase.Main1 && this.Ts_reborn())
+                {
+                    this.AI.SelectPlace(this.SelectSTPlace());
                     return true;
                 }
                 return false;
             }
-            if (Bot.HasInHand(CardId.Pink) && GraveCall_id != CardId.Pink)
+            if (this.Bot.HasInHand(CardId.Pink) && this.GraveCall_id != CardId.Pink)
             {
-                AI.SelectCard(CardId.Pink);
+                this.AI.SelectCard(CardId.Pink);
                 return true;
             }
-            if (Enemy.GetMonsterCount() == 0)
+            if (this.Enemy.GetMonsterCount() == 0)
             {
-                foreach(ClientCard hand in Bot.Hand)
+                foreach(ClientCard hand in this.Bot.Hand)
                 {
-                    if (hand.IsMonster() && IsTrickstar(hand.Id))
+                    if (hand.IsMonster() && this.IsTrickstar(hand.Id))
                     {
-                        if (hand.Attack >= Enemy.LifePoints) return true;
+                        if (hand.Attack >= this.Enemy.LifePoints)
+                        {
+                            return true;
+                        }
+
                         if (!hand.IsCode(CardId.Yellow))
                         {
-                            if (Util.GetOneEnemyBetterThanValue(hand.Attack, false) == null) return true;
+                            if (this.Util.GetOneEnemyBetterThanValue(hand.Attack, false) == null)
+                            {
+                                return true;
+                            }
                         }
                     }
                 }
@@ -1040,45 +1318,49 @@ namespace WindBot.Game.AI.Decks
 
         public bool Ts_reborn()
         {
-            if (Util.IsTurn1OrMain2()) return false;
-            if (Duel.Player == 0 && Enemy.LifePoints <= 1000)
+            if (this.Util.IsTurn1OrMain2())
             {
-                AI.SelectCard(CardId.Pink);
+                return false;
+            }
+
+            if (this.Duel.Player == 0 && this.Enemy.LifePoints <= 1000)
+            {
+                this.AI.SelectCard(CardId.Pink);
                 return true;
             }
-            bool can_summon = (Duel.Player == 0 && NormalSummoned);
+            bool can_summon = (this.Duel.Player == 0 && this.NormalSummoned);
             if (can_summon)
             {
-                if ((Duel.Phase < DuelPhase.Main2) && Bot.HasInGraveyard(CardId.Pink))
+                if ((this.Duel.Phase < DuelPhase.Main2) && this.Bot.HasInGraveyard(CardId.Pink))
                 {
-                    AI.SelectCard(CardId.Pink);
+                    this.AI.SelectCard(CardId.Pink);
                     return true;
                 }
                 else
                 {
-                    AI.SelectCard(CardId.Red, CardId.White, CardId.Yellow, CardId.Pink);
+                    this.AI.SelectCard(CardId.Red, CardId.White, CardId.Yellow, CardId.Pink);
                     return true;
                 }
             }
             else
             {
-                
-                AI.SelectCard(CardId.Red, CardId.White, CardId.Yellow, CardId.Pink);
+
+                this.AI.SelectCard(CardId.Red, CardId.White, CardId.Yellow, CardId.Pink);
                 return true;
             }
         }
 
         public bool Yellow_sum()
         {
-            NormalSummoned = true;
+            this.NormalSummoned = true;
             return true;
         }
 
         public bool Red_sum()
         {
-            if ((Enemy.GetMonsterCount() == 0 && Enemy.LifePoints <= 1800) || (Duel.Turn == 1 && Bot.HasInHand(CardId.Re)))
+            if ((this.Enemy.GetMonsterCount() == 0 && this.Enemy.LifePoints <= 1800) || (this.Duel.Turn == 1 && this.Bot.HasInHand(CardId.Re)))
             {
-                NormalSummoned = true;
+                this.NormalSummoned = true;
                 return true;
             }
             return false;
@@ -1086,14 +1368,14 @@ namespace WindBot.Game.AI.Decks
 
         public bool Pink_sum()
         {
-            if (Enemy.LifePoints <= 1000)
+            if (this.Enemy.LifePoints <= 1000)
             {
-                NormalSummoned = true;
+                this.NormalSummoned = true;
                 return true;
             }
-            else if (!Util.IsTurn1OrMain2() && (Bot.HasInGraveyard(CardId.Yellow) || Bot.HasInGraveyard(CardId.Red)))
+            else if (!this.Util.IsTurn1OrMain2() && (this.Bot.HasInGraveyard(CardId.Yellow) || this.Bot.HasInGraveyard(CardId.Red)))
             {
-                NormalSummoned = true;
+                this.NormalSummoned = true;
                 return true;
             }
             return false;
@@ -1101,9 +1383,9 @@ namespace WindBot.Game.AI.Decks
 
         public bool Tuner_ns()
         {
-            if ((Card.IsCode(CardId.Tuner) && Bot.HasInExtra(CardId.Crystal) && !tuner_eff_used) || Tuner_ss())
+            if ((this.Card.IsCode(CardId.Tuner) && this.Bot.HasInExtra(CardId.Crystal) && !this.tuner_eff_used) || this.Tuner_ss())
             {
-                NormalSummoned = true;
+                this.NormalSummoned = true;
                 return true;
             }
             return false;
@@ -1111,43 +1393,81 @@ namespace WindBot.Game.AI.Decks
 
         public bool Tuner_ss()
         {
-            if (crystal_eff_used || Bot.HasInMonstersZone(CardId.Crystal)) return false;
-            if (Bot.GetMonsterCount() == 0 || !Bot.HasInExtra(CardId.Crystal)) return false;
-            if (Card.IsCode(CardId.Ghost) && Bot.GetRemainingCount(CardId.Ghost, 2) <= 0) return false;
-            int count = 0;
-            if (!Card.IsCode(CardId.Urara)) count += 1;
-            foreach(ClientCard hand in Bot.Hand)
+            if (this.crystal_eff_used || this.Bot.HasInMonstersZone(CardId.Crystal))
             {
-                if (hand.IsCode(Card.Id)) count += 1;
+                return false;
             }
-            if (count < 2) return false;
-            foreach(ClientCard m in Bot.GetMonsters())
+
+            if (this.Bot.GetMonsterCount() == 0 || !this.Bot.HasInExtra(CardId.Crystal))
             {
-                if (!m.IsCode(CardId.Eater) && getLinkMarker(m.Id) <= 2) return true;
+                return false;
+            }
+
+            if (this.Card.IsCode(CardId.Ghost) && this.Bot.GetRemainingCount(CardId.Ghost, 2) <= 0)
+            {
+                return false;
+            }
+
+            int count = 0;
+            if (!this.Card.IsCode(CardId.Urara))
+            {
+                count += 1;
+            }
+
+            foreach (ClientCard hand in this.Bot.Hand)
+            {
+                if (hand.IsCode(this.Card.Id))
+                {
+                    count += 1;
+                }
+            }
+            if (count < 2)
+            {
+                return false;
+            }
+
+            foreach (ClientCard m in this.Bot.GetMonsters())
+            {
+                if (!m.IsCode(CardId.Eater) && this.getLinkMarker(m.Id) <= 2)
+                {
+                    return true;
+                }
             }
             return false;
         }
 
         public bool Tuner_eff()
         {
-            tuner_eff_used = true;
-            AI.SelectPosition(CardPosition.FaceUpDefence);
+            this.tuner_eff_used = true;
+            this.AI.SelectPosition(CardPosition.FaceUpDefence);
             return true;
         }
 
         public bool Ring_act()
         {
-            if (Duel.LastChainPlayer == 0 && Util.GetLastChainCard() != null && Util.GetLastChainCard().IsCode(CardId.Ghost)) return false;
-            if (!spell_trap_activate()) return false;
-            ClientCard target = Util.GetProblematicEnemyMonster();
-            if (target == null && Util.IsChainTarget(Card))
+            if (this.Duel.LastChainPlayer == 0 && this.Util.GetLastChainCard() != null && this.Util.GetLastChainCard().IsCode(CardId.Ghost))
             {
-                target = Util.GetBestEnemyMonster();
+                return false;
+            }
+
+            if (!this.spell_trap_activate())
+            {
+                return false;
+            }
+
+            ClientCard target = this.Util.GetProblematicEnemyMonster();
+            if (target == null && this.Util.IsChainTarget(this.Card))
+            {
+                target = this.Util.GetBestEnemyMonster();
             }
             if (target != null)
             {
-                if (Bot.LifePoints <= target.Attack) return false;
-                AI.SelectCard(target);
+                if (this.Bot.LifePoints <= target.Attack)
+                {
+                    return false;
+                }
+
+                this.AI.SelectCard(target);
                 return true;
             }
             return false;
@@ -1155,11 +1475,11 @@ namespace WindBot.Game.AI.Decks
 
         public bool Linkuri_ss()
         {
-            foreach(ClientCard c in Bot.GetMonsters())
+            foreach(ClientCard c in this.Bot.GetMonsters())
             {
                 if (!c.IsCode(CardId.Eater, CardId.Linkuri, CardId.Linkspi) && c.Level == 1)
                 {
-                    AI.SelectCard(c);
+                    this.AI.SelectCard(c);
                     return true;
                 }
             }
@@ -1168,67 +1488,97 @@ namespace WindBot.Game.AI.Decks
 
         public bool Linkuri_eff()
         {
-            if (Duel.LastChainPlayer == 0 && Util.GetLastChainCard().IsCode(CardId.Linkuri)) return false;
-            AI.SelectCard(CardId.Tuner, CardId.BF + 1);
+            if (this.Duel.LastChainPlayer == 0 && this.Util.GetLastChainCard().IsCode(CardId.Linkuri))
+            {
+                return false;
+            }
+
+            this.AI.SelectCard(CardId.Tuner, CardId.BF + 1);
             return true;
         }
 
         public bool Crystal_ss()
         {
-            if (crystal_eff_used) return false;
-            if (Bot.HasInMonstersZone(CardId.BF) && Bot.HasInMonstersZone(CardId.BF + 1))
+            if (this.crystal_eff_used)
             {
-                AI.SelectCard(CardId.BF, CardId.BF + 1);
+                return false;
+            }
+
+            if (this.Bot.HasInMonstersZone(CardId.BF) && this.Bot.HasInMonstersZone(CardId.BF + 1))
+            {
+                this.AI.SelectCard(CardId.BF, CardId.BF + 1);
                 return true;
             }
-            foreach(ClientCard extra_card in Bot.GetMonstersInExtraZone())
+            foreach(ClientCard extra_card in this.Bot.GetMonstersInExtraZone())
             {
-                if (getLinkMarker(extra_card.Id) >= 5) return false;
+                if (this.getLinkMarker(extra_card.Id) >= 5)
+                {
+                    return false;
+                }
             }
             IList<ClientCard> targets = new List<ClientCard>();
-            foreach(ClientCard t_check in Bot.GetMonsters())
+            foreach(ClientCard t_check in this.Bot.GetMonsters())
             {
-                if (t_check.IsFacedown()) continue;
+                if (t_check.IsFacedown())
+                {
+                    continue;
+                }
+
                 if (t_check.IsCode(CardId.BF, CardId.Tuner, CardId.Urara, CardId.Ghost))
                 {
                     targets.Add(t_check);
                     break;
                 }
             }
-            if (targets.Count == 0) return false;
-            List<ClientCard> m_list = new List<ClientCard>(Bot.GetMonsters());
+            if (targets.Count == 0)
+            {
+                return false;
+            }
+
+            List<ClientCard> m_list = new List<ClientCard>(this.Bot.GetMonsters());
             m_list.Sort(CardContainer.CompareCardAttack);
             foreach (ClientCard e_check in m_list)
             {
-                if (e_check.IsFacedown()) continue;
-                if (targets[0] != e_check && getLinkMarker(e_check.Id) <= 2 && !e_check.IsCode(CardId.Eater, CardId.Crystal))
+                if (e_check.IsFacedown())
+                {
+                    continue;
+                }
+
+                if (targets[0] != e_check && this.getLinkMarker(e_check.Id) <= 2 && !e_check.IsCode(CardId.Eater, CardId.Crystal))
                 {
                     targets.Add(e_check);
                     break;
                 }
             }
-            if (targets.Count <= 1) return false;
-            AI.SelectMaterials(targets);
+            if (targets.Count <= 1)
+            {
+                return false;
+            }
+
+            this.AI.SelectMaterials(targets);
             return true;
         }
 
         public bool Crystal_eff()
         {
-            if (Duel.Player == 0)
+            if (this.Duel.Player == 0)
             {
-                crystal_eff_used = true;
-                AI.SelectCard(CardId.Tuner, CardId.Ghost, CardId.Urara);
+                this.crystal_eff_used = true;
+                this.AI.SelectCard(CardId.Tuner, CardId.Ghost, CardId.Urara);
                 return true;
             }
-            else if (Util.IsChainTarget(Card) || Util.GetProblematicEnemySpell() != null) return true;
-            else if (Duel.Player == 1 && Duel.Phase == DuelPhase.BattleStart && Util.IsOneEnemyBetterThanValue(1500,true)) {
-                if (Util.IsOneEnemyBetterThanValue(1900, true))
+            else if (this.Util.IsChainTarget(this.Card) || this.Util.GetProblematicEnemySpell() != null)
+            {
+                return true;
+            }
+            else if (this.Duel.Player == 1 && this.Duel.Phase == DuelPhase.BattleStart && this.Util.IsOneEnemyBetterThanValue(1500,true)) {
+                if (this.Util.IsOneEnemyBetterThanValue(1900, true))
                 {
-                    AI.SelectPosition(CardPosition.FaceUpDefence);
+                    this.AI.SelectPosition(CardPosition.FaceUpDefence);
                 }
                 else
                 {
-                    AI.SelectPosition(CardPosition.FaceUpAttack);
+                    this.AI.SelectPosition(CardPosition.FaceUpAttack);
                 }
                 return true;
             }
@@ -1237,61 +1587,113 @@ namespace WindBot.Game.AI.Decks
 
         public bool TG_eff()
         {
-            if (Card.Location != CardLocation.MonsterZone) return true;
-            ClientCard target = Util.GetProblematicEnemySpell();
-            IList<ClientCard> list = new List<ClientCard>();
-            if (target != null) list.Add(target);
-            foreach(ClientCard spells in Enemy.GetSpells())
+            if (this.Card.Location != CardLocation.MonsterZone)
             {
-                if (spells != null && !list.Contains(spells)) list.Add(spells);
+                return true;
             }
-            AI.SelectCard(list);
+
+            ClientCard target = this.Util.GetProblematicEnemySpell();
+            IList<ClientCard> list = new List<ClientCard>();
+            if (target != null)
+            {
+                list.Add(target);
+            }
+
+            foreach (ClientCard spells in this.Enemy.GetSpells())
+            {
+                if (spells != null && !list.Contains(spells))
+                {
+                    list.Add(spells);
+                }
+            }
+            this.AI.SelectCard(list);
             return true;
         }
 
         public bool Safedragon_ss()
         {
-            if (Util.IsTurn1OrMain2()) return false;
-            ClientCard m = Util.GetProblematicEnemyMonster();
-            foreach(ClientCard ex_m in Bot.GetMonstersInExtraZone())
+            if (this.Util.IsTurn1OrMain2())
             {
-                if (getLinkMarker(ex_m.Id) >= 4) return false;
+                return false;
             }
-            if ((m == null || m.HasPosition(CardPosition.FaceDown)) && Enemy.LifePoints <= 1100)
+
+            ClientCard m = this.Util.GetProblematicEnemyMonster();
+            foreach(ClientCard ex_m in this.Bot.GetMonstersInExtraZone())
             {
-                if (Enemy.GetMonsterCount() == 0 && Duel.Phase < DuelPhase.Battle)
+                if (this.getLinkMarker(ex_m.Id) >= 4)
+                {
+                    return false;
+                }
+            }
+            if ((m == null || m.HasPosition(CardPosition.FaceDown)) && this.Enemy.LifePoints <= 1100)
+            {
+                if (this.Enemy.GetMonsterCount() == 0 && this.Duel.Phase < DuelPhase.Battle)
                 {
                     IList<ClientCard> list = new List<ClientCard>();
-                    foreach(ClientCard monster in Bot.GetMonsters())
+                    foreach(ClientCard monster in this.Bot.GetMonsters())
                     {
-                        if (getLinkMarker(monster.Id) <= 2) list.Add(monster);
-                        if (list.Count == 2) break;
+                        if (this.getLinkMarker(monster.Id) <= 2)
+                        {
+                            list.Add(monster);
+                        }
+
+                        if (list.Count == 2)
+                        {
+                            break;
+                        }
                     }
-                    if (list.Count == 2 && GetTotalATK(list) <= 1100)
+                    if (list.Count == 2 && this.GetTotalATK(list) <= 1100)
                     {
-                        AI.SelectMaterials(list);
+                        this.AI.SelectMaterials(list);
                         return true;
                     }
                     return false;
                 }
             }
-            ClientCard ex_1 = Bot.MonsterZone[5];
-            ClientCard ex_2 = Bot.MonsterZone[6];
+            ClientCard ex_1 = this.Bot.MonsterZone[5];
+            ClientCard ex_2 = this.Bot.MonsterZone[6];
             ClientCard ex = null;
-            if (ex_1 != null && ex_1.Controller == 0) ex = ex_1;
-            if (ex_2 != null && ex_2.Controller == 0) ex = ex_2;
-            if (ex == null) return false;
-            if (!ex.HasLinkMarker(2)) return false;
-            IList<ClientCard> targets = new List<ClientCard>();
-            foreach (ClientCard s_m in Bot.GetMonsters())
+            if (ex_1 != null && ex_1.Controller == 0)
             {
-                if (s_m.IsCode(CardId.Eater)) continue;
-                if (s_m != Bot.MonsterZone[5] && s_m != Bot.MonsterZone[6]) targets.Add(s_m);
-                if (targets.Count == 2) break;
+                ex = ex_1;
+            }
+
+            if (ex_2 != null && ex_2.Controller == 0)
+            {
+                ex = ex_2;
+            }
+
+            if (ex == null)
+            {
+                return false;
+            }
+
+            if (!ex.HasLinkMarker(2))
+            {
+                return false;
+            }
+
+            IList<ClientCard> targets = new List<ClientCard>();
+            foreach (ClientCard s_m in this.Bot.GetMonsters())
+            {
+                if (s_m.IsCode(CardId.Eater))
+                {
+                    continue;
+                }
+
+                if (s_m != this.Bot.MonsterZone[5] && s_m != this.Bot.MonsterZone[6])
+                {
+                    targets.Add(s_m);
+                }
+
+                if (targets.Count == 2)
+                {
+                    break;
+                }
             }
             if (targets.Count == 2)
             {
-                AI.SelectMaterials(targets);
+                this.AI.SelectMaterials(targets);
                 return true;
             }
             return false;
@@ -1299,151 +1701,213 @@ namespace WindBot.Game.AI.Decks
 
         public bool Phoneix_ss()
         {
-            ClientCard m = Util.GetProblematicEnemySpell();
+            ClientCard m = this.Util.GetProblematicEnemySpell();
             if (m == null)
             {
-                if (Enemy.GetMonsterCount() == 0 && Enemy.LifePoints <= 1900 && Duel.Phase == DuelPhase.Main1) 
+                if (this.Enemy.GetMonsterCount() == 0 && this.Enemy.LifePoints <= 1900 && this.Duel.Phase == DuelPhase.Main1) 
                 {
                     IList<ClientCard> m_list = new List<ClientCard>();
-                    List<ClientCard> list = new List<ClientCard>(Bot.GetMonsters());
+                    List<ClientCard> list = new List<ClientCard>(this.Bot.GetMonsters());
                     list.Sort(CardContainer.CompareCardAttack);
                     foreach(ClientCard monster in list)
                     {
-                        if (getLinkMarker(monster.Id) == 1 && monster.IsFaceup()) m_list.Add(monster);
-                        if (m_list.Count == 2) break;
+                        if (this.getLinkMarker(monster.Id) == 1 && monster.IsFaceup())
+                        {
+                            m_list.Add(monster);
+                        }
+
+                        if (m_list.Count == 2)
+                        {
+                            break;
+                        }
                     }
-                    if (m_list.Count == 2 && GetTotalATK(m_list) <= 1900)
+                    if (m_list.Count == 2 && this.GetTotalATK(m_list) <= 1900)
                     {
-                        AI.SelectMaterials(m_list);
+                        this.AI.SelectMaterials(m_list);
                         return true;
                     }
                 }
                 return false;
             }
-            if (Bot.Hand.Count == 0) return false;
+            if (this.Bot.Hand.Count == 0)
+            {
+                return false;
+            }
+
             IList<ClientCard> targets = new List<ClientCard>();
-            List<ClientCard> main_list = new List<ClientCard>(Bot.GetMonstersInMainZone());
+            List<ClientCard> main_list = new List<ClientCard>(this.Bot.GetMonstersInMainZone());
             main_list.Sort(CardContainer.CompareCardAttack);
             foreach (ClientCard s_m in main_list)
             {
-                if (s_m.IsFacedown()) continue;
+                if (s_m.IsFacedown())
+                {
+                    continue;
+                }
+
                 if ((!s_m.IsCode(CardId.Eater) || (s_m.IsCode(CardId.Eater) && s_m.IsDisabled())) && !targets.ContainsCardWithId(s_m.Id))
                 {
                     targets.Add(s_m);
                 };
-                if (targets.Count == 2) break;
+                if (targets.Count == 2)
+                {
+                    break;
+                }
             }
             if (targets.Count < 2)
             {
-                foreach (ClientCard s_m in Bot.GetMonstersInExtraZone())
+                foreach (ClientCard s_m in this.Bot.GetMonstersInExtraZone())
                 {
-                    if (s_m.IsFacedown()) continue;
+                    if (s_m.IsFacedown())
+                    {
+                        continue;
+                    }
+
                     if (!s_m.IsCode(CardId.Eater) && !targets.ContainsCardWithId(s_m.Id))
                     {
                         targets.Add(s_m);
                     };
-                    if (targets.Count == 2) break;
+                    if (targets.Count == 2)
+                    {
+                        break;
+                    }
                 }
             }
-            if (targets.Count < 2) return false;
-            AI.SelectMaterials(targets);
+            if (targets.Count < 2)
+            {
+                return false;
+            }
+
+            this.AI.SelectMaterials(targets);
             return true;
         }
 
         public bool Phoneix_eff()
         {
-            AI.SelectCard(Useless_List());
-            ClientCard target = Util.GetProblematicEnemySpell();
+            this.AI.SelectCard(this.Useless_List());
+            ClientCard target = this.Util.GetProblematicEnemySpell();
             if (target != null)
             {
-                AI.SelectNextCard(target);
+                this.AI.SelectNextCard(target);
             } else
             {
-                List<ClientCard> spells = Enemy.GetSpells();
-                RandomSort(spells);
+                List<ClientCard> spells = this.Enemy.GetSpells();
+                this.RandomSort(spells);
                 foreach (ClientCard card in spells)
                 {
-                    if ((card != stage_locked || card.HasPosition(CardPosition.FaceUp)) && !(card.IsShouldNotBeTarget() || card.IsShouldNotBeMonsterTarget())) AI.SelectNextCard(card);
+                    if ((card != this.stage_locked || card.HasPosition(CardPosition.FaceUp)) && !(card.IsShouldNotBeTarget() || card.IsShouldNotBeMonsterTarget()))
+                    {
+                        this.AI.SelectNextCard(card);
+                    }
                 }
             }
             return true;
         }
 
         public bool Unicorn_ss() {
-            ClientCard m = Util.GetProblematicEnemyCard();
+            ClientCard m = this.Util.GetProblematicEnemyCard();
             int link_count = 0;
             if (m == null)
             {
-                if (Enemy.GetMonsterCount() == 0 && Enemy.LifePoints <= 2200 && Duel.Phase == DuelPhase.Main1)
+                if (this.Enemy.GetMonsterCount() == 0 && this.Enemy.LifePoints <= 2200 && this.Duel.Phase == DuelPhase.Main1)
                 {
                     IList<ClientCard> m_list = new List<ClientCard>();
-                    List<ClientCard> _sort_list = new List<ClientCard>(Bot.GetMonsters());
+                    List<ClientCard> _sort_list = new List<ClientCard>(this.Bot.GetMonsters());
                     _sort_list.Sort(CardContainer.CompareCardAttack);
                     foreach(ClientCard monster in _sort_list)
                     {
-                        if (getLinkMarker(monster.Id) == 2)
+                        if (this.getLinkMarker(monster.Id) == 2)
                         {
                             link_count += 2;
                             m_list.Add(monster);
-                        } else if (getLinkMarker(monster.Id) == 1 && monster.IsFaceup())
+                        } else if (this.getLinkMarker(monster.Id) == 1 && monster.IsFaceup())
                         {
                             link_count += 1;
                             m_list.Add(monster);
                         }
-                        if (link_count >= 3) break;
+                        if (link_count >= 3)
+                        {
+                            break;
+                        }
                     }
-                    if (link_count >= 3 && GetTotalATK(m_list) <= 2200)
+                    if (link_count >= 3 && this.GetTotalATK(m_list) <= 2200)
                     {
-                        AI.SelectMaterials(m_list);
+                        this.AI.SelectMaterials(m_list);
                         return true;
                     }
                 }
                 return false;
             }
-            if (Bot.Hand.Count == 0) return false;
+            if (this.Bot.Hand.Count == 0)
+            {
+                return false;
+            }
+
             IList<ClientCard> targets = new List<ClientCard>();
-            List<ClientCard> sort_list = Bot.GetMonsters();
+            List<ClientCard> sort_list = this.Bot.GetMonsters();
             sort_list.Sort(CardContainer.CompareCardAttack);
             foreach (ClientCard s_m in sort_list)
             {
-                if ((!s_m.IsCode(CardId.Eater) || (s_m.IsCode(CardId.Eater) && m.IsMonsterHasPreventActivationEffectInBattle())) && getLinkMarker(s_m.Id) <= 2 && s_m.IsFaceup())
+                if ((!s_m.IsCode(CardId.Eater) || (s_m.IsCode(CardId.Eater) && m.IsMonsterHasPreventActivationEffectInBattle())) && this.getLinkMarker(s_m.Id) <= 2 && s_m.IsFaceup())
                 {
                     if (!targets.ContainsCardWithId(s_m.Id))
                     {
                         targets.Add(s_m);
-                        link_count += getLinkMarker(s_m.Id);
+                        link_count += this.getLinkMarker(s_m.Id);
                     }
-                    if (link_count >= 3) break;
+                    if (link_count >= 3)
+                    {
+                        break;
+                    }
                 }
             }
-            if (link_count < 3) return false;
-            AI.SelectMaterials(targets);
+            if (link_count < 3)
+            {
+                return false;
+            }
+
+            this.AI.SelectMaterials(targets);
             return true;
         }
 
         public bool Unicorn_eff()
         {
-            ClientCard m = Util.GetProblematicEnemyCard();
-            if (m == null) return false;
+            ClientCard m = this.Util.GetProblematicEnemyCard();
+            if (m == null)
+            {
+                return false;
+            }
             // avoid cards that cannot target.
-            AI.SelectCard(Useless_List());
+            this.AI.SelectCard(this.Useless_List());
             IList<ClientCard> enemy_list = new List<ClientCard>();
-            if (!m.IsShouldNotBeMonsterTarget() && !m.IsShouldNotBeTarget()) enemy_list.Add(m);
-            foreach(ClientCard enemy in Enemy.GetMonstersInExtraZone())
+            if (!m.IsShouldNotBeMonsterTarget() && !m.IsShouldNotBeTarget())
             {
-                if (enemy != null && !enemy_list.Contains(enemy) && !enemy.IsShouldNotBeMonsterTarget() && !enemy.IsShouldNotBeTarget()) enemy_list.Add(enemy);
+                enemy_list.Add(m);
             }
-            foreach (ClientCard enemy in Enemy.GetMonstersInMainZone())
+
+            foreach (ClientCard enemy in this.Enemy.GetMonstersInExtraZone())
             {
-                if (enemy != null && !enemy_list.Contains(enemy) && !enemy.IsShouldNotBeMonsterTarget() && !enemy.IsShouldNotBeTarget()) enemy_list.Add(enemy);
+                if (enemy != null && !enemy_list.Contains(enemy) && !enemy.IsShouldNotBeMonsterTarget() && !enemy.IsShouldNotBeTarget())
+                {
+                    enemy_list.Add(enemy);
+                }
             }
-            foreach (ClientCard enemy in Enemy.GetSpells())
+            foreach (ClientCard enemy in this.Enemy.GetMonstersInMainZone())
             {
-                if (enemy != null && !enemy_list.Contains(enemy) && !enemy.IsShouldNotBeMonsterTarget() && !enemy.IsShouldNotBeTarget()) enemy_list.Add(enemy);
+                if (enemy != null && !enemy_list.Contains(enemy) && !enemy.IsShouldNotBeMonsterTarget() && !enemy.IsShouldNotBeTarget())
+                {
+                    enemy_list.Add(enemy);
+                }
+            }
+            foreach (ClientCard enemy in this.Enemy.GetSpells())
+            {
+                if (enemy != null && !enemy_list.Contains(enemy) && !enemy.IsShouldNotBeMonsterTarget() && !enemy.IsShouldNotBeTarget())
+                {
+                    enemy_list.Add(enemy);
+                }
             }
             if (enemy_list.Count > 0)
             {
-                AI.SelectNextCard(enemy_list);
+                this.AI.SelectNextCard(enemy_list);
                 return true;
             } else
             {
@@ -1455,14 +1919,14 @@ namespace WindBot.Game.AI.Decks
         {
             IList<ClientCard> targets = new List<ClientCard>();
             // exzone fo first
-            foreach (ClientCard e_m in Bot.GetMonstersInExtraZone())
+            foreach (ClientCard e_m in this.Bot.GetMonstersInExtraZone())
             {
                 if (e_m.Attack < 1900 && !targets.ContainsCardWithId(e_m.Id) && e_m.IsFaceup())
                 {
                     targets.Add(e_m);
                 }
             }
-            List<ClientCard> sort_main_list = new List<ClientCard>(Bot.GetMonstersInMainZone());
+            List<ClientCard> sort_main_list = new List<ClientCard>(this.Bot.GetMonstersInMainZone());
             sort_main_list.Sort(CardContainer.CompareCardAttack);
             foreach (ClientCard m in sort_main_list)
             {
@@ -1472,10 +1936,14 @@ namespace WindBot.Game.AI.Decks
                 }
                 if (targets.Count >= 4)
                 {
-                    if (Enemy.LifePoints <= GetTotalATK(targets) && Enemy.GetMonsterCount() == 0) return false;
-                    AI.SelectMaterials(targets);
-                    AI.SelectYesNo(true);
-                    snake_four_s = true;
+                    if (this.Enemy.LifePoints <= this.GetTotalATK(targets) && this.Enemy.GetMonsterCount() == 0)
+                    {
+                        return false;
+                    }
+
+                    this.AI.SelectMaterials(targets);
+                    this.AI.SelectYesNo(true);
+                    this.snake_four_s = true;
                     return true;
                 }
             }
@@ -1484,27 +1952,27 @@ namespace WindBot.Game.AI.Decks
 
         public bool Snake_eff()
         {
-            if (snake_four_s)
+            if (this.snake_four_s)
             {
-                snake_four_s = false;
-                AI.SelectCard(Useless_List());
+                this.snake_four_s = false;
+                this.AI.SelectCard(this.Useless_List());
                 return true;
             }
             //if (ActivateDescription == Util.GetStringId(CardId.Snake, 2)) return true;
-            if (ActivateDescription == Util.GetStringId(CardId.Snake, 1))
+            if (this.ActivateDescription == this.Util.GetStringId(CardId.Snake, 1))
             {
-                foreach(ClientCard hand in Bot.Hand)
+                foreach(ClientCard hand in this.Bot.Hand)
                 {
                     if (hand.IsCode(CardId.Red, CardId.Pink))
                     {
-                        AI.SelectCard(hand);
+                        this.AI.SelectCard(hand);
                         return true;
                     }
                     if (hand.IsCode(CardId.Urara, CardId.Ghost))
                     {
-                        if (Tuner_ss())
+                        if (this.Tuner_ss())
                         {
-                            AI.SelectCard(hand);
+                            this.AI.SelectCard(hand);
                             return true;
                         }
                     }
@@ -1516,19 +1984,30 @@ namespace WindBot.Game.AI.Decks
         public bool Missus_ss()
         {
             IList<ClientCard> material_list = new List<ClientCard>();
-            foreach(ClientCard monster in Bot.GetMonsters())
+            foreach(ClientCard monster in this.Bot.GetMonsters())
             {
-                if (monster.HasAttribute(CardAttribute.Earth) && getLinkMarker(monster.Id) == 1) material_list.Add(monster);
-                if (material_list.Count == 2) break;
+                if (monster.HasAttribute(CardAttribute.Earth) && this.getLinkMarker(monster.Id) == 1)
+                {
+                    material_list.Add(monster);
+                }
+
+                if (material_list.Count == 2)
+                {
+                    break;
+                }
             }
-            if (material_list.Count < 2) return false;
-            if (Enemy.GetMonsterCount() == 0 || Util.GetProblematicEnemyMonster(2000) == null)
+            if (material_list.Count < 2)
             {
-                AI.SelectMaterials(material_list);
+                return false;
+            }
+
+            if (this.Enemy.GetMonsterCount() == 0 || this.Util.GetProblematicEnemyMonster(2000) == null)
+            {
+                this.AI.SelectMaterials(material_list);
                 return true;
-            } else if (Util.GetProblematicEnemyMonster(2000) != null && Bot.HasInExtra(CardId.Borrel) && !Bot.HasInMonstersZone(CardId.Missus))
+            } else if (this.Util.GetProblematicEnemyMonster(2000) != null && this.Bot.HasInExtra(CardId.Borrel) && !this.Bot.HasInMonstersZone(CardId.Missus))
             {
-                AI.SelectMaterials(material_list);
+                this.AI.SelectMaterials(material_list);
                 return true;
             }
             return false;
@@ -1536,7 +2015,7 @@ namespace WindBot.Game.AI.Decks
 
         public bool Missus_eff()
         {
-            AI.SelectCard(CardId.MG, CardId.Missus, CardId.Snake);
+            this.AI.SelectCard(CardId.MG, CardId.Missus, CardId.Snake);
             return true;
         }
 
@@ -1544,26 +2023,37 @@ namespace WindBot.Game.AI.Decks
         {
             bool already_link2 = false;
             IList<ClientCard> material_list = new List<ClientCard>();
-            if (Util.GetProblematicEnemyMonster(2000) == null) Logger.DebugWriteLine("***borrel:null");
-            else Logger.DebugWriteLine("***borrel:" + (Util.GetProblematicEnemyMonster(2000).Name ?? "unknown"));
-            if (Util.GetProblematicEnemyMonster(2000) != null || (Enemy.GetMonsterCount() == 0 && Duel.Phase == DuelPhase.Main1 && Enemy.LifePoints <= 3000))
+            if (this.Util.GetProblematicEnemyMonster(2000) == null)
             {
-                foreach(ClientCard e_m in Bot.GetMonstersInExtraZone())
+                Logger.DebugWriteLine("***borrel:null");
+            }
+            else
+            {
+                Logger.DebugWriteLine("***borrel:" + (this.Util.GetProblematicEnemyMonster(2000).Name ?? "unknown"));
+            }
+
+            if (this.Util.GetProblematicEnemyMonster(2000) != null || (this.Enemy.GetMonsterCount() == 0 && this.Duel.Phase == DuelPhase.Main1 && this.Enemy.LifePoints <= 3000))
+            {
+                foreach(ClientCard e_m in this.Bot.GetMonstersInExtraZone())
                 {
-                    if (getLinkMarker(e_m.Id) < 3)
+                    if (this.getLinkMarker(e_m.Id) < 3)
                     {
-                        if (getLinkMarker(e_m.Id) == 2) already_link2 = true;
+                        if (this.getLinkMarker(e_m.Id) == 2)
+                        {
+                            already_link2 = true;
+                        }
+
                         material_list.Add(e_m);
                     }
                 }
-                List<ClientCard> sort_list = new List<ClientCard>(Bot.GetMonstersInMainZone());
+                List<ClientCard> sort_list = new List<ClientCard>(this.Bot.GetMonstersInMainZone());
                 sort_list.Sort(CardContainer.CompareCardAttack);
 
                 foreach(ClientCard m in sort_list)
                 {
-                    if (getLinkMarker(m.Id) < 3)
+                    if (this.getLinkMarker(m.Id) < 3)
                     {
-                        if (getLinkMarker(m.Id) == 2 && !already_link2)
+                        if (this.getLinkMarker(m.Id) == 2 && !already_link2)
                         {
                             already_link2 = true;
                             material_list.Add(m);
@@ -1571,16 +2061,22 @@ namespace WindBot.Game.AI.Decks
                         {
                             material_list.Add(m);
                         }
-                        if ((already_link2 && material_list.Count == 3) || (!already_link2 && material_list.Count == 4)) break;
+                        if ((already_link2 && material_list.Count == 3) || (!already_link2 && material_list.Count == 4))
+                        {
+                            break;
+                        }
                     }
                 }
                 if ((already_link2 && material_list.Count == 3) || (!already_link2 && material_list.Count == 4))
                 {
-                    if (Enemy.GetMonsterCount() == 0 && Duel.Phase == DuelPhase.Main1 && Enemy.LifePoints <= 3000)
+                    if (this.Enemy.GetMonsterCount() == 0 && this.Duel.Phase == DuelPhase.Main1 && this.Enemy.LifePoints <= 3000)
                     {
-                        if (GetTotalATK(material_list) >= 3000) return false;
+                        if (this.GetTotalATK(material_list) >= 3000)
+                        {
+                            return false;
+                        }
                     }
-                    AI.SelectMaterials(material_list);
+                    this.AI.SelectMaterials(material_list);
                     return true;
                 }
             }
@@ -1589,21 +2085,29 @@ namespace WindBot.Game.AI.Decks
 
         public bool Borrel_eff()
         {
-            if (ActivateDescription == -1) {
-                ClientCard enemy_monster = Enemy.BattlingMonster;
+            if (this.ActivateDescription == -1) {
+                ClientCard enemy_monster = this.Enemy.BattlingMonster;
                 if (enemy_monster != null && enemy_monster.HasPosition(CardPosition.Attack))
                 {
-                    return (Card.Attack - enemy_monster.Attack < Enemy.LifePoints);
+                    return (this.Card.Attack - enemy_monster.Attack < this.Enemy.LifePoints);
                 }
                 return true;
             };
-            ClientCard BestEnemy = Util.GetBestEnemyMonster(true);
-            ClientCard WorstBot = Bot.GetMonsters().GetLowestAttackMonster();
-            if (BestEnemy == null || BestEnemy.HasPosition(CardPosition.FaceDown)) return false;
-            if (WorstBot == null || WorstBot.HasPosition(CardPosition.FaceDown)) return false;
+            ClientCard BestEnemy = this.Util.GetBestEnemyMonster(true);
+            ClientCard WorstBot = this.Bot.GetMonsters().GetLowestAttackMonster();
+            if (BestEnemy == null || BestEnemy.HasPosition(CardPosition.FaceDown))
+            {
+                return false;
+            }
+
+            if (WorstBot == null || WorstBot.HasPosition(CardPosition.FaceDown))
+            {
+                return false;
+            }
+
             if (BestEnemy.Attack >= WorstBot.RealPower)
             {
-                AI.SelectCard(BestEnemy);
+                this.AI.SelectCard(BestEnemy);
                 return true;
             }
             return false;
@@ -1612,14 +2116,18 @@ namespace WindBot.Game.AI.Decks
         // unfinished.
         public bool GraveCall_eff()
         {
-            if (!spell_trap_activate()) return false;
-            if (Duel.LastChainPlayer == 1)
+            if (!this.spell_trap_activate())
             {
-                if (Util.GetLastChainCard().IsMonster() && Enemy.HasInGraveyard(Util.GetLastChainCard().Id))
+                return false;
+            }
+
+            if (this.Duel.LastChainPlayer == 1)
+            {
+                if (this.Util.GetLastChainCard().IsMonster() && this.Enemy.HasInGraveyard(this.Util.GetLastChainCard().Id))
                 {
-                    GraveCall_id = Util.GetLastChainCard().Id;
-                    GraveCall_count = 2;
-                    AI.SelectCard(GraveCall_id);
+                    this.GraveCall_id = this.Util.GetLastChainCard().Id;
+                    this.GraveCall_count = 2;
+                    this.AI.SelectCard(this.GraveCall_id);
                     return true;
                 }
             }
@@ -1628,28 +2136,38 @@ namespace WindBot.Game.AI.Decks
 
         public bool DarkHole_eff()
         {
-            if (!spell_trap_activate()) return false;
-            if (Bot.GetMonsterCount() == 0)
+            if (!this.spell_trap_activate())
+            {
+                return false;
+            }
+
+            if (this.Bot.GetMonsterCount() == 0)
             {
                 
                 int bestPower = -1;
-                foreach (ClientCard hand in Bot.Hand)
+                foreach (ClientCard hand in this.Bot.Hand)
                 {
-                    if (hand.IsMonster() && hand.Attack > bestPower) bestPower = hand.Attack;
+                    if (hand.IsMonster() && hand.Attack > bestPower)
+                    {
+                        bestPower = hand.Attack;
+                    }
                 }
                 int bestenemy = -1;
-                foreach (ClientCard enemy in Enemy.GetMonsters())
+                foreach (ClientCard enemy in this.Enemy.GetMonsters())
                 {
                     if (enemy.IsMonsterDangerous())
                     {
-                        AI.SelectPlace(SelectSTPlace());
+                        this.AI.SelectPlace(this.SelectSTPlace());
                         return true;
                     }
-                    if (enemy.IsFaceup() && (enemy.GetDefensePower() > bestenemy)) bestenemy = enemy.GetDefensePower();
+                    if (enemy.IsFaceup() && (enemy.GetDefensePower() > bestenemy))
+                    {
+                        bestenemy = enemy.GetDefensePower();
+                    }
                 }
                 if (bestPower <= bestenemy)
                 {
-                    AI.SelectPlace(SelectSTPlace());
+                    this.AI.SelectPlace(this.SelectSTPlace());
                     return true;
                 }
             }
@@ -1661,39 +2179,63 @@ namespace WindBot.Game.AI.Decks
             int bestPower = -1;
             for (int i = 0; i < 7; ++i)
             {
-                ClientCard card = Bot.MonsterZone[i];
-                if (card == null || card.Data == null) continue;
+                ClientCard card = this.Bot.MonsterZone[i];
+                if (card == null || card.Data == null)
+                {
+                    continue;
+                }
+
                 int newPower = card.Attack;
-                if (IsTrickstar(card.Id) && Bot.HasInHand(CardId.White) && !white_eff_used) newPower += card.RealPower;
+                if (this.IsTrickstar(card.Id) && this.Bot.HasInHand(CardId.White) && !this.white_eff_used)
+                {
+                    newPower += card.RealPower;
+                }
+
                 if (newPower > bestPower)
+                {
                     bestPower = newPower;
+                }
             }
-            return Util.IsAllEnemyBetterThanValue(bestPower,true);
+            return this.Util.IsAllEnemyBetterThanValue(bestPower,true);
         }
 
         public bool MonsterRepos()
         {
-            if (Card.IsCode(CardId.Eater)) return (!Card.HasPosition(CardPosition.Attack));
-
-            if (IsTrickstar(Card.Id) && !white_eff_used && Bot.HasInHand(CardId.White) && Card.IsAttack() && Duel.Phase == DuelPhase.Main1) return false;
-
-            if (Card.IsFaceup() && Card.IsDefense() && Card.Attack == 0)
-                return false;
-
-            if (Card.IsCode(CardId.Pink))
+            if (this.Card.IsCode(CardId.Eater))
             {
-                if ((Bot.HasInSpellZone(CardId.Stage, true) && Enemy.LifePoints <= 1000) || (!Bot.HasInSpellZone(CardId.Stage, true) && Enemy.LifePoints <= 800))
+                return (!this.Card.HasPosition(CardPosition.Attack));
+            }
+
+            if (this.IsTrickstar(this.Card.Id) && !this.white_eff_used && this.Bot.HasInHand(CardId.White) && this.Card.IsAttack() && this.Duel.Phase == DuelPhase.Main1)
+            {
+                return false;
+            }
+
+            if (this.Card.IsFaceup() && this.Card.IsDefense() && this.Card.Attack == 0)
+            {
+                return false;
+            }
+
+            if (this.Card.IsCode(CardId.Pink))
+            {
+                if ((this.Bot.HasInSpellZone(CardId.Stage, true) && this.Enemy.LifePoints <= 1000) || (!this.Bot.HasInSpellZone(CardId.Stage, true) && this.Enemy.LifePoints <= 800))
                 {
-                    return !Card.HasPosition(CardPosition.Attack);
+                    return !this.Card.HasPosition(CardPosition.Attack);
                 }
             }
 
-            bool enemyBetter = IsAllEnemyBetter();
+            bool enemyBetter = this.IsAllEnemyBetter();
 
-            if (Card.IsAttack() && enemyBetter)
+            if (this.Card.IsAttack() && enemyBetter)
+            {
                 return true;
-            if (Card.IsDefense() && !enemyBetter && Card.Attack >= Card.Defense)
+            }
+
+            if (this.Card.IsDefense() && !enemyBetter && this.Card.Attack >= this.Card.Defense)
+            {
                 return true;
+            }
+
             return false;
         }
 
@@ -1705,20 +2247,20 @@ namespace WindBot.Game.AI.Decks
 
         public override void OnNewTurn()
         {
-            NormalSummoned = false;
-            stage_locked = null;
-            pink_ss = false;
-            snake_four_s = false;
-            crystal_eff_used = false;
-            red_ss_count = 0;
-            white_eff_used = false;
-            lockbird_useful = false;
-            lockbird_used = false;
-            if (GraveCall_count > 0)
+            this.NormalSummoned = false;
+            this.stage_locked = null;
+            this.pink_ss = false;
+            this.snake_four_s = false;
+            this.crystal_eff_used = false;
+            this.red_ss_count = 0;
+            this.white_eff_used = false;
+            this.lockbird_useful = false;
+            this.lockbird_used = false;
+            if (this.GraveCall_count > 0)
             {
-                if (--GraveCall_count <= 0)
+                if (--this.GraveCall_count <= 0)
                 {
-                    GraveCall_id = 0;
+                    this.GraveCall_id = 0;
                 }                
             }
         }
@@ -1729,9 +2271,16 @@ namespace WindBot.Game.AI.Decks
             for (int i = defenders.Count - 1; i >= 0; --i)
             {
                 ClientCard defender = defenders[i];
-                if (defender.HasPosition(CardPosition.Attack) && !defender.IsMonsterDangerous() && (lowestattack == null || defender.Attack < lowestattack.Attack)) lowestattack = defender;
+                if (defender.HasPosition(CardPosition.Attack) && !defender.IsMonsterDangerous() && (lowestattack == null || defender.Attack < lowestattack.Attack))
+                {
+                    lowestattack = defender;
+                }
             }
-            if (lowestattack != null && attacker.Attack - lowestattack.Attack >= Enemy.LifePoints) return AI.Attack(attacker, lowestattack);
+            if (lowestattack != null && attacker.Attack - lowestattack.Attack >= this.Enemy.LifePoints)
+            {
+                return this.AI.Attack(attacker, lowestattack);
+            }
+
             for (int i = 0; i < defenders.Count; ++i)
             {
                 ClientCard defender = defenders[i];
@@ -1741,19 +2290,32 @@ namespace WindBot.Game.AI.Decks
 
                 if (!defender.IsMonsterHasPreventActivationEffectInBattle() && !attacker.IsDisabled())
                 {
-                    if ((attacker.IsCode(CardId.Eater) && !defender.HasType(CardType.Token)) || attacker.IsCode(CardId.Borrel)) return AI.Attack(attacker, defender);
-                    if ((attacker.IsCode(CardId.Ultimate, CardId.Cardian)) && attacker.RealPower > defender.RealPower) return AI.Attack(attacker, defender);
+                    if ((attacker.IsCode(CardId.Eater) && !defender.HasType(CardType.Token)) || attacker.IsCode(CardId.Borrel))
+                    {
+                        return this.AI.Attack(attacker, defender);
+                    }
+
+                    if ((attacker.IsCode(CardId.Ultimate, CardId.Cardian)) && attacker.RealPower > defender.RealPower)
+                    {
+                        return this.AI.Attack(attacker, defender);
+                    }
                 }
 
-                if (!OnPreBattleBetween(attacker, defender))
+                if (!this.OnPreBattleBetween(attacker, defender))
+                {
                     continue;
+                }
 
                 if (attacker.RealPower > defender.RealPower || (attacker.RealPower >= defender.RealPower && attacker.IsLastAttacker && defender.IsAttack()))
-                    return AI.Attack(attacker, defender);
+                {
+                    return this.AI.Attack(attacker, defender);
+                }
             }
 
             if (attacker.CanDirectAttack)
-                return AI.Attack(attacker, null);
+            {
+                return this.AI.Attack(attacker, null);
+            }
 
             return null;
         }
@@ -1763,7 +2325,10 @@ namespace WindBot.Game.AI.Decks
             for (int i = 0; i < attackers.Count; ++i)
             {
                 ClientCard attacker = attackers[i];
-                if (attacker.IsCode(CardId.Borrel, CardId.Eater)) return attacker;
+                if (attacker.IsCode(CardId.Borrel, CardId.Eater))
+                {
+                    return attacker;
+                }
             }
             return null;
         }
@@ -1772,8 +2337,10 @@ namespace WindBot.Game.AI.Decks
         {
             if (!defender.IsMonsterHasPreventActivationEffectInBattle())
             {
-                if (IsTrickstar(attacker.Id) && Bot.HasInHand(CardId.White) && !white_eff_used)
+                if (this.IsTrickstar(attacker.Id) && this.Bot.HasInHand(CardId.White) && !this.white_eff_used)
+                {
                     attacker.RealPower = attacker.RealPower + attacker.Attack;
+                }
             }
             return base.OnPreBattleBetween(attacker, defender);
         }

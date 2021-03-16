@@ -13,29 +13,39 @@ namespace WindBot.Game
 
         public Deck()
         {
-            Cards = new List<NamedCard>();
-            ExtraCards = new List<NamedCard>();
-            SideCards = new List<NamedCard>();
+            this.Cards = new List<NamedCard>();
+            this.ExtraCards = new List<NamedCard>();
+            this.SideCards = new List<NamedCard>();
         }
 
         private void AddNewCard(int cardId, bool sideDeck)
         {
             NamedCard newCard = NamedCard.Get(cardId);
             if (newCard == null)
+            {
                 return;
+            }
 
             if (!sideDeck)
-                AddCard(newCard);
+            {
+                this.AddCard(newCard);
+            }
             else
-                SideCards.Add(newCard);
+            {
+                this.SideCards.Add(newCard);
+            }
         }
 
         private void AddCard(NamedCard card)
         {
             if (card.IsExtraCard())
-                ExtraCards.Add(card);
+            {
+                this.ExtraCards.Add(card);
+            }
             else
-                Cards.Add(card);
+            {
+                this.Cards.Add(card);
+            }
         }
 
         public static Deck Load(string name)
@@ -52,11 +62,16 @@ namespace WindBot.Game
                 {
                     string line = reader.ReadLine();
                     if (line == null)
+                    {
                         continue;
+                    }
 
                     line = line.Trim();
                     if (line.StartsWith("#"))
+                    {
                         continue;
+                    }
+
                     if (line.Equals("!side"))
                     {
                         side = true;
@@ -65,7 +80,9 @@ namespace WindBot.Game
 
                     int id;
                     if (!int.TryParse(line, out id))
+                    {
                         continue;
+                    }
 
                     deck.AddNewCard(id, side);
                 }
@@ -73,11 +90,19 @@ namespace WindBot.Game
                 reader.Close();
 
                 if (deck.Cards.Count > 60)
+                {
                     return null;
+                }
+
                 if (deck.ExtraCards.Count > 15)
+                {
                     return null;
+                }
+
                 if (deck.SideCards.Count > 15)
+                {
                     return null;
+                }
 
                 return deck;
             }

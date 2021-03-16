@@ -18,23 +18,27 @@ namespace WindBot.Game.AI.Decks
         public DoEverythingExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.SpSummon);
-            AddExecutor(ExecutorType.Activate, DefaultDontChainMyself);
-            AddExecutor(ExecutorType.SummonOrSet);
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
-            AddExecutor(ExecutorType.SpellSet);
+            this.AddExecutor(ExecutorType.SpSummon);
+            this.AddExecutor(ExecutorType.Activate, this.DefaultDontChainMyself);
+            this.AddExecutor(ExecutorType.SummonOrSet);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.SpellSet);
         }
 
         public override IList<ClientCard> OnSelectCard(IList<ClientCard> cards, int min, int max, int hint, bool cancelable)
         {
-            if (Duel.Phase == DuelPhase.BattleStart)
+            if (this.Duel.Phase == DuelPhase.BattleStart)
+            {
                 return null;
+            }
 
             IList<ClientCard> selected = new List<ClientCard>();
 
             // select the last cards
             for (int i = 1; i <= max; ++i)
+            {
                 selected.Add(cards[cards.Count-i]);
+            }
 
             return selected;
         }

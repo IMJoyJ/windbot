@@ -9,9 +9,9 @@
 
         public Room()
         {
-            Names = new string[8];
-            IsReady = new bool[8];
-            Position = -1;
+            this.Names = new string[8];
+            this.IsReady = new bool[8];
+            this.Position = -1;
         }
     }
 }

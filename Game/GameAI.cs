@@ -11,14 +11,14 @@ namespace WindBot.Game
         public Duel Duel { get; private set; }
         public Executor Executor { get; set; }
 
-        private Dialogs _dialogs;
+        private Dialogs dialogs;
 
         public GameAI(GameClient game, Duel duel)
         {
-            Game = game;
-            Duel = duel;
+            this.Game = game;
+            this.Duel = duel;
 
-            _dialogs = new Dialogs(game);
+            this.dialogs = new Dialogs(game);
         }
 
         /// <summary>
@@ -26,12 +26,12 @@ namespace WindBot.Game
         /// </summary>
         public void OnRetry()
         {
-            _dialogs.SendSorry();
+            this.dialogs.SendSorry();
         }
 
         public void OnDeckError(string card)
         {
-            _dialogs.SendDeckSorry(card);
+            this.dialogs.SendDeckSorry(card);
         }
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace WindBot.Game
         /// </summary>
         public void OnJoinGame()
         {
-            _dialogs.SendWelcome();
+            this.dialogs.SendWelcome();
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace WindBot.Game
         /// </summary>
         public void OnStart()
         {
-            _dialogs.SendDuelStart();
+            this.dialogs.SendDuelStart();
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace WindBot.Game
         /// <returns>1 for Scissors, 2 for Rock, 3 for Paper.</returns>
         public int OnRockPaperScissors()
         {
-            return Executor.OnRockPaperScissors();
+            return this.Executor.OnRockPaperScissors();
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace WindBot.Game
         /// <returns>True if the AI should begin first, false otherwise.</returns>
         public bool OnSelectHand()
         {
-            return Executor.OnSelectHand();
+            return this.Executor.OnSelectHand();
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace WindBot.Game
         /// </summary>
         public void OnDraw(int player)
         {
-            Executor.OnDraw(player);
+            this.Executor.OnDraw(player);
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace WindBot.Game
         /// </summary>
         public void OnNewTurn()
         {
-            Executor.OnNewTurn();
+            this.Executor.OnNewTurn();
         }
 
         /// <summary>
@@ -89,20 +89,20 @@ namespace WindBot.Game
         /// </summary>
         public void OnNewPhase()
         {
-            m_selector.Clear();
-            m_position.Clear();
-            m_selector_pointer = -1;
-            m_materialSelector = null;
-            m_option = -1;
-            m_yesno = -1;
-            m_announce = 0;
-           
-            m_place = 0;
-            if (Duel.Player == 0 && Duel.Phase == DuelPhase.Draw)
+            this.m_selector.Clear();
+            this.m_position.Clear();
+            this.m_selector_pointer = -1;
+            this.m_materialSelector = null;
+            this.m_option = -1;
+            this.m_yesno = -1;
+            this.m_announce = 0;
+
+            this.m_place = 0;
+            if (this.Duel.Player == 0 && this.Duel.Phase == DuelPhase.Draw)
             {
-                _dialogs.SendNewTurn();
+                this.dialogs.SendNewTurn();
             }
-            Executor.OnNewPhase();
+            this.Executor.OnNewPhase();
         }
 
         /// <summary>
@@ -110,9 +110,11 @@ namespace WindBot.Game
         /// </summary>
         public void OnDirectAttack(ClientCard card)
         {
-            _dialogs.SendOnDirectAttack(card.Name);
+            this.dialogs.SendOnDirectAttack(card.Name);
         }
 
+        public Dictionary<int, int> EffectsUsedInTurnEnemy = new Dictionary<int, int>();
+        public Dictionary<int, int> EffectsUsedInTurnSelf = new Dictionary<int, int>();
         /// <summary>
         /// Called when a chain is executed.
         /// </summary>
@@ -120,7 +122,23 @@ namespace WindBot.Game
         /// <param name="player">Player who is currently chaining.</param>
         public void OnChaining(ClientCard card, int player)
         {
-            Executor.OnChaining(player,card);
+            if (!EffectsUsedInTurnEnemy.ContainsKey(card.Id))
+            {
+                EffectsUsedInTurnEnemy.Add(card.Id, 0);
+            }
+            if (!EffectsUsedInTurnSelf.ContainsKey(card.Id))
+            {
+                EffectsUsedInTurnSelf.Add(card.Id, 0);
+            }
+            if (card.Controller == Duel.Player)
+            {
+                EffectsUsedInTurnEnemy[card.Id] = this.Duel.Turn;
+            }
+            else
+            {
+                EffectsUsedInTurnSelf[card.Id] = this.Duel.Turn;
+            }
+            this.Executor.OnChaining(player,card);
         }
         
         /// <summary>
@@ -128,9 +146,9 @@ namespace WindBot.Game
         /// </summary>
         public void OnChainEnd()
         {
-            m_selector.Clear();
-            m_selector_pointer = -1;
-            Executor.OnChainEnd();
+            this.m_selector.Clear();
+            this.m_selector_pointer = -1;
+            this.Executor.OnChainEnd();
         }
 
         /// <summary>
@@ -140,23 +158,23 @@ namespace WindBot.Game
         /// <returns>A new BattlePhaseAction containing the action to do.</returns>
         public BattlePhaseAction OnSelectBattleCmd(BattlePhase battle)
         {
-            Executor.SetBattle(battle);
-            foreach (CardExecutor exec in Executor.Executors)
+            this.Executor.SetBattle(battle);
+            foreach (CardExecutor exec in this.Executor.Executors)
             {
                 if (exec.Type == ExecutorType.GoToMainPhase2 && battle.CanMainPhaseTwo && exec.Func()) // check if should enter main phase 2 directly
                 {
-                    return ToMainPhase2();
+                    return this.ToMainPhase2();
                 }
                 if (exec.Type == ExecutorType.GoToEndPhase && battle.CanEndPhase && exec.Func()) // check if should enter end phase directly
                 {
-                    return ToEndPhase();
+                    return this.ToEndPhase();
                 }
                 for (int i = 0; i < battle.ActivableCards.Count; ++i)
                 {
                     ClientCard card = battle.ActivableCards[i];
-                    if (ShouldExecute(exec, card, ExecutorType.Activate, battle.ActivableDescs[i]))
+                    if (this.ShouldExecute(exec, card, ExecutorType.Activate, battle.ActivableDescs[i]))
                     {
-                        _dialogs.SendChaining(card.Name);
+                        this.dialogs.SendChaining(card.Name);
                         return new BattlePhaseAction(BattlePhaseAction.BattleAction.Activate, card.ActionIndex);
                     }
                 }
@@ -167,12 +185,12 @@ namespace WindBot.Game
             attackers.Sort(CardContainer.CompareCardAttack);
             attackers.Reverse();
 
-            List<ClientCard> defenders = new List<ClientCard>(Duel.Fields[1].GetMonsters());
+            List<ClientCard> defenders = new List<ClientCard>(this.Duel.Fields[1].GetMonsters());
             defenders.Sort(CardContainer.CompareDefensePower);
             defenders.Reverse();
 
             // Let executor decide which card should attack first.
-            ClientCard selected = Executor.OnSelectAttacker(attackers, defenders);
+            ClientCard selected = this.Executor.OnSelectAttacker(attackers, defenders);
             if (selected != null && attackers.Contains(selected))
             {
                 attackers.Remove(selected);
@@ -180,12 +198,16 @@ namespace WindBot.Game
             }
 
             // Check for the executor.
-            BattlePhaseAction result = Executor.OnBattle(attackers, defenders);
+            BattlePhaseAction result = this.Executor.OnBattle(attackers, defenders);
             if (result != null)
+            {
                 return result;
+            }
 
             if (attackers.Count == 0)
-                return ToMainPhase2();
+            {
+                return this.ToMainPhase2();
+            }
 
             if (defenders.Count == 0)
             {
@@ -194,7 +216,9 @@ namespace WindBot.Game
                 {
                     ClientCard attacker = attackers[i];
                     if (attacker.Attack > 0)
-                        return Attack(attacker, null);
+                    {
+                        return this.Attack(attacker, null);
+                    }
                 }
             }
             else
@@ -203,16 +227,20 @@ namespace WindBot.Game
                 {
                     ClientCard attacker = attackers[k];
                     attacker.IsLastAttacker = (k == attackers.Count - 1);
-                    result = Executor.OnSelectAttackTarget(attacker, defenders);
+                    result = this.Executor.OnSelectAttackTarget(attacker, defenders);
                     if (result != null)
+                    {
                         return result;
+                    }
                 }
             }
 
             if (!battle.CanMainPhaseTwo)
-                return Attack(attackers[0], (defenders.Count == 0) ? null : defenders[0]);
+            {
+                return this.Attack(attackers[0], (defenders.Count == 0) ? null : defenders[0]);
+            }
 
-            return ToMainPhase2();
+            return this.ToMainPhase2();
         }
 
         /// <summary>
@@ -233,52 +261,71 @@ namespace WindBot.Game
             const int HINTMSG_SPSUMMON = 509;
 
             // Check for the executor.
-            IList<ClientCard> result = Executor.OnSelectCard(cards, min, max, hint, cancelable);
+            IList<ClientCard> result = this.Executor.OnSelectCard(cards, min, max, hint, cancelable);
             if (result != null)
+            {
                 return result;
+            }
 
             if (hint == HINTMSG_SPSUMMON && min == 1 && max > min) // pendulum summon
             {
-                result = Executor.OnSelectPendulumSummon(cards, max);
+                result = this.Executor.OnSelectPendulumSummon(cards, max);
                 if (result != null)
+                {
                     return result;
+                }
             }
 
             CardSelector selector = null;
             if (hint == HINTMSG_FMATERIAL || hint == HINTMSG_SMATERIAL || hint == HINTMSG_XMATERIAL || hint == HINTMSG_LMATERIAL)
             {
-                if (m_materialSelector != null)
+                if (this.m_materialSelector != null)
                 {
                     //Logger.DebugWriteLine("m_materialSelector");
-                    selector = m_materialSelector;
+                    selector = this.m_materialSelector;
                 }
                 else
                 {
                     if (hint == HINTMSG_FMATERIAL)
-                        result = Executor.OnSelectFusionMaterial(cards, min, max);
+                    {
+                        result = this.Executor.OnSelectFusionMaterial(cards, min, max);
+                    }
+
                     if (hint == HINTMSG_SMATERIAL)
-                        result = Executor.OnSelectSynchroMaterial(cards, 0, min, max);
+                    {
+                        result = this.Executor.OnSelectSynchroMaterial(cards, 0, min, max);
+                    }
+
                     if (hint == HINTMSG_XMATERIAL)
-                        result = Executor.OnSelectXyzMaterial(cards, min, max);
+                    {
+                        result = this.Executor.OnSelectXyzMaterial(cards, min, max);
+                    }
+
                     if (hint == HINTMSG_LMATERIAL)
-                        result = Executor.OnSelectLinkMaterial(cards, min, max);
+                    {
+                        result = this.Executor.OnSelectLinkMaterial(cards, min, max);
+                    }
 
                     if (result != null)
+                    {
                         return result;
+                    }
 
                     // Update the next selector.
-                    selector = GetSelectedCards();
+                    selector = this.GetSelectedCards();
                 }
             }
             else
             {
                 // Update the next selector.
-                selector = GetSelectedCards();
+                selector = this.GetSelectedCards();
             }
 
             // If we selected a card, use this card.
             if (selector != null)
+            {
                 return selector.Select(cards, min, max);
+            }
 
             // Always select the first available cards and choose the minimum.
             IList<ClientCard> selected = new List<ClientCard>();
@@ -286,7 +333,9 @@ namespace WindBot.Game
             if (cards.Count >= min)
             {
                 for (int i = 0; i < min; ++i)
+                {
                     selected.Add(cards[i]);
+                }
             }
             return selected;
         }
@@ -300,14 +349,14 @@ namespace WindBot.Game
         /// <returns>Index of the activated card or -1.</returns>
         public int OnSelectChain(IList<ClientCard> cards, IList<int> descs, bool forced)
         {
-            foreach (CardExecutor exec in Executor.Executors)
+            foreach (CardExecutor exec in this.Executor.Executors)
             {
                 for (int i = 0; i < cards.Count; ++i)
                 {
                     ClientCard card = cards[i];
-                    if (ShouldExecute(exec, card, ExecutorType.Activate, descs[i]))
+                    if (this.ShouldExecute(exec, card, ExecutorType.Activate, descs[i]))
                     {
-                        _dialogs.SendChaining(card.Name);
+                        this.dialogs.SendChaining(card.Name);
                         return i;
                     }
                 }
@@ -354,9 +403,12 @@ namespace WindBot.Game
         public IList<ClientCard> OnCardSorting(IList<ClientCard> cards)
         {
 
-            IList<ClientCard> result = Executor.OnCardSorting(cards);
+            IList<ClientCard> result = this.Executor.OnCardSorting(cards);
             if (result != null)
+            {
                 return result;
+            }
+
             result = new List<ClientCard>();
             // TODO: use selector
             result = cards.ToList();
@@ -370,10 +422,12 @@ namespace WindBot.Game
         /// <returns>True for yes, false for no.</returns>
         public bool OnSelectEffectYn(ClientCard card, int desc)
         {
-            foreach (CardExecutor exec in Executor.Executors)
+            foreach (CardExecutor exec in this.Executor.Executors)
             {
-                if (ShouldExecute(exec, card, ExecutorType.Activate, desc))
+                if (this.ShouldExecute(exec, card, ExecutorType.Activate, desc))
+                {
                     return true;
+                }
             }
             return false;
         }
@@ -385,12 +439,12 @@ namespace WindBot.Game
         /// <returns>A new MainPhaseAction containing the action to do.</returns>
         public MainPhaseAction OnSelectIdleCmd(MainPhase main)
         {
-            Executor.SetMain(main);
-            foreach (CardExecutor exec in Executor.Executors)
+            this.Executor.SetMain(main);
+            foreach (CardExecutor exec in this.Executor.Executors)
             {
             	if (exec.Type == ExecutorType.GoToEndPhase && main.CanEndPhase && exec.Func()) // check if should enter end phase directly
                 {
-                    _dialogs.SendEndTurn();
+                    this.dialogs.SendEndTurn();
                     return new MainPhaseAction(MainPhaseAction.MainAction.ToEndPhase);
                 }
                 if (exec.Type==ExecutorType.GoToBattlePhase && main.CanBattlePhase && exec.Func()) // check if should enter battle phase directly
@@ -403,63 +457,69 @@ namespace WindBot.Game
                 for (int i = 0; i < main.ActivableCards.Count; ++i)
                 {
                     ClientCard card = main.ActivableCards[i];
-                    if (ShouldExecute(exec, card, ExecutorType.Activate, main.ActivableDescs[i]))
+                    if (this.ShouldExecute(exec, card, ExecutorType.Activate, main.ActivableDescs[i]))
                     {
-                        _dialogs.SendActivate(card.Name);
+                        this.dialogs.SendActivate(card.Name);
                         return new MainPhaseAction(MainPhaseAction.MainAction.Activate, card.ActionActivateIndex[main.ActivableDescs[i]]);
                     }
                 }
                 foreach (ClientCard card in main.MonsterSetableCards)
                 {
-                    if (ShouldExecute(exec, card, ExecutorType.MonsterSet))
+                    if (this.ShouldExecute(exec, card, ExecutorType.MonsterSet))
                     {
-                        _dialogs.SendSetMonster();
+                        this.dialogs.SendSetMonster();
                         return new MainPhaseAction(MainPhaseAction.MainAction.SetMonster, card.ActionIndex);
                     }
                 }
                 foreach (ClientCard card in main.ReposableCards)
                 {
-                    if (ShouldExecute(exec, card, ExecutorType.Repos))
+                    if (this.ShouldExecute(exec, card, ExecutorType.Repos))
+                    {
                         return new MainPhaseAction(MainPhaseAction.MainAction.Repos, card.ActionIndex);
+                    }
                 }
                 foreach (ClientCard card in main.SpecialSummonableCards)
                 {
-                    if (ShouldExecute(exec, card, ExecutorType.SpSummon))
+                    if (this.ShouldExecute(exec, card, ExecutorType.SpSummon))
                     {
-                        _dialogs.SendSummon(card.Name);
+                        this.dialogs.SendSummon(card.Name);
                         return new MainPhaseAction(MainPhaseAction.MainAction.SpSummon, card.ActionIndex);
                     }
                 }
                 foreach (ClientCard card in main.SummonableCards)
                 {
-                    if (ShouldExecute(exec, card, ExecutorType.Summon))
+                    if (this.ShouldExecute(exec, card, ExecutorType.Summon))
                     {
-                        _dialogs.SendSummon(card.Name);
+                        this.dialogs.SendSummon(card.Name);
                         return new MainPhaseAction(MainPhaseAction.MainAction.Summon, card.ActionIndex);
                     }
-                    if (ShouldExecute(exec, card, ExecutorType.SummonOrSet))
+                    if (this.ShouldExecute(exec, card, ExecutorType.SummonOrSet))
                     {
-                        if (Executor.Util.IsAllEnemyBetter(true) && Executor.Util.IsAllEnemyBetterThanValue(card.Attack + 300, false) &&
+                        if (this.Executor.Util.IsAllEnemyBetter(true) && this.Executor.Util.IsAllEnemyBetterThanValue(card.Attack + 300, false) &&
                             main.MonsterSetableCards.Contains(card))
                         {
-                            _dialogs.SendSetMonster();
+                            this.dialogs.SendSetMonster();
                             return new MainPhaseAction(MainPhaseAction.MainAction.SetMonster, card.ActionIndex);
                         }
-                        _dialogs.SendSummon(card.Name);
+                        this.dialogs.SendSummon(card.Name);
                         return new MainPhaseAction(MainPhaseAction.MainAction.Summon, card.ActionIndex);
                     }
                 }                
                 foreach (ClientCard card in main.SpellSetableCards)
                 {
-                    if (ShouldExecute(exec, card, ExecutorType.SpellSet))
+                    if (this.ShouldExecute(exec, card, ExecutorType.SpellSet))
+                    {
                         return new MainPhaseAction(MainPhaseAction.MainAction.SetSpell, card.ActionIndex);
+                    }
                 }
             }
 
-            if (main.CanBattlePhase && Duel.Fields[0].HasAttackingMonster())
+            if (main.CanBattlePhase && this.Duel.Fields[0].HasAttackingMonster())
+            {
                 return new MainPhaseAction(MainPhaseAction.MainAction.ToBattlePhase);
+            }
 
-            _dialogs.SendEndTurn();
+            this.dialogs.SendEndTurn();
             return new MainPhaseAction(MainPhaseAction.MainAction.ToEndPhase); 
         }
 
@@ -470,27 +530,36 @@ namespace WindBot.Game
         /// <returns>Index of the selected option.</returns>
         public int OnSelectOption(IList<int> options)
         {
-            if (m_option != -1 && m_option < options.Count)
-                return m_option;
+            if (this.m_option != -1 && this.m_option < options.Count)
+            {
+                return this.m_option;
+            }
 
-            int result = Executor.OnSelectOption(options);
+            int result = this.Executor.OnSelectOption(options);
             if (result != -1)
+            {
                 return result;
+            }
 
             return 0; // Always select the first option.
         }
 
         public int OnSelectPlace(int cardId, int player, CardLocation location, int available)
         {
-            int selector_selected = m_place;
-            m_place = 0;
+            int selector_selected = this.m_place;
+            this.m_place = 0;
 
-            int executor_selected = Executor.OnSelectPlace(cardId, player, location, available);
+            int executor_selected = this.Executor.OnSelectPlace(cardId, player, location, available);
 
             if ((executor_selected & available) > 0)
+            {
                 return executor_selected & available;
+            }
+
             if ((selector_selected & available) > 0)
+            {
                 return selector_selected & available;
+            }
 
             // TODO: LinkedZones
 
@@ -505,15 +574,20 @@ namespace WindBot.Game
         /// <returns>Selected position.</returns>
         public CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
         {
-            CardPosition selector_selected = GetSelectedPosition();
+            CardPosition selector_selected = this.GetSelectedPosition();
 
-            CardPosition executor_selected = Executor.OnSelectPosition(cardId, positions);
+            CardPosition executor_selected = this.Executor.OnSelectPosition(cardId, positions);
 
             // Selects the selected position if available, the first available otherwise.
             if (positions.Contains(executor_selected))
+            {
                 return executor_selected;
+            }
+
             if (positions.Contains(selector_selected))
+            {
                 return selector_selected;
+            }
 
             return positions[0];
         }
@@ -532,7 +606,7 @@ namespace WindBot.Game
             const int HINTMSG_RELEASE = 500;
             const int HINTMSG_SMATERIAL = 512;
 
-            IList<ClientCard> selected = Executor.OnSelectSum(cards, sum, min, max, hint, mode);
+            IList<ClientCard> selected = this.Executor.OnSelectSum(cards, sum, min, max, hint, mode);
             if (selected != null)
             {
                 return selected;
@@ -540,19 +614,19 @@ namespace WindBot.Game
 
             if (hint == HINTMSG_RELEASE || hint == HINTMSG_SMATERIAL)
             {
-                if (m_materialSelector != null)
+                if (this.m_materialSelector != null)
                 {
-                    selected = m_materialSelector.Select(cards, min, max);
+                    selected = this.m_materialSelector.Select(cards, min, max);
                 }
                 else
                 {
                     switch (hint)
                     {
                         case HINTMSG_SMATERIAL:
-                            selected = Executor.OnSelectSynchroMaterial(cards, sum, min, max);
+                            selected = this.Executor.OnSelectSynchroMaterial(cards, sum, min, max);
                             break;
                         case HINTMSG_RELEASE:
-                            selected = Executor.OnSelectRitualTribute(cards, sum, min, max);
+                            selected = this.Executor.OnSelectRitualTribute(cards, sum, min, max);
                             break;
                     }
                 }
@@ -706,7 +780,9 @@ namespace WindBot.Game
             IList<ClientCard> selected = new List<ClientCard>();
 
             for (int i = 0; i < min && i < sorted.Count; ++i)
+            {
                 selected.Add(sorted[i]);
+            }
 
             return selected;
         }
@@ -718,9 +794,12 @@ namespace WindBot.Game
         /// <returns>True for yes, false for no.</returns>
         public bool OnSelectYesNo(int desc)
         {
-            if (m_yesno != -1)
-                return m_yesno > 0;
-            return Executor.OnSelectYesNo(desc);
+            if (this.m_yesno != -1)
+            {
+                return this.m_yesno > 0;
+            }
+
+            return this.Executor.OnSelectYesNo(desc);
         }
 
         /// <summary>
@@ -729,7 +808,7 @@ namespace WindBot.Game
         /// <returns>True for yes, false for no.</returns>
         public bool OnSelectBattleReplay()
         {
-            return Executor.OnSelectBattleReplay();
+            return this.Executor.OnSelectBattleReplay();
         }
 
         /// <summary>
@@ -739,13 +818,21 @@ namespace WindBot.Game
         /// <returns>Id of the selected card.</returns>
         public int OnAnnounceCard(IList<int> avail)
         {
-            int selected = Executor.OnAnnounceCard(avail);
+            int selected = this.Executor.OnAnnounceCard(avail);
             if (avail.Contains(selected))
+            {
                 return selected;
-            if (avail.Contains(m_announce))
-                return m_announce;
-            else if (m_announce > 0)
-                Logger.WriteErrorLine("Pre-announced card cant be used: " + m_announce);
+            }
+
+            if (avail.Contains(this.m_announce))
+            {
+                return this.m_announce;
+            }
+            else if (this.m_announce > 0)
+            {
+                Logger.WriteErrorLine("Pre-announced card cant be used: " + this.m_announce);
+            }
+
             return avail[0];
         }
 
@@ -767,202 +854,202 @@ namespace WindBot.Game
 
         public void SelectCard(ClientCard card)
         {
-            m_selector_pointer = m_selector.Count();
-            m_selector.Add(new CardSelector(card));
+            this.m_selector_pointer = this.m_selector.Count();
+            this.m_selector.Add(new CardSelector(card));
         }
 
         public void SelectCard(IList<ClientCard> cards)
         {
-            m_selector_pointer = m_selector.Count();
-            m_selector.Add(new CardSelector(cards));
+            this.m_selector_pointer = this.m_selector.Count();
+            this.m_selector.Add(new CardSelector(cards));
         }
 
         public void SelectCard(int cardId)
         {
-            m_selector_pointer = m_selector.Count();
-            m_selector.Add(new CardSelector(cardId));
+            this.m_selector_pointer = this.m_selector.Count();
+            this.m_selector.Add(new CardSelector(cardId));
         }
 
         public void SelectCard(IList<int> ids)
         {
-            m_selector_pointer = m_selector.Count();
-            m_selector.Add(new CardSelector(ids));
+            this.m_selector_pointer = this.m_selector.Count();
+            this.m_selector.Add(new CardSelector(ids));
         }
 
         public void SelectCard(params int[] ids)
         {
-            m_selector_pointer = m_selector.Count();
-            m_selector.Add(new CardSelector(ids));
+            this.m_selector_pointer = this.m_selector.Count();
+            this.m_selector.Add(new CardSelector(ids));
         }
 
         public void SelectCard(CardLocation loc)
         {
-            m_selector_pointer = m_selector.Count();
-            m_selector.Add(new CardSelector(loc));
+            this.m_selector_pointer = this.m_selector.Count();
+            this.m_selector.Add(new CardSelector(loc));
         }
 
         public void SelectNextCard(ClientCard card)
         {
-            if (m_selector_pointer == -1)
+            if (this.m_selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectNextCard() before SelectCard()");
-                m_selector_pointer = 0;
+                this.m_selector_pointer = 0;
             }
-            m_selector.Insert(m_selector_pointer, new CardSelector(card));
+            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(card));
         }
 
         public void SelectNextCard(IList<ClientCard> cards)
         {
-            if (m_selector_pointer == -1)
+            if (this.m_selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectNextCard() before SelectCard()");
-                m_selector_pointer = 0;
+                this.m_selector_pointer = 0;
             }
-            m_selector.Insert(m_selector_pointer, new CardSelector(cards));
+            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(cards));
         }
 
         public void SelectNextCard(int cardId)
         {
-            if (m_selector_pointer == -1)
+            if (this.m_selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectNextCard() before SelectCard()");
-                m_selector_pointer = 0;
+                this.m_selector_pointer = 0;
             }
-            m_selector.Insert(m_selector_pointer, new CardSelector(cardId));
+            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(cardId));
         }
 
         public void SelectNextCard(IList<int> ids)
         {
-            if (m_selector_pointer == -1)
+            if (this.m_selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectNextCard() before SelectCard()");
-                m_selector_pointer = 0;
+                this.m_selector_pointer = 0;
             }
-            m_selector.Insert(m_selector_pointer, new CardSelector(ids));
+            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(ids));
         }
 
         public void SelectNextCard(params int[] ids)
         {
-            if (m_selector_pointer == -1)
+            if (this.m_selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectNextCard() before SelectCard()");
-                m_selector_pointer = 0;
+                this.m_selector_pointer = 0;
             }
-            m_selector.Insert(m_selector_pointer, new CardSelector(ids));
+            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(ids));
         }
 
         public void SelectNextCard(CardLocation loc)
         {
-            if (m_selector_pointer == -1)
+            if (this.m_selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectNextCard() before SelectCard()");
-                m_selector_pointer = 0;
+                this.m_selector_pointer = 0;
             }
-            m_selector.Insert(m_selector_pointer, new CardSelector(loc));
+            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(loc));
         }
 
         public void SelectThirdCard(ClientCard card)
         {
-            if (m_selector_pointer == -1)
+            if (this.m_selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectThirdCard() before SelectCard()");
-                m_selector_pointer = 0;
+                this.m_selector_pointer = 0;
             }
-            m_selector.Insert(m_selector_pointer, new CardSelector(card));
+            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(card));
         }
 
         public void SelectThirdCard(IList<ClientCard> cards)
         {
-            if (m_selector_pointer == -1)
+            if (this.m_selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectThirdCard() before SelectCard()");
-                m_selector_pointer = 0;
+                this.m_selector_pointer = 0;
             }
-            m_selector.Insert(m_selector_pointer, new CardSelector(cards));
+            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(cards));
         }
 
         public void SelectThirdCard(int cardId)
         {
-            if (m_selector_pointer == -1)
+            if (this.m_selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectThirdCard() before SelectCard()");
-                m_selector_pointer = 0;
+                this.m_selector_pointer = 0;
             }
-            m_selector.Insert(m_selector_pointer, new CardSelector(cardId));
+            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(cardId));
         }
 
         public void SelectThirdCard(IList<int> ids)
         {
-            if (m_selector_pointer == -1)
+            if (this.m_selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectThirdCard() before SelectCard()");
-                m_selector_pointer = 0;
+                this.m_selector_pointer = 0;
             }
-            m_selector.Insert(m_selector_pointer, new CardSelector(ids));
+            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(ids));
         }
 
         public void SelectThirdCard(params int[] ids)
         {
-            if (m_selector_pointer == -1)
+            if (this.m_selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectThirdCard() before SelectCard()");
-                m_selector_pointer = 0;
+                this.m_selector_pointer = 0;
             }
-            m_selector.Insert(m_selector_pointer, new CardSelector(ids));
+            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(ids));
         }
 
         public void SelectThirdCard(CardLocation loc)
         {
-            if (m_selector_pointer == -1)
+            if (this.m_selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectThirdCard() before SelectCard()");
-                m_selector_pointer = 0;
+                this.m_selector_pointer = 0;
             }
-            m_selector.Insert(m_selector_pointer, new CardSelector(loc));
+            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(loc));
         }
 
         public void SelectMaterials(ClientCard card)
         {
-            m_materialSelector = new CardSelector(card);
+            this.m_materialSelector = new CardSelector(card);
         }
 
         public void SelectMaterials(IList<ClientCard> cards)
         {
-            m_materialSelector = new CardSelector(cards);
+            this.m_materialSelector = new CardSelector(cards);
         }
 
         public void SelectMaterials(int cardId)
         {
-            m_materialSelector = new CardSelector(cardId);
+            this.m_materialSelector = new CardSelector(cardId);
         }
 
         public void SelectMaterials(IList<int> ids)
         {
-            m_materialSelector = new CardSelector(ids);
+            this.m_materialSelector = new CardSelector(ids);
         }
 
         public void SelectMaterials(CardLocation loc)
         {
-            m_materialSelector = new CardSelector(loc);
+            this.m_materialSelector = new CardSelector(loc);
         }
 
         public void CleanSelectMaterials()
         {
-            m_materialSelector = null;
+            this.m_materialSelector = null;
         }
 
         public bool HaveSelectedCards()
         {
-            return m_selector.Count > 0 || m_materialSelector != null;
+            return this.m_selector.Count > 0 || this.m_materialSelector != null;
         }
 
         public CardSelector GetSelectedCards()
         {
             CardSelector selected = null;
-            if (m_selector.Count > 0)
+            if (this.m_selector.Count > 0)
             {
-                selected = m_selector[m_selector.Count - 1];
-                m_selector.RemoveAt(m_selector.Count - 1);
+                selected = this.m_selector[this.m_selector.Count - 1];
+                this.m_selector.RemoveAt(this.m_selector.Count - 1);
             }
             return selected;
         }
@@ -970,68 +1057,72 @@ namespace WindBot.Game
         public CardPosition GetSelectedPosition()
         {
             CardPosition selected = CardPosition.FaceUpAttack;
-            if (m_position.Count > 0)
+            if (this.m_position.Count > 0)
             {
-                selected = m_position[0];
-                m_position.RemoveAt(0);
+                selected = this.m_position[0];
+                this.m_position.RemoveAt(0);
             }
             return selected;
         }
 
         public void SelectPosition(CardPosition pos)
         {
-            m_position.Add(pos);
+            this.m_position.Add(pos);
         }
 
         public void SelectPlace(int zones)
         {
-            m_place = zones;
+            this.m_place = zones;
         }
 
         public void SelectOption(int opt)
         {
-            m_option = opt;
+            this.m_option = opt;
         }
 
         public void SelectNumber(int number)
         {
-            m_number = number;
+            this.m_number = number;
         }
 
         public void SelectAttribute(CardAttribute attribute)
         {
-            m_attributes.Clear();
-            m_attributes.Add(attribute);
+            this.m_attributes.Clear();
+            this.m_attributes.Add(attribute);
         }
 
         public void SelectAttributes(CardAttribute[] attributes)
         {
-            m_attributes.Clear();
+            this.m_attributes.Clear();
             foreach (CardAttribute attribute in attributes)
-                m_attributes.Add(attribute);
+            {
+                this.m_attributes.Add(attribute);
+            }
         }
 
         public void SelectRace(CardRace race)
         {
-            m_races.Clear();
-            m_races.Add(race);
+            this.m_races.Clear();
+            this.m_races.Add(race);
         }
 
         public void SelectRaces(CardRace[] races)
         {
-            m_races.Clear();
+            this.m_races.Clear();
             foreach (CardRace race in races)
-                m_races.Add(race);
+            {
+                this.m_races.Add(race);
+            }
         }
 
         public void SelectAnnounceID(int id)
         {
-            m_announce = id;
+            this.m_announce = id;
         }
 
         public void SelectYesNo(bool opt)
         {
-            m_yesno = opt ? 1 : 0;
+            this.m_yesno = opt ? 1 : 0;
         }
 
         /// <summary>
@@ -1041,8 +1132,10 @@ namespace WindBot.Game
         /// <returns>Index of the selected number.</returns>
         public int OnAnnounceNumber(IList<int> numbers)
         {
-            if (numbers.Contains(m_number))
-                return numbers.IndexOf(m_number);
+            if (numbers.Contains(this.m_number))
+            {
+                return numbers.IndexOf(this.m_number);
+            }
 
             return Program.Rand.Next(0, numbers.Count); // Returns a random number.
         }
@@ -1055,9 +1148,11 @@ namespace WindBot.Game
         /// <returns>A list of the selected attributes.</returns>
         public virtual IList<CardAttribute> OnAnnounceAttrib(int count, IList<CardAttribute> attributes)
         {
-            IList<CardAttribute> foundAttributes = m_attributes.Where(attributes.Contains).ToList();
+            IList<CardAttribute> foundAttributes = this.m_attributes.Where(attributes.Contains).ToList();
             if (foundAttributes.Count > 0)
+            {
                 return foundAttributes;
+            }
 
             return attributes; // Returns the first available Attribute.
         }
@@ -1070,34 +1165,36 @@ namespace WindBot.Game
         /// <returns>A list of the selected races.</returns>
         public virtual IList<CardRace> OnAnnounceRace(int count, IList<CardRace> races)
         {
-            IList<CardRace> foundRaces = m_races.Where(races.Contains).ToList();
+            IList<CardRace> foundRaces = this.m_races.Where(races.Contains).ToList();
             if (foundRaces.Count > 0)
+            {
                 return foundRaces;
+            }
 
             return races; // Returns the first available Races.
         }
 
         public BattlePhaseAction Attack(ClientCard attacker, ClientCard defender)
         {
-            Executor.SetCard(0, attacker, -1);
+            this.Executor.SetCard(0, attacker, -1);
             if (defender != null)
             {
                 string cardName = defender.Name ?? "monster";
                 attacker.ShouldDirectAttack = false;
-                _dialogs.SendAttack(attacker.Name, cardName);
-                SelectCard(defender);
+                this.dialogs.SendAttack(attacker.Name, cardName);
+                this.SelectCard(defender);
             }
             else
             {
                 attacker.ShouldDirectAttack = true;
-                _dialogs.SendDirectAttack(attacker.Name);
+                this.dialogs.SendDirectAttack(attacker.Name);
             }
             return new BattlePhaseAction(BattlePhaseAction.BattleAction.Attack, attacker.ActionIndex);
         }
 
         public BattlePhaseAction ToEndPhase()
         {
-            _dialogs.SendEndTurn();
+            this.dialogs.SendEndTurn();
             return new BattlePhaseAction(BattlePhaseAction.BattleAction.ToEndPhase);
         }
         public BattlePhaseAction ToMainPhase2()
@@ -1107,7 +1204,7 @@ namespace WindBot.Game
 
         private bool ShouldExecute(CardExecutor exec, ClientCard card, ExecutorType type, int desc = -1)
         {
-            Executor.SetCard(type, card, desc);
+            this.Executor.SetCard(type, card, desc);
             return card != null &&
                    exec.Type == type &&
                    (exec.CardId == -1 || exec.CardId == card.Id) &&

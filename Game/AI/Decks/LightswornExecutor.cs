@@ -54,43 +54,43 @@ namespace WindBot.Game.AI.Decks
         public LightswornExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster, DefaultHarpiesFeatherDusterFirst);
-            AddExecutor(ExecutorType.Activate, CardId.GalaxyCyclone, DefaultGalaxyCyclone);
-            AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster);
+            this.AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster, this.DefaultHarpiesFeatherDusterFirst);
+            this.AddExecutor(ExecutorType.Activate, CardId.GalaxyCyclone, this.DefaultGalaxyCyclone);
+            this.AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster);
 
-            AddExecutor(ExecutorType.Activate, CardId.MetalfoesFusion);
-            AddExecutor(ExecutorType.Activate, CardId.GlowUpBulb);
+            this.AddExecutor(ExecutorType.Activate, CardId.MetalfoesFusion);
+            this.AddExecutor(ExecutorType.Activate, CardId.GlowUpBulb);
 
-            AddExecutor(ExecutorType.Activate, CardId.JudgmentDragon, DefaultDarkHole);
-            AddExecutor(ExecutorType.SpSummon, CardId.JudgmentDragon);
+            this.AddExecutor(ExecutorType.Activate, CardId.JudgmentDragon, this.DefaultDarkHole);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.JudgmentDragon);
 
-            AddExecutor(ExecutorType.Activate, CardId.ReinforcementOfTheArmy, ReinforcementOfTheArmyEffect);
-            AddExecutor(ExecutorType.Activate, CardId.ChargeOfTheLightBrigade, ChargeOfTheLightBrigadeEffect);
-            AddExecutor(ExecutorType.Activate, CardId.SolarRecharge, SolarRechargeEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.ReinforcementOfTheArmy, this.ReinforcementOfTheArmyEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.ChargeOfTheLightBrigade, this.ChargeOfTheLightBrigadeEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolarRecharge, this.SolarRechargeEffect);
 
-            AddExecutor(ExecutorType.Summon, CardId.Goblindbergh, GoblindberghSummon);
-            AddExecutor(ExecutorType.Activate, CardId.Goblindbergh, GoblindberghEffect);
+            this.AddExecutor(ExecutorType.Summon, CardId.Goblindbergh, this.GoblindberghSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.Goblindbergh, this.GoblindberghEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightSummon);
-            AddExecutor(ExecutorType.Activate, CardId.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.CastelTheSkyblasterMusketeer, DefaultCastelTheSkyblasterMusketeerSummon);
-            AddExecutor(ExecutorType.Activate, CardId.CastelTheSkyblasterMusketeer, DefaultCastelTheSkyblasterMusketeerEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.ScarlightRedDragonArchfiend, DefaultScarlightRedDragonArchfiendSummon);
-            AddExecutor(ExecutorType.Activate, CardId.ScarlightRedDragonArchfiend, DefaultScarlightRedDragonArchfiendEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.Number39Utopia, DefaultNumberS39UtopiaTheLightningSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiatheLightning);
-            AddExecutor(ExecutorType.Activate, CardId.NumberS39UtopiatheLightning, DefaultNumberS39UtopiaTheLightningEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.EvilswarmExcitonKnight, this.DefaultEvilswarmExcitonKnightSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.EvilswarmExcitonKnight, this.DefaultEvilswarmExcitonKnightEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CastelTheSkyblasterMusketeer, this.DefaultCastelTheSkyblasterMusketeerSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.CastelTheSkyblasterMusketeer, this.DefaultCastelTheSkyblasterMusketeerEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.ScarlightRedDragonArchfiend, this.DefaultScarlightRedDragonArchfiendSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.ScarlightRedDragonArchfiend, this.DefaultScarlightRedDragonArchfiendEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Number39Utopia, this.DefaultNumberS39UtopiaTheLightningSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiatheLightning);
+            this.AddExecutor(ExecutorType.Activate, CardId.NumberS39UtopiatheLightning, this.DefaultNumberS39UtopiaTheLightningEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.PerformageTrickClown, PerformageTrickClownEffect);
-            AddExecutor(ExecutorType.Activate, CardId.ThousandBlades);
-            AddExecutor(ExecutorType.Activate, CardId.Honest, DefaultHonestEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.PerformageTrickClown, this.PerformageTrickClownEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.ThousandBlades);
+            this.AddExecutor(ExecutorType.Activate, CardId.Honest, this.DefaultHonestEffect);
 
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
         }
 
         public override void OnNewTurn()
         {
-            ClownUsed = false;
+            this.ClownUsed = false;
             base.OnNewTurn();
         }
 
@@ -98,8 +98,10 @@ namespace WindBot.Game.AI.Decks
         {
             if (!defender.IsMonsterHasPreventActivationEffectInBattle())
             {
-                if (attacker.Attribute == (int)CardAttribute.Light && Bot.HasInHand(CardId.Honest))
+                if (attacker.Attribute == (int)CardAttribute.Light && this.Bot.HasInHand(CardId.Honest))
+                {
                     attacker.RealPower = attacker.RealPower + defender.Attack;
+                }
             }
             return base.OnPreBattleBetween(attacker, defender);
         }
@@ -110,25 +112,30 @@ namespace WindBot.Game.AI.Decks
             IList<ClientCard> result = new List<ClientCard>();
             foreach (ClientCard card in cards)
             {
-                if (!result.Contains(card) && (!ClownUsed || !card.IsCode(CardId.PerformageTrickClown)))
+                if (!result.Contains(card) && (!this.ClownUsed || !card.IsCode(CardId.PerformageTrickClown)))
+                {
                     result.Add(card);
+                }
+
                 if (result.Count >= max)
+                {
                     break;
+                }
             }
             
-            return Util.CheckSelectCount(result, cards, min, max);
+            return this.Util.CheckSelectCount(result, cards, min, max);
         }
 
         private bool ReinforcementOfTheArmyEffect()
         {
-            if (!Bot.HasInHand(CardId.Raiden))
+            if (!this.Bot.HasInHand(CardId.Raiden))
             {
-                AI.SelectCard(CardId.Raiden);
+                this.AI.SelectCard(CardId.Raiden);
                 return true;
             }
-            else if (!Bot.HasInHand(CardId.Goblindbergh))
+            else if (!this.Bot.HasInHand(CardId.Goblindbergh))
             {
-                AI.SelectCard(CardId.Goblindbergh);
+                this.AI.SelectCard(CardId.Goblindbergh);
                 return true;
             }
             return false;
@@ -136,21 +143,26 @@ namespace WindBot.Game.AI.Decks
 
         private bool ChargeOfTheLightBrigadeEffect()
         {
-            if (!Bot.HasInHand(CardId.Lumina))
-                AI.SelectCard(CardId.Lumina);
+            if (!this.Bot.HasInHand(CardId.Lumina))
+            {
+                this.AI.SelectCard(CardId.Lumina);
+            }
             else
-                AI.SelectCard(
+            {
+                this.AI.SelectCard(
                     CardId.Raiden,
                     CardId.Lumina,
                     CardId.Minerva,
                     CardId.Lyla
                     );
+            }
+
             return true;
         }
 
         private bool SolarRechargeEffect()
         {
-            AI.SelectCard(
+            this.AI.SelectCard(
                 CardId.Wulf,
                 CardId.Felis,
                 CardId.Minerva,
@@ -162,17 +174,19 @@ namespace WindBot.Game.AI.Decks
 
         private bool GoblindberghSummon()
         {
-            foreach (ClientCard card in Bot.Hand.GetMonsters())
+            foreach (ClientCard card in this.Bot.Hand.GetMonsters())
             {
-                if (!card.Equals(Card) && card.Level == 4)
+                if (!card.Equals(this.Card) && card.Level == 4)
+                {
                     return true;
+                }
             }
             return false;
         }
 
         private bool GoblindberghEffect()
         {
-            AI.SelectCard(
+            this.AI.SelectCard(
                 CardId.Felis,
                 CardId.Wulf,
                 CardId.Raiden,
@@ -184,37 +198,37 @@ namespace WindBot.Game.AI.Decks
 
         private bool LuminaEffect()
         {
-            if (!Bot.HasInGraveyard(CardId.Raiden) && Bot.HasInHand(CardId.Raiden))
+            if (!this.Bot.HasInGraveyard(CardId.Raiden) && this.Bot.HasInHand(CardId.Raiden))
             {
-                AI.SelectCard(CardId.Raiden);
+                this.AI.SelectCard(CardId.Raiden);
             }
-            else if (!ClownUsed && Bot.HasInHand(CardId.PerformageTrickClown))
+            else if (!this.ClownUsed && this.Bot.HasInHand(CardId.PerformageTrickClown))
             {
-                AI.SelectCard(CardId.PerformageTrickClown);
+                this.AI.SelectCard(CardId.PerformageTrickClown);
             }
             else
             {
-                AI.SelectCard(
+                this.AI.SelectCard(
                     CardId.Wulf,
                     CardId.Felis,
                     CardId.Minerva,
                     CardId.ThousandBlades
                     );
             }
-            AI.SelectNextCard(CardId.Raiden, CardId.Felis);
+            this.AI.SelectNextCard(CardId.Raiden, CardId.Felis);
             return true;
         }
 
         private bool PerformageTrickClownEffect()
         {
-            ClownUsed = true;
-            AI.SelectPosition(CardPosition.FaceUpDefence);
+            this.ClownUsed = true;
+            this.AI.SelectPosition(CardPosition.FaceUpDefence);
             return true;
         }
 
         private bool MinervaTheExaltedEffect()
         {
-            if (Card.Location == CardLocation.MonsterZone)
+            if (this.Card.Location == CardLocation.MonsterZone)
             {
                 return true;
             }
@@ -222,31 +236,48 @@ namespace WindBot.Game.AI.Decks
             {
                 IList<ClientCard> targets = new List<ClientCard>();
 
-                ClientCard target1 = Util.GetBestEnemyMonster();
+                ClientCard target1 = this.Util.GetBestEnemyMonster();
                 if (target1 != null)
+                {
                     targets.Add(target1);
-                ClientCard target2 = Util.GetBestEnemySpell();
-                if (target2 != null)
-                    targets.Add(target2);
-
-                foreach (ClientCard target in Enemy.GetMonsters())
-                {
-                    if (targets.Count >= 3)
-                        break;
-                    if (!targets.Contains(target))
-                        targets.Add(target);
                 }
-                foreach (ClientCard target in Enemy.GetSpells())
+
+                ClientCard target2 = this.Util.GetBestEnemySpell();
+                if (target2 != null)
+                {
+                    targets.Add(target2);
+                }
+
+                foreach (ClientCard target in this.Enemy.GetMonsters())
                 {
                     if (targets.Count >= 3)
+                    {
                         break;
+                    }
+
                     if (!targets.Contains(target))
+                    {
                         targets.Add(target);
+                    }
+                }
+                foreach (ClientCard target in this.Enemy.GetSpells())
+                {
+                    if (targets.Count >= 3)
+                    {
+                        break;
+                    }
+
+                    if (!targets.Contains(target))
+                    {
+                        targets.Add(target);
+                    }
                 }
                 if (targets.Count == 0)
+                {
                     return false;
+                }
 
-                AI.SelectNextCard(targets);
+                this.AI.SelectNextCard(targets);
                 return true;
             }
         }

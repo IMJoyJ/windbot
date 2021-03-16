@@ -2,13 +2,13 @@
 {
     public static class Zones
     {
-        public const int z0 = 0x1,
-        z1 = 0x2,
-        z2 = 0x4,
-        z3 = 0x8,
-        z4 = 0x10,
-        z5 = 0x20,
-        z6 = 0x40,
+        public const int MonsterZone1 = 0x1,
+        MonsterZone2 = 0x2,
+        MonsterZone3 = 0x4,
+        MonsterZone4 = 0x8,
+        MonsterZone5 = 0x10,
+        ExtraZone1 = 0x20,
+        ExtraZone2 = 0x40,
 
         MonsterZones = 0x7f,
         MainMonsterZones = 0x1f,

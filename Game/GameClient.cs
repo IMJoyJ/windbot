@@ -29,59 +29,59 @@ namespace WindBot.Game
 
         public GameClient(WindBotInfo Info)
         {
-            Username = Info.Name;
-            Deck = Info.Deck;
-            DeckFile = Info.DeckFile;
-            DeckCode = Info.DeckCode;
-            Dialog = Info.Dialog;
-            Hand = Info.Hand;
-            Debug = Info.Debug;
-            _chat = Info.Chat;
-            _serverHost = Info.Host;
-            _serverPort = Info.Port;
-            _roomInfo = Info.HostInfo;
-            _proVersion = (short)Info.Version;
+            this.Username = Info.Name;
+            this.Deck = Info.Deck;
+            this.DeckFile = Info.DeckFile;
+            this.DeckCode = Info.DeckCode;
+            this.Dialog = Info.Dialog;
+            this.Hand = Info.Hand;
+            this.Debug = Info.Debug;
+            this._chat = Info.Chat;
+            this._serverHost = Info.Host;
+            this._serverPort = Info.Port;
+            this._roomInfo = Info.HostInfo;
+            this._proVersion = (short)Info.Version;
         }
 
         public void Start()
         {
-            Connection = new YGOClient();
-            _behavior = new GameBehavior(this);
+            this.Connection = new YGOClient();
+            this._behavior = new GameBehavior(this);
 
-            Connection.Connected += OnConnected;
-            Connection.PacketReceived += OnPacketReceived;
+            this.Connection.Connected += this.OnConnected;
+            this.Connection.PacketReceived += this.OnPacketReceived;
 
             IPAddress target_address;
             try
             {
-                target_address = IPAddress.Parse(_serverHost);
+                target_address = IPAddress.Parse(this._serverHost);
             }
             catch (System.Exception)
             {
-                IPHostEntry _hostEntry = Dns.GetHostEntry(_serverHost);
+                IPHostEntry _hostEntry = Dns.GetHostEntry(this._serverHost);
                 target_address = _hostEntry.AddressList.FirstOrDefault(findIPv4 => findIPv4.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork);
             }
 
-            Connection.Connect(target_address, _serverPort);
+            this.Connection.Connect(target_address, this._serverPort);
         }
 
         private void OnConnected()
         {
             BinaryWriter packet = GamePacketFactory.Create(CtosMessage.PlayerInfo);
-            packet.WriteUnicode(Username, 20);
-            Connection.Send(packet);
+            packet.WriteUnicode(this.Username, 20);
+            this.Connection.Send(packet);
 
             byte[] junk = { 0xCC, 0xCC, 0x00, 0x00, 0x00, 0x00 };
             packet = GamePacketFactory.Create(CtosMessage.JoinGame);
-            packet.Write(_proVersion);
+            packet.Write(this._proVersion);
             packet.Write(junk);
-            packet.WriteUnicode(_roomInfo, 30);
-            Connection.Send(packet);
+            packet.WriteUnicode(this._roomInfo, 30);
+            this.Connection.Send(packet);
         }
 
         public void Tick()
         {
-            Connection.Update();
+            this.Connection.Update();
         }
 
         public void Chat(string message)
@@ -89,12 +89,12 @@ namespace WindBot.Game
             byte[] content = Encoding.Unicode.GetBytes(message + "\0");
             BinaryWriter chat = GamePacketFactory.Create(CtosMessage.Chat);
             chat.Write(content);
-            Connection.Send(chat);
+            this.Connection.Send(chat);
         }
 
         private void OnPacketReceived(BinaryReader reader)
         {
-            _behavior.OnPacket(reader);
+            this._behavior.OnPacket(reader);
         }
     }
 }

@@ -37,74 +37,88 @@ namespace WindBot.Game.AI.Decks
         public OldSchoolExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.Activate, CardId.HeavyStorm, DefaultHeavyStorm);
-            AddExecutor(ExecutorType.SpellSet, DefaultSpellSet);
-            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
-            AddExecutor(ExecutorType.Activate, CardId.Raigeki, DefaultRaigeki);
-            AddExecutor(ExecutorType.Activate, CardId.HammerShot, DefaultHammerShot);
-            AddExecutor(ExecutorType.Activate, CardId.Fissure);
-            AddExecutor(ExecutorType.Activate, CardId.SwordsOfRevealingLight, SwordsOfRevealingLight);
-            AddExecutor(ExecutorType.Activate, CardId.DoubleSummon, DoubleSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.HeavyStorm, this.DefaultHeavyStorm);
+            this.AddExecutor(ExecutorType.SpellSet, this.DefaultSpellSet);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkHole, this.DefaultDarkHole);
+            this.AddExecutor(ExecutorType.Activate, CardId.Raigeki, this.DefaultRaigeki);
+            this.AddExecutor(ExecutorType.Activate, CardId.HammerShot, this.DefaultHammerShot);
+            this.AddExecutor(ExecutorType.Activate, CardId.Fissure);
+            this.AddExecutor(ExecutorType.Activate, CardId.SwordsOfRevealingLight, this.SwordsOfRevealingLight);
+            this.AddExecutor(ExecutorType.Activate, CardId.DoubleSummon, this.DoubleSummon);
 
-            AddExecutor(ExecutorType.Summon, CardId.AncientGearGolem, DefaultTributeSummon);
-            AddExecutor(ExecutorType.Summon, CardId.Frostosaurus, DefaultTributeSummon);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.AlexandriteDragon);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.GeneWarpedWarwolf);
-            AddExecutor(ExecutorType.MonsterSet, CardId.GearGolemTheMovingFortress);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.EvilswarmHeliotrope);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.LusterDragon);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.InsectKnight);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.ArchfiendSoldier);
+            this.AddExecutor(ExecutorType.Summon, CardId.AncientGearGolem, this.DefaultTributeSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.Frostosaurus, this.DefaultTributeSummon);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.AlexandriteDragon);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.GeneWarpedWarwolf);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.GearGolemTheMovingFortress);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.EvilswarmHeliotrope);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.LusterDragon);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.InsectKnight);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.ArchfiendSoldier);
 
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
 
-            AddExecutor(ExecutorType.Activate, CardId.MirrorForce, DefaultTrap);
-            AddExecutor(ExecutorType.Activate, CardId.DimensionalPrison, DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.MirrorForce, this.DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.DimensionalPrison, this.DefaultTrap);
         }
 
         private int _lastDoubleSummon;
 
         private bool DoubleSummon()
         {
-            if (_lastDoubleSummon == Duel.Turn)
+            if (this._lastDoubleSummon == this.Duel.Turn)
+            {
                 return false;
+            }
 
-            if (Main.SummonableCards.Count == 0)
+            if (this.Main.SummonableCards.Count == 0)
+            {
                 return false;
+            }
 
-            if (Main.SummonableCards.Count == 1 && Main.SummonableCards[0].Level < 5)
+            if (this.Main.SummonableCards.Count == 1 && this.Main.SummonableCards[0].Level < 5)
             {
                 bool canTribute = false;
-                foreach (ClientCard handCard in Bot.Hand)
+                foreach (ClientCard handCard in this.Bot.Hand)
                 {
                     if (handCard.IsMonster() && handCard.Level > 4 && handCard.Level < 6)
+                    {
                         canTribute = true;
+                    }
                 }
                 if (!canTribute)
+                {
                     return false;
+                }
             }
 
             int monsters = 0;
-            foreach (ClientCard handCard in Bot.Hand)
+            foreach (ClientCard handCard in this.Bot.Hand)
             {
                 if (handCard.IsMonster())
+                {
                     monsters++;
+                }
             }
             if (monsters <= 1)
+            {
                 return false;
+            }
 
-            _lastDoubleSummon = Duel.Turn;
+            this._lastDoubleSummon = this.Duel.Turn;
             return true;
         }
 
         private bool SwordsOfRevealingLight()
         {
-            foreach (ClientCard handCard in Enemy.GetMonsters())
+            foreach (ClientCard handCard in this.Enemy.GetMonsters())
             {
                 if (handCard.IsFacedown())
+                {
                     return true;
+                }
             }
-            return Util.IsOneEnemyBetter(true);
+            return this.Util.IsOneEnemyBetter(true);
         }
     }
 }

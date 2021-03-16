@@ -45,47 +45,47 @@ namespace WindBot.Game.AI.Decks
         public MathmechExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.Activate, CardId.raigeki ,when_raigeki);
-            AddExecutor(ExecutorType.Activate, CardId.upstartGoblin);
-            AddExecutor(ExecutorType.Activate, CardId.OneTimePasscode);
-            AddExecutor(ExecutorType.SpellSet, CardId.threanteningRoar);
-            AddExecutor(ExecutorType.Activate,CardId.cosmicCyclone , when_cosmic);
-            AddExecutor(ExecutorType.Activate,CardId.lightningStorm ,lightstorm_target);
-            AddExecutor(ExecutorType.Activate,CardId.foolishBurial,foolish_burial_target);
-            AddExecutor(ExecutorType.Activate,CardId.mathmechEquation,mathmech_equation_target);
-            AddExecutor(ExecutorType.Activate,CardId.PotOfDesires);
+            this.AddExecutor(ExecutorType.Activate, CardId.raigeki , this.when_raigeki);
+            this.AddExecutor(ExecutorType.Activate, CardId.upstartGoblin);
+            this.AddExecutor(ExecutorType.Activate, CardId.OneTimePasscode);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.threanteningRoar);
+            this.AddExecutor(ExecutorType.Activate,CardId.cosmicCyclone , this.when_cosmic);
+            this.AddExecutor(ExecutorType.Activate,CardId.lightningStorm , this.lightstorm_target);
+            this.AddExecutor(ExecutorType.Activate,CardId.foolishBurial, this.foolish_burial_target);
+            this.AddExecutor(ExecutorType.Activate,CardId.mathmechEquation, this.mathmech_equation_target);
+            this.AddExecutor(ExecutorType.Activate,CardId.PotOfDesires);
 
 
-            AddExecutor(ExecutorType.Summon, CardId.MathmechNebla);
-            AddExecutor(ExecutorType.Summon,CardId.BalancerLord );
-            AddExecutor(ExecutorType.Summon, CardId.Mathmechdouble);
-            AddExecutor(ExecutorType.Summon, CardId.MathmechSubtra);
-            AddExecutor(ExecutorType.Summon, CardId.MathmechAddition);
-            AddExecutor(ExecutorType.Summon, CardId.MathmechDivision);
-            AddExecutor(ExecutorType.Summon, CardId.MathmechDivision);
-            AddExecutor(ExecutorType.Activate, CardId.MathmechSigma);
-            AddExecutor(ExecutorType.Activate,CardId.threanteningRoar);
+            this.AddExecutor(ExecutorType.Summon, CardId.MathmechNebla);
+            this.AddExecutor(ExecutorType.Summon,CardId.BalancerLord );
+            this.AddExecutor(ExecutorType.Summon, CardId.Mathmechdouble);
+            this.AddExecutor(ExecutorType.Summon, CardId.MathmechSubtra);
+            this.AddExecutor(ExecutorType.Summon, CardId.MathmechAddition);
+            this.AddExecutor(ExecutorType.Summon, CardId.MathmechDivision);
+            this.AddExecutor(ExecutorType.Summon, CardId.MathmechDivision);
+            this.AddExecutor(ExecutorType.Activate, CardId.MathmechSigma);
+            this.AddExecutor(ExecutorType.Activate,CardId.threanteningRoar);
 
             //xyz summons
-            AddExecutor(ExecutorType.SpSummon, CardId.Mathmechalem, when_Mathmechalem);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Mathmechalem, this.when_Mathmechalem);
             //xyz effects
-            AddExecutor(ExecutorType.Activate, CardId.Mathmechalem, mathchalenEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.Mathmechalem, this.mathchalenEffect);
             //Synchro
-            AddExecutor(ExecutorType.SpSummon, CardId.MathmechFinalSigma , FinalSigmaSummon);
-            
-            AddExecutor(ExecutorType.Activate, CardId.Mathmechdouble, doubleEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.MathmechFinalSigma , this.FinalSigmaSummon);
+
+            this.AddExecutor(ExecutorType.Activate, CardId.Mathmechdouble, this.doubleEffect);
 
             //normal effects
-            AddExecutor(ExecutorType.Activate, CardId.MathmechNebla, NeblaEffect);
-            AddExecutor(ExecutorType.Activate,CardId.MathmechDivision , divisionEffect);
-            AddExecutor(ExecutorType.Activate,CardId.BalancerLord , active_balancer);
-            AddExecutor(ExecutorType.Activate, CardId.MathmechSubtra , whom_subtra);
-            AddExecutor(ExecutorType.Activate, CardId.MathmechAddition , whom_addition);
+            this.AddExecutor(ExecutorType.Activate, CardId.MathmechNebla, this.NeblaEffect);
+            this.AddExecutor(ExecutorType.Activate,CardId.MathmechDivision , this.divisionEffect);
+            this.AddExecutor(ExecutorType.Activate,CardId.BalancerLord , this.active_balancer);
+            this.AddExecutor(ExecutorType.Activate, CardId.MathmechSubtra , this.whom_subtra);
+            this.AddExecutor(ExecutorType.Activate, CardId.MathmechAddition , this.whom_addition);
             //spell effects
-            AddExecutor(ExecutorType.Activate, CardId.cynetmining , how_to_cynet_mine);
-            AddExecutor(ExecutorType.SpSummon, CardId.MathmechMagma, MagmaSummon);
-            AddExecutor(ExecutorType.Activate,CardId.MathmechFinalSigma);
-            AddExecutor(ExecutorType.Activate,CardId.MathmechMagma);
+            this.AddExecutor(ExecutorType.Activate, CardId.cynetmining , this.how_to_cynet_mine);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.MathmechMagma, this.MagmaSummon);
+            this.AddExecutor(ExecutorType.Activate,CardId.MathmechFinalSigma);
+            this.AddExecutor(ExecutorType.Activate,CardId.MathmechMagma);
             
 
             //function
@@ -99,9 +99,9 @@ namespace WindBot.Game.AI.Decks
         private bool when_cosmic()
         {
             
-            if (Enemy.GetSpellCount() > 1)
+            if (this.Enemy.GetSpellCount() > 1)
             {
-                AI.SelectCard(Util.GetBestEnemySpell());
+                this.AI.SelectCard(this.Util.GetBestEnemySpell());
                 return true;
             }
             else
@@ -111,9 +111,9 @@ namespace WindBot.Game.AI.Decks
         }
         private bool divisionEffect()
         {
-            if (Enemy.GetMonsterCount() > 0)
+            if (this.Enemy.GetMonsterCount() > 0)
             {
-                AI.SelectCard(Util.GetBestEnemyMonster(canBeTarget:true,onlyFaceup:true));
+                this.AI.SelectCard(this.Util.GetBestEnemyMonster(canBeTarget:true,onlyFaceup:true));
                 return true;
             }
             else
@@ -124,7 +124,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool when_raigeki()
         {
-            if (Enemy.GetMonsterCount() > 3)
+            if (this.Enemy.GetMonsterCount() > 3)
             {
                 return true;
             }
@@ -136,7 +136,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool whom_addition()
         {
-            AI.SelectCard(Util.GetBestBotMonster(onlyATK:true));
+            this.AI.SelectCard(this.Util.GetBestBotMonster(onlyATK:true));
             return true;
         }
 
@@ -144,7 +144,7 @@ namespace WindBot.Game.AI.Decks
         {
             try
             {
-                AI.SelectCard(Util.GetBestEnemyMonster(onlyFaceup: true, canBeTarget: true));
+                this.AI.SelectCard(this.Util.GetBestEnemyMonster(onlyFaceup: true, canBeTarget: true));
                 return true;
             }
             catch (Exception e)
@@ -155,9 +155,9 @@ namespace WindBot.Game.AI.Decks
 
         private bool active_balancer()
         {
-            if (Bot.HasInHand(CardId.MathmechNebla))
+            if (this.Bot.HasInHand(CardId.MathmechNebla))
             {
-                AI.SelectCard(CardId.MathmechNebla);
+                this.AI.SelectCard(CardId.MathmechNebla);
                 return true;
             }
             else
@@ -167,14 +167,14 @@ namespace WindBot.Game.AI.Decks
         }
         private bool lightstorm_target()
         {
-            if ((Enemy.MonsterZone.ToList().Count > Enemy.SpellZone.ToList().Count ) && Enemy.MonsterZone.ToList().Count>3)
+            if ((this.Enemy.MonsterZone.ToList().Count > this.Enemy.SpellZone.ToList().Count ) && this.Enemy.MonsterZone.ToList().Count>3)
             {
-                AI.SelectPlace(Zones.MonsterZones);
+                this.AI.SelectPlace(Zones.MonsterZones);
                 return true;
             }
             else
             {
-                AI.SelectPlace(Zones.SpellZones);
+                this.AI.SelectPlace(Zones.SpellZones);
                 return true;
             }
 
@@ -182,43 +182,43 @@ namespace WindBot.Game.AI.Decks
 
         private bool mathmech_equation_target()
         {
-            if (Bot.HasInGraveyard(CardId.MathmechNebla))
+            if (this.Bot.HasInGraveyard(CardId.MathmechNebla))
             {
-                AI.SelectCard(CardId.MathmechNebla);
+                this.AI.SelectCard(CardId.MathmechNebla);
                 return true;
             }
             else
             {
-                AI.SelectCard((Util.GetBestBotMonster(onlyATK: true)));
+                this.AI.SelectCard((this.Util.GetBestBotMonster(onlyATK: true)));
                 return true;
             }
         }
 
         private bool foolish_burial_target()
         {
-            AI.SelectCard(CardId.MathmechNebla);
+            this.AI.SelectCard(CardId.MathmechNebla);
             return true;
         }
         private bool how_to_cynet_mine()
         {
-            AI.SelectCard(Util.GetWorstBotMonster());
-            if (!Bot.HasInHandOrInMonstersZoneOrInGraveyard(CardId.MathmechSigma))
+            this.AI.SelectCard(this.Util.GetWorstBotMonster());
+            if (!this.Bot.HasInHandOrInMonstersZoneOrInGraveyard(CardId.MathmechSigma))
             {
-                AI.SelectNextCard(CardId.MathmechSigma);
+                this.AI.SelectNextCard(CardId.MathmechSigma);
                 return true;
             }
             return true;
         }
         private bool when_Mathmechalem()
         {
-            if (Bot.HasInMonstersZone(CardId.MathmechNebla)){
+            if (this.Bot.HasInMonstersZone(CardId.MathmechNebla)){
                 return false;
             }
-            else if(Bot.HasInMonstersZone(CardId.MathmechSigma) && Bot.HasInMonstersZone(CardId.Mathmechdouble))
+            else if(this.Bot.HasInMonstersZone(CardId.MathmechSigma) && this.Bot.HasInMonstersZone(CardId.Mathmechdouble))
             {
                 return false;
             }
-            else if (Bot.HasInMonstersZone(CardId.Mathmechalem))
+            else if (this.Bot.HasInMonstersZone(CardId.Mathmechalem))
             {
                 return false;
             }
@@ -229,14 +229,14 @@ namespace WindBot.Game.AI.Decks
         }
         private bool FinalSigmaSummon()
         {
-            if (Duel.Turn < 1)
+            if (this.Duel.Turn < 1)
             {
                 return false;
             }
-            if ((Bot.HasInMonstersZone(CardId.Mathmechdouble) && (( Bot.HasInMonstersZone(CardId.MathmechSigma)) || Bot.HasInMonstersZone(CardId.MathmechNebla))))
+            if ((this.Bot.HasInMonstersZone(CardId.Mathmechdouble) && ((this.Bot.HasInMonstersZone(CardId.MathmechSigma)) || this.Bot.HasInMonstersZone(CardId.MathmechNebla))))
             {
-                AI.SelectPosition(CardPosition.Attack);
-                try { AI.SelectPlace(Zones.ExtraMonsterZones);  }
+                this.AI.SelectPosition(CardPosition.Attack);
+                try { this.AI.SelectPlace(Zones.ExtraMonsterZones);  }
                 catch { }
                 
                 return true;
@@ -249,7 +249,7 @@ namespace WindBot.Game.AI.Decks
         }
         private bool NeblaEffect()
         {
-            bool a = Bot.HasInMonstersZone(CardId.MathmechSubtra) || Bot.HasInMonstersZone(CardId.securitytoken) || Bot.HasInMonstersZone(CardId.MathmechSigma) || Bot.HasInMonstersZone(CardId.MathmechAddition) || Bot.HasInMonstersZone(CardId.Mathmechalem) || Bot.HasInMonstersZone(CardId.MathmechDivision);
+            bool a = this.Bot.HasInMonstersZone(CardId.MathmechSubtra) || this.Bot.HasInMonstersZone(CardId.securitytoken) || this.Bot.HasInMonstersZone(CardId.MathmechSigma) || this.Bot.HasInMonstersZone(CardId.MathmechAddition) || this.Bot.HasInMonstersZone(CardId.Mathmechalem) || this.Bot.HasInMonstersZone(CardId.MathmechDivision);
             if (a)
             {
                 List<int> cards = new List<int>();
@@ -260,7 +260,7 @@ namespace WindBot.Game.AI.Decks
                 cards.Add(item:CardId.Mathmechalem);
                 cards.Add(CardId.securitytoken);
                 int u = 0;
-                List<ClientCard> monsters = Bot.GetMonstersInMainZone();
+                List<ClientCard> monsters = this.Bot.GetMonstersInMainZone();
                 for (int i = 0; i < monsters.Count; i++)
                 {
                     if (cards.Contains(monsters[i].Id))
@@ -273,13 +273,13 @@ namespace WindBot.Game.AI.Decks
                         u = CardId.securitytoken;
                     }
                 }
-                AI.SelectCard(CardId.securitytoken);
-                AI.SelectNextCard(CardId.Mathmechdouble);
+                this.AI.SelectCard(CardId.securitytoken);
+                this.AI.SelectNextCard(CardId.Mathmechdouble);
                 return true;
 
 
             }
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
                 return true;
             }
@@ -290,11 +290,11 @@ namespace WindBot.Game.AI.Decks
         }
         private bool doubleEffect()
         {
-            if (Bot.HasInMonstersZone(CardId.MathmechNebla) || Bot.HasInMonstersZone(CardId.MathmechSigma))
+            if (this.Bot.HasInMonstersZone(CardId.MathmechNebla) || this.Bot.HasInMonstersZone(CardId.MathmechSigma))
             {
                 return true;
             };
-            if (Card.Location == CardLocation.Grave )
+            if (this.Card.Location == CardLocation.Grave )
                 {
                     return true;
                 }
@@ -307,36 +307,36 @@ namespace WindBot.Game.AI.Decks
         private bool mathchalenEffect()
 
         {
-            if (Duel.Turn < 1)
+            if (this.Duel.Turn < 1)
             {
                 return false;
             }
-            if ( (Bot.HasInHandOrInGraveyard(CardId.MathmechNebla) &&  !Bot.HasInMonstersZone(CardId.MathmechNebla)) && (Card.Location == CardLocation.FieldZone && Card.HasXyzMaterial(0)) )
+            if ( (this.Bot.HasInHandOrInGraveyard(CardId.MathmechNebla) &&  !this.Bot.HasInMonstersZone(CardId.MathmechNebla)) && (this.Card.Location == CardLocation.FieldZone && this.Card.HasXyzMaterial(0)) )
             {
-                AI.SelectCard(CardId.Mathmechalem);
-                AI.SelectNextCard(CardId.MathmechNebla);
+                this.AI.SelectCard(CardId.Mathmechalem);
+                this.AI.SelectNextCard(CardId.MathmechNebla);
                 return true;
             }
 
-            if (Bot.HasInHandOrInGraveyard(CardId.Mathmechdouble) &&
-                (Bot.HasInMonstersZone(CardId.MathmechNebla) || Bot.HasInMonstersZone(CardId.MathmechSigma)) &&
-                Card.Location == CardLocation.FieldZone && Card.HasXyzMaterial(0))
+            if (this.Bot.HasInHandOrInGraveyard(CardId.Mathmechdouble) &&
+                (this.Bot.HasInMonstersZone(CardId.MathmechNebla) || this.Bot.HasInMonstersZone(CardId.MathmechSigma)) &&
+                this.Card.Location == CardLocation.FieldZone && this.Card.HasXyzMaterial(0))
             {
-                AI.SelectCard(CardId.Mathmechalem);
-                AI.SelectNextCard(CardId.Mathmechdouble);
+                this.AI.SelectCard(CardId.Mathmechalem);
+                this.AI.SelectNextCard(CardId.Mathmechdouble);
                 return true;
             }
-            if (!Bot.HasInHandOrInGraveyard(CardId.MathmechNebla) && Card.HasXyzMaterial(2))
+            if (!this.Bot.HasInHandOrInGraveyard(CardId.MathmechNebla) && this.Card.HasXyzMaterial(2))
             {
-                AI.SelectCard(CardId.MathmechNebla);
-                AI.SelectThirdCard(CardId.MathmechNebla);
+                this.AI.SelectCard(CardId.MathmechNebla);
+                this.AI.SelectThirdCard(CardId.MathmechNebla);
                 return true;
             }
 
-            if (!Bot.HasInHandOrInGraveyard(CardId.MathmechSigma) && Card.HasXyzMaterial(2))
+            if (!this.Bot.HasInHandOrInGraveyard(CardId.MathmechSigma) && this.Card.HasXyzMaterial(2))
             {
-                AI.SelectCard(CardId.MathmechSigma);
-                AI.SelectThirdCard(CardId.MathmechSigma);
+                this.AI.SelectCard(CardId.MathmechSigma);
+                this.AI.SelectThirdCard(CardId.MathmechSigma);
                 return true;
             }
             else
@@ -349,12 +349,12 @@ namespace WindBot.Game.AI.Decks
 
         private bool MagmaSummon()
         {
-            if (Bot.HasInMonstersZone(CardId.MathmechNebla))
+            if (this.Bot.HasInMonstersZone(CardId.MathmechNebla))
             {
                 return false;
             }
 
-            if (Bot.HasInMonstersZone(CardId.MathmechSigma) && Bot.HasInMonstersZone(CardId.Mathmechdouble))
+            if (this.Bot.HasInMonstersZone(CardId.MathmechSigma) && this.Bot.HasInMonstersZone(CardId.Mathmechdouble))
             {
                 return false;
             }
@@ -368,8 +368,15 @@ namespace WindBot.Game.AI.Decks
         {
             if (cardId == CardId.MathmechFinalSigma)
             {
-                if ((Zones.z5 & available) > 0) return Zones.z5;
-                if ((Zones.z6 & available) > 0) return Zones.z6;
+                if ((Zones.ExtraZone1 & available) > 0)
+                {
+                    return Zones.ExtraZone1;
+                }
+
+                if ((Zones.ExtraZone2 & available) > 0)
+                {
+                    return Zones.ExtraZone2;
+                }
             }
             return base.OnSelectPlace(cardId, player, location, available);
         }

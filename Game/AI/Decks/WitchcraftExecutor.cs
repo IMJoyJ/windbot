@@ -79,100 +79,100 @@ namespace WindBot.Game.AI.Decks
             : base(ai, duel)
         {
             // do first
-            AddExecutor(ExecutorType.Activate, CardId.PotofExtravagance, PotofExtravaganceActivate);
-            AddExecutor(ExecutorType.SpellSet, SpellSetForFiveRainbow);
+            this.AddExecutor(ExecutorType.Activate, CardId.PotofExtravagance, this.PotofExtravaganceActivate);
+            this.AddExecutor(ExecutorType.SpellSet, this.SpellSetForFiveRainbow);
 
             // clear
-            AddExecutor(ExecutorType.Activate, CardId.DarkRulerNoMore, DarkRulerNoMoreActivate);
-            AddExecutor(ExecutorType.Activate, CardId.LightningStorm, LightningStormActivate);
-            AddExecutor(ExecutorType.Activate, CardId.RelinquishedAnima);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkRulerNoMore, this.DarkRulerNoMoreActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.LightningStorm, this.LightningStormActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.RelinquishedAnima);
 
             // counter & quick effect
-            AddExecutor(ExecutorType.Activate, CardId.Schmietta, DeckSSWitchcraft);
-            AddExecutor(ExecutorType.Activate, CardId.Pittore, DeckSSWitchcraft);
-            AddExecutor(ExecutorType.Activate, CardId.Potterie, DeckSSWitchcraft);
-            AddExecutor(ExecutorType.Activate, CardId.Genni, DeckSSWitchcraft);
-            AddExecutor(ExecutorType.Activate, CardId.PSYGamma, PSYGammaActivate);
-            AddExecutor(ExecutorType.Activate, CardId.MaxxC, MaxxCActivate);
-            AddExecutor(ExecutorType.Activate, CardId.GolemAruru, GolemAruruActivate);
-            AddExecutor(ExecutorType.Activate, CardId.BorreloadSavageDragon, BorreloadSavageDragonActivate);
-            AddExecutor(ExecutorType.Activate, CardId.InfiniteImpermanence, InfiniteImpermanenceActivate);
-            AddExecutor(ExecutorType.Activate, CardId.AshBlossom_JoyousSpring, AshBlossom_JoyousSpringActivate);
-            AddExecutor(ExecutorType.Activate, CardId.CalledbytheGrave, CalledbytheGraveActivate);
-            AddExecutor(ExecutorType.Activate, CardId.CrossoutDesignator, CrossoutDesignatorActivate);
-            AddExecutor(ExecutorType.Activate, CardId.MagicianRightHand, SpellsActivate);
-            AddExecutor(ExecutorType.Activate, CardId.MagiciansLeftHand, SpellsActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Unveiling, UnveilingActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Draping, DrapingActivate);
-            AddExecutor(ExecutorType.Activate, CardId.PSYOmega, PSYOmegaActivate);
-            AddExecutor(ExecutorType.Activate, CardId.DracoBerserkeroftheTenyi, DracoBerserkeroftheTenyiActivate);
-            AddExecutor(ExecutorType.Activate, CardId.MadameVerre, MadameVerreActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Haine, HaineActivate);
-            AddExecutor(ExecutorType.Activate, CardId.SalamangreatAlmiraj, SalamangreatAlmirajActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Schmietta, this.DeckSSWitchcraft);
+            this.AddExecutor(ExecutorType.Activate, CardId.Pittore, this.DeckSSWitchcraft);
+            this.AddExecutor(ExecutorType.Activate, CardId.Potterie, this.DeckSSWitchcraft);
+            this.AddExecutor(ExecutorType.Activate, CardId.Genni, this.DeckSSWitchcraft);
+            this.AddExecutor(ExecutorType.Activate, CardId.PSYGamma, this.PSYGammaActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.MaxxC, this.MaxxCActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.GolemAruru, this.GolemAruruActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.BorreloadSavageDragon, this.BorreloadSavageDragonActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.InfiniteImpermanence, this.InfiniteImpermanenceActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.AshBlossom_JoyousSpring, this.AshBlossom_JoyousSpringActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.CalledbytheGrave, this.CalledbytheGraveActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.CrossoutDesignator, this.CrossoutDesignatorActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.MagicianRightHand, this.SpellsActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.MagiciansLeftHand, this.SpellsActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Unveiling, this.UnveilingActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Draping, this.DrapingActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.PSYOmega, this.PSYOmegaActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.DracoBerserkeroftheTenyi, this.DracoBerserkeroftheTenyiActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.MadameVerre, this.MadameVerreActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Haine, this.HaineActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.SalamangreatAlmiraj, this.SalamangreatAlmirajActivate);
 
             // PSY auto
-            AddExecutor(ExecutorType.Activate, CardId.PSYLambda);
-            AddExecutor(ExecutorType.SpSummon, CardId.PSYLambda, PSYLambdaSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.PSYOmega, Lv8Summon);
-            AddExecutor(ExecutorType.SpSummon, CardId.BorreloadSavageDragon, BorreloadSavageDragonSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.DracoBerserkeroftheTenyi, Lv8Summon);
-            AddExecutor(ExecutorType.SpSummon, CardId.BorreloadSavageDragon, Lv8Summon);
+            this.AddExecutor(ExecutorType.Activate, CardId.PSYLambda);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.PSYLambda, this.PSYLambdaSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.PSYOmega, this.Lv8Summon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.BorreloadSavageDragon, this.BorreloadSavageDragonSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.DracoBerserkeroftheTenyi, this.Lv8Summon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.BorreloadSavageDragon, this.Lv8Summon);
 
             // auto
-            AddExecutor(ExecutorType.Activate, CardId.WitchcrafterBystreet, WitchcraftRecycle);
-            AddExecutor(ExecutorType.Activate, WitchcraftRecycle);
-            AddExecutor(ExecutorType.Activate, CardId.MetalfoesFusion);
-            AddExecutor(ExecutorType.Activate, CardId.TGWonderMagician, TGWonderMagicianActivate);
-            AddExecutor(ExecutorType.Activate, CardId.KnightmareUnicorn, KnightmareUnicornActivate);
-            AddExecutor(ExecutorType.Activate, CardId.KnightmarePhoenix, KnightmarePhoenixActivate);
-            AddExecutor(ExecutorType.Activate, CardId.CrystronHalqifibrax, CrystronHalqifibraxActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.WitchcrafterBystreet, this.WitchcraftRecycle);
+            this.AddExecutor(ExecutorType.Activate, this.WitchcraftRecycle);
+            this.AddExecutor(ExecutorType.Activate, CardId.MetalfoesFusion);
+            this.AddExecutor(ExecutorType.Activate, CardId.TGWonderMagician, this.TGWonderMagicianActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.KnightmareUnicorn, this.KnightmareUnicornActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.KnightmarePhoenix, this.KnightmarePhoenixActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.CrystronHalqifibrax, this.CrystronHalqifibraxActivate);
 
             // activate with counter
-            AddExecutor(ExecutorType.Activate, CardId.ThatGrassLooksGreener, SpellsActivatewithCounter);
-            AddExecutor(ExecutorType.Activate, CardId.Reasoning, SpellsActivatewithCounter);
+            this.AddExecutor(ExecutorType.Activate, CardId.ThatGrassLooksGreener, this.SpellsActivatewithCounter);
+            this.AddExecutor(ExecutorType.Activate, CardId.Reasoning, this.SpellsActivatewithCounter);
 
             // witchcraft summon
-            AddExecutor(ExecutorType.Activate, CardId.Masterpiece, MasterpieceActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Patronus, PatronusActivate);
-            AddExecutor(ExecutorType.Activate, CardId.MagiciansRestage, MagiciansRestageActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Holiday, HolidayActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Masterpiece, this.MasterpieceActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Patronus, this.PatronusActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.MagiciansRestage, this.MagiciansRestageActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Holiday, this.HolidayActivate);
 
             // summon
-            AddExecutor(ExecutorType.Summon, CardId.Schmietta, WitchcraftSummon);
-            AddExecutor(ExecutorType.Summon, CardId.Pittore, WitchcraftSummon);
-            AddExecutor(ExecutorType.Summon, CardId.Potterie, WitchcraftSummon);
-            AddExecutor(ExecutorType.Summon, CardId.Genni, WitchcraftSummon);
-            AddExecutor(ExecutorType.Activate, CardId.Creation, CreationActivate);
+            this.AddExecutor(ExecutorType.Summon, CardId.Schmietta, this.WitchcraftSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.Pittore, this.WitchcraftSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.Potterie, this.WitchcraftSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.Genni, this.WitchcraftSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.Creation, this.CreationActivate);
 
             // witchcraft resources
-            AddExecutor(ExecutorType.Activate, CardId.Pittore, PittoreActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Schmietta, SchmiettaActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Genni, GenniActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Potterie, PotterieActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Pittore, this.PittoreActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Schmietta, this.SchmiettaActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Genni, this.GenniActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Potterie, this.PotterieActivate);
 
             // extra calling
-            AddExecutor(ExecutorType.SpSummon, CardId.KnightmarePhoenix, KnightmarePhoenixSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.RelinquishedAnima, RelinquishedAnimaSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.CrystronHalqifibrax, CrystronHalqifibraxSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.BorrelswordDragon, BorrelswordDragonSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.KnightmareUnicorn, KnightmareUnicornSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.SalamangreatAlmiraj, SalamangreatAlmirajSummon);
-            AddExecutor(ExecutorType.Summon, SummonForLink);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.KnightmarePhoenix, this.KnightmarePhoenixSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.RelinquishedAnima, this.RelinquishedAnimaSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CrystronHalqifibrax, this.CrystronHalqifibraxSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.BorrelswordDragon, this.BorrelswordDragonSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.KnightmareUnicorn, this.KnightmareUnicornSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.SalamangreatAlmiraj, this.SalamangreatAlmirajSummon);
+            this.AddExecutor(ExecutorType.Summon, this.SummonForLink);
 
             // activate spells normally
-            AddExecutor(ExecutorType.Activate, CardId.ThatGrassLooksGreener, SpellsActivateNoCost);
-            AddExecutor(ExecutorType.Activate, CardId.Reasoning, SpellsActivateNoCost);
-            AddExecutor(ExecutorType.Activate, CardId.MagicianRightHand, SpellsActivateNoCost);
-            AddExecutor(ExecutorType.Activate, CardId.MagiciansLeftHand, SpellsActivateNoCost);
+            this.AddExecutor(ExecutorType.Activate, CardId.ThatGrassLooksGreener, this.SpellsActivateNoCost);
+            this.AddExecutor(ExecutorType.Activate, CardId.Reasoning, this.SpellsActivateNoCost);
+            this.AddExecutor(ExecutorType.Activate, CardId.MagicianRightHand, this.SpellsActivateNoCost);
+            this.AddExecutor(ExecutorType.Activate, CardId.MagiciansLeftHand, this.SpellsActivateNoCost);
 
             //AddExecutor(ExecutorType.SummonOrSet);
 
             // rest
-            AddExecutor(ExecutorType.Summon, WitchcraftSummonForRecycle);
-            AddExecutor(ExecutorType.Repos, MonsterRepos);
-            AddExecutor(ExecutorType.Activate, CardId.WitchcrafterBystreet, WitchcrafterBystreetActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Scroll, ScrollActivate);
-            AddExecutor(ExecutorType.SpellSet, SpellSet);
+            this.AddExecutor(ExecutorType.Summon, this.WitchcraftSummonForRecycle);
+            this.AddExecutor(ExecutorType.Repos, this.MonsterRepos);
+            this.AddExecutor(ExecutorType.Activate, CardId.WitchcrafterBystreet, this.WitchcrafterBystreetActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Scroll, this.ScrollActivate);
+            this.AddExecutor(ExecutorType.SpellSet, this.SpellSet);
         }
 
         int Witchcraft_setcode = 0x128;
@@ -208,15 +208,15 @@ namespace WindBot.Game.AI.Decks
         // reset the negated card in case of activated again
         public override void OnChainEnd()
         {
-            if (MagiciansLeftHand_negate != null)
+            if (this.MagiciansLeftHand_negate != null)
             {
-                MagiciansLeftHand_used = true;
-                MagiciansLeftHand_negate = null;
+                this.MagiciansLeftHand_used = true;
+                this.MagiciansLeftHand_negate = null;
             }
-            if (MagicianRightHand_negate != null)
+            if (this.MagicianRightHand_negate != null)
             {
-                MagicianRightHand_used = true;
-                MagicianRightHand_negate = null;
+                this.MagicianRightHand_used = true;
+                this.MagicianRightHand_negate = null;
             }
             base.OnChainEnd();
         }
@@ -224,42 +224,45 @@ namespace WindBot.Game.AI.Decks
         // check whether enemy activate important card
         public override void OnChaining(int player, ClientCard card)
         {
-            if (card == null) return;
-            // MagiciansLeftHand / MagicianRightHand
-            if (!MagicianRightHand_used && card.IsSpell() && card.Controller == 1)
+            if (card == null)
             {
-                if (Bot.MonsterZone.GetFirstMatchingCard(c => c.HasRace(CardRace.SpellCaster)) != null
-                    && Bot.HasInSpellZone(CardId.MagicianRightHand, true))
+                return;
+            }
+            // MagiciansLeftHand / MagicianRightHand
+            if (!this.MagicianRightHand_used && card.IsSpell() && card.Controller == 1)
+            {
+                if (this.Bot.MonsterZone.GetFirstMatchingCard(c => c.HasRace(CardRace.SpellCaster)) != null
+                    && this.Bot.HasInSpellZone(CardId.MagicianRightHand, true))
                 {
                     Logger.DebugWriteLine("MagicianRightHand negate: " + card.Name ?? "???");
-                    MagicianRightHand_negate = card;
+                    this.MagicianRightHand_negate = card;
                 }
             }
-            if (!MagiciansLeftHand_used && card.IsTrap() && card.Controller == 1)
+            if (!this.MagiciansLeftHand_used && card.IsTrap() && card.Controller == 1)
             {
-                if (Bot.MonsterZone.GetFirstMatchingCard(c => c.HasRace(CardRace.SpellCaster)) != null
-                    && Bot.HasInSpellZone(CardId.MagiciansLeftHand, true))
+                if (this.Bot.MonsterZone.GetFirstMatchingCard(c => c.HasRace(CardRace.SpellCaster)) != null
+                    && this.Bot.HasInSpellZone(CardId.MagiciansLeftHand, true))
                 {
                     Logger.DebugWriteLine("MagiciansLeftHand negate: " + card.Name ?? "???");
-                    MagiciansLeftHand_negate = card;
+                    this.MagiciansLeftHand_negate = card;
                 }
             }
 
-            if (player == 1 && card.Id == CardId.MaxxC && CheckCalledbytheGrave(CardId.MaxxC) == 0)
+            if (player == 1 && card.Id == CardId.MaxxC && this.CheckCalledbytheGrave(CardId.MaxxC) == 0)
             {
-                enemy_activate_MaxxC = true;
+                this.enemy_activate_MaxxC = true;
             }
-            if (player == 1 && card.Id == CardId.DimensionShifter && CheckCalledbytheGrave(CardId.DimensionShifter) == 0)
+            if (player == 1 && card.Id == CardId.DimensionShifter && this.CheckCalledbytheGrave(CardId.DimensionShifter) == 0)
             {
-                enemy_activate_DimensionShifter = true;
+                this.enemy_activate_DimensionShifter = true;
             }
-            if (player == 1 && card.Id == CardId.InfiniteImpermanence && CrossoutDesignatorTarget != CardId.InfiniteImpermanence)
+            if (player == 1 && card.Id == CardId.InfiniteImpermanence && this.CrossoutDesignatorTarget != CardId.InfiniteImpermanence)
             {
                 for (int i = 0; i < 5; ++i)
                 {
-                    if (Enemy.SpellZone[i] == card)
+                    if (this.Enemy.SpellZone[i] == card)
                     {
-                        Impermanence_list.Add(4-i);
+                        this.Impermanence_list.Add(4-i);
                         break;
                     }
                 }
@@ -270,27 +273,27 @@ namespace WindBot.Game.AI.Decks
         // new turn reset
         public override void OnNewTurn()
         {
-            CrossoutDesignatorTarget = 0;
-            PSYOmega_count = 0;
-            MadameVerreGainedATK = false;
-            summoned = false;
-            enemy_activate_MaxxC = false;
-            enemy_activate_DimensionShifter = false;
-            MagiciansLeftHand_used = false;
-            MagicianRightHand_used = false;
-            MagiciansLeftHand_negate = null;
-            MagicianRightHand_negate = null;
-            Impermanence_list.Clear();
-            FirstCheckSS.Clear();
-            UseSSEffect.Clear();
-            ActivatedCards.Clear();
+            this.CrossoutDesignatorTarget = 0;
+            this.PSYOmega_count = 0;
+            this.MadameVerreGainedATK = false;
+            this.summoned = false;
+            this.enemy_activate_MaxxC = false;
+            this.enemy_activate_DimensionShifter = false;
+            this.MagiciansLeftHand_used = false;
+            this.MagicianRightHand_used = false;
+            this.MagiciansLeftHand_negate = null;
+            this.MagicianRightHand_negate = null;
+            this.Impermanence_list.Clear();
+            this.FirstCheckSS.Clear();
+            this.UseSSEffect.Clear();
+            this.ActivatedCards.Clear();
             // CalledbytheGrave refresh
-            List<int> key_list = CalledbytheGraveCount.Keys.ToList();
+            List<int> key_list = this.CalledbytheGraveCount.Keys.ToList();
             foreach (int dic in key_list)
             {
-                if (CalledbytheGraveCount[dic] > 1)
+                if (this.CalledbytheGraveCount[dic] > 1)
                 {
-                    CalledbytheGraveCount[dic] -= 1;
+                    this.CalledbytheGraveCount[dic] -= 1;
                 }
             }
         }
@@ -300,9 +303,9 @@ namespace WindBot.Game.AI.Decks
         {
             if (!defender.IsMonsterHasPreventActivationEffectInBattle())
             {
-                if (!MadameVerreGainedATK && Bot.HasInMonstersZone(CardId.MadameVerre, true, false, true) && attacker.HasSetcode(Witchcraft_setcode)) 
+                if (!this.MadameVerreGainedATK && this.Bot.HasInMonstersZone(CardId.MadameVerre, true, false, true) && attacker.HasSetcode(this.Witchcraft_setcode)) 
                 {
-                    attacker.RealPower += CheckPlusAttackforMadameVerre();
+                    attacker.RealPower += this.CheckPlusAttackforMadameVerre();
                 }
             }
             return base.OnPreBattleBetween(attacker, defender);
@@ -317,7 +320,7 @@ namespace WindBot.Game.AI.Decks
                 bool flag = true;
                 foreach(ClientCard card in cards)
                 {
-                    if (!card.HasSetcode(Witchcraft_setcode) || card.Location != CardLocation.Removed || !card.IsSpell())
+                    if (!card.HasSetcode(this.Witchcraft_setcode) || card.Location != CardLocation.Removed || !card.IsSpell())
                     {
                         flag = false;
                         break;
@@ -337,7 +340,7 @@ namespace WindBot.Game.AI.Decks
                 }
             }
             // MaxxC HINTMSG_SPSUMMON
-            if (hint == 509 && enemy_activate_MaxxC)
+            if (hint == 509 && this.enemy_activate_MaxxC)
             {
                 // check whether SS from deck while using effect
                 bool flag = true;
@@ -346,7 +349,7 @@ namespace WindBot.Game.AI.Decks
                 List<ClientCard> checked_card = new List<ClientCard> { null, null, null };
                 foreach (ClientCard card in cards)
                 {
-                    if (card != null && card.Location == CardLocation.Deck && card.Controller == 0 && card.HasSetcode(Witchcraft_setcode))
+                    if (card != null && card.Location == CardLocation.Deck && card.Controller == 0 && card.HasSetcode(this.Witchcraft_setcode))
                     {
                         for (int i = 0; i < 3; ++i)
                         {
@@ -374,11 +377,11 @@ namespace WindBot.Game.AI.Decks
                     Logger.DebugWriteLine("SS with MaxxC.");
                     IList<ClientCard> result = new List<ClientCard>();
                     // check MadameVerre
-                    int extra_attack = CheckPlusAttackforMadameVerre(true, true, true);
-                    int bot_best = Util.GetBestAttack(Bot);
-                    if (CheckProblematicCards() != null && Util.IsAllEnemyBetterThanValue(bot_best + extra_attack, true) == false)
+                    int extra_attack = this.CheckPlusAttackforMadameVerre(true, true, true);
+                    int bot_best = this.Util.GetBestAttack(this.Bot);
+                    if (this.CheckProblematicCards() != null && this.Util.IsAllEnemyBetterThanValue(bot_best + extra_attack, true) == false)
                     {
-                        if (!Bot.HasInMonstersZone(CardId.MadameVerre) && checked_card[1] != null)
+                        if (!this.Bot.HasInMonstersZone(CardId.MadameVerre) && checked_card[1] != null)
                         {
                             result.Add(checked_card[1]);
                             return result;
@@ -424,14 +427,14 @@ namespace WindBot.Game.AI.Decks
             {
                 return base.OnSelectPosition(cardId, positions);
             }
-            if (!Enemy.HasInMonstersZone(_CardId.BlueEyesChaosMAXDragon) 
-                && (Duel.Player == 1 && (cardId == CardId.MadameVerre ||
-                Util.GetOneEnemyBetterThanValue(Data.Attack + 1) != null))
+            if (!this.Enemy.HasInMonstersZone(DefaultExecutor.CardId.BlueEyesChaosMAXDragon) 
+                && (this.Duel.Player == 1 && (cardId == CardId.MadameVerre ||
+                this.Util.GetOneEnemyBetterThanValue(Data.Attack + 1) != null))
                 || cardId == CardId.MaxxC || cardId == CardId.AshBlossom_JoyousSpring)
             {
                 return CardPosition.FaceUpDefence;
             }
-            if (cardId == CardId.MadameVerre && Util.IsTurn1OrMain2())
+            if (cardId == CardId.MadameVerre && this.Util.IsTurn1OrMain2())
             {
                 return CardPosition.FaceUpDefence;
             }
@@ -456,17 +459,17 @@ namespace WindBot.Game.AI.Decks
         // check negated time count of id
         public int CheckCalledbytheGrave(int id)
         {
-            if (!CalledbytheGraveCount.ContainsKey(id))
+            if (!this.CalledbytheGraveCount.ContainsKey(id))
             {
                 return 0;
             }
-            return CalledbytheGraveCount[id];
+            return this.CalledbytheGraveCount[id];
         }
 
         // check enemy's dangerous card in grave
         public List<ClientCard> CheckDangerousCardinEnemyGrave(bool onlyMonster = false)
         {
-            List<ClientCard> result = Enemy.Graveyard.GetMatchingCards(card => 
+            List<ClientCard> result = this.Enemy.Graveyard.GetMatchingCards(card => 
             (!onlyMonster || card.IsMonster()) && card.HasSetcode(0x11b)).ToList();
             return result;
         }
@@ -474,13 +477,13 @@ namespace WindBot.Game.AI.Decks
         // check whether negate maxxc and InfiniteImpermanence
         public void CheckDeactiveFlag()
         {
-            if (Util.GetLastChainCard() != null && Util.GetLastChainCard().Id == CardId.MaxxC && Duel.LastChainPlayer == 1)
+            if (this.Util.GetLastChainCard() != null && this.Util.GetLastChainCard().Id == CardId.MaxxC && this.Duel.LastChainPlayer == 1)
             {
-                enemy_activate_MaxxC = false;
+                this.enemy_activate_MaxxC = false;
             }
-            if (Util.GetLastChainCard() != null && Util.GetLastChainCard().Id == CardId.DimensionShifter && Duel.LastChainPlayer == 1)
+            if (this.Util.GetLastChainCard() != null && this.Util.GetLastChainCard().Id == CardId.DimensionShifter && this.Duel.LastChainPlayer == 1)
             {
-                enemy_activate_DimensionShifter = false;
+                this.enemy_activate_DimensionShifter = false;
             }
         }
 
@@ -491,16 +494,16 @@ namespace WindBot.Game.AI.Decks
         public int CheckDiscardableSpellCount(ClientCard except = null)
         {
             int discardable_hands = 0;
-            int count_witchcraftspell = Bot.Hand.GetMatchingCardsCount(card => (card.IsSpell() && (card.HasSetcode(Witchcraft_setcode)) && card != except));
-            int count_remainhands = CheckRemainInDeck(CardId.MagiciansLeftHand, CardId.MagicianRightHand);
-            int count_MagiciansRestage = Bot.Hand.GetMatchingCardsCount(card => card.Id == CardId.MagiciansRestage && card != except);
-            int count_MetalfoesFusion = Bot.Hand.GetCardCount(CardId.MetalfoesFusion);
-            int count_WitchcrafterBystreet = Bot.SpellZone.GetMatchingCardsCount(card => card.IsFaceup() && card.Id == CardId.WitchcrafterBystreet && !card.IsDisabled());
+            int count_witchcraftspell = this.Bot.Hand.GetMatchingCardsCount(card => (card.IsSpell() && (card.HasSetcode(this.Witchcraft_setcode)) && card != except));
+            int count_remainhands = this.CheckRemainInDeck(CardId.MagiciansLeftHand, CardId.MagicianRightHand);
+            int count_MagiciansRestage = this.Bot.Hand.GetMatchingCardsCount(card => card.Id == CardId.MagiciansRestage && card != except);
+            int count_MetalfoesFusion = this.Bot.Hand.GetCardCount(CardId.MetalfoesFusion);
+            int count_WitchcrafterBystreet = this.Bot.SpellZone.GetMatchingCardsCount(card => card.IsFaceup() && card.Id == CardId.WitchcrafterBystreet && !card.IsDisabled());
             if (count_MagiciansRestage > 0)
             {
                 discardable_hands += (count_MagiciansRestage > count_remainhands ? count_remainhands : count_MagiciansRestage);
             }
-            if (!ActivatedCards.Contains(CardId.WitchcrafterBystreet) && (count_WitchcrafterBystreet >= 2 || (count_WitchcrafterBystreet >= 1 && Duel.Phase > DuelPhase.Battle)))
+            if (!this.ActivatedCards.Contains(CardId.WitchcrafterBystreet) && (count_WitchcrafterBystreet >= 2 || (count_WitchcrafterBystreet >= 1 && this.Duel.Phase > DuelPhase.Battle)))
             {
                 discardable_hands += 1;
             }
@@ -513,10 +516,18 @@ namespace WindBot.Game.AI.Decks
         /// </summary>
         public bool CheckLastChainNegated()
         {
-            ClientCard lastcard = Util.GetLastChainCard();
-            if (lastcard == null || lastcard.Controller != 1) return false;
-            if (lastcard.IsMonster() && lastcard.HasSetcode(TimeLord_setcode) && Duel.Phase == DuelPhase.Standby) return false;
-            return lastcard == MagiciansLeftHand_negate || lastcard == MagicianRightHand_negate;
+            ClientCard lastcard = this.Util.GetLastChainCard();
+            if (lastcard == null || lastcard.Controller != 1)
+            {
+                return false;
+            }
+
+            if (lastcard.IsMonster() && lastcard.HasSetcode(this.TimeLord_setcode) && this.Duel.Phase == DuelPhase.Standby)
+            {
+                return false;
+            }
+
+            return lastcard == this.MagiciansLeftHand_negate || lastcard == this.MagicianRightHand_negate;
         }
 
         /// <summary>
@@ -530,8 +541,11 @@ namespace WindBot.Game.AI.Decks
         public bool CheckLinkMaterialsMatch(int LinkCount, int MaterialCount, List<ClientCard> list, bool need_tune = false)
         {
             // material count check
-            if (list.Count < MaterialCount) return false;
-            
+            if (list.Count < MaterialCount)
+            {
+                return false;
+            }
+
             // link marker check
             int linkcount = 0;
             foreach(ClientCard card in list)
@@ -544,11 +558,18 @@ namespace WindBot.Game.AI.Decks
                 {
                     linkcount += 1;
                 }
-                if (linkcount != LinkCount) return false;
+                if (linkcount != LinkCount)
+                {
+                    return false;
+                }
             }
 
             // tuner check
-            if (need_tune && list.GetFirstMatchingCard(card => card.IsTuner()) == null) return false;
+            if (need_tune && list.GetFirstMatchingCard(card => card.IsTuner()) == null)
+            {
+                return false;
+            }
+
             return true;
         }
 
@@ -562,27 +583,40 @@ namespace WindBot.Game.AI.Decks
         public List<ClientCard> CheckLinkMaterials(int LinkCount, int MaterialCount, bool need_tuner = false, List<ClientCard> extra = null)
         {
             List<int> psy_cardids = new List<int> { CardId.PSYGamma, CardId.PSYDriver };
-            List<ClientCard> result = Bot.MonsterZone.GetMatchingCards(card => card.IsFaceup() && psy_cardids.Contains(card.Id)).ToList();
-            if (CheckLinkMaterialsMatch(LinkCount, MaterialCount, result, need_tuner)) return result;
+            List<ClientCard> result = this.Bot.MonsterZone.GetMatchingCards(card => card.IsFaceup() && psy_cardids.Contains(card.Id)).ToList();
+            if (this.CheckLinkMaterialsMatch(LinkCount, MaterialCount, result, need_tuner))
+            {
+                return result;
+            }
 
-            List<ClientCard> bot_monsters = Enemy.MonsterZone.GetMatchingCards(c => c.IsFaceup()).ToList();
-            if (extra != null) bot_monsters = bot_monsters.Union(extra).ToList();
+            List<ClientCard> bot_monsters = this.Enemy.MonsterZone.GetMatchingCards(c => c.IsFaceup()).ToList();
+            if (extra != null)
+            {
+                bot_monsters = bot_monsters.Union(extra).ToList();
+            }
+
             bot_monsters.Sort(CardContainer.CompareCardAttack);
 
-            int remaindiscard = CheckDiscardableSpellCount();
-            int enemybest = Util.GetBestAttack(Enemy);
+            int remaindiscard = this.CheckDiscardableSpellCount();
+            int enemybest = this.Util.GetBestAttack(this.Enemy);
             foreach (ClientCard card in bot_monsters)
             {
-                if ((card.HasSetcode(Witchcraft_setcode) && (card.Level >= 5 || remaindiscard >= 2))
+                if ((card.HasSetcode(this.Witchcraft_setcode) && (card.Level >= 5 || remaindiscard >= 2))
                     || (card.Attack >= enemybest)
                     || (card.HasType(CardType.Link) && card.LinkMarker > 2))
                 {
                     continue;
                 }
                 result.Add(card);
-                if (CheckLinkMaterialsMatch(LinkCount, MaterialCount, result, need_tuner)) return result;
+                if (this.CheckLinkMaterialsMatch(LinkCount, MaterialCount, result, need_tuner))
+                {
+                    return result;
+                }
             }
-            if (!CheckLinkMaterialsMatch(LinkCount, MaterialCount, result, need_tuner)) result.Clear();
+            if (!this.CheckLinkMaterialsMatch(LinkCount, MaterialCount, result, need_tuner))
+            {
+                result.Clear();
+            }
 
             return result;
         }
@@ -596,25 +630,32 @@ namespace WindBot.Game.AI.Decks
         public int CheckPlusAttackforMadameVerre(bool ignore_activated = false, bool check_recycle = false, bool force = false)
         {
             // not MadameVerre on field
-            if (!force && Bot.MonsterZone.GetFirstMatchingCard(card => card.Id == CardId.MadameVerre && !card.IsDisabled()) == null) return 0;
-            if (!ignore_activated && MadameVerreGainedATK) return 0;
+            if (!force && this.Bot.MonsterZone.GetFirstMatchingCard(card => card.Id == CardId.MadameVerre && !card.IsDisabled()) == null)
+            {
+                return 0;
+            }
+
+            if (!ignore_activated && this.MadameVerreGainedATK)
+            {
+                return 0;
+            }
 
             HashSet<int> spells_id = new HashSet<int>();
-            foreach(ClientCard card in Bot.Hand)
+            foreach(ClientCard card in this.Bot.Hand)
             {
                 if (card.IsSpell())
                 {
                     spells_id.Add(card.Id);
                 }
             }
-            if (check_recycle && Bot.MonsterZone.GetFirstMatchingCard(card => card.IsFaceup() && card.HasSetcode(Witchcraft_setcode)) != null)
+            if (check_recycle && this.Bot.MonsterZone.GetFirstMatchingCard(card => card.IsFaceup() && card.HasSetcode(this.Witchcraft_setcode)) != null)
             {
                 List<int> spell_checklist = new List<int> { CardId.Holiday, CardId.Creation, CardId.Draping, CardId.Unveiling, CardId.Collaboration };
                 foreach (int cardid in spell_checklist)
                 {
-                    if (Bot.HasInGraveyard(cardid) && !ActivatedCards.Contains(cardid))
+                    if (this.Bot.HasInGraveyard(cardid) && !this.ActivatedCards.Contains(cardid))
                     {
-                        spells_id.Add(Card.Id);
+                        spells_id.Add(this.Card.Id);
                     }
                 }
             }
@@ -630,39 +671,51 @@ namespace WindBot.Game.AI.Decks
         /// <param name="OnlyDanger">only check danger monsters</param>
         public ClientCard CheckProblematicCards(bool canBeTarget = false, bool OnlyDanger = false)
         {
-            ClientCard card = Enemy.MonsterZone.GetFloodgate(canBeTarget);
+            ClientCard card = this.Enemy.MonsterZone.GetFloodgate(canBeTarget);
             if (card != null)
+            {
                 return card;
+            }
 
-            card = Enemy.MonsterZone.GetDangerousMonster(canBeTarget);
+            card = this.Enemy.MonsterZone.GetDangerousMonster(canBeTarget);
             if (card != null
-                && (Duel.Player == 0 || (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2)))
+                && (this.Duel.Player == 0 || (this.Duel.Phase > DuelPhase.Main1 && this.Duel.Phase < DuelPhase.Main2)))
+            {
                 return card;
+            }
 
-            card = Enemy.MonsterZone.GetInvincibleMonster(canBeTarget);
+            card = this.Enemy.MonsterZone.GetInvincibleMonster(canBeTarget);
             if (card != null
-                && (Duel.Player == 0 || (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2)))
+                && (this.Duel.Player == 0 || (this.Duel.Phase > DuelPhase.Main1 && this.Duel.Phase < DuelPhase.Main2)))
+            {
                 return card;
+            }
 
-            List<ClientCard> enemy_monsters = Enemy.MonsterZone.GetMatchingCards(c => c.IsFaceup()).ToList();
+            List<ClientCard> enemy_monsters = this.Enemy.MonsterZone.GetMatchingCards(c => c.IsFaceup()).ToList();
             enemy_monsters.Sort(CardContainer.CompareCardAttack);
             enemy_monsters.Reverse();
             foreach (ClientCard target in enemy_monsters)
             {
                 if (target.HasType(CardType.Fusion) || target.HasType(CardType.Ritual) || target.HasType(CardType.Synchro) || target.HasType(CardType.Xyz) || (target.HasType(CardType.Link) && target.LinkCount >= 2))
                 {
-                    if (!canBeTarget || !(target.IsShouldNotBeTarget() || target.IsShouldNotBeMonsterTarget())) return target;
+                    if (!canBeTarget || !(target.IsShouldNotBeTarget() || target.IsShouldNotBeMonsterTarget()))
+                    {
+                        return target;
+                    }
                 }
             }
 
-            if (OnlyDanger) return null;
-
-            int highest_self = Util.GetBestPower(Bot);
-            if (!MadameVerreGainedATK && Bot.HasInMonstersZone(CardId.MadameVerre, true, false, true))
+            if (OnlyDanger)
             {
-                highest_self += CheckPlusAttackforMadameVerre();
+                return null;
             }
-            return Util.GetProblematicEnemyCard(highest_self, canBeTarget);
+
+            int highest_self = this.Util.GetBestPower(this.Bot);
+            if (!this.MadameVerreGainedATK && this.Bot.HasInMonstersZone(CardId.MadameVerre, true, false, true))
+            {
+                highest_self += this.CheckPlusAttackforMadameVerre();
+            }
+            return this.Util.GetProblematicEnemyCard(highest_self, canBeTarget);
         }
 
         /// <summary>
@@ -670,7 +723,11 @@ namespace WindBot.Game.AI.Decks
         /// </summary>
         public int CheckRecyclableCount(bool tohand = false, bool ignore_monster = false)
         {
-            if (!ignore_monster && Bot.MonsterZone.GetFirstMatchingCard(card => card.IsFaceup() && card.HasSetcode(Witchcraft_setcode)) == null) return 0;
+            if (!ignore_monster && this.Bot.MonsterZone.GetFirstMatchingCard(card => card.IsFaceup() && card.HasSetcode(this.Witchcraft_setcode)) == null)
+            {
+                return 0;
+            }
+
             int result = 0;
             List<int> spell_checklist = new List<int> { CardId.Holiday, CardId.Creation, CardId.Draping, CardId.Unveiling, CardId.Collaboration };
             if (!tohand)
@@ -680,7 +737,7 @@ namespace WindBot.Game.AI.Decks
             }
             foreach (int cardid in spell_checklist)
             {
-                if (Bot.HasInGraveyard(cardid) && !ActivatedCards.Contains(cardid))
+                if (this.Bot.HasInGraveyard(cardid) && !this.ActivatedCards.Contains(cardid))
                 {
                     result++;
                 }
@@ -697,69 +754,69 @@ namespace WindBot.Game.AI.Decks
             switch (id)
             {
                 case CardId.PSYDriver:
-                    return Bot.GetRemainingCount(CardId.PSYDriver, 1);
+                    return this.Bot.GetRemainingCount(CardId.PSYDriver, 1);
                 case CardId.GolemAruru:
-                    return Bot.GetRemainingCount(CardId.GolemAruru, 1);
+                    return this.Bot.GetRemainingCount(CardId.GolemAruru, 1);
                 case CardId.MadameVerre:
-                    return Bot.GetRemainingCount(CardId.MadameVerre, 1);
+                    return this.Bot.GetRemainingCount(CardId.MadameVerre, 1);
                 case CardId.Haine:
-                    return Bot.GetRemainingCount(CardId.Haine, 2);
+                    return this.Bot.GetRemainingCount(CardId.Haine, 2);
                 case CardId.Schmietta:
-                    return Bot.GetRemainingCount(CardId.Schmietta, 3);
+                    return this.Bot.GetRemainingCount(CardId.Schmietta, 3);
                 case CardId.Pittore:
-                    return Bot.GetRemainingCount(CardId.Pittore, 3);
+                    return this.Bot.GetRemainingCount(CardId.Pittore, 3);
                 case CardId.AshBlossom_JoyousSpring:
-                    return Bot.GetRemainingCount(CardId.AshBlossom_JoyousSpring, 1);
+                    return this.Bot.GetRemainingCount(CardId.AshBlossom_JoyousSpring, 1);
                 case CardId.PSYGamma:
-                    return Bot.GetRemainingCount(CardId.PSYGamma, 3);
+                    return this.Bot.GetRemainingCount(CardId.PSYGamma, 3);
                 case CardId.MaxxC:
-                    return Bot.GetRemainingCount(CardId.MaxxC, 1);
+                    return this.Bot.GetRemainingCount(CardId.MaxxC, 1);
                 case CardId.Potterie:
-                    return Bot.GetRemainingCount(CardId.Potterie, 1);
+                    return this.Bot.GetRemainingCount(CardId.Potterie, 1);
                 case CardId.Genni:
-                    return Bot.GetRemainingCount(CardId.Genni, 2);
+                    return this.Bot.GetRemainingCount(CardId.Genni, 2);
                 case CardId.Collaboration:
-                    return Bot.GetRemainingCount(CardId.Collaboration, 1);
+                    return this.Bot.GetRemainingCount(CardId.Collaboration, 1);
                 case CardId.ThatGrassLooksGreener:
-                    return Bot.GetRemainingCount(CardId.ThatGrassLooksGreener, 2);
+                    return this.Bot.GetRemainingCount(CardId.ThatGrassLooksGreener, 2);
                 case CardId.LightningStorm:
-                    return Bot.GetRemainingCount(CardId.LightningStorm, 2);
+                    return this.Bot.GetRemainingCount(CardId.LightningStorm, 2);
                 case CardId.PotofExtravagance:
-                    return Bot.GetRemainingCount(CardId.PotofExtravagance, 3);
+                    return this.Bot.GetRemainingCount(CardId.PotofExtravagance, 3);
                 case CardId.DarkRulerNoMore:
-                    return Bot.GetRemainingCount(CardId.DarkRulerNoMore, 2);
+                    return this.Bot.GetRemainingCount(CardId.DarkRulerNoMore, 2);
                 case CardId.Creation:
-                    return Bot.GetRemainingCount(CardId.Creation, 3);
+                    return this.Bot.GetRemainingCount(CardId.Creation, 3);
                 case CardId.Reasoning:
-                    return Bot.GetRemainingCount(CardId.Reasoning, 3);
+                    return this.Bot.GetRemainingCount(CardId.Reasoning, 3);
                 case CardId.MetalfoesFusion:
-                    return Bot.GetRemainingCount(CardId.MetalfoesFusion, 1);
+                    return this.Bot.GetRemainingCount(CardId.MetalfoesFusion, 1);
                 case CardId.Holiday:
-                    return Bot.GetRemainingCount(CardId.Holiday, 3);
+                    return this.Bot.GetRemainingCount(CardId.Holiday, 3);
                 case CardId.CalledbytheGrave:
-                    return Bot.GetRemainingCount(CardId.CalledbytheGrave, 3);
+                    return this.Bot.GetRemainingCount(CardId.CalledbytheGrave, 3);
                 case CardId.Draping:
-                    return Bot.GetRemainingCount(CardId.Draping, 1);
+                    return this.Bot.GetRemainingCount(CardId.Draping, 1);
                 case CardId.CrossoutDesignator:
-                    return Bot.GetRemainingCount(CardId.CrossoutDesignator, 2);
+                    return this.Bot.GetRemainingCount(CardId.CrossoutDesignator, 2);
                 case CardId.Unveiling:
-                    return Bot.GetRemainingCount(CardId.Unveiling, 1);
+                    return this.Bot.GetRemainingCount(CardId.Unveiling, 1);
                 case CardId.MagiciansLeftHand:
-                    return Bot.GetRemainingCount(CardId.MagiciansLeftHand, 1);
+                    return this.Bot.GetRemainingCount(CardId.MagiciansLeftHand, 1);
                 case CardId.Scroll:
-                    return Bot.GetRemainingCount(CardId.Scroll, 1);
+                    return this.Bot.GetRemainingCount(CardId.Scroll, 1);
                 case CardId.MagiciansRestage:
-                    return Bot.GetRemainingCount(CardId.MagiciansRestage, 2);
+                    return this.Bot.GetRemainingCount(CardId.MagiciansRestage, 2);
                 case CardId.WitchcrafterBystreet:
-                    return Bot.GetRemainingCount(CardId.WitchcrafterBystreet, 3);
+                    return this.Bot.GetRemainingCount(CardId.WitchcrafterBystreet, 3);
                 case CardId.MagicianRightHand:
-                    return Bot.GetRemainingCount(CardId.MagicianRightHand, 1);
+                    return this.Bot.GetRemainingCount(CardId.MagicianRightHand, 1);
                 case CardId.InfiniteImpermanence:
-                    return Bot.GetRemainingCount(CardId.InfiniteImpermanence, 3);
+                    return this.Bot.GetRemainingCount(CardId.InfiniteImpermanence, 3);
                 case CardId.Masterpiece:
-                    return Bot.GetRemainingCount(CardId.Masterpiece, 1);
+                    return this.Bot.GetRemainingCount(CardId.Masterpiece, 1);
                 case CardId.Patronus:
-                    return Bot.GetRemainingCount(CardId.Patronus, 2);
+                    return this.Bot.GetRemainingCount(CardId.Patronus, 2);
                 default:
                     return 0;
             }
@@ -774,7 +831,7 @@ namespace WindBot.Game.AI.Decks
             int result = 0;
             foreach (int cardid in ids)
             {
-                result += CheckRemainInDeck(cardid);
+                result += this.CheckRemainInDeck(cardid);
             }
             return result;
         }
@@ -784,11 +841,15 @@ namespace WindBot.Game.AI.Decks
         /// </summary>
         public bool CheckWhetherWillbeRemoved()
         {
-            if (enemy_activate_DimensionShifter) return true;
+            if (this.enemy_activate_DimensionShifter)
+            {
+                return true;
+            }
+
             List<int> check_card = new List<int> { CardId.BanisheroftheRadiance, CardId.BanisheroftheLight, CardId.MacroCosmos, CardId.DimensionalFissure };
             foreach(int cardid in check_card)
             {
-                List<ClientField> fields = new List<ClientField> { Bot, Enemy };
+                List<ClientField> fields = new List<ClientField> { this.Bot, this.Enemy };
                 foreach (ClientField cf in fields)
                 {
                     if (cf.HasInMonstersZone(cardid, true) || cf.HasInSpellZone(cardid, true))
@@ -809,22 +870,50 @@ namespace WindBot.Game.AI.Decks
         public bool SpellNegatable(bool isCounter = false, ClientCard target = null)
         {
             // target default set
-            if (target == null) target = Card;
-            if (target.Id == CrossoutDesignatorTarget) return true;
+            if (target == null)
+            {
+                target = this.Card;
+            }
+
+            if (target.Id == this.CrossoutDesignatorTarget)
+            {
+                return true;
+            }
             // won't negate if not on field
-            if (target.Location != CardLocation.SpellZone && target.Location != CardLocation.Hand) return false;
+            if (target.Location != CardLocation.SpellZone && target.Location != CardLocation.Hand)
+            {
+                return false;
+            }
 
             // negate judge
-            if (Enemy.HasInMonstersZone(CardId.NaturalExterio, true) && !isCounter) return true;
+            if (this.Enemy.HasInMonstersZone(CardId.NaturalExterio, true) && !isCounter)
+            {
+                return true;
+            }
+
             if (target.IsSpell())
             {
-                if (Enemy.HasInMonstersZone(CardId.NaturalBeast, true)) return true;
-                if (Enemy.HasInSpellZone(CardId.ImperialOrder, true) || Bot.HasInSpellZone(CardId.ImperialOrder, true)) return true;
-                if (Enemy.HasInMonstersZone(CardId.SwordsmanLV7, true) || Bot.HasInMonstersZone(CardId.SwordsmanLV7, true)) return true;
+                if (this.Enemy.HasInMonstersZone(CardId.NaturalBeast, true))
+                {
+                    return true;
+                }
+
+                if (this.Enemy.HasInSpellZone(CardId.ImperialOrder, true) || this.Bot.HasInSpellZone(CardId.ImperialOrder, true))
+                {
+                    return true;
+                }
+
+                if (this.Enemy.HasInMonstersZone(CardId.SwordsmanLV7, true) || this.Bot.HasInMonstersZone(CardId.SwordsmanLV7, true))
+                {
+                    return true;
+                }
             }
             if (target.IsTrap())
             {
-                if (Enemy.HasInSpellZone(CardId.RoyalDecreel, true) || Bot.HasInSpellZone(CardId.RoyalDecreel, true)) return true;
+                if (this.Enemy.HasInSpellZone(CardId.RoyalDecreel, true) || this.Bot.HasInSpellZone(CardId.RoyalDecreel, true))
+                {
+                    return true;
+                }
             }
             // how to get here?
             return false;
@@ -834,22 +923,25 @@ namespace WindBot.Game.AI.Decks
         /// Check whether'll be negated
         /// </summary>
         public bool NegatedCheck(bool disablecheck = true){
-            if (Card.IsSpell() || Card.IsTrap()){
-                if (SpellNegatable()) return true;
+            if (this.Card.IsSpell() || this.Card.IsTrap()){
+                if (this.SpellNegatable())
+                {
+                    return true;
+                }
             }
-            if (CheckCalledbytheGrave(Card.Id) > 0 || Card.Id == CrossoutDesignatorTarget){
+            if (this.CheckCalledbytheGrave(this.Card.Id) > 0 || this.Card.Id == this.CrossoutDesignatorTarget){
                 return true;
             }
-            if (Card.IsMonster() && Card.Location == CardLocation.MonsterZone && Card.IsDefense())
+            if (this.Card.IsMonster() && this.Card.Location == CardLocation.MonsterZone && this.Card.IsDefense())
             {
-                if (Enemy.MonsterZone.GetFirstMatchingFaceupCard(card => card.Id == CardId.Numbe41BagooskatheTerriblyTiredTapir && card.IsDefense() && !card.IsDisabled()) != null
-                    || Bot.MonsterZone.GetFirstMatchingFaceupCard(card => card.Id == CardId.Numbe41BagooskatheTerriblyTiredTapir && card.IsDefense() && !card.IsDisabled()) != null)
+                if (this.Enemy.MonsterZone.GetFirstMatchingFaceupCard(card => card.Id == CardId.Numbe41BagooskatheTerriblyTiredTapir && card.IsDefense() && !card.IsDisabled()) != null
+                    || this.Bot.MonsterZone.GetFirstMatchingFaceupCard(card => card.Id == CardId.Numbe41BagooskatheTerriblyTiredTapir && card.IsDefense() && !card.IsDisabled()) != null)
                 {
                     return true;
                 }
             }
             if (disablecheck){
-                return Card.IsDisabled();
+                return this.Card.IsDisabled();
             }
             return false;
         }
@@ -874,41 +966,56 @@ namespace WindBot.Game.AI.Decks
             foreach (int seq in list)
             {
                 int zone = (int)System.Math.Pow(2, seq);
-                if (Bot.SpellZone[seq] == null)
+                if (this.Bot.SpellZone[seq] == null)
                 {
-                    if (card != null && card.Location == CardLocation.Hand && avoid_Impermanence && Impermanence_list.Contains(seq)) continue;
-                    if (avoid_list != null && avoid_list.Contains(seq)) continue;
-                    AI.SelectPlace(zone);
+                    if (card != null && card.Location == CardLocation.Hand && avoid_Impermanence && this.Impermanence_list.Contains(seq))
+                    {
+                        continue;
+                    }
+
+                    if (avoid_list != null && avoid_list.Contains(seq))
+                    {
+                        continue;
+                    }
+
+                    this.AI.SelectPlace(zone);
                     return;
                 };
             }
-            AI.SelectPlace(0);
+            this.AI.SelectPlace(0);
         }
 
         // Spell&trap's set
         public bool SpellSet(){
-            if (Duel.Phase == DuelPhase.Main1 && Bot.HasAttackingMonster() && Duel.Turn > 1) return false;
-            if (Card.Id == CardId.CrossoutDesignator && Duel.Turn >= 5) return false;
+            if (this.Duel.Phase == DuelPhase.Main1 && this.Bot.HasAttackingMonster() && this.Duel.Turn > 1)
+            {
+                return false;
+            }
+
+            if (this.Card.Id == CardId.CrossoutDesignator && this.Duel.Turn >= 5)
+            {
+                return false;
+            }
 
             // set condition
             int[] activate_with_condition = { CardId.Masterpiece, CardId.Draping };
-            if (activate_with_condition.Contains(Card.Id))
+            if (activate_with_condition.Contains(this.Card.Id))
             {
-                if (Bot.MonsterZone.GetFirstMatchingCard(card => card.HasSetcode(Witchcraft_setcode)) == null)
+                if (this.Bot.MonsterZone.GetFirstMatchingCard(card => card.HasSetcode(this.Witchcraft_setcode)) == null)
                 {
                     return false;
                 }
             }
-            if (Card.Id == CardId.Unveiling)
+            if (this.Card.Id == CardId.Unveiling)
             {
                 return false;
             }
-            if (Card.Id == CardId.Patronus)
+            if (this.Card.Id == CardId.Patronus)
             {
-                int count = Bot.Banished.GetMatchingCardsCount(card => card.HasSetcode(Witchcraft_setcode));
+                int count = this.Bot.Banished.GetMatchingCardsCount(card => card.HasSetcode(this.Witchcraft_setcode));
                 if (count == 0)
                 {
-                    count += Bot.Graveyard.GetMatchingCardsCount(card => card.HasSetcode(Witchcraft_setcode));
+                    count += this.Bot.Graveyard.GetMatchingCardsCount(card => card.HasSetcode(this.Witchcraft_setcode));
                 }
                 if (count == 0)
                 {
@@ -917,11 +1024,18 @@ namespace WindBot.Game.AI.Decks
             }
 
             // prepare spells to discard
-            if (Card.IsSpell()){
-                int spells_todiscard = CheckRecyclableCount() + Bot.Hand.GetMatchingCardsCount(card => card.IsSpell());
+            if (this.Card.IsSpell()){
+                int spells_todiscard = this.CheckRecyclableCount() + this.Bot.Hand.GetMatchingCardsCount(card => card.IsSpell());
                 int will_discard = 0;
-                if (Bot.HasInMonstersZone(CardId.Haine)) will_discard ++;
-                if (Bot.HasInMonstersZone(CardId.MadameVerre)) will_discard ++;
+                if (this.Bot.HasInMonstersZone(CardId.Haine))
+                {
+                    will_discard ++;
+                }
+
+                if (this.Bot.HasInMonstersZone(CardId.MadameVerre))
+                {
+                    will_discard ++;
+                }
 
                 if (will_discard >= spells_todiscard){
                     return false;
@@ -929,41 +1043,41 @@ namespace WindBot.Game.AI.Decks
             }
 
             // select place
-            if ((Card.IsTrap() || Card.HasType(CardType.QuickPlay)))
+            if ((this.Card.IsTrap() || this.Card.HasType(CardType.QuickPlay)))
             {
                 List<int> avoid_list = new List<int>();
                 int Impermanence_set = 0;
                 for (int i = 0; i < 5; ++i)
                 {
-                    if (Enemy.SpellZone[i] != null && Enemy.SpellZone[i].IsFaceup() && Bot.SpellZone[4 - i] == null)
+                    if (this.Enemy.SpellZone[i] != null && this.Enemy.SpellZone[i].IsFaceup() && this.Bot.SpellZone[4 - i] == null)
                     {
                         avoid_list.Add(4 - i);
                         Impermanence_set += (int)System.Math.Pow(2, 4 - i);
                     }
                 }
-                if (Bot.HasInHand(CardId.InfiniteImpermanence))
+                if (this.Bot.HasInHand(CardId.InfiniteImpermanence))
                 {
-                    if (Card.IsCode(CardId.InfiniteImpermanence))
+                    if (this.Card.IsCode(CardId.InfiniteImpermanence))
                     {
-                        AI.SelectPlace(Impermanence_set);
+                        this.AI.SelectPlace(Impermanence_set);
                         return true;
                     } else
                     {
-                        SelectSTPlace(Card, false, avoid_list);
+                        this.SelectSTPlace(this.Card, false, avoid_list);
                         return true;
                     }
                 } else
                 {
-                    SelectSTPlace();
+                    this.SelectSTPlace();
                 }
                 return true;
             }
             // anti-spell relevant
-            else if (Enemy.HasInSpellZone(CardId.Anti_Spell, true) || Bot.HasInSpellZone(CardId.Anti_Spell, true))
+            else if (this.Enemy.HasInSpellZone(CardId.Anti_Spell, true) || this.Bot.HasInSpellZone(CardId.Anti_Spell, true))
             {
-                if (Card.IsSpell() && Card.Id != CardId.MetalfoesFusion)
+                if (this.Card.IsSpell() && this.Card.Id != CardId.MetalfoesFusion)
                 {
-                    SelectSTPlace();
+                    this.SelectSTPlace();
                     return true;
                 }
             }
@@ -976,15 +1090,15 @@ namespace WindBot.Game.AI.Decks
             // check
             bool have_FiveRainbow = false;
             List<ClientCard> list = new List<ClientCard>();
-            if (Duel.IsNewRule || Duel.IsNewRule2020)
+            if (this.Duel.IsNewRule || this.Duel.IsNewRule2020)
             {
-                list.Add(Enemy.SpellZone[0]);
-                list.Add(Enemy.SpellZone[4]);
+                list.Add(this.Enemy.SpellZone[0]);
+                list.Add(this.Enemy.SpellZone[4]);
             }
             else
             {
-                list.Add(Enemy.SpellZone[6]);
-                list.Add(Enemy.SpellZone[7]);
+                list.Add(this.Enemy.SpellZone[6]);
+                list.Add(this.Enemy.SpellZone[7]);
             }
             foreach(ClientCard card in list)
             {
@@ -995,11 +1109,19 @@ namespace WindBot.Game.AI.Decks
                 }
             }
 
-            if (!have_FiveRainbow) return false;
-            if (Bot.GetMonsterCount() == 0 || Bot.SpellZone.GetFirstMatchingCard(card => card.IsFacedown()) != null) return false;
-            if (Card.IsSpell())
+            if (!have_FiveRainbow)
             {
-                SelectSTPlace(null, true);
+                return false;
+            }
+
+            if (this.Bot.GetMonsterCount() == 0 || this.Bot.SpellZone.GetFirstMatchingCard(card => card.IsFacedown()) != null)
+            {
+                return false;
+            }
+
+            if (this.Card.IsSpell())
+            {
+                this.SelectSTPlace(null, true);
                 return true;
             }
 
@@ -1009,22 +1131,24 @@ namespace WindBot.Game.AI.Decks
         // use for repos
         public bool MonsterRepos()
         {
-            int self_attack = Card.Attack + 1;
-            int extra_attack = CheckPlusAttackforMadameVerre(true, true);
-            Logger.DebugWriteLine("self_attack of " + (Card.Name ?? "X") + ": " + self_attack.ToString());
-            if (Card.HasSetcode(Witchcraft_setcode))
+            int self_attack = this.Card.Attack + 1;
+            int extra_attack = this.CheckPlusAttackforMadameVerre(true, true);
+            Logger.DebugWriteLine("self_attack of " + (this.Card.Name ?? "X") + ": " + self_attack.ToString());
+            if (this.Card.HasSetcode(this.Witchcraft_setcode))
             {
                 self_attack += extra_attack;
             }
 
-            if (Card.IsFaceup() && Card.IsDefense() && self_attack <= 1)
+            if (this.Card.IsFaceup() && this.Card.IsDefense() && self_attack <= 1)
+            {
                 return false;
+            }
 
             int best_attack = 0;
-            foreach (ClientCard card in Bot.GetMonsters())
+            foreach (ClientCard card in this.Bot.GetMonsters())
             {
                 int attack = card.Attack;
-                if (card.HasSetcode(Witchcraft_setcode))
+                if (card.HasSetcode(this.Witchcraft_setcode))
                 {
                     attack += extra_attack;
                 }
@@ -1034,12 +1158,18 @@ namespace WindBot.Game.AI.Decks
                 }
             }
 
-            bool enemyBetter = Util.IsAllEnemyBetterThanValue(best_attack, true);
+            bool enemyBetter = this.Util.IsAllEnemyBetterThanValue(best_attack, true);
 
-            if (Card.IsAttack() && enemyBetter)
+            if (this.Card.IsAttack() && enemyBetter)
+            {
                 return true;
-            if (Card.IsDefense() && !enemyBetter && self_attack >= Card.Defense)
+            }
+
+            if (this.Card.IsDefense() && !enemyBetter && self_attack >= this.Card.Defense)
+            {
                 return true;
+            }
+
             return false;
         }
 
@@ -1048,31 +1178,31 @@ namespace WindBot.Game.AI.Decks
         /// </summary>
         public void SelectDiscardSpell()
         {
-            int count_remainhands = CheckRemainInDeck(CardId.MagiciansLeftHand, CardId.MagicianRightHand);
-            int count_witchcraftspell = Bot.Hand.GetMatchingCardsCount(card => (card.IsSpell() && (card.HasSetcode(Witchcraft_setcode))));
-            int WitchcrafterBystreet_count = Bot.SpellZone.GetMatchingCardsCount(card => card.IsFaceup() && card.Id == CardId.WitchcrafterBystreet);
-            if (Bot.HasInHand(CardId.MagiciansRestage) && count_remainhands > 0)
+            int count_remainhands = this.CheckRemainInDeck(CardId.MagiciansLeftHand, CardId.MagicianRightHand);
+            int count_witchcraftspell = this.Bot.Hand.GetMatchingCardsCount(card => (card.IsSpell() && (card.HasSetcode(this.Witchcraft_setcode))));
+            int WitchcrafterBystreet_count = this.Bot.SpellZone.GetMatchingCardsCount(card => card.IsFaceup() && card.Id == CardId.WitchcrafterBystreet);
+            if (this.Bot.HasInHand(CardId.MagiciansRestage) && count_remainhands > 0)
             {
-                AI.SelectCard(CardId.MagiciansRestage);
+                this.AI.SelectCard(CardId.MagiciansRestage);
             }
-            else if (Bot.HasInHand(CardId.MetalfoesFusion))
+            else if (this.Bot.HasInHand(CardId.MetalfoesFusion))
             {
-                AI.SelectCard(CardId.MetalfoesFusion);
+                this.AI.SelectCard(CardId.MetalfoesFusion);
             }
-            else if (!ActivatedCards.Contains(CardId.Scroll) && Bot.SpellZone.GetCardCount(CardId.Scroll) > 0)
+            else if (!this.ActivatedCards.Contains(CardId.Scroll) && this.Bot.SpellZone.GetCardCount(CardId.Scroll) > 0)
             {
-                AI.SelectCard(Bot.SpellZone.GetFirstMatchingFaceupCard(card => card.Id == CardId.Scroll));
-                ActivatedCards.Add(CardId.Scroll);
+                this.AI.SelectCard(this.Bot.SpellZone.GetFirstMatchingFaceupCard(card => card.Id == CardId.Scroll));
+                this.ActivatedCards.Add(CardId.Scroll);
             }
-            else if (!ActivatedCards.Contains(CardId.WitchcrafterBystreet) && WitchcrafterBystreet_count >= 2)
+            else if (!this.ActivatedCards.Contains(CardId.WitchcrafterBystreet) && WitchcrafterBystreet_count >= 2)
             {
-                AI.SelectCard(Bot.SpellZone.GetFirstMatchingFaceupCard(card => card.Id == CardId.WitchcrafterBystreet));
-                ActivatedCards.Add(CardId.WitchcrafterBystreet);
+                this.AI.SelectCard(this.Bot.SpellZone.GetFirstMatchingFaceupCard(card => card.Id == CardId.WitchcrafterBystreet));
+                this.ActivatedCards.Add(CardId.WitchcrafterBystreet);
             }
             else if (count_witchcraftspell > 0)
             {
                 List<int> cost_list = new List<int>{ CardId.Scroll, CardId.WitchcrafterBystreet, CardId.Collaboration, CardId.Unveiling, CardId.Draping };
-                if (Duel.Player == 1)
+                if (this.Duel.Player == 1)
                 {
                     cost_list.Add(CardId.Creation);
                     cost_list.Add(CardId.Holiday);
@@ -1083,27 +1213,27 @@ namespace WindBot.Game.AI.Decks
                 }
                 foreach (int cardid in cost_list)
                 {
-                    IList<ClientCard> targets = Bot.Hand.GetMatchingCards(card => card.Id == cardid);
+                    IList<ClientCard> targets = this.Bot.Hand.GetMatchingCards(card => card.Id == cardid);
                     if (targets.Count() > 0)
                     {
-                        AI.SelectCard(targets);
+                        this.AI.SelectCard(targets);
                         return;
                     }
                 }
-                AI.SelectCard(CardId.Scroll, CardId.WitchcrafterBystreet);
+                this.AI.SelectCard(CardId.Scroll, CardId.WitchcrafterBystreet);
             }
-            else if (Bot.HasInHand(CardId.PotofExtravagance) && Bot.ExtraDeck.Count < 6)
+            else if (this.Bot.HasInHand(CardId.PotofExtravagance) && this.Bot.ExtraDeck.Count < 6)
             {
-                AI.SelectCard(CardId.PotofExtravagance);
+                this.AI.SelectCard(CardId.PotofExtravagance);
             }
             else if (WitchcrafterBystreet_count >= 1)
             {
-                AI.SelectCard(Bot.SpellZone.GetFirstMatchingFaceupCard(card => card.Id == CardId.WitchcrafterBystreet));
-                ActivatedCards.Add(CardId.WitchcrafterBystreet);
+                this.AI.SelectCard(this.Bot.SpellZone.GetFirstMatchingFaceupCard(card => card.Id == CardId.WitchcrafterBystreet));
+                this.ActivatedCards.Add(CardId.WitchcrafterBystreet);
             }
             else
             {
-                AI.SelectCard(CardId.ThatGrassLooksGreener, CardId.LightningStorm, CardId.PotofExtravagance, CardId.MagiciansLeftHand, CardId.MagicianRightHand, CardId.CrossoutDesignator, CardId.CalledbytheGrave);
+                this.AI.SelectCard(CardId.ThatGrassLooksGreener, CardId.LightningStorm, CardId.PotofExtravagance, CardId.MagiciansLeftHand, CardId.MagicianRightHand, CardId.CrossoutDesignator, CardId.CalledbytheGrave);
             }
         }
 
@@ -1112,18 +1242,30 @@ namespace WindBot.Game.AI.Decks
         /// </summary>
         public bool SpellsActivate()
         {
-            if (SpellNegatable()) return false;
-            if (CheckDiscardableSpellCount() <= 1) return false;
-            if ((Card.Id == CardId.ThatGrassLooksGreener || Card.Id == CardId.Reasoning) && CheckWhetherWillbeRemoved()) return false;
-            if (Card.Id == CardId.MagiciansLeftHand || Card.Id == CardId.MagicianRightHand)
+            if (this.SpellNegatable())
             {
-                if (Bot.MonsterZone.GetFirstMatchingCard(card => card.HasRace(CardRace.SpellCaster)) == null
-                    && (summoned || Bot.Hand.GetFirstMatchingCard(card => card.HasRace(CardRace.SpellCaster) && card.Level <= 4) == null))
+                return false;
+            }
+
+            if (this.CheckDiscardableSpellCount() <= 1)
+            {
+                return false;
+            }
+
+            if ((this.Card.Id == CardId.ThatGrassLooksGreener || this.Card.Id == CardId.Reasoning) && this.CheckWhetherWillbeRemoved())
+            {
+                return false;
+            }
+
+            if (this.Card.Id == CardId.MagiciansLeftHand || this.Card.Id == CardId.MagicianRightHand)
+            {
+                if (this.Bot.MonsterZone.GetFirstMatchingCard(card => card.HasRace(CardRace.SpellCaster)) == null
+                    && (this.summoned || this.Bot.Hand.GetFirstMatchingCard(card => card.HasRace(CardRace.SpellCaster) && card.Level <= 4) == null))
                 {
                     return false;
                 }
             }
-            SelectSTPlace(Card, true);
+            this.SelectSTPlace(this.Card, true);
             return true;
         }
 
@@ -1132,17 +1274,25 @@ namespace WindBot.Game.AI.Decks
         /// </summary>
         public bool SpellsActivateNoCost()
         {
-            if (SpellNegatable()) return false;
-            if ((Card.Id == CardId.ThatGrassLooksGreener || Card.Id == CardId.Reasoning) && CheckWhetherWillbeRemoved()) return false;
-            if (Card.Id == CardId.MagiciansLeftHand || Card.Id == CardId.MagicianRightHand)
+            if (this.SpellNegatable())
             {
-                if (Bot.MonsterZone.GetFirstMatchingCard(card => card.HasRace(CardRace.SpellCaster)) == null
-                    && (summoned || Bot.Hand.GetFirstMatchingCard(card => card.HasRace(CardRace.SpellCaster) && card.Level <= 4) == null))
+                return false;
+            }
+
+            if ((this.Card.Id == CardId.ThatGrassLooksGreener || this.Card.Id == CardId.Reasoning) && this.CheckWhetherWillbeRemoved())
+            {
+                return false;
+            }
+
+            if (this.Card.Id == CardId.MagiciansLeftHand || this.Card.Id == CardId.MagicianRightHand)
+            {
+                if (this.Bot.MonsterZone.GetFirstMatchingCard(card => card.HasRace(CardRace.SpellCaster)) == null
+                    && (this.summoned || this.Bot.Hand.GetFirstMatchingCard(card => card.HasRace(CardRace.SpellCaster) && card.Level <= 4) == null))
                 {
                     return false;
                 }
             }
-            SelectSTPlace(Card, true);
+            this.SelectSTPlace(this.Card, true);
             return true;
         }
 
@@ -1151,14 +1301,22 @@ namespace WindBot.Game.AI.Decks
         /// </summary>
         public bool SpellsActivatewithCounter()
         {
-            if (SpellNegatable()) return false;
-            if ((Card.Id == CardId.ThatGrassLooksGreener || Card.Id == CardId.Reasoning) && CheckWhetherWillbeRemoved()) return false;
-            int[] counter_cards = { CardId.PSYGamma, CardId.CalledbytheGrave, CardId.CrossoutDesignator };
-            int count = Bot.Hand.GetMatchingCardsCount(card => counter_cards.Contains(card.Id));
-            count += Bot.SpellZone.GetMatchingCardsCount(card => counter_cards.Contains(card.Id));
-            if (count > 0 || Bot.Hand.GetCardCount(Card.Id) >= 2)
+            if (this.SpellNegatable())
             {
-                SelectSTPlace(Card, true);
+                return false;
+            }
+
+            if ((this.Card.Id == CardId.ThatGrassLooksGreener || this.Card.Id == CardId.Reasoning) && this.CheckWhetherWillbeRemoved())
+            {
+                return false;
+            }
+
+            int[] counter_cards = { CardId.PSYGamma, CardId.CalledbytheGrave, CardId.CrossoutDesignator };
+            int count = this.Bot.Hand.GetMatchingCardsCount(card => counter_cards.Contains(card.Id));
+            count += this.Bot.SpellZone.GetMatchingCardsCount(card => counter_cards.Contains(card.Id));
+            if (count > 0 || this.Bot.Hand.GetCardCount(this.Card.Id) >= 2)
+            {
+                this.SelectSTPlace(this.Card, true);
                 return true;
             }
             return Program.Rand.Next(2) > 0;
@@ -1169,12 +1327,16 @@ namespace WindBot.Game.AI.Decks
         /// </summary>
         public bool WitchcraftSummon()
         {
-            if (UseSSEffect.Contains(Card.Id)) return false;
-            int count_spell = Bot.Hand.GetMatchingCardsCount(card => (card.IsSpell()));
-            int count_target = CheckRemainInDeck(CardId.MadameVerre, CardId.Haine, CardId.GolemAruru);
+            if (this.UseSSEffect.Contains(this.Card.Id))
+            {
+                return false;
+            }
+
+            int count_spell = this.Bot.Hand.GetMatchingCardsCount(card => (card.IsSpell()));
+            int count_target = this.CheckRemainInDeck(CardId.MadameVerre, CardId.Haine, CardId.GolemAruru);
             if (count_spell > 0 && count_target > 0)
             {
-                summoned = true;
+                this.summoned = true;
                 return true;
             }
             return false;
@@ -1185,13 +1347,13 @@ namespace WindBot.Game.AI.Decks
         /// </summary>
         public bool WitchcraftSummonForRecycle()
         {
-            if (!Card.HasSetcode(Witchcraft_setcode) || Card.Level > 4)
+            if (!this.Card.HasSetcode(this.Witchcraft_setcode) || this.Card.Level > 4)
             {
                 return false;
             }
-            if (CheckRecyclableCount(false, true) > 0 && Bot.MonsterZone.GetFirstMatchingFaceupCard(card => card.HasSetcode(Witchcraft_setcode)) == null)
+            if (this.CheckRecyclableCount(false, true) > 0 && this.Bot.MonsterZone.GetFirstMatchingFaceupCard(card => card.HasSetcode(this.Witchcraft_setcode)) == null)
             {
-                summoned = true;
+                this.summoned = true;
                 return true;
             }
             return false;
@@ -1203,41 +1365,45 @@ namespace WindBot.Game.AI.Decks
         public bool SummonForLink()
         {
             // reject advance summon
-            if (Card.Level >= 5) return false;
-            summoned = true;
+            if (this.Card.Level >= 5)
+            {
+                return false;
+            }
 
-            if (BorrelswordDragonSummonCheck(Card).Count >= 3)
+            this.summoned = true;
+
+            if (this.BorrelswordDragonSummonCheck(this.Card).Count >= 3)
             {
                 Logger.DebugWriteLine("Summon for BorrelswordDragon.");
-                List<ClientCard> list = BorrelswordDragonSummonCheck(Card);
+                List<ClientCard> list = this.BorrelswordDragonSummonCheck(this.Card);
                 foreach( ClientCard c in list)
                 {
                     Logger.DebugWriteLine(c.Name ?? "???");
                 }
                 return true;
             }
-            if (KnightmareUnicornSummonCheck(Card).Count >= 2)
+            if (this.KnightmareUnicornSummonCheck(this.Card).Count >= 2)
             {
                 Logger.DebugWriteLine("Summon for KnightmareUnicorn.");
                 return true;
             }
-            if (KnightmarePhoenixSummonCheck(Card).Count >= 2)
+            if (this.KnightmarePhoenixSummonCheck(this.Card).Count >= 2)
             {
                 Logger.DebugWriteLine("Summon for KnightmarePhoenix.");
                 return true;
             }
-            if (RelinquishedAnimaSummonCheck(Card) != -1)
+            if (this.RelinquishedAnimaSummonCheck(this.Card) != -1)
             {
                 Logger.DebugWriteLine("Summon for RelinquishedAnima.");
                 return true;
             }
-            if (SalamangreatAlmirajSummonCheck(Card))
+            if (this.SalamangreatAlmirajSummonCheck(this.Card))
             {
                 Logger.DebugWriteLine("Summon for SalamangreatAlmiraj.");
                 return true;
             }
 
-            summoned = false;
+            this.summoned = false;
             return false;
         }
 
@@ -1247,82 +1413,105 @@ namespace WindBot.Game.AI.Decks
         /// <param name="level">max level can be special summoned.</param>
         public bool DeckSSWitchcraft()
         {
-            if (Card.Location != CardLocation.MonsterZone) return false;
-            if (Duel.LastChainPlayer == 0) return false;
-            if (NegatedCheck(false)) return false;
-            if (Duel.Player == 0 && !FirstCheckSS.Contains(Card.Id))
+            if (this.Card.Location != CardLocation.MonsterZone)
+            {
+                return false;
+            }
+
+            if (this.Duel.LastChainPlayer == 0)
+            {
+                return false;
+            }
+
+            if (this.NegatedCheck(false))
+            {
+                return false;
+            }
+
+            if (this.Duel.Player == 0 && !this.FirstCheckSS.Contains(this.Card.Id))
             {
                 // activate when ask twice
-                FirstCheckSS.Add(Card.Id);
+                this.FirstCheckSS.Add(this.Card.Id);
                 return false;
             }
 
             // get discardable count
-            int discardable_hands = CheckDiscardableSpellCount();
+            int discardable_hands = this.CheckDiscardableSpellCount();
 
             // not must SS
-            if (discardable_hands == 0 && Bot.MonsterZone.GetFirstMatchingCard(card => card.HasSetcode(Witchcraft_setcode) && card.Level >= 6) != null)
+            if (discardable_hands == 0 && this.Bot.MonsterZone.GetFirstMatchingCard(card => card.HasSetcode(this.Witchcraft_setcode) && card.Level >= 6) != null)
             {
                 return false;
             }
 
-            SelectDiscardSpell();
+            this.SelectDiscardSpell();
 
             // check whether should call MadameVerre for destroying monster
             bool lesssummon = false;
-            int extra_attack = CheckPlusAttackforMadameVerre(true, false, true);
-            int best_power = Util.GetBestAttack(Bot);
-            if (CheckRemainInDeck(CardId.Haine) > 0 && best_power < 2400) best_power = 2400;
+            int extra_attack = this.CheckPlusAttackforMadameVerre(true, false, true);
+            int best_power = this.Util.GetBestAttack(this.Bot);
+            if (this.CheckRemainInDeck(CardId.Haine) > 0 && best_power < 2400)
+            {
+                best_power = 2400;
+            }
+
             Logger.DebugWriteLine("less summon check: " + (best_power + extra_attack - 1000).ToString() + " to " + (best_power + extra_attack).ToString());
-            if (Util.GetOneEnemyBetterThanValue(best_power) != null 
-                && Util.GetOneEnemyBetterThanValue(best_power + extra_attack) == null
-                && Util.GetOneEnemyBetterThanValue(best_power + extra_attack - 1000) != null)
+            if (this.Util.GetOneEnemyBetterThanValue(best_power) != null 
+                && this.Util.GetOneEnemyBetterThanValue(best_power + extra_attack) == null
+                && this.Util.GetOneEnemyBetterThanValue(best_power + extra_attack - 1000) != null)
             {
                 lesssummon = true;
             }
             
             // SS lower 4
-            if (!enemy_activate_MaxxC && !lesssummon && discardable_hands >= 2 && Duel.Player == 0)
+            if (!this.enemy_activate_MaxxC && !lesssummon && discardable_hands >= 2 && this.Duel.Player == 0)
             {
                 int[] SS_priority = { CardId.Schmietta, CardId.Pittore, CardId.Genni, CardId.Potterie };
                 foreach (int cardid in SS_priority)
                 {
-                    if (!UseSSEffect.Contains(cardid) && Card.Id != cardid && CheckRemainInDeck(cardid) > 0
-                        && Bot.MonsterZone.GetFirstMatchingCard(card => card.Id == cardid && card.IsFaceup()) == null)
+                    if (!this.UseSSEffect.Contains(cardid) && this.Card.Id != cardid && this.CheckRemainInDeck(cardid) > 0
+                        && this.Bot.MonsterZone.GetFirstMatchingCard(card => card.Id == cardid && card.IsFaceup()) == null)
                     {
-                        UseSSEffect.Add(Card.Id);
-                        AI.SelectNextCard(cardid);
+                        this.UseSSEffect.Add(this.Card.Id);
+                        this.AI.SelectNextCard(cardid);
                         return true;
                     }
                 }
             }
 
             // check whether continue to ss
-            bool should_attack = Util.GetOneEnemyBetterThanValue(Card.Attack) == null;
-            if ((should_attack ^ Card.IsDefense()) && Duel.Player == 1) return false;
-            if (CheckRemainInDeck(CardId.Haine, CardId.MadameVerre, CardId.GolemAruru) == 0) return false;
+            bool should_attack = this.Util.GetOneEnemyBetterThanValue(this.Card.Attack) == null;
+            if ((should_attack ^ this.Card.IsDefense()) && this.Duel.Player == 1)
+            {
+                return false;
+            }
+
+            if (this.CheckRemainInDeck(CardId.Haine, CardId.MadameVerre, CardId.GolemAruru) == 0)
+            {
+                return false;
+            }
 
             // SS higer level
-            if (Bot.HasInMonstersZone(CardId.Haine) || (lesssummon && !Bot.HasInMonstersZone(CardId.MadameVerre, true)))
+            if (this.Bot.HasInMonstersZone(CardId.Haine) || (lesssummon && !this.Bot.HasInMonstersZone(CardId.MadameVerre, true)))
             {
-                AI.SelectNextCard(CardId.MadameVerre, CardId.Haine, CardId.GolemAruru);
+                this.AI.SelectNextCard(CardId.MadameVerre, CardId.Haine, CardId.GolemAruru);
             }
             else
             {
-                AI.SelectNextCard(CardId.Haine, CardId.MadameVerre, CardId.GolemAruru);
+                this.AI.SelectNextCard(CardId.Haine, CardId.MadameVerre, CardId.GolemAruru);
             }
-            UseSSEffect.Add(Card.Id);
+            this.UseSSEffect.Add(this.Card.Id);
             return true;
         }
 
         // recycle witchcraft spells in grave
         public bool WitchcraftRecycle()
         {
-            if (Card.IsSpell() && Card.HasSetcode(Witchcraft_setcode) && Card.Location == CardLocation.Grave) {
-                ActivatedCards.Add(Card.Id);
-                if (Card.HasType(CardType.Continuous))
+            if (this.Card.IsSpell() && this.Card.HasSetcode(this.Witchcraft_setcode) && this.Card.Location == CardLocation.Grave) {
+                this.ActivatedCards.Add(this.Card.Id);
+                if (this.Card.HasType(CardType.Continuous))
                 {
-                    SelectSTPlace(Card);
+                    this.SelectSTPlace(this.Card);
                 }
                 return true;
             }
@@ -1332,54 +1521,68 @@ namespace WindBot.Game.AI.Decks
         // activate of GolemAruru
         public bool GolemAruruActivate()
         {
-            if (ActivateDescription == Util.GetStringId(CardId.GolemAruru, 2))
+            if (this.ActivateDescription == this.Util.GetStringId(CardId.GolemAruru, 2))
             {
                 return true;
             }
-            if (NegatedCheck()) return false;
-            ClientCard targetcard = CheckProblematicCards(true);
+            if (this.NegatedCheck())
+            {
+                return false;
+            }
+
+            ClientCard targetcard = this.CheckProblematicCards(true);
             if (targetcard != null)
             {
-                AI.SelectCard(targetcard);
+                this.AI.SelectCard(targetcard);
                 return true;
             }
-            AI.SelectCard(CardId.Holiday, CardId.Creation, CardId.Draping, CardId.Scroll, CardId.WitchcrafterBystreet, CardId.Unveiling, CardId.Collaboration );
+            this.AI.SelectCard(CardId.Holiday, CardId.Creation, CardId.Draping, CardId.Scroll, CardId.WitchcrafterBystreet, CardId.Unveiling, CardId.Collaboration );
             return true;
         }
 
         // activate of MadameVerre
         public bool MadameVerreActivate()
         {
-            if (NegatedCheck(true)) return false;
-            // negate
-            if (ActivateDescription == Util.GetStringId(CardId.MadameVerre, 1))
+            if (this.NegatedCheck(true))
             {
-                if (Card.IsDisabled()) return false;
-                if (CheckLastChainNegated()) return false;
+                return false;
+            }
+            // negate
+            if (this.ActivateDescription == this.Util.GetStringId(CardId.MadameVerre, 1))
+            {
+                if (this.Card.IsDisabled())
+                {
+                    return false;
+                }
+
+                if (this.CheckLastChainNegated())
+                {
+                    return false;
+                }
 
                 // negate before activate
-                if (Enemy.MonsterZone.GetFirstMatchingCard(card => card.IsMonsterShouldBeDisabledBeforeItUseEffect() && !card.IsDisabled()) != null)
+                if (this.Enemy.MonsterZone.GetFirstMatchingCard(card => card.IsMonsterShouldBeDisabledBeforeItUseEffect() && !card.IsDisabled()) != null)
                 {
-                    SelectDiscardSpell();
+                    this.SelectDiscardSpell();
                     return true;
                 }
 
                 // chain check
-                ClientCard LastChainCard = Util.GetLastChainCard();
+                ClientCard LastChainCard = this.Util.GetLastChainCard();
                 if ((LastChainCard != null && LastChainCard.Controller == 1 && LastChainCard.Location == CardLocation.MonsterZone))
                 {
                     // negate monsters' activate
-                    SelectDiscardSpell();
+                    this.SelectDiscardSpell();
                     return true;
                 }
 
                 // negate battle related effect
-                if (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2)
+                if (this.Duel.Phase > DuelPhase.Main1 && this.Duel.Phase < DuelPhase.Main2)
                 {
-                    if (Enemy.MonsterZone.GetFirstMatchingCard(card => 
-                        card.IsMonsterDangerous() || (Duel.Player == 0) && card.IsMonsterInvincible()) != null)
+                    if (this.Enemy.MonsterZone.GetFirstMatchingCard(card => 
+                        card.IsMonsterDangerous() || (this.Duel.Player == 0) && card.IsMonsterInvincible()) != null)
                     {
-                        SelectDiscardSpell();
+                        this.SelectDiscardSpell();
                         return true;
                     }
                 }
@@ -1389,11 +1592,11 @@ namespace WindBot.Game.AI.Decks
             // gain ATK
             else
             {
-                ClientCard self_card = Bot.BattlingMonster;
-                ClientCard enemy_card = Enemy.BattlingMonster;
+                ClientCard self_card = this.Bot.BattlingMonster;
+                ClientCard enemy_card = this.Enemy.BattlingMonster;
                 if (self_card != null && enemy_card != null)
                 {
-                    int power_cangain = CheckPlusAttackforMadameVerre();
+                    int power_cangain = this.CheckPlusAttackforMadameVerre();
                     int diff = enemy_card.GetDefensePower() - self_card.GetDefensePower();
                     Logger.DebugWriteLine("power: " + power_cangain.ToString());
                     Logger.DebugWriteLine("diff: " + diff.ToString());
@@ -1404,14 +1607,14 @@ namespace WindBot.Game.AI.Decks
                         {
                             return false;
                         }
-                        AI.SelectCard(Bot.Hand.GetMatchingCards(card => card.IsSpell()));
-                        MadameVerreGainedATK = true;
+                        this.AI.SelectCard(this.Bot.Hand.GetMatchingCards(card => card.IsSpell()));
+                        this.MadameVerreGainedATK = true;
                         return true;
                     }
-                    else if (Enemy.GetMonsterCount() == 1 || (enemy_card.IsAttack() && Enemy.LifePoints <= diff + power_cangain))
+                    else if (this.Enemy.GetMonsterCount() == 1 || (enemy_card.IsAttack() && this.Enemy.LifePoints <= diff + power_cangain))
                     {
-                        AI.SelectCard(Bot.Hand.GetMatchingCards(card => card.IsSpell()));
-                        MadameVerreGainedATK = true;
+                        this.AI.SelectCard(this.Bot.Hand.GetMatchingCards(card => card.IsSpell()));
+                        this.MadameVerreGainedATK = true;
                         return true;
                     }
                 }
@@ -1422,26 +1625,32 @@ namespace WindBot.Game.AI.Decks
         // activate of Haine
         public bool HaineActivate()
         {
-            if (NegatedCheck(true) || Duel.LastChainPlayer == 0) return false;
+            if (this.NegatedCheck(true) || this.Duel.LastChainPlayer == 0)
+            {
+                return false;
+            }
             // danger check
-            ClientCard targetcard = Enemy.MonsterZone.GetFloodgate(true);
+            ClientCard targetcard = this.Enemy.MonsterZone.GetFloodgate(true);
             if (targetcard == null)
             {
                 Logger.DebugWriteLine("*** Haine 2nd check.");
-                targetcard = Enemy.SpellZone.FirstOrDefault(card => card?.Data != null && card.IsFloodgate() && card.IsFaceup() && (!card.IsShouldNotBeTarget() || !Duel.ChainTargets.Contains(card)));
+                targetcard = this.Enemy.SpellZone.FirstOrDefault(card => card?.Data != null && card.IsFloodgate() && card.IsFaceup() && (!card.IsShouldNotBeTarget() || !this.Duel.ChainTargets.Contains(card)));
                 // GetFloodgate(true);
             }
             if (targetcard == null)
             {
                 Logger.DebugWriteLine("*** Haine 3rd check.");
-                targetcard = CheckProblematicCards(true, (Duel.Phase <= DuelPhase.Main1 || Duel.Phase >= DuelPhase.Main2));
-                if (targetcard != null && targetcard.HasSetcode(TimeLord_setcode) && !targetcard.IsDisabled()) targetcard = null;
+                targetcard = this.CheckProblematicCards(true, (this.Duel.Phase <= DuelPhase.Main1 || this.Duel.Phase >= DuelPhase.Main2));
+                if (targetcard != null && targetcard.HasSetcode(this.TimeLord_setcode) && !targetcard.IsDisabled())
+                {
+                    targetcard = null;
+                }
             }
-            if (targetcard == null && Duel.LastChainPlayer == 1)
+            if (targetcard == null && this.Duel.LastChainPlayer == 1)
             {
                 Logger.DebugWriteLine("*** Haine 4th check.");
-                ClientCard lastcard = Util.GetLastChainCard();
-                if (lastcard != null && !lastcard.IsDisabled() && !CheckLastChainNegated()
+                ClientCard lastcard = this.Util.GetLastChainCard();
+                if (lastcard != null && !lastcard.IsDisabled() && !this.CheckLastChainNegated()
                     && (lastcard.HasType(CardType.Continuous) || lastcard.HasType(CardType.Equip) || lastcard.HasType(CardType.Field))
                     && (lastcard.Location == CardLocation.SpellZone || lastcard.Location == CardLocation.FieldZone))
                 {
@@ -1451,38 +1660,38 @@ namespace WindBot.Game.AI.Decks
             if (targetcard != null)
             {
                 Logger.DebugWriteLine("*** Haine target: "+ targetcard.Name ?? "???");
-                SelectDiscardSpell();
-                AI.SelectNextCard(targetcard);
+                this.SelectDiscardSpell();
+                this.AI.SelectNextCard(targetcard);
                 return true;
             }
 
             // pendulum check
-            if (!CheckLastChainNegated())
+            if (!this.CheckLastChainNegated())
             {
                 ClientCard l = null;
                 ClientCard r = null;
-                if (Duel.IsNewRule || Duel.IsNewRule2020)
+                if (this.Duel.IsNewRule || this.Duel.IsNewRule2020)
                 {
-                    l = Enemy.SpellZone[0];
-                    r = Enemy.SpellZone[4];
+                    l = this.Enemy.SpellZone[0];
+                    r = this.Enemy.SpellZone[4];
                 }
                 else
                 {
-                    l = Enemy.SpellZone[6];
-                    r = Enemy.SpellZone[7];
+                    l = this.Enemy.SpellZone[6];
+                    r = this.Enemy.SpellZone[7];
                 }
                 if (l != null && r != null && l.LScale != r.RScale)
                 {
                     Logger.DebugWriteLine("*** Haine pendulum destroy");
-                    SelectDiscardSpell();
-                    AI.SelectNextCard(Program.Rand.Next(2) == 1 ? l : r);
+                    this.SelectDiscardSpell();
+                    this.AI.SelectNextCard(Program.Rand.Next(2) == 1 ? l : r);
                     return true;
                 }
             }
             
 
             // end check
-            if (Duel.Player == 0 && Duel.Phase == DuelPhase.End)
+            if (this.Duel.Player == 0 && this.Duel.Phase == DuelPhase.End)
             {
                 Logger.DebugWriteLine("*** Haine self check");
                 int selected_cost = 0;
@@ -1490,25 +1699,29 @@ namespace WindBot.Game.AI.Decks
                 int[] checklist = { CardId.Collaboration, CardId.Unveiling, CardId.Scroll, CardId.Holiday, CardId.Creation, CardId.Draping };
                 foreach (int cardid in checklist)
                 {
-                    if (!ActivatedCards.Contains(cardid) && Bot.HasInHand(cardid))
+                    if (!this.ActivatedCards.Contains(cardid) && this.Bot.HasInHand(cardid))
                     {
                         selected_cost = cardid;
                         break;
                     }
                 }
 
-                if (selected_cost == 0) return false;
-                IList<ClientCard> target_1 = Enemy.SpellZone.GetMatchingCards(card => card.IsFaceup());
-                IList<ClientCard> target_2 = Enemy.MonsterZone.GetMatchingCards(card => card.IsFaceup());
+                if (selected_cost == 0)
+                {
+                    return false;
+                }
+
+                IList<ClientCard> target_1 = this.Enemy.SpellZone.GetMatchingCards(card => card.IsFaceup());
+                IList<ClientCard> target_2 = this.Enemy.MonsterZone.GetMatchingCards(card => card.IsFaceup());
                 List<ClientCard> targets = target_1.Union(target_2).ToList();
                 if (targets.Count == 0)
                 {
                     return false;
                 }
                 // shuffle and select randomly
-                targets = CardListShuffle(targets);
-                AI.SelectCard(selected_cost);
-                AI.SelectNextCard(targets);
+                targets = this.CardListShuffle(targets);
+                this.AI.SelectCard(selected_cost);
+                this.AI.SelectNextCard(targets);
                 return true;
             }
             return false;
@@ -1517,88 +1730,95 @@ namespace WindBot.Game.AI.Decks
         // activate of Schmietta
         public bool SchmiettaActivate()
         {
-            if (Card.Location != CardLocation.Grave) return false;
-            if (NegatedCheck(false) || CheckWhetherWillbeRemoved()) return false;
+            if (this.Card.Location != CardLocation.Grave)
+            {
+                return false;
+            }
+
+            if (this.NegatedCheck(false) || this.CheckWhetherWillbeRemoved())
+            {
+                return false;
+            }
             // spell check
-            bool can_recycle = Bot.MonsterZone.GetFirstMatchingCard(
-                card => card.IsFaceup() && card.HasSetcode(Witchcraft_setcode) && card.Id != CardId.GolemAruru
+            bool can_recycle = this.Bot.MonsterZone.GetFirstMatchingCard(
+                card => card.IsFaceup() && card.HasSetcode(this.Witchcraft_setcode) && card.Id != CardId.GolemAruru
                 ) != null;
             if (can_recycle)
             {
                 int[] spell_checklist = { CardId.WitchcrafterBystreet, CardId.Holiday, CardId.Creation, CardId.Draping, CardId.Scroll, CardId.Unveiling, CardId.Collaboration };
                 foreach (int cardid in spell_checklist)
                 {
-                    if (CheckRemainInDeck(cardid) > 0 && !Bot.HasInHandOrInSpellZone(cardid) && !Bot.HasInGraveyard(cardid) && !ActivatedCards.Contains(cardid))
+                    if (this.CheckRemainInDeck(cardid) > 0 && !this.Bot.HasInHandOrInSpellZone(cardid) && !this.Bot.HasInGraveyard(cardid) && !this.ActivatedCards.Contains(cardid))
                     {
-                        AI.SelectCard(cardid);
-                        ActivatedCards.Add(CardId.Schmietta);
+                        this.AI.SelectCard(cardid);
+                        this.ActivatedCards.Add(CardId.Schmietta);
                         return true;
                     }
                 }
             }
 
-            bool can_find_Holiday = Bot.HasInHandOrInSpellZone(CardId.Holiday) || (can_recycle && Bot.HasInGraveyard(CardId.Holiday) && !(ActivatedCards.Contains(CardId.Holiday)));
+            bool can_find_Holiday = this.Bot.HasInHandOrInSpellZone(CardId.Holiday) || (can_recycle && this.Bot.HasInGraveyard(CardId.Holiday) && !(this.ActivatedCards.Contains(CardId.Holiday)));
             // monster check
-            if (Bot.HasInHand(important_witchcraft)  && !Bot.HasInGraveyard(CardId.Pittore) 
-                && !ActivatedCards.Contains(CardId.Pittore) && CheckRemainInDeck(CardId.Pittore) > 0 && can_find_Holiday){
-                AI.SelectCard(CardId.Pittore);
-                ActivatedCards.Add(CardId.Schmietta);
+            if (this.Bot.HasInHand(this.important_witchcraft)  && !this.Bot.HasInGraveyard(CardId.Pittore) 
+                && !this.ActivatedCards.Contains(CardId.Pittore) && this.CheckRemainInDeck(CardId.Pittore) > 0 && can_find_Holiday){
+                this.AI.SelectCard(CardId.Pittore);
+                this.ActivatedCards.Add(CardId.Schmietta);
                 return true;
             }
 
             // ss check
-            if (Bot.HasInHand(CardId.Holiday) && !ActivatedCards.Contains(CardId.Holiday) && !Bot.HasInGraveyard(important_witchcraft))
+            if (this.Bot.HasInHand(CardId.Holiday) && !this.ActivatedCards.Contains(CardId.Holiday) && !this.Bot.HasInGraveyard(this.important_witchcraft))
             {
-                AI.SelectCard(important_witchcraft);
-                ActivatedCards.Add(CardId.Schmietta);
+                this.AI.SelectCard(this.important_witchcraft);
+                this.ActivatedCards.Add(CardId.Schmietta);
                 return true;
             }
 
             // copy check
-            if (!ActivatedCards.Contains(CardId.Genni))
+            if (!this.ActivatedCards.Contains(CardId.Genni))
             {
-                int has_Genni = Bot.HasInGraveyard(CardId.Genni) ? 1 : 0;
-                int has_Holiday = Bot.HasInGraveyard(CardId.Holiday) ? 1 : 0;
-                int has_important = Bot.HasInGraveyard(important_witchcraft) ? 1 : 0;
+                int has_Genni = this.Bot.HasInGraveyard(CardId.Genni) ? 1 : 0;
+                int has_Holiday = this.Bot.HasInGraveyard(CardId.Holiday) ? 1 : 0;
+                int has_important = this.Bot.HasInGraveyard(this.important_witchcraft) ? 1 : 0;
                 // lack one of them
                 if (has_Genni + has_Holiday + has_important == 2)
                 {
                     if (has_Genni == 0)
                     {
-                        AI.SelectCard(CardId.Genni);
-                        ActivatedCards.Add(CardId.Schmietta);
+                        this.AI.SelectCard(CardId.Genni);
+                        this.ActivatedCards.Add(CardId.Schmietta);
                         return true;
                     }
                     if (has_Holiday == 0)
                     {
-                        AI.SelectCard(CardId.Holiday);
-                        ActivatedCards.Add(CardId.Schmietta);
+                        this.AI.SelectCard(CardId.Holiday);
+                        this.ActivatedCards.Add(CardId.Schmietta);
                         return true;
                     }
                     if (has_important == 0)
                     {
-                        AI.SelectCard(important_witchcraft);
-                        ActivatedCards.Add(CardId.Schmietta);
+                        this.AI.SelectCard(this.important_witchcraft);
+                        this.ActivatedCards.Add(CardId.Schmietta);
                         return true;
                     }
                 }
             }
 
             // Pittore check
-            if (!ActivatedCards.Contains(CardId.Pittore) && !Bot.HasInGraveyard(CardId.Pittore))
+            if (!this.ActivatedCards.Contains(CardId.Pittore) && !this.Bot.HasInGraveyard(CardId.Pittore))
             {
-                if (PittoreActivate())
+                if (this.PittoreActivate())
                 {
-                    AI.SelectCard(CardId.Pittore);
-                    ActivatedCards.Add(CardId.Schmietta);
+                    this.AI.SelectCard(CardId.Pittore);
+                    this.ActivatedCards.Add(CardId.Schmietta);
                     return true;
                 }
             }
 
             // trap check
-            if (CheckRemainInDeck(CardId.Masterpiece) >= 2){
-                AI.SelectCard(CardId.Masterpiece);
-                ActivatedCards.Add(CardId.Schmietta);
+            if (this.CheckRemainInDeck(CardId.Masterpiece) >= 2){
+                this.AI.SelectCard(CardId.Masterpiece);
+                this.ActivatedCards.Add(CardId.Schmietta);
                 return true;
             }
 
@@ -1608,15 +1828,26 @@ namespace WindBot.Game.AI.Decks
         // activate of Pittore
         public bool PittoreActivate()
         {
-            if (Card.Location != CardLocation.Grave) return false;
-            if (NegatedCheck(false) || CheckWhetherWillbeRemoved()) return false;
-            if (Bot.Hand.GetFirstMatchingCard(card => card.HasSetcode(Witchcraft_setcode)) == null) return false;
+            if (this.Card.Location != CardLocation.Grave)
+            {
+                return false;
+            }
+
+            if (this.NegatedCheck(false) || this.CheckWhetherWillbeRemoved())
+            {
+                return false;
+            }
+
+            if (this.Bot.Hand.GetFirstMatchingCard(card => card.HasSetcode(this.Witchcraft_setcode)) == null)
+            {
+                return false;
+            }
 
             // discard advance
-            if (Bot.Hand.GetFirstMatchingCard(card => card.Id == CardId.MadameVerre || card.Id == CardId.Haine) != null)
+            if (this.Bot.Hand.GetFirstMatchingCard(card => card.Id == CardId.MadameVerre || card.Id == CardId.Haine) != null)
             {
-                AI.SelectCard(CardId.MadameVerre, CardId.Haine);
-                ActivatedCards.Add(CardId.Pittore);
+                this.AI.SelectCard(CardId.MadameVerre, CardId.Haine);
+                this.ActivatedCards.Add(CardId.Pittore);
                 return true;
             }
 
@@ -1624,22 +1855,22 @@ namespace WindBot.Game.AI.Decks
             int[] spell_checklist = { CardId.Scroll, CardId.Unveiling, CardId.Collaboration, CardId.Draping, CardId.WitchcrafterBystreet, CardId.Holiday, CardId.Creation };
             foreach (int cardid in spell_checklist)
             {
-                if (Bot.HasInHand(cardid) && !ActivatedCards.Contains(cardid)){
-                    AI.SelectCard(cardid);
-                    ActivatedCards.Add(CardId.Pittore);
+                if (this.Bot.HasInHand(cardid) && !this.ActivatedCards.Contains(cardid)){
+                    this.AI.SelectCard(cardid);
+                    this.ActivatedCards.Add(CardId.Pittore);
                     return true;
                 }
             }
 
             // monster check
-            if ((Bot.HasInHand(CardId.Schmietta) && !ActivatedCards.Contains(CardId.Schmietta))
-                ||Bot.Hand.GetMatchingCardsCount(card => card.HasSetcode(Witchcraft_setcode) && card.Level <= 4) >= 2){
+            if ((this.Bot.HasInHand(CardId.Schmietta) && !this.ActivatedCards.Contains(CardId.Schmietta))
+                || this.Bot.Hand.GetMatchingCardsCount(card => card.HasSetcode(this.Witchcraft_setcode) && card.Level <= 4) >= 2){
                 int[] monster_checklist = { CardId.Schmietta, CardId.Pittore, CardId.Genni, CardId.Potterie};
                 foreach (int cardid in spell_checklist)
                 {
-                    if (Bot.HasInHand(cardid)){
-                        AI.SelectCard(cardid);
-                        ActivatedCards.Add(CardId.Pittore);
+                    if (this.Bot.HasInHand(cardid)){
+                        this.AI.SelectCard(cardid);
+                        this.ActivatedCards.Add(CardId.Pittore);
                         return true;
                     }
                 }
@@ -1651,48 +1882,67 @@ namespace WindBot.Game.AI.Decks
         // activate of AshBlossom_JoyousSpring
         public bool AshBlossom_JoyousSpringActivate()
         {
-            if (NegatedCheck(true) || CheckLastChainNegated()) return false;
-            CheckDeactiveFlag();
-            return DefaultAshBlossomAndJoyousSpring();
+            if (this.NegatedCheck(true) || this.CheckLastChainNegated())
+            {
+                return false;
+            }
+
+            this.CheckDeactiveFlag();
+            return this.DefaultAshBlossomAndJoyousSpring();
         }
 
         // activate of PSYGamma
         public bool PSYGammaActivate()
         {
-            if (NegatedCheck(true)) return false;
-            CheckDeactiveFlag();
+            if (this.NegatedCheck(true))
+            {
+                return false;
+            }
+
+            this.CheckDeactiveFlag();
             return true;
         }
 
         // activate of MaxxC
         public bool MaxxCActivate()
         {
-            if (NegatedCheck(true)) return false;
-            return DefaultMaxxC();
+            if (this.NegatedCheck(true))
+            {
+                return false;
+            }
+
+            return this.DefaultMaxxC();
         }
 
         // activate of Potterie
         public bool PotterieActivate()
         {
-            if (Card.Location != CardLocation.Grave) return false;
-            if (NegatedCheck(true)) return false;
+            if (this.Card.Location != CardLocation.Grave)
+            {
+                return false;
+            }
+
+            if (this.NegatedCheck(true))
+            {
+                return false;
+            }
 
             // Holiday check
-            if (!ActivatedCards.Contains(CardId.Holiday) && Bot.HasInGraveyard(CardId.Holiday)){
-                if (Bot.HasInGraveyard(important_witchcraft)){
-                    AI.SelectCard(CardId.Holiday);
-                    ActivatedCards.Add(CardId.Potterie);
+            if (!this.ActivatedCards.Contains(CardId.Holiday) && this.Bot.HasInGraveyard(CardId.Holiday)){
+                if (this.Bot.HasInGraveyard(this.important_witchcraft)){
+                    this.AI.SelectCard(CardId.Holiday);
+                    this.ActivatedCards.Add(CardId.Potterie);
                     return true;
                 }
             }
             
             // safe check
-            if (CheckProblematicCards() == null){
+            if (this.CheckProblematicCards() == null){
                 int[] checklist = {CardId.Patronus, CardId.GolemAruru};
                 foreach (int cardid in checklist){
-                    if (Bot.HasInGraveyard(cardid)){
-                        AI.SelectCard(cardid);
-                        ActivatedCards.Add(CardId.Potterie);
+                    if (this.Bot.HasInGraveyard(cardid)){
+                        this.AI.SelectCard(cardid);
+                        this.ActivatedCards.Add(CardId.Potterie);
                         return true;
                     }
                 }
@@ -1703,34 +1953,41 @@ namespace WindBot.Game.AI.Decks
         // activate of Genni
         public bool GenniActivate()
         {
-            if (Card.Location != CardLocation.Grave) return false;
-            if (NegatedCheck(true)) return false;
+            if (this.Card.Location != CardLocation.Grave)
+            {
+                return false;
+            }
+
+            if (this.NegatedCheck(true))
+            {
+                return false;
+            }
 
             // Holiday check
-            int HolidayCount = Bot.Graveyard.GetMatchingCardsCount(card => card.Id == CardId.Holiday);
-            int SS_id = HolidayCheck(Card);
+            int HolidayCount = this.Bot.Graveyard.GetMatchingCardsCount(card => card.Id == CardId.Holiday);
+            int SS_id = this.HolidayCheck(this.Card);
             if (HolidayCount > 0 && SS_id > 0){
-                AI.SelectCard(CardId.Holiday);
-                AI.SelectNextCard(SS_id);
-                ActivatedCards.Add(CardId.Genni);
+                this.AI.SelectCard(CardId.Holiday);
+                this.AI.SelectNextCard(SS_id);
+                this.ActivatedCards.Add(CardId.Genni);
                 return true;
             }
 
             // Draping check
-            if (Bot.HasInGraveyard(CardId.Draping)){
-                if (Enemy.GetMonsterCount() == 0 && Duel.Phase == DuelPhase.Main1){
+            if (this.Bot.HasInGraveyard(CardId.Draping)){
+                if (this.Enemy.GetMonsterCount() == 0 && this.Duel.Phase == DuelPhase.Main1){
                     int total_attack = 0;
-                    foreach (ClientCard card in Bot.GetMonsters()){
+                    foreach (ClientCard card in this.Bot.GetMonsters()){
                         total_attack += card.Attack;
                     }
                     // otk confirm
-                    if (total_attack >= Enemy.LifePoints){
-                        int bot_count = Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup() && card.HasSetcode(Witchcraft_setcode));
-                        IList<ClientCard> enemy_cards = Enemy.GetSpells();
+                    if (total_attack >= this.Enemy.LifePoints){
+                        int bot_count = this.Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup() && card.HasSetcode(this.Witchcraft_setcode));
+                        IList<ClientCard> enemy_cards = this.Enemy.GetSpells();
                         if (bot_count >= enemy_cards.Count()){
-                            AI.SelectCard(CardId.Draping);
-                            AI.SelectNextCard(enemy_cards);
-                            ActivatedCards.Add(CardId.Genni);
+                            this.AI.SelectCard(CardId.Draping);
+                            this.AI.SelectNextCard(enemy_cards);
+                            this.ActivatedCards.Add(CardId.Genni);
                             return true;
                         }
                     }
@@ -1743,15 +2000,23 @@ namespace WindBot.Game.AI.Decks
         // activate of Collaboration
         public bool CollaborationActivate()
         {
-            if (Card.Location == CardLocation.Grave) return false;
-            if (NegatedCheck(true)) return false;
-            ClientCard target = Util.GetBestBotMonster(true);
-            if (Util.GetOneEnemyBetterThanMyBest() == null){
-                if (Enemy.SpellZone.GetFirstMatchingCard(card => card.IsFacedown()) != null
-                    || Enemy.MonsterZone.GetMatchingCardsCount(card => card.GetDefensePower() < target.Attack) >= 2){
-                    AI.SelectCard(target);
-                    SelectSTPlace(null, true);
-                    ActivatedCards.Add(CardId.Collaboration);
+            if (this.Card.Location == CardLocation.Grave)
+            {
+                return false;
+            }
+
+            if (this.NegatedCheck(true))
+            {
+                return false;
+            }
+
+            ClientCard target = this.Util.GetBestBotMonster(true);
+            if (this.Util.GetOneEnemyBetterThanMyBest() == null){
+                if (this.Enemy.SpellZone.GetFirstMatchingCard(card => card.IsFacedown()) != null
+                    || this.Enemy.MonsterZone.GetMatchingCardsCount(card => card.GetDefensePower() < target.Attack) >= 2){
+                    this.AI.SelectCard(target);
+                    this.SelectSTPlace(null, true);
+                    this.ActivatedCards.Add(CardId.Collaboration);
                     return true;
                 }
             }
@@ -1762,30 +2027,42 @@ namespace WindBot.Game.AI.Decks
         public bool LightningStormActivate()
         {
             int bestPower = 0;
-            foreach (ClientCard hand in Bot.Hand)
+            foreach (ClientCard hand in this.Bot.Hand)
             {
-                if (hand.IsMonster() && hand.Level <= 4 && hand.Attack > bestPower) bestPower = hand.Attack;
+                if (hand.IsMonster() && hand.Level <= 4 && hand.Attack > bestPower)
+                {
+                    bestPower = hand.Attack;
+                }
             }
 
             int opt = -1;
             // destroy monster
-            if (Enemy.MonsterZone.GetFirstMatchingCard(card => card.IsFloodgate() && card.IsAttack()) != null
-                || Enemy.MonsterZone.GetMatchingCardsCount(card => card.IsAttack() && card.Attack >= bestPower) >= 2) opt = 0;
+            if (this.Enemy.MonsterZone.GetFirstMatchingCard(card => card.IsFloodgate() && card.IsAttack()) != null
+                || this.Enemy.MonsterZone.GetMatchingCardsCount(card => card.IsAttack() && card.Attack >= bestPower) >= 2)
+            {
+                opt = 0;
+            }
             // destroy spell/trap
-            else if (Enemy.GetSpellCount() >= 2 || Util.GetProblematicEnemySpell() != null) opt = 1;
+            else if (this.Enemy.GetSpellCount() >= 2 || this.Util.GetProblematicEnemySpell() != null)
+            {
+                opt = 1;
+            }
 
-            if (opt == -1) return false;
+            if (opt == -1)
+            {
+                return false;
+            }
 
             // only one selection
-            if (Enemy.MonsterZone.GetFirstMatchingCard(card => card.IsAttack()) == null 
-                || Enemy.GetSpellCount() == 0)
+            if (this.Enemy.MonsterZone.GetFirstMatchingCard(card => card.IsAttack()) == null 
+                || this.Enemy.GetSpellCount() == 0)
             {
-                AI.SelectOption(0);
-                SelectSTPlace(null, true);
+                this.AI.SelectOption(0);
+                this.SelectSTPlace(null, true);
                 return true;
             }
-            AI.SelectOption(opt);
-            SelectSTPlace(null, true);
+            this.AI.SelectOption(opt);
+            this.SelectSTPlace(null, true);
             return true;
         }
 
@@ -1793,20 +2070,27 @@ namespace WindBot.Game.AI.Decks
         public bool PotofExtravaganceActivate()
         {
             // won't activate if it'll be negate
-            if (SpellNegatable()) return false;
+            if (this.SpellNegatable())
+            {
+                return false;
+            }
 
-            SelectSTPlace(Card, true);
-            AI.SelectOption(1);
+            this.SelectSTPlace(this.Card, true);
+            this.AI.SelectOption(1);
             return true;
         }
 
         // activate of DarkRulerNoMore
         public bool DarkRulerNoMoreActivate()
         {
-            if (SpellNegatable()) return false;
-            if (Enemy.MonsterZone.GetFirstMatchingCard(card => card.IsFloodgate() && !card.IsDisabled()) != null)
+            if (this.SpellNegatable())
             {
-                SelectSTPlace(null, true);
+                return false;
+            }
+
+            if (this.Enemy.MonsterZone.GetFirstMatchingCard(card => card.IsFloodgate() && !card.IsDisabled()) != null)
+            {
+                this.SelectSTPlace(null, true);
                 return true;
             }
             return false;
@@ -1815,40 +2099,54 @@ namespace WindBot.Game.AI.Decks
         // activate of Creation
         public bool CreationActivate()
         {
-            if (Card.Location == CardLocation.Grave) return false;
-            if (NegatedCheck(true)) return false;
+            if (this.Card.Location == CardLocation.Grave)
+            {
+                return false;
+            }
+
+            if (this.NegatedCheck(true))
+            {
+                return false;
+            }
 
             // discard cost ensure
-            int least_cost = (Bot.HasInMonstersZone(CardId.Haine) ? 1 : 0) + (Bot.HasInMonstersZone(CardId.MadameVerre) ? 1 : 0);
-            int discardable = Bot.Hand.GetMatchingCardsCount(card => card != Card && card.IsSpell()) + CheckRecyclableCount() -1;
-            if (discardable < least_cost) return false;
+            int least_cost = (this.Bot.HasInMonstersZone(CardId.Haine) ? 1 : 0) + (this.Bot.HasInMonstersZone(CardId.MadameVerre) ? 1 : 0);
+            int discardable = this.Bot.Hand.GetMatchingCardsCount(card => card != this.Card && card.IsSpell()) + this.CheckRecyclableCount() -1;
+            if (discardable < least_cost)
+            {
+                return false;
+            }
 
             // search monster to summon
-            bool need_lower = (!summoned || (
-                Bot.MonsterZone.GetFirstMatchingCard(card => card.HasSetcode(Witchcraft_setcode)) == null
-                && Bot.Hand.GetFirstMatchingCard(card => card.IsMonster() && card.HasSetcode(Witchcraft_setcode) && card.Level <= 4) == null));
+            bool need_lower = (!this.summoned || (
+                this.Bot.MonsterZone.GetFirstMatchingCard(card => card.HasSetcode(this.Witchcraft_setcode)) == null
+                && this.Bot.Hand.GetFirstMatchingCard(card => card.IsMonster() && card.HasSetcode(this.Witchcraft_setcode) && card.Level <= 4) == null));
             if (need_lower)
             {
-                AI.SelectCard(CardId.Schmietta, CardId.Pittore, CardId.Genni, CardId.Potterie, CardId.GolemAruru);
-                SelectSTPlace(null, true);
-                ActivatedCards.Add(CardId.Creation);
+                this.AI.SelectCard(CardId.Schmietta, CardId.Pittore, CardId.Genni, CardId.Potterie, CardId.GolemAruru);
+                this.SelectSTPlace(null, true);
+                this.ActivatedCards.Add(CardId.Creation);
                 return true;
             }
             // search GolemAruru
             else
             {
-                if (Bot.HasInHand(CardId.GolemAruru)) return false;
-                if (Bot.MonsterZone.GetFirstMatchingCard(card => card.IsFaceup() && card.HasSetcode(Witchcraft_setcode)) == null)
+                if (this.Bot.HasInHand(CardId.GolemAruru))
                 {
-                    AI.SelectCard(CardId.GolemAruru, CardId.Schmietta, CardId.Pittore, CardId.Genni, CardId.Potterie);
-                    SelectSTPlace(null, true);
-                    ActivatedCards.Add(CardId.Creation);
+                    return false;
+                }
+
+                if (this.Bot.MonsterZone.GetFirstMatchingCard(card => card.IsFaceup() && card.HasSetcode(this.Witchcraft_setcode)) == null)
+                {
+                    this.AI.SelectCard(CardId.GolemAruru, CardId.Schmietta, CardId.Pittore, CardId.Genni, CardId.Potterie);
+                    this.SelectSTPlace(null, true);
+                    this.ActivatedCards.Add(CardId.Creation);
                     return true;
                 } else
                 {
-                    AI.SelectCard(CardId.Schmietta, CardId.Pittore, CardId.Genni, CardId.Potterie, CardId.GolemAruru);
-                    SelectSTPlace(null, true);
-                    ActivatedCards.Add(CardId.Creation);
+                    this.AI.SelectCard(CardId.Schmietta, CardId.Pittore, CardId.Genni, CardId.Potterie, CardId.GolemAruru);
+                    this.SelectSTPlace(null, true);
+                    this.ActivatedCards.Add(CardId.Creation);
                     return true;
                 }
             }
@@ -1864,16 +2162,16 @@ namespace WindBot.Game.AI.Decks
             List<int> check_list = new List<int> { CardId.Haine, CardId.MadameVerre, CardId.GolemAruru};
             foreach (int cardid in check_list)
             {
-                if (Bot.HasInGraveyard(cardid) && Bot.MonsterZone.GetFirstMatchingCard(card => card.IsFaceup() && card.Id == cardid) == null)
+                if (this.Bot.HasInGraveyard(cardid) && this.Bot.MonsterZone.GetFirstMatchingCard(card => card.IsFaceup() && card.Id == cardid) == null)
                 {
                     Logger.DebugWriteLine("*** Holiday check 1st: " + cardid.ToString());
                     return cardid;
                 }
             }
             check_list.Clear();
-            if (CheckProblematicCards() == null)
+            if (this.CheckProblematicCards() == null)
             {
-                if (Bot.HasInGraveyard(CardId.GolemAruru) && Bot.MonsterZone.GetFirstMatchingCard(card => card.IsFaceup() && card.HasSetcode(Witchcraft_setcode)) != null)
+                if (this.Bot.HasInGraveyard(CardId.GolemAruru) && this.Bot.MonsterZone.GetFirstMatchingCard(card => card.IsFaceup() && card.HasSetcode(this.Witchcraft_setcode)) != null)
                 {
                     Logger.DebugWriteLine("*** Holiday check 2nd: GolemAruru");
                     return CardId.GolemAruru;
@@ -1884,7 +2182,7 @@ namespace WindBot.Game.AI.Decks
                 check_list.Add(CardId.Potterie);
                 foreach (int cardid in check_list)
                 {
-                    if (!UseSSEffect.Contains(cardid) && Bot.Graveyard.GetFirstMatchingCard(card => card.Id == cardid && card != except_card) != null && CheckDiscardableSpellCount(Card) > 0)
+                    if (!this.UseSSEffect.Contains(cardid) && this.Bot.Graveyard.GetFirstMatchingCard(card => card.Id == cardid && card != except_card) != null && this.CheckDiscardableSpellCount(this.Card) > 0)
                     {
                         Logger.DebugWriteLine("*** Holiday check 3rd: " + cardid.ToString());
                         return cardid;
@@ -1898,7 +2196,7 @@ namespace WindBot.Game.AI.Decks
                 check_list.Add(CardId.GolemAruru);
                 foreach (int cardid in check_list)
                 {
-                    if (Bot.Graveyard.GetFirstMatchingCard(card => card.Id == cardid && card != except_card) != null)
+                    if (this.Bot.Graveyard.GetFirstMatchingCard(card => card.Id == cardid && card != except_card) != null)
                     {
                         return cardid;
                     }
@@ -1910,14 +2208,22 @@ namespace WindBot.Game.AI.Decks
         // activate of Holiday
         public bool HolidayActivate()
         {
-            if (Card.Location == CardLocation.Grave) return false;
-            if (NegatedCheck(true)) return false;
-            int target = HolidayCheck();
+            if (this.Card.Location == CardLocation.Grave)
+            {
+                return false;
+            }
+
+            if (this.NegatedCheck(true))
+            {
+                return false;
+            }
+
+            int target = this.HolidayCheck();
             if (target != 0)
             {
-                AI.SelectCard(target);
-                SelectSTPlace(null, true);
-                ActivatedCards.Add(CardId.Holiday);
+                this.AI.SelectCard(target);
+                this.SelectSTPlace(null, true);
+                this.ActivatedCards.Add(CardId.Holiday);
                 return true;
             }
             return false;
@@ -1926,67 +2232,83 @@ namespace WindBot.Game.AI.Decks
         // activate of CalledbytheGrave
         public bool CalledbytheGraveActivate()
         {
-            if (NegatedCheck(true)) return false;
-            if (Duel.LastChainPlayer == 1)
+            if (this.NegatedCheck(true))
+            {
+                return false;
+            }
+
+            if (this.Duel.LastChainPlayer == 1)
             {
                 // negate
-                if (Util.GetLastChainCard().IsMonster())
+                if (this.Util.GetLastChainCard().IsMonster())
                 {
-                    int code = Util.GetLastChainCard().Id;
-                    if (code == 0) return false;
-                    if (CheckCalledbytheGrave(code) > 0 || CrossoutDesignatorTarget == code) return false;
-                    if (Enemy.Graveyard.GetFirstMatchingCard(card => card.IsMonster() && card.IsOriginalCode(code)) != null)
+                    int code = this.Util.GetLastChainCard().Id;
+                    if (code == 0)
                     {
-                        if (!(Card.Location == CardLocation.SpellZone))
+                        return false;
+                    }
+
+                    if (this.CheckCalledbytheGrave(code) > 0 || this.CrossoutDesignatorTarget == code)
+                    {
+                        return false;
+                    }
+
+                    if (this.Enemy.Graveyard.GetFirstMatchingCard(card => card.IsMonster() && card.IsOriginalCode(code)) != null)
+                    {
+                        if (!(this.Card.Location == CardLocation.SpellZone))
                         {
-                            SelectSTPlace(null, true);
+                            this.SelectSTPlace(null, true);
                         }
-                        AI.SelectCard(code);
-                        CalledbytheGraveCount[code] = 2;
-                        CheckDeactiveFlag();
+                        this.AI.SelectCard(code);
+                        this.CalledbytheGraveCount[code] = 2;
+                        this.CheckDeactiveFlag();
                         return true;
                     }
                 }
                 
                 // banish target
-                foreach (ClientCard cards in Enemy.Graveyard)
+                foreach (ClientCard cards in this.Enemy.Graveyard)
                 {
-                    if (Duel.ChainTargets.Contains(cards))
+                    if (this.Duel.ChainTargets.Contains(cards))
                     {
                         int code = cards.Id;
-                        AI.SelectCard(cards);
-                        CalledbytheGraveCount[code] = 2;
+                        this.AI.SelectCard(cards);
+                        this.CalledbytheGraveCount[code] = 2;
                         return true;
                     }
                 }
 
                 // become targets
-                if (Duel.ChainTargets.Contains(Card))
+                if (this.Duel.ChainTargets.Contains(this.Card))
                 {
-                    List<ClientCard> enemy_monsters = Enemy.Graveyard.GetMatchingCards(card => card.IsMonster()).ToList();
+                    List<ClientCard> enemy_monsters = this.Enemy.Graveyard.GetMatchingCards(card => card.IsMonster()).ToList();
                     if (enemy_monsters.Count > 0)
                     {
                         enemy_monsters.Sort(CardContainer.CompareCardAttack);
                         enemy_monsters.Reverse();
                         int code = enemy_monsters[0].Id;
-                        AI.SelectCard(code);
-                        CalledbytheGraveCount[code] = 2;
+                        this.AI.SelectCard(code);
+                        this.CalledbytheGraveCount[code] = 2;
                         return true;
                     }
                 }
             }
 
             // avoid danger monster in grave
-            if (Duel.LastChainPlayer == 1) return false;
-            List<ClientCard> targets = CheckDangerousCardinEnemyGrave(true);
+            if (this.Duel.LastChainPlayer == 1)
+            {
+                return false;
+            }
+
+            List<ClientCard> targets = this.CheckDangerousCardinEnemyGrave(true);
             if (targets.Count() > 0) {
                 int code = targets[0].Id;
-                if (!(Card.Location == CardLocation.SpellZone))
+                if (!(this.Card.Location == CardLocation.SpellZone))
                 {
-                    SelectSTPlace(null, true);
+                    this.SelectSTPlace(null, true);
                 }
-                AI.SelectCard(code);
-                CalledbytheGraveCount[code] = 2;
+                this.AI.SelectCard(code);
+                this.CalledbytheGraveCount[code] = 2;
                 return true;
             }
 
@@ -1996,53 +2318,83 @@ namespace WindBot.Game.AI.Decks
         // activate of Draping
         public bool DrapingActivate()
         {
-            if (Card.Location == CardLocation.Grave) return false;
-            if (NegatedCheck(true)) return false;
+            if (this.Card.Location == CardLocation.Grave)
+            {
+                return false;
+            }
 
-            IList<ClientCard> dangerours_spells = Enemy.SpellZone.GetMatchingCards(card => card.IsFloodgate() && !card.IsDisabled() && card.IsSpell());
-            IList<ClientCard> dangerours_traps = Enemy.SpellZone.GetMatchingCards(card => card.IsFloodgate() && !card.IsDisabled() && card.IsTrap());
-            List<ClientCard> faceup_spells = CardListShuffle(Enemy.SpellZone.GetMatchingCards(card => card.IsFaceup() && card.IsSpell()).ToList());
-            List<ClientCard> faceup_traps = CardListShuffle(Enemy.SpellZone.GetMatchingCards(card => card.IsFaceup() && card.IsTrap()).ToList());
-            List<ClientCard> setcards = CardListShuffle(Enemy.SpellZone.GetMatchingCards(card => card.IsFacedown()).ToList());
-            if (Duel.Player == 0 || Duel.Phase == DuelPhase.End)
+            if (this.NegatedCheck(true))
+            {
+                return false;
+            }
+
+            IList<ClientCard> dangerours_spells = this.Enemy.SpellZone.GetMatchingCards(card => card.IsFloodgate() && !card.IsDisabled() && card.IsSpell());
+            IList<ClientCard> dangerours_traps = this.Enemy.SpellZone.GetMatchingCards(card => card.IsFloodgate() && !card.IsDisabled() && card.IsTrap());
+            List<ClientCard> faceup_spells = this.CardListShuffle(this.Enemy.SpellZone.GetMatchingCards(card => card.IsFaceup() && card.IsSpell()).ToList());
+            List<ClientCard> faceup_traps = this.CardListShuffle(this.Enemy.SpellZone.GetMatchingCards(card => card.IsFaceup() && card.IsTrap()).ToList());
+            List<ClientCard> setcards = this.CardListShuffle(this.Enemy.SpellZone.GetMatchingCards(card => card.IsFacedown()).ToList());
+            if (this.Duel.Player == 0 || this.Duel.Phase == DuelPhase.End)
             {
                 IList<ClientCard> targets_1 = dangerours_spells.Union(dangerours_traps).Union(faceup_spells).Union(faceup_traps).Union(setcards).ToList();
-                if (targets_1.Count() == 0) return false;
-                AI.SelectCard(targets_1);
-                SelectSTPlace(null, true);
-                ActivatedCards.Add(CardId.Draping);
+                if (targets_1.Count() == 0)
+                {
+                    return false;
+                }
+
+                this.AI.SelectCard(targets_1);
+                this.SelectSTPlace(null, true);
+                this.ActivatedCards.Add(CardId.Draping);
                 return true;
             }
             IList<ClientCard> targets_2 = dangerours_traps.Union(faceup_traps).ToList();
-            if (targets_2.Count() == 0) return false;
+            if (targets_2.Count() == 0)
+            {
+                return false;
+            }
+
             targets_2 = targets_2.Union(dangerours_spells).Union(faceup_spells).Union(setcards).ToList();
-            AI.SelectCard(targets_2);
-            SelectSTPlace(null, true);
-            ActivatedCards.Add(CardId.Draping);
+            this.AI.SelectCard(targets_2);
+            this.SelectSTPlace(null, true);
+            this.ActivatedCards.Add(CardId.Draping);
             return true;
         }
 
         // activate of CrossoutDesignator
         public bool CrossoutDesignatorActivate()
         {
-            if (NegatedCheck(true) || CheckLastChainNegated()) return false;
-            // negate 
-            if (Duel.LastChainPlayer == 1 && Util.GetLastChainCard() != null)
+            if (this.NegatedCheck(true) || this.CheckLastChainNegated())
             {
-                int code = Util.GetLastChainCard().Id;
-                int alias = Util.GetLastChainCard().Alias;
-                if (alias != 0 && alias - code < 10) code = alias;
-                if (code == 0) return false;
-                if (CheckCalledbytheGrave(code) > 0 || CrossoutDesignatorTarget == code) return false;
-                if (CheckRemainInDeck(code) > 0)
+                return false;
+            }
+            // negate 
+            if (this.Duel.LastChainPlayer == 1 && this.Util.GetLastChainCard() != null)
+            {
+                int code = this.Util.GetLastChainCard().Id;
+                int alias = this.Util.GetLastChainCard().Alias;
+                if (alias != 0 && alias - code < 10)
                 {
-                    if (!(Card.Location == CardLocation.SpellZone))
+                    code = alias;
+                }
+
+                if (code == 0)
+                {
+                    return false;
+                }
+
+                if (this.CheckCalledbytheGrave(code) > 0 || this.CrossoutDesignatorTarget == code)
+                {
+                    return false;
+                }
+
+                if (this.CheckRemainInDeck(code) > 0)
+                {
+                    if (!(this.Card.Location == CardLocation.SpellZone))
                     {
-                        SelectSTPlace(null, true);
+                        this.SelectSTPlace(null, true);
                     }
-                    AI.SelectAnnounceID(code);
-                    CrossoutDesignatorTarget = code;
-                    CheckDeactiveFlag();
+                    this.AI.SelectAnnounceID(code);
+                    this.CrossoutDesignatorTarget = code;
+                    this.CheckDeactiveFlag();
                     return true;
                 }
             }
@@ -2052,25 +2404,32 @@ namespace WindBot.Game.AI.Decks
         // activate of Unveiling
         public bool UnveilingActivate()
         {
-            if (Card.Location == CardLocation.Grave) return false;
-            if (NegatedCheck(true)) return false;
+            if (this.Card.Location == CardLocation.Grave)
+            {
+                return false;
+            }
+
+            if (this.NegatedCheck(true))
+            {
+                return false;
+            }
 
             // LightningStorm check
-            if (Bot.HasInHandOrInSpellZone(CardId.LightningStorm))
+            if (this.Bot.HasInHandOrInSpellZone(CardId.LightningStorm))
             {
-                int faceup_count = Bot.SpellZone.GetMatchingCardsCount(card => card.IsFaceup());
-                faceup_count += Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup());
-                if (faceup_count == 0 && LightningStormActivate())
+                int faceup_count = this.Bot.SpellZone.GetMatchingCardsCount(card => card.IsFaceup());
+                faceup_count += this.Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup());
+                if (faceup_count == 0 && this.LightningStormActivate())
                 {
                     return false;
                 }
             }
 
-            if (Bot.HasInHand(important_witchcraft))
+            if (this.Bot.HasInHand(this.important_witchcraft))
             {
-                AI.SelectCard(important_witchcraft);
-                SelectSTPlace(null, true);
-                ActivatedCards.Add(CardId.Unveiling);
+                this.AI.SelectCard(this.important_witchcraft);
+                this.SelectSTPlace(null, true);
+                this.ActivatedCards.Add(CardId.Unveiling);
                 return true;
             }
             return false;
@@ -2079,15 +2438,15 @@ namespace WindBot.Game.AI.Decks
         // activate of Scroll
         public bool ScrollActivate()
         {
-            if (SpellNegatable() || Card.Location == CardLocation.Grave || Duel.Phase == DuelPhase.Main2)
+            if (this.SpellNegatable() || this.Card.Location == CardLocation.Grave || this.Duel.Phase == DuelPhase.Main2)
             {
                 return false;
             }
-            if (Bot.MonsterZone.GetFirstMatchingCard(card => card.HasRace(CardRace.SpellCaster)) == null)
+            if (this.Bot.MonsterZone.GetFirstMatchingCard(card => card.HasRace(CardRace.SpellCaster)) == null)
             {
                 return false;
             }
-            SelectSTPlace(null, true);
+            this.SelectSTPlace(null, true);
             return true;
         }
 
@@ -2095,125 +2454,154 @@ namespace WindBot.Game.AI.Decks
         public bool MagiciansRestageActivate()
         {
             // search
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
-                if (Enemy.SpellZone.GetFirstMatchingCard(card => card.IsFacedown()) != null)
+                if (this.Enemy.SpellZone.GetFirstMatchingCard(card => card.IsFacedown()) != null)
                 {
-                    AI.SelectCard(CardId.MagiciansLeftHand, CardId.MagicianRightHand);
+                    this.AI.SelectCard(CardId.MagiciansLeftHand, CardId.MagicianRightHand);
                 }
                 else
                 {
-                    AI.SelectCard(CardId.MagicianRightHand, CardId.MagiciansLeftHand);
+                    this.AI.SelectCard(CardId.MagicianRightHand, CardId.MagiciansLeftHand);
                 }
                 return true;
             }
 
-            if (SpellNegatable())
+            if (this.SpellNegatable())
             {
                 return false;
             }
 
             // find target
-            if (CheckDiscardableSpellCount(Card) < 1) return false;
+            if (this.CheckDiscardableSpellCount(this.Card) < 1)
+            {
+                return false;
+            }
+
             int target = 0;
             int[] target_list = { CardId.Genni, CardId.Pittore, CardId.Potterie };
             foreach (int cardid in target_list)
             {
-                if (!UseSSEffect.Contains(cardid) && Bot.HasInGraveyard(cardid))
+                if (!this.UseSSEffect.Contains(cardid) && this.Bot.HasInGraveyard(cardid))
                 {
                     target = cardid;
                     break;
                 }
             }
-            if (target == 0) return false;
-            if (Card.Location == CardLocation.Hand)
+            if (target == 0)
             {
-                SelectSTPlace(null, true);
+                return false;
+            }
+
+            if (this.Card.Location == CardLocation.Hand)
+            {
+                this.SelectSTPlace(null, true);
                 return true;
             }
-            AI.SelectCard(target);
+            this.AI.SelectCard(target);
             return true;
         }
 
         // activate of WitchcrafterBystreet
         public bool WitchcrafterBystreetActivate()
         {
-            if (SpellNegatable() || Card.Location == CardLocation.Grave)
+            if (this.SpellNegatable() || this.Card.Location == CardLocation.Grave)
             {
                 return false;
             }
-            if (Bot.HasInSpellZone(CardId.WitchcrafterBystreet, true) || Bot.MonsterZone.GetFirstMatchingCard(card => card.HasSetcode(Witchcraft_setcode) && card.IsFaceup()) == null)
+            if (this.Bot.HasInSpellZone(CardId.WitchcrafterBystreet, true) || this.Bot.MonsterZone.GetFirstMatchingCard(card => card.HasSetcode(this.Witchcraft_setcode) && card.IsFaceup()) == null)
             {
                 return false;
             }
-            SelectSTPlace(null, true);
+            this.SelectSTPlace(null, true);
             return true;
         }
 
         // activate of Impermanence
         public bool InfiniteImpermanenceActivate()
         {
-            if (SpellNegatable()) return false;
-            if (CrossoutDesignatorTarget == CardId.InfiniteImpermanence) return false;
-            if (CheckLastChainNegated()) return false;
-            // negate before monster's effect's used
-            foreach (ClientCard m in Enemy.GetMonsters())
+            if (this.SpellNegatable())
             {
-                if (!m.IsDisabled() && Duel.LastChainPlayer != 0 && 
+                return false;
+            }
+
+            if (this.CrossoutDesignatorTarget == CardId.InfiniteImpermanence)
+            {
+                return false;
+            }
+
+            if (this.CheckLastChainNegated())
+            {
+                return false;
+            }
+            // negate before monster's effect's used
+            foreach (ClientCard m in this.Enemy.GetMonsters())
+            {
+                if (!m.IsDisabled() && this.Duel.LastChainPlayer != 0 && 
                     ((m.IsMonsterShouldBeDisabledBeforeItUseEffect() || m.IsFloodgate())
-                    || (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2 && 
+                    || (this.Duel.Phase > DuelPhase.Main1 && this.Duel.Phase < DuelPhase.Main2 && 
                         (m.IsMonsterDangerous() || m.IsMonsterInvincible() 
-                        || (m.IsMonsterHasPreventActivationEffectInBattle() && Bot.HasInMonstersZone(CardId.MadameVerre)))
+                        || (m.IsMonsterHasPreventActivationEffectInBattle() && this.Bot.HasInMonstersZone(CardId.MadameVerre)))
                      )))
                 {
-                    if (Card.Location == CardLocation.SpellZone)
+                    if (this.Card.Location == CardLocation.SpellZone)
                     {
                         for (int i = 0; i < 5; ++i)
                         {
-                            if (Bot.SpellZone[i] == Card)
+                            if (this.Bot.SpellZone[i] == this.Card)
                             {
-                                Impermanence_list.Add(i);
+                                this.Impermanence_list.Add(i);
                                 break;
                             }
                         }
                     }
-                    if (Card.Location == CardLocation.Hand)
+                    if (this.Card.Location == CardLocation.Hand)
                     {
-                        SelectSTPlace(Card, true);
+                        this.SelectSTPlace(this.Card, true);
                     }
-                    AI.SelectCard(m);
+                    this.AI.SelectCard(m);
                     return true;
                 }
             }
 
-            ClientCard LastChainCard = Util.GetLastChainCard();
+            ClientCard LastChainCard = this.Util.GetLastChainCard();
 
             // negate spells
-            if (Card.Location == CardLocation.SpellZone)
+            if (this.Card.Location == CardLocation.SpellZone)
             {
                 int this_seq = -1;
                 int that_seq = -1;
                 for (int i = 0; i < 5; ++i)
                 {
-                    if (Bot.SpellZone[i] == Card) this_seq = i;
+                    if (this.Bot.SpellZone[i] == this.Card)
+                    {
+                        this_seq = i;
+                    }
+
                     if (LastChainCard != null
-                        && LastChainCard.Controller == 1 && LastChainCard.Location == CardLocation.SpellZone && Enemy.SpellZone[i] == LastChainCard) that_seq = i;
-                    else if (Duel.Player == 0 && Util.GetProblematicEnemySpell() != null
-                        && Enemy.SpellZone[i] != null && Enemy.SpellZone[i].IsFloodgate()) that_seq = i;
+                        && LastChainCard.Controller == 1 && LastChainCard.Location == CardLocation.SpellZone && this.Enemy.SpellZone[i] == LastChainCard)
+                    {
+                        that_seq = i;
+                    }
+                    else if (this.Duel.Player == 0 && this.Util.GetProblematicEnemySpell() != null
+                        && this.Enemy.SpellZone[i] != null && this.Enemy.SpellZone[i].IsFloodgate())
+                    {
+                        that_seq = i;
+                    }
                 }
                 if ((this_seq * that_seq >= 0 && this_seq + that_seq == 4)
-                    || (Util.IsChainTarget(Card))
-                    || (LastChainCard != null && LastChainCard.Controller == 1 && LastChainCard.IsCode(_CardId.HarpiesFeatherDuster)))
+                    || (this.Util.IsChainTarget(this.Card))
+                    || (LastChainCard != null && LastChainCard.Controller == 1 && LastChainCard.IsCode(DefaultExecutor.CardId.HarpiesFeatherDuster)))
                 {
-                    List<ClientCard> enemy_monsters = Enemy.GetMonsters();
+                    List<ClientCard> enemy_monsters = this.Enemy.GetMonsters();
                     enemy_monsters.Sort(CardContainer.CompareCardAttack);
                     enemy_monsters.Reverse();
                     foreach (ClientCard card in enemy_monsters)
                     {
                         if (card.IsFaceup() && !card.IsShouldNotBeTarget() && !card.IsShouldNotBeSpellTrapTarget())
                         {
-                            AI.SelectCard(card);
-                            Impermanence_list.Add(this_seq);
+                            this.AI.SelectCard(card);
+                            this.Impermanence_list.Add(this_seq);
                             return true;
                         }
                     }
@@ -2222,34 +2610,40 @@ namespace WindBot.Game.AI.Decks
 
             // negate monsters
             if ((LastChainCard == null || LastChainCard.Controller != 1 || LastChainCard.Location != CardLocation.MonsterZone
-                || CheckLastChainNegated() || LastChainCard.IsShouldNotBeTarget() || LastChainCard.IsShouldNotBeSpellTrapTarget()))
+                || this.CheckLastChainNegated() || LastChainCard.IsShouldNotBeTarget() || LastChainCard.IsShouldNotBeSpellTrapTarget()))
+            {
                 return false;
-            if (Card.Location == CardLocation.SpellZone)
+            }
+
+            if (this.Card.Location == CardLocation.SpellZone)
             {
                 for (int i = 0; i < 5; ++i)
                 {
-                    if (Bot.SpellZone[i] == Card)
+                    if (this.Bot.SpellZone[i] == this.Card)
                     {
-                        Impermanence_list.Add(i);
+                        this.Impermanence_list.Add(i);
                         break;
                     }
                 }
             }
-            if (Card.Location == CardLocation.Hand)
+            if (this.Card.Location == CardLocation.Hand)
             {
-                SelectSTPlace(Card, true);
+                this.SelectSTPlace(this.Card, true);
             }
-            if (LastChainCard != null) AI.SelectCard(LastChainCard);
+            if (LastChainCard != null)
+            {
+                this.AI.SelectCard(LastChainCard);
+            }
             else
             {
-                List<ClientCard> enemy_monsters = Enemy.GetMonsters();
+                List<ClientCard> enemy_monsters = this.Enemy.GetMonsters();
                 enemy_monsters.Sort(CardContainer.CompareCardAttack);
                 enemy_monsters.Reverse();
                 foreach (ClientCard card in enemy_monsters)
                 {
                     if (card.IsFaceup() && !card.IsShouldNotBeTarget() && !card.IsShouldNotBeSpellTrapTarget())
                     {
-                        AI.SelectCard(card);
+                        this.AI.SelectCard(card);
                         return true;
                     }
                 }
@@ -2261,61 +2655,64 @@ namespace WindBot.Game.AI.Decks
         public bool MasterpieceActivate()
         {
             // search effect
-            if (Card.Location == CardLocation.SpellZone)
+            if (this.Card.Location == CardLocation.SpellZone)
             {
-                if (NegatedCheck(true)) return false;
+                if (this.NegatedCheck(true))
+                {
+                    return false;
+                }
                 // select randomly (TODO)
-                IList<ClientCard> target_1 = Bot.Graveyard.GetMatchingCards(card => card.IsSpell() && CheckRemainInDeck(card.Id) > 0);
-                IList<ClientCard> target_2 = Enemy.Graveyard.GetMatchingCards(card => card.IsSpell() && CheckRemainInDeck(card.Id) > 0);
-                List<ClientCard> targets = CardListShuffle(target_1.Union(target_2).ToList());
-                AI.SelectCard(targets);
+                IList<ClientCard> target_1 = this.Bot.Graveyard.GetMatchingCards(card => card.IsSpell() && this.CheckRemainInDeck(card.Id) > 0);
+                IList<ClientCard> target_2 = this.Enemy.Graveyard.GetMatchingCards(card => card.IsSpell() && this.CheckRemainInDeck(card.Id) > 0);
+                List<ClientCard> targets = this.CardListShuffle(target_1.Union(target_2).ToList());
+                this.AI.SelectCard(targets);
                 return true;
             }
             else
             // ss effect
             {
                 // LightningStorm check
-                if (Bot.HasInHandOrInSpellZone(CardId.LightningStorm))
+                if (this.Bot.HasInHandOrInSpellZone(CardId.LightningStorm))
                 {
-                    int faceup_count = Bot.SpellZone.GetMatchingCardsCount(card => card.IsFaceup());
-                    faceup_count += Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup());
-                    if (faceup_count == 0 && LightningStormActivate())
+                    int faceup_count = this.Bot.SpellZone.GetMatchingCardsCount(card => card.IsFaceup());
+                    faceup_count += this.Bot.MonsterZone.GetMatchingCardsCount(card => card.IsFaceup());
+                    if (faceup_count == 0 && this.LightningStormActivate())
                     {
                         return false;
                     }
                 }
 
-                List<ClientCard> tobanish_spells = CardListShuffle(Bot.Graveyard.GetMatchingCards(card => card.IsSpell() && !card.HasSetcode(Witchcraft_setcode) && card.Id != CardId.MetalfoesFusion).ToList());
-                if (Bot.HasInGraveyard(CardId.Patronus))
+                List<ClientCard> tobanish_spells = this.CardListShuffle(this.Bot.Graveyard.GetMatchingCards(card => card.IsSpell() && !card.HasSetcode(this.Witchcraft_setcode) && card.Id != CardId.MetalfoesFusion).ToList());
+                if (this.Bot.HasInGraveyard(CardId.Patronus))
                 {
-                    List<ClientCard> witchcraft_spells = CardListShuffle(Bot.Graveyard.GetMatchingCards(card => card.IsSpell() && card.HasSetcode(Witchcraft_setcode)).ToList());
+                    List<ClientCard> witchcraft_spells = this.CardListShuffle(this.Bot.Graveyard.GetMatchingCards(card => card.IsSpell() && card.HasSetcode(this.Witchcraft_setcode)).ToList());
                     tobanish_spells = witchcraft_spells.Union(tobanish_spells).ToList();
                 }
                 int max_level = tobanish_spells.Count();
 
                 //check discardable count
-                int discardable_hands = CheckDiscardableSpellCount();
+                int discardable_hands = this.CheckDiscardableSpellCount();
                 List<int> will_discard_list = new List<int> { CardId.Haine, CardId.MadameVerre, CardId.Schmietta, CardId.Pittore, CardId.Potterie, CardId.Genni };
                 foreach (int cardid in will_discard_list)
                 {
-                    if (Bot.HasInMonstersZone(cardid))
+                    if (this.Bot.HasInMonstersZone(cardid))
                     {
                         discardable_hands--;
                     }
                 }
 
                 // SS lower 4
-                if (discardable_hands >= 1 && Duel.Player == 0)
+                if (discardable_hands >= 1 && this.Duel.Player == 0)
                 {
                     int[] SS_priority = { CardId.Schmietta, CardId.Pittore, CardId.Genni, CardId.Potterie };
                     foreach (int cardid in SS_priority)
                     {
-                        int level = witchcraft_level[cardid];
-                        if (!UseSSEffect.Contains(cardid) & CheckRemainInDeck(cardid) > 0 && level <= max_level)
+                        int level = this.witchcraft_level[cardid];
+                        if (!this.UseSSEffect.Contains(cardid) & this.CheckRemainInDeck(cardid) > 0 && level <= max_level)
                         {
-                            AI.SelectNumber(level);
-                            AI.SelectCard(tobanish_spells);
-                            AI.SelectNextCard(cardid);
+                            this.AI.SelectNumber(level);
+                            this.AI.SelectCard(tobanish_spells);
+                            this.AI.SelectNextCard(cardid);
                             return true;
                         }
                     }
@@ -2323,7 +2720,7 @@ namespace WindBot.Game.AI.Decks
 
                 // SS higer level
                 List<int> ss_priority = new List<int>();
-                if (Bot.HasInMonstersZone(CardId.Haine))
+                if (this.Bot.HasInMonstersZone(CardId.Haine))
                 {
                     ss_priority.Add(CardId.MadameVerre);
                     ss_priority.Add(CardId.Haine);
@@ -2336,12 +2733,12 @@ namespace WindBot.Game.AI.Decks
                 ss_priority.Add(CardId.GolemAruru);
                 foreach (int cardid in ss_priority)
                 {
-                    int level = witchcraft_level[cardid];
-                    if (CheckRemainInDeck(cardid) > 0 && level <= max_level)
+                    int level = this.witchcraft_level[cardid];
+                    if (this.CheckRemainInDeck(cardid) > 0 && level <= max_level)
                     {
-                        AI.SelectNumber(level);
-                        AI.SelectCard(tobanish_spells);
-                        AI.SelectNextCard(cardid);
+                        this.AI.SelectNumber(level);
+                        this.AI.SelectCard(tobanish_spells);
+                        this.AI.SelectNextCard(cardid);
                         return true;
                     }
                 }
@@ -2354,20 +2751,23 @@ namespace WindBot.Game.AI.Decks
         public bool PatronusActivate()
         {
             // activate immediately
-            if (ActivateDescription == 94)
+            if (this.ActivateDescription == 94)
             {
                 return true;
             }
             // search
-            if (Card.Location == CardLocation.SpellZone)
+            if (this.Card.Location == CardLocation.SpellZone)
             {
-                if (NegatedCheck(true) || Duel.LastChainPlayer == 0) return false;
+                if (this.NegatedCheck(true) || this.Duel.LastChainPlayer == 0)
+                {
+                    return false;
+                }
                 // find lack of spells
                 int lack_spells = 0;
                 int[] spell_checklist = { CardId.WitchcrafterBystreet, CardId.Holiday, CardId.Creation, CardId.Draping, CardId.Scroll, CardId.Unveiling, CardId.Collaboration };
                 foreach (int cardid in spell_checklist)
                 {
-                    if (!Bot.HasInHandOrInSpellZone(cardid) && !Bot.HasInGraveyard(cardid))
+                    if (!this.Bot.HasInHandOrInSpellZone(cardid) && !this.Bot.HasInGraveyard(cardid))
                     {
                         lack_spells = cardid;
                         break;
@@ -2388,25 +2788,25 @@ namespace WindBot.Game.AI.Decks
                 }
                 foreach(int cardid in banish_checklist)
                 {
-                    ClientCard target = Bot.Banished.GetFirstMatchingCard(card => card.Id == cardid);
+                    ClientCard target = this.Bot.Banished.GetFirstMatchingCard(card => card.Id == cardid);
                     if (target != null)
                     {
-                        AI.SelectCard(target);
-                        AI.SelectNextCard(lack_spells);
+                        this.AI.SelectCard(target);
+                        this.AI.SelectNextCard(lack_spells);
                         return true;
                     }
                 }
             }
 
             // recycle
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
-                if (Bot.HasInHandOrInSpellZoneOrInGraveyard(CardId.Masterpiece))
+                if (this.Bot.HasInHandOrInSpellZoneOrInGraveyard(CardId.Masterpiece))
                 {
                     return false;
                 }
-                IList<ClientCard> targets = Bot.Banished.GetMatchingCards(card => card.IsSpell() && card.HasSetcode(Witchcraft_setcode));
-                AI.SelectCard(targets);
+                IList<ClientCard> targets = this.Bot.Banished.GetMatchingCards(card => card.IsSpell() && card.HasSetcode(this.Witchcraft_setcode));
+                this.AI.SelectCard(targets);
                 return true;
             }
             return false;
@@ -2415,10 +2815,10 @@ namespace WindBot.Game.AI.Decks
         // summmon process of Level 8 Synchro Monster
         public bool Lv8Summon()
         {
-            if (Bot.HasInMonstersZone(CardId.PSYGamma) && Bot.HasInMonstersZone(CardId.PSYDriver))
+            if (this.Bot.HasInMonstersZone(CardId.PSYGamma) && this.Bot.HasInMonstersZone(CardId.PSYDriver))
             {
                 List<int> targets = new List<int> { CardId.PSYDriver, CardId.PSYGamma };
-                AI.SelectMaterials(targets);
+                this.AI.SelectMaterials(targets);
                 return true;
             }
             return false;
@@ -2427,24 +2827,36 @@ namespace WindBot.Game.AI.Decks
         // summon process of BorreloadSavageDragon
         public bool BorreloadSavageDragonSummon()
         {
-            if (Bot.Graveyard.GetFirstMatchingCard(card => card.HasType(CardType.Link)) == null)
+            if (this.Bot.Graveyard.GetFirstMatchingCard(card => card.HasType(CardType.Link)) == null)
             {
                 return false;
             }
-            return Lv8Summon();
+            return this.Lv8Summon();
         }
 
         // equip target comparer for BorreloadSavageDragon
         public static int BorreloadSavageDragonEquipCompare(ClientCard cardA, ClientCard cardB)
         {
             if (cardA.LinkCount > cardB.LinkCount)
+            {
                 return -1;
+            }
+
             if (cardA.LinkCount < cardB.LinkCount)
+            {
                 return -1;
+            }
+
             if (cardA.Attack > cardB.Attack)
+            {
                 return 1;
+            }
+
             if (cardA.Attack < cardB.Attack)
+            {
                 return -1;
+            }
+
             return 0;
         }
 
@@ -2452,24 +2864,32 @@ namespace WindBot.Game.AI.Decks
         public bool BorreloadSavageDragonActivate()
         {
             // equip
-            if (ActivateDescription == Util.GetStringId(CardId.BorreloadSavageDragon, 0))
+            if (this.ActivateDescription == this.Util.GetStringId(CardId.BorreloadSavageDragon, 0))
             {
-                List<ClientCard> links = Bot.Graveyard.GetMatchingCards(card => card.HasType(CardType.Link)).ToList();
+                List<ClientCard> links = this.Bot.Graveyard.GetMatchingCards(card => card.HasType(CardType.Link)).ToList();
                 links.Sort(BorreloadSavageDragonEquipCompare);
-                AI.SelectCard(links);
+                this.AI.SelectCard(links);
                 return true;
             }
             // negate
-            if (NegatedCheck(true) || Duel.LastChainPlayer != 1) return false;
-            if (Util.GetLastChainCard().HasSetcode(0x11e) && Util.GetLastChainCard().Location == CardLocation.Hand) return false;
-            CheckDeactiveFlag();
+            if (this.NegatedCheck(true) || this.Duel.LastChainPlayer != 1)
+            {
+                return false;
+            }
+
+            if (this.Util.GetLastChainCard().HasSetcode(0x11e) && this.Util.GetLastChainCard().Location == CardLocation.Hand)
+            {
+                return false;
+            }
+
+            this.CheckDeactiveFlag();
             return false;
         }
 
         // activate of DracoBerserkeroftheTenyi(TODO)
         public bool DracoBerserkeroftheTenyiActivate()
         {
-            Logger.DebugWriteLine("DracoBerserkeroftheTenyi's Effect: " + ActivateDescription.ToString());
+            Logger.DebugWriteLine("DracoBerserkeroftheTenyi's Effect: " + this.ActivateDescription.ToString());
             return true;
         }
 
@@ -2477,53 +2897,53 @@ namespace WindBot.Game.AI.Decks
         public bool PSYOmegaActivate()
         {
             // recycle
-            if (Duel.Phase == DuelPhase.Standby)
+            if (this.Duel.Phase == DuelPhase.Standby)
             {
-                if (Bot.Banished.Count == 0)
+                if (this.Bot.Banished.Count == 0)
                 {
                     return false;
                 }
-                List<ClientCard> targets = CardListShuffle(Bot.Banished.GetMatchingCards(card => card.HasSetcode(Witchcraft_setcode)).ToList());
-                AI.SelectCard(targets);
+                List<ClientCard> targets = this.CardListShuffle(this.Bot.Banished.GetMatchingCards(card => card.HasSetcode(this.Witchcraft_setcode)).ToList());
+                this.AI.SelectCard(targets);
                 return true;
             }
             // banish hands
-            if (Card.Location == CardLocation.MonsterZone)
+            if (this.Card.Location == CardLocation.MonsterZone)
             {
-                if (Duel.Player == 1 || Bot.HasInMonstersZone(CardId.PSYLambda) || (Util.IsChainTarget(Card)) )
+                if (this.Duel.Player == 1 || this.Bot.HasInMonstersZone(CardId.PSYLambda) || (this.Util.IsChainTarget(this.Card)) )
                 {
                     return true;
                 } else
                 {
-                    return Util.IsAllEnemyBetterThanValue(Card.Attack, true);
+                    return this.Util.IsAllEnemyBetterThanValue(this.Card.Attack, true);
                 }
             }
             // recycle from grave
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
-                if (PSYOmega_count >= 5){
+                if (this.PSYOmega_count >= 5){
                     return false;
                 }
-                List<ClientCard> enemy_danger = CheckDangerousCardinEnemyGrave();
+                List<ClientCard> enemy_danger = this.CheckDangerousCardinEnemyGrave();
                 if (enemy_danger.Count > 0)
                 {
-                    AI.SelectCard(enemy_danger);
-                    PSYOmega_count ++;
+                    this.AI.SelectCard(enemy_danger);
+                    this.PSYOmega_count ++;
                     return true;
                 }
-                if (!Bot.HasInHandOrInSpellZoneOrInGraveyard(CardId.Holiday) && Bot.HasInGraveyard(important_witchcraft))
+                if (!this.Bot.HasInHandOrInSpellZoneOrInGraveyard(CardId.Holiday) && this.Bot.HasInGraveyard(this.important_witchcraft))
                 {
-                    AI.SelectCard(important_witchcraft);
-                    PSYOmega_count ++;
+                    this.AI.SelectCard(this.important_witchcraft);
+                    this.PSYOmega_count ++;
                     return true;
                 }
-                if (CheckProblematicCards() == null)
+                if (this.CheckProblematicCards() == null)
                 {
-                    AI.SelectCard(CardId.CalledbytheGrave, CardId.CrossoutDesignator,
+                    this.AI.SelectCard(CardId.CalledbytheGrave, CardId.CrossoutDesignator,
                         CardId.MaxxC, CardId.AshBlossom_JoyousSpring,
                         CardId.MagicianRightHand, CardId.MagiciansLeftHand, CardId.MagiciansRestage, CardId.Patronus, 
                         CardId.LightningStorm, CardId.Reasoning);
-                    PSYOmega_count ++;
+                    this.PSYOmega_count ++;
                     return true;
                 }
             }
@@ -2533,13 +2953,17 @@ namespace WindBot.Game.AI.Decks
         // activate of TGWonderMagician
         public bool TGWonderMagicianActivate()
         {
-            if (Card.Location != CardLocation.MonsterZone) return true;
-            Logger.DebugWriteLine("TGWonderMagician: " + ActivateDescription.ToString());
-            List<ClientCard> problem_cards = Enemy.SpellZone.GetMatchingCards(card => card.IsFloodgate()).ToList();
-            List<ClientCard> faceup_cards = Enemy.SpellZone.GetMatchingCards(card => card.IsFaceup()).ToList();
-            List<ClientCard> facedown_cards = Enemy.SpellZone.GetMatchingCards(card => card.IsFacedown()).ToList();
+            if (this.Card.Location != CardLocation.MonsterZone)
+            {
+                return true;
+            }
+
+            Logger.DebugWriteLine("TGWonderMagician: " + this.ActivateDescription.ToString());
+            List<ClientCard> problem_cards = this.Enemy.SpellZone.GetMatchingCards(card => card.IsFloodgate()).ToList();
+            List<ClientCard> faceup_cards = this.Enemy.SpellZone.GetMatchingCards(card => card.IsFaceup()).ToList();
+            List<ClientCard> facedown_cards = this.Enemy.SpellZone.GetMatchingCards(card => card.IsFacedown()).ToList();
             List<ClientCard> result = problem_cards.Union(faceup_cards).ToList().Union(facedown_cards).ToList();
-            AI.SelectCard(result);
+            this.AI.SelectCard(result);
             return true;
         }
 
@@ -2548,13 +2972,20 @@ namespace WindBot.Game.AI.Decks
         {
             List<ClientCard> empty_list = new List<ClientCard>();
             List<ClientCard> extra_list = new List<ClientCard>();
-            if (included != null) extra_list.Add(included);
-            List<ClientCard> materials = CheckLinkMaterials(4, 3, false, extra_list);
-            if (materials.Count < 3) return empty_list;
+            if (included != null)
+            {
+                extra_list.Add(included);
+            }
+
+            List<ClientCard> materials = this.CheckLinkMaterials(4, 3, false, extra_list);
+            if (materials.Count < 3)
+            {
+                return empty_list;
+            }
 
             // need BorrelswordDragon?
             // for problem monster
-            ClientCard flag = Util.GetOneEnemyBetterThanMyBest();
+            ClientCard flag = this.Util.GetOneEnemyBetterThanMyBest();
             if (flag != null)
             {
                 return materials;
@@ -2565,7 +2996,10 @@ namespace WindBot.Game.AI.Decks
             {
                 total_attack += card.Attack;
             }
-            if (total_attack >= 3000) return empty_list;
+            if (total_attack >= 3000)
+            {
+                return empty_list;
+            }
 
             return materials;
         }
@@ -2573,31 +3007,43 @@ namespace WindBot.Game.AI.Decks
         // summon process of BorrelswordDragon
         public bool BorrelswordDragonSummon()
         {
-            List<ClientCard> materials = BorrelswordDragonSummonCheck();
-            if (materials.Count < 3) return false;
-            AI.SelectMaterials(materials);
+            List<ClientCard> materials = this.BorrelswordDragonSummonCheck();
+            if (materials.Count < 3)
+            {
+                return false;
+            }
+
+            this.AI.SelectMaterials(materials);
             return true;
         }
 
         // activate of BorrelswordDragon
         public bool BorrelswordDragonActivate()
         {
-            if (ActivateDescription == -1)
+            if (this.ActivateDescription == -1)
             {
-                ClientCard enemy_monster = Enemy.BattlingMonster;
+                ClientCard enemy_monster = this.Enemy.BattlingMonster;
                 if (enemy_monster != null && enemy_monster.HasPosition(CardPosition.Attack))
                 {
-                    return (Card.Attack - enemy_monster.Attack < Enemy.LifePoints);
+                    return (this.Card.Attack - enemy_monster.Attack < this.Enemy.LifePoints);
                 }
                 return true;
             };
-            ClientCard BestEnemy = Util.GetBestEnemyMonster(true);
-            ClientCard WorstBot = Bot.GetMonsters().GetLowestAttackMonster();
-            if (BestEnemy == null || BestEnemy.HasPosition(CardPosition.FaceDown)) return false;
-            if (WorstBot == null || WorstBot.HasPosition(CardPosition.FaceDown)) return false;
+            ClientCard BestEnemy = this.Util.GetBestEnemyMonster(true);
+            ClientCard WorstBot = this.Bot.GetMonsters().GetLowestAttackMonster();
+            if (BestEnemy == null || BestEnemy.HasPosition(CardPosition.FaceDown))
+            {
+                return false;
+            }
+
+            if (WorstBot == null || WorstBot.HasPosition(CardPosition.FaceDown))
+            {
+                return false;
+            }
+
             if (BestEnemy.Attack >= WorstBot.RealPower)
             {
-                AI.SelectCard(BestEnemy);
+                this.AI.SelectCard(BestEnemy);
                 return true;
             }
             return false;
@@ -2608,16 +3054,23 @@ namespace WindBot.Game.AI.Decks
         {
             List<ClientCard> empty_list = new List<ClientCard>();
             List<ClientCard> extra_list = new List<ClientCard>();
-            if (included != null) extra_list.Add(included);
-            List<ClientCard> materials = CheckLinkMaterials(3, 2, false, extra_list);
-            if (materials.Count < 2) return empty_list;
+            if (included != null)
+            {
+                extra_list.Add(included);
+            }
+
+            List<ClientCard> materials = this.CheckLinkMaterials(3, 2, false, extra_list);
+            if (materials.Count < 2)
+            {
+                return empty_list;
+            }
 
             // need KnightmareUnicorn?
             // for clear spells
-            ClientCard flag = CheckProblematicCards(true, true);
+            ClientCard flag = this.CheckProblematicCards(true, true);
             if (flag != null)
             {
-                if (Bot.Hand.GetMatchingCardsCount(card => card != Card) == 0)
+                if (this.Bot.Hand.GetMatchingCardsCount(card => card != this.Card) == 0)
                 {
                     return empty_list;
                 }
@@ -2632,7 +3085,10 @@ namespace WindBot.Game.AI.Decks
             {
                 total_attack += card.Attack;
             }
-            if (total_attack >= 2200) return empty_list;
+            if (total_attack >= 2200)
+            {
+                return empty_list;
+            }
 
             return materials;
         }
@@ -2640,36 +3096,56 @@ namespace WindBot.Game.AI.Decks
         // summon process of KnightmareUnicorn
         public bool KnightmareUnicornSummon()
         {
-            List<ClientCard> materials = KnightmareUnicornSummonCheck();
-            if (materials.Count < 2) return false;
-            AI.SelectMaterials(materials);
+            List<ClientCard> materials = this.KnightmareUnicornSummonCheck();
+            if (materials.Count < 2)
+            {
+                return false;
+            }
+
+            this.AI.SelectMaterials(materials);
             return true;
         }
 
         // activate of KnightmareUnicorn
         public bool KnightmareUnicornActivate()
         {
-            ClientCard card = CheckProblematicCards(true);
-            if (card == null) return false;
+            ClientCard card = this.CheckProblematicCards(true);
+            if (card == null)
+            {
+                return false;
+            }
             // avoid cards that cannot target.
             IList<ClientCard> enemy_list = new List<ClientCard>();
-            if (!card.IsShouldNotBeMonsterTarget() && !card.IsShouldNotBeTarget()) enemy_list.Add(card);
-            foreach (ClientCard enemy in Enemy.GetMonstersInExtraZone())
+            if (!card.IsShouldNotBeMonsterTarget() && !card.IsShouldNotBeTarget())
             {
-                if (enemy != null && !enemy_list.Contains(enemy) && !enemy.IsShouldNotBeMonsterTarget() && !enemy.IsShouldNotBeTarget()) enemy_list.Add(enemy);
+                enemy_list.Add(card);
             }
-            foreach (ClientCard enemy in Enemy.GetMonstersInMainZone())
+
+            foreach (ClientCard enemy in this.Enemy.GetMonstersInExtraZone())
             {
-                if (enemy != null && !enemy_list.Contains(enemy) && !enemy.IsShouldNotBeMonsterTarget() && !enemy.IsShouldNotBeTarget()) enemy_list.Add(enemy);
+                if (enemy != null && !enemy_list.Contains(enemy) && !enemy.IsShouldNotBeMonsterTarget() && !enemy.IsShouldNotBeTarget())
+                {
+                    enemy_list.Add(enemy);
+                }
             }
-            foreach (ClientCard enemy in Enemy.GetSpells())
+            foreach (ClientCard enemy in this.Enemy.GetMonstersInMainZone())
             {
-                if (enemy != null && !enemy_list.Contains(enemy) && !enemy.IsShouldNotBeMonsterTarget() && !enemy.IsShouldNotBeTarget()) enemy_list.Add(enemy);
+                if (enemy != null && !enemy_list.Contains(enemy) && !enemy.IsShouldNotBeMonsterTarget() && !enemy.IsShouldNotBeTarget())
+                {
+                    enemy_list.Add(enemy);
+                }
+            }
+            foreach (ClientCard enemy in this.Enemy.GetSpells())
+            {
+                if (enemy != null && !enemy_list.Contains(enemy) && !enemy.IsShouldNotBeMonsterTarget() && !enemy.IsShouldNotBeTarget())
+                {
+                    enemy_list.Add(enemy);
+                }
             }
             if (enemy_list.Count > 0)
             {
-                SelectDiscardSpell();
-                AI.SelectNextCard(enemy_list);
+                this.SelectDiscardSpell();
+                this.AI.SelectNextCard(enemy_list);
                 return true;
             }
             return false;
@@ -2680,16 +3156,23 @@ namespace WindBot.Game.AI.Decks
         {
             List<ClientCard> empty_list = new List<ClientCard>();
             List<ClientCard> extra_list = new List<ClientCard>();
-            if (included != null) extra_list.Add(included);
-            List<ClientCard> materials = CheckLinkMaterials(2, 2, true, extra_list);
-            if (materials.Count < 2) return empty_list;
+            if (included != null)
+            {
+                extra_list.Add(included);
+            }
+
+            List<ClientCard> materials = this.CheckLinkMaterials(2, 2, true, extra_list);
+            if (materials.Count < 2)
+            {
+                return empty_list;
+            }
 
             // need KnightmarePhoenix?
             // for clear spells
-            ClientCard flag = Util.GetProblematicEnemySpell();
+            ClientCard flag = this.Util.GetProblematicEnemySpell();
             if (flag != null)
             {
-                if (Bot.Hand.GetMatchingCardsCount(card => card != Card) == 0)
+                if (this.Bot.Hand.GetMatchingCardsCount(card => card != this.Card) == 0)
                 {
                     return empty_list;
                 } else
@@ -2698,7 +3181,10 @@ namespace WindBot.Game.AI.Decks
                 }
             }
             // for higher attack
-            if (materials[0].Attack + materials[1].Attack >= 1900) return empty_list;
+            if (materials[0].Attack + materials[1].Attack >= 1900)
+            {
+                return empty_list;
+            }
 
             return materials;
         }
@@ -2706,9 +3192,13 @@ namespace WindBot.Game.AI.Decks
         // summon process of KnightmarePhoenix
         public bool KnightmarePhoenixSummon()
         {
-            List<ClientCard> materials = KnightmarePhoenixSummonCheck();
-            if (materials.Count < 2) return false;
-            AI.SelectMaterials(materials);
+            List<ClientCard> materials = this.KnightmarePhoenixSummonCheck();
+            if (materials.Count < 2)
+            {
+                return false;
+            }
+
+            this.AI.SelectMaterials(materials);
             return true;
         }
 
@@ -2716,20 +3206,30 @@ namespace WindBot.Game.AI.Decks
         public bool KnightmarePhoenixActivate()
         {
             List<ClientCard> targets = new List<ClientCard>();
-            targets.Add(Util.GetProblematicEnemySpell());
-            List<ClientCard> spells = Enemy.GetSpells();
+            targets.Add(this.Util.GetProblematicEnemySpell());
+            List<ClientCard> spells = this.Enemy.GetSpells();
             List<ClientCard> faceups = new List<ClientCard>();
             List<ClientCard> facedowns = new List<ClientCard>();
-            CardListShuffle(spells);
+            this.CardListShuffle(spells);
             foreach (ClientCard card in spells)
             {
-                if (card.HasPosition(CardPosition.FaceUp) && !(card.IsShouldNotBeTarget() || card.IsShouldNotBeMonsterTarget())) faceups.Add(card);
-                else if (card.HasPosition(CardPosition.FaceDown)) facedowns.Add(card);
+                if (card.HasPosition(CardPosition.FaceUp) && !(card.IsShouldNotBeTarget() || card.IsShouldNotBeMonsterTarget()))
+                {
+                    faceups.Add(card);
+                }
+                else if (card.HasPosition(CardPosition.FaceDown))
+                {
+                    facedowns.Add(card);
+                }
             }
             targets = targets.Union(faceups).Union(facedowns).ToList();
-            if (targets.Count == 0) return false;
-            SelectDiscardSpell();
-            AI.SelectNextCard(targets);
+            if (targets.Count == 0)
+            {
+                return false;
+            }
+
+            this.SelectDiscardSpell();
+            this.AI.SelectNextCard(targets);
             return true;
         }
 
@@ -2738,13 +3238,22 @@ namespace WindBot.Game.AI.Decks
         {
             List<ClientCard> empty_list = new List<ClientCard>();
             List<ClientCard> extra_list = new List<ClientCard>();
-            if (included != null) extra_list.Add(included);
-            List<ClientCard> materials = CheckLinkMaterials(2, 2, true, extra_list);
-            if (materials.Count < 2) return empty_list;
+            if (included != null)
+            {
+                extra_list.Add(included);
+            }
+
+            List<ClientCard> materials = this.CheckLinkMaterials(2, 2, true, extra_list);
+            if (materials.Count < 2)
+            {
+                return empty_list;
+            }
 
             // need CrystronHalqifibrax?
-            if (CheckRemainInDeck(CardId.PSYGamma, CardId.AshBlossom_JoyousSpring) == 0) return empty_list;
-
+            if (this.CheckRemainInDeck(CardId.PSYGamma, CardId.AshBlossom_JoyousSpring) == 0)
+            {
+                return empty_list;
+            }
 
             return empty_list;
         }
@@ -2752,29 +3261,36 @@ namespace WindBot.Game.AI.Decks
         // summon process of CrystronHalqifibrax
         public bool CrystronHalqifibraxSummon()
         {
-            List<ClientCard> materials = CrystronHalqifibraxSummonCheck();
-            if (materials.Count < 2) return false;
-            AI.SelectMaterials(materials);
+            List<ClientCard> materials = this.CrystronHalqifibraxSummonCheck();
+            if (materials.Count < 2)
+            {
+                return false;
+            }
+
+            this.AI.SelectMaterials(materials);
             return true;
         }
 
         // activate of CrystronHalqifibrax
         public bool CrystronHalqifibraxActivate()
         {
-            if (Duel.Player == 0)
+            if (this.Duel.Player == 0)
             {
                 return true;
             }
-            else if (Util.IsChainTarget(Card) || Util.GetProblematicEnemySpell() != null) return true;
-            else if (Duel.Player == 1 && Duel.Phase == DuelPhase.BattleStart && Util.IsOneEnemyBetterThanValue(1500, true))
+            else if (this.Util.IsChainTarget(this.Card) || this.Util.GetProblematicEnemySpell() != null)
             {
-                if (Util.IsOneEnemyBetterThanValue(1900, true))
+                return true;
+            }
+            else if (this.Duel.Player == 1 && this.Duel.Phase == DuelPhase.BattleStart && this.Util.IsOneEnemyBetterThanValue(1500, true))
+            {
+                if (this.Util.IsOneEnemyBetterThanValue(1900, true))
                 {
-                    AI.SelectPosition(CardPosition.FaceUpDefence);
+                    this.AI.SelectPosition(CardPosition.FaceUpDefence);
                 }
                 else
                 {
-                    AI.SelectPosition(CardPosition.FaceUpAttack);
+                    this.AI.SelectPosition(CardPosition.FaceUpAttack);
                 }
                 return true;
             }
@@ -2785,11 +3301,26 @@ namespace WindBot.Game.AI.Decks
         public bool SalamangreatAlmirajSummonCheck(ClientCard included = null)
         {
             // use witchcraft first
-            if (CheckDiscardableSpellCount() >= 2) return false;
-            List<ClientCard> materials = Bot.GetMonsters();
-            if (included != null) materials.Add(included);
-            if (materials.GetCardCount(CardId.Pittore) + materials.GetCardCount(CardId.Genni) == 0) return false;
-            if (Bot.HasInHand(important_witchcraft)) return true;
+            if (this.CheckDiscardableSpellCount() >= 2)
+            {
+                return false;
+            }
+
+            List<ClientCard> materials = this.Bot.GetMonsters();
+            if (included != null)
+            {
+                materials.Add(included);
+            }
+
+            if (materials.GetCardCount(CardId.Pittore) + materials.GetCardCount(CardId.Genni) == 0)
+            {
+                return false;
+            }
+
+            if (this.Bot.HasInHand(this.important_witchcraft))
+            {
+                return true;
+            }
 
             return false;
         }
@@ -2797,19 +3328,27 @@ namespace WindBot.Game.AI.Decks
         // summmon process of SalamangreatAlmiraj
         public bool SalamangreatAlmirajSummon()
         {
-            if (!SalamangreatAlmirajSummonCheck()) return false;
+            if (!this.SalamangreatAlmirajSummonCheck())
+            {
+                return false;
+            }
+
             List<int> material = new List<int> { CardId.Pittore, CardId.Genni };
-            AI.SelectMaterials(material);
+            this.AI.SelectMaterials(material);
             return true;
         }
 
         // activate of SalamangreatAlmiraj
         public bool SalamangreatAlmirajActivate()
         {
-            if (Card.Location == CardLocation.Grave) return true;
-            if (Duel.Player == 1)
+            if (this.Card.Location == CardLocation.Grave)
             {
-                AI.SelectCard(Util.GetBestBotMonster());
+                return true;
+            }
+
+            if (this.Duel.Player == 1)
+            {
+                this.AI.SelectCard(this.Util.GetBestBotMonster());
                 return true;
             }
             return false;
@@ -2818,11 +3357,11 @@ namespace WindBot.Game.AI.Decks
         // summmon process of PSYLambda
         public bool PSYLambdaSummon()
         {
-            if (Bot.HasInMonstersZone(CardId.PSYGamma) && Bot.HasInMonstersZone(CardId.PSYDriver))
+            if (this.Bot.HasInMonstersZone(CardId.PSYGamma) && this.Bot.HasInMonstersZone(CardId.PSYDriver))
             {
-                if (Bot.HasInHand(CardId.PSYGamma) || Bot.HasInMonstersZone(CardId.PSYOmega)) {
+                if (this.Bot.HasInHand(CardId.PSYGamma) || this.Bot.HasInMonstersZone(CardId.PSYOmega)) {
                     List<int> targets = new List<int>{CardId.PSYDriver, CardId.PSYGamma};
-                    AI.SelectMaterials(targets);
+                    this.AI.SelectMaterials(targets);
                     return true;
                 }
             }
@@ -2837,15 +3376,22 @@ namespace WindBot.Game.AI.Decks
         public int RelinquishedAnimaSummonCheck(ClientCard included = null)
         {
             // use witchcraft first
-            if (CheckDiscardableSpellCount() >= 2) return -1;
-            List<ClientCard> materials = Bot.GetMonsters();
-            if (included != null) materials.Add(included);
+            if (this.CheckDiscardableSpellCount() >= 2)
+            {
+                return -1;
+            }
+
+            List<ClientCard> materials = this.Bot.GetMonsters();
+            if (included != null)
+            {
+                materials.Add(included);
+            }
 
             int place = -1;
-            int attack = Util.GetBestAttack(Bot);
+            int attack = this.Util.GetBestAttack(this.Bot);
             // select place
 
-            List<ClientCard> checklist = new List<ClientCard> { Enemy.MonsterZone[6], Enemy.MonsterZone[5] };
+            List<ClientCard> checklist = new List<ClientCard> { this.Enemy.MonsterZone[6], this.Enemy.MonsterZone[5] };
             List<int> placelist = new List<int> { 1, 3 };
             for (int i = 0; i < 2; ++i)
             {
@@ -2854,7 +3400,7 @@ namespace WindBot.Game.AI.Decks
                 if (card != null && card.HasLinkMarker((int)CardLinkMarker.Top) && card.Attack > attack &&
                     !card.IsShouldNotBeMonsterTarget() && !card.IsShouldNotBeTarget())
                 {
-                    ClientCard self_card = Bot.MonsterZone[_place];
+                    ClientCard self_card = this.Bot.MonsterZone[_place];
                     if (self_card == null || self_card.Level == 1)
                     {
                         place = _place;
@@ -2862,7 +3408,7 @@ namespace WindBot.Game.AI.Decks
                     }
                 }
             }
-            checklist = new List<ClientCard> { Enemy.MonsterZone[3], Enemy.MonsterZone[1] };
+            checklist = new List<ClientCard> { this.Enemy.MonsterZone[3], this.Enemy.MonsterZone[1] };
             placelist = new List<int> { 5, 6 };
             for (int i = 0; i < 2; ++i)
             {
@@ -2871,9 +3417,13 @@ namespace WindBot.Game.AI.Decks
                 if (card != null && card.Attack > attack &&
                     !card.IsShouldNotBeMonsterTarget() && !card.IsShouldNotBeTarget())
                 {
-                    ClientCard enemy_card = Enemy.MonsterZone[11 - _place];
-                    if (enemy_card != null) continue;
-                    ClientCard self_card = Bot.MonsterZone[_place];
+                    ClientCard enemy_card = this.Enemy.MonsterZone[11 - _place];
+                    if (enemy_card != null)
+                    {
+                        continue;
+                    }
+
+                    ClientCard self_card = this.Bot.MonsterZone[_place];
                     if (self_card == null || self_card.Level == 1)
                     {
                         place = _place;
@@ -2888,18 +3438,18 @@ namespace WindBot.Game.AI.Decks
         // summmon process of RelinquishedAnima
         public bool RelinquishedAnimaSummon()
         {
-            int place = RelinquishedAnimaSummonCheck();
+            int place = this.RelinquishedAnimaSummonCheck();
             Logger.DebugWriteLine("RelinquishedAnima summon check: " + place.ToString());
             if (place != -1)
             {
                 int zone = (int)System.Math.Pow(2, place);
-                AI.SelectPlace(zone);
-                if (Bot.MonsterZone[place] != null && Bot.MonsterZone[place].Level == 1)
+                this.AI.SelectPlace(zone);
+                if (this.Bot.MonsterZone[place] != null && this.Bot.MonsterZone[place].Level == 1)
                 {
-                    AI.SelectMaterials(Bot.MonsterZone[place]);
+                    this.AI.SelectMaterials(this.Bot.MonsterZone[place]);
                 } else
                 {
-                    AI.SelectMaterials(CardId.Genni);
+                    this.AI.SelectMaterials(CardId.Genni);
                 }
                 return true;
             }
@@ -2909,14 +3459,21 @@ namespace WindBot.Game.AI.Decks
         // default Chicken game
         public bool ChickenGame()
         {
-            if (SpellNegatable()) return false;
-            if (Bot.LifePoints <= 1000)
+            if (this.SpellNegatable())
+            {
                 return false;
-            if (Bot.LifePoints - 1000 <= Enemy.LifePoints && ActivateDescription == Util.GetStringId(_CardId.ChickenGame, 0))
+            }
+
+            if (this.Bot.LifePoints <= 1000)
+            {
+                return false;
+            }
+
+            if (this.Bot.LifePoints - 1000 <= this.Enemy.LifePoints && this.ActivateDescription == this.Util.GetStringId(DefaultExecutor.CardId.ChickenGame, 0))
             {
                 return true;
             }
-            if (Bot.LifePoints - 1000 > Enemy.LifePoints && ActivateDescription == Util.GetStringId(_CardId.ChickenGame, 1))
+            if (this.Bot.LifePoints - 1000 > this.Enemy.LifePoints && this.ActivateDescription == this.Util.GetStringId(DefaultExecutor.CardId.ChickenGame, 1))
             {
                 return true;
             }

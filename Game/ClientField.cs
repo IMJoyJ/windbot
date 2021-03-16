@@ -25,42 +25,53 @@ namespace WindBot.Game
 
         public void Init(int deck, int extra)
         {
-            Hand = new List<ClientCard>();
-            MonsterZone = new ClientCard[7];
-            SpellZone = new ClientCard[8];
-            Graveyard = new List<ClientCard>();
-            Banished = new List<ClientCard>();
-            Deck = new List<ClientCard>();
-            ExtraDeck = new List<ClientCard>();
+            this.Hand = new List<ClientCard>();
+            this.MonsterZone = new ClientCard[7];
+            this.SpellZone = new ClientCard[8];
+            this.Graveyard = new List<ClientCard>();
+            this.Banished = new List<ClientCard>();
+            this.Deck = new List<ClientCard>();
+            this.ExtraDeck = new List<ClientCard>();
 
             for (int i = 0; i < deck; ++i)
-                Deck.Add(new ClientCard(0, CardLocation.Deck, -1));
+            {
+                this.Deck.Add(new ClientCard(0, CardLocation.Deck, -1));
+            }
+
             for (int i = 0; i < extra; ++i)
-                ExtraDeck.Add(new ClientCard(0, CardLocation.Extra, -1));
+            {
+                this.ExtraDeck.Add(new ClientCard(0, CardLocation.Extra, -1));
+            }
         }
 
         public int GetMonstersExtraZoneCount()
         {
             int count = 0;
-            if (MonsterZone[5] != null)
+            if (this.MonsterZone[5] != null)
+            {
                 count++;
-            if (MonsterZone[6] != null)
+            }
+
+            if (this.MonsterZone[6] != null)
+            {
                 count++;
+            }
+
             return count;
         }
         public int GetMonsterCount()
         {
-            return GetCount(MonsterZone);
+            return GetCount(this.MonsterZone);
         }
 
         public int GetSpellCount()
         {
-            return GetCount(SpellZone);
+            return GetCount(this.SpellZone);
         }
 
         public int GetHandCount()
         {
-            return GetCount(Hand);
+            return GetCount(this.Hand);
         }
 
         public int GetSpellCountWithoutField()
@@ -68,8 +79,10 @@ namespace WindBot.Game
             int count = 0;
             for (int i = 0; i < 5; ++i)
             {
-                if (SpellZone[i] != null)
+                if (this.SpellZone[i] != null)
+                {
                     ++count;
+                }
             }
             return count;
         }
@@ -81,36 +94,46 @@ namespace WindBot.Game
         public int GetColumnCount(int zone, bool IncludeExtraMonsterZone = true)
         {
             int count = 0;
-            if (SpellZone[zone] != null)
-                count++;
-            if (MonsterZone[zone] != null)
-                count++;
-            if(zone == 1 && IncludeExtraMonsterZone)
+            if (this.SpellZone[zone] != null)
             {
-                if (MonsterZone[5] != null)
+                count++;
+            }
+
+            if (this.MonsterZone[zone] != null)
+            {
+                count++;
+            }
+
+            if (zone == 1 && IncludeExtraMonsterZone)
+            {
+                if (this.MonsterZone[5] != null)
+                {
                     count++;
+                }
             }
             if (zone == 3 && IncludeExtraMonsterZone)
             {
-                if (MonsterZone[6] != null)
+                if (this.MonsterZone[6] != null)
+                {
                     count++;
+                }
             }
             return count;
         }
 
         public int GetFieldCount()
         {
-            return GetSpellCount() + GetMonsterCount();
+            return this.GetSpellCount() + this.GetMonsterCount();
         }
 
         public int GetFieldHandCount()
         {
-            return GetSpellCount() + GetMonsterCount() + GetHandCount();
+            return this.GetSpellCount() + this.GetMonsterCount() + this.GetHandCount();
         }
 
         public bool IsFieldEmpty()
         {
-            return GetMonsters().Count == 0 && GetSpells().Count == 0;
+            return this.GetMonsters().Count == 0 && this.GetSpells().Count == 0;
         }
 
         public int GetLinkedZones()
@@ -118,199 +141,199 @@ namespace WindBot.Game
             int zones = 0;
             for (int i = 0; i < 7; i++)
             {
-                zones |= MonsterZone[i]?.GetLinkedZones() ?? 0;
+                zones |= this.MonsterZone[i]?.GetLinkedZones() ?? 0;
             }
             return zones;
         }
 
         public List<ClientCard> GetMonsters()
         {
-            return GetCards(MonsterZone);
+            return GetCards(this.MonsterZone);
         }
 
         public List<ClientCard> GetGraveyardMonsters()
         {
-            return GetCards(Graveyard, CardType.Monster);
+            return GetCards(this.Graveyard, CardType.Monster);
         }
 
         public List<ClientCard> GetGraveyardSpells()
         {
-            return GetCards(Graveyard, CardType.Spell);
+            return GetCards(this.Graveyard, CardType.Spell);
         }
 
         public List<ClientCard> GetGraveyardTraps()
         {
-            return GetCards(Graveyard, CardType.Trap);
+            return GetCards(this.Graveyard, CardType.Trap);
         }
 
         public List<ClientCard> GetSpells()
         {
-            return GetCards(SpellZone);
+            return GetCards(this.SpellZone);
         }
 
         public List<ClientCard> GetMonstersInExtraZone()
         {
-            return GetMonsters().Where(card => card.Sequence >= 5).ToList();
+            return this.GetMonsters().Where(card => card.Sequence >= 5).ToList();
         }
 
         public List<ClientCard> GetMonstersInMainZone()
         {
-            return GetMonsters().Where(card => card.Sequence < 5).ToList();
+            return this.GetMonsters().Where(card => card.Sequence < 5).ToList();
         }
 
         public ClientCard GetFieldSpellCard()
         {
-            return SpellZone[5];
+            return this.SpellZone[5];
         }
 
         public bool HasInHand(int cardId)
         {
-            return HasInCards(Hand, cardId);
+            return HasInCards(this.Hand, cardId);
         }
 
         public bool HasInHand(IList<int> cardId)
         {
-            return HasInCards(Hand, cardId);
+            return HasInCards(this.Hand, cardId);
         }
 
         public bool HasInGraveyard(int cardId)
         {
-            return HasInCards(Graveyard, cardId);
+            return HasInCards(this.Graveyard, cardId);
         }
     
         public bool HasInGraveyard(IList<int> cardId)
         {
-            return HasInCards(Graveyard, cardId);
+            return HasInCards(this.Graveyard, cardId);
         }
 
         public bool HasInBanished(int cardId)
         {
-            return HasInCards(Banished, cardId);
+            return HasInCards(this.Banished, cardId);
         }
 
         public bool HasInBanished(IList<int> cardId)
         {
-            return HasInCards(Banished, cardId);
+            return HasInCards(this.Banished, cardId);
         }
 
         public bool HasInExtra(int cardId)
         {
-            return HasInCards(ExtraDeck, cardId);
+            return HasInCards(this.ExtraDeck, cardId);
         }
 
         public bool HasInExtra(IList<int> cardId)
         {
-            return HasInCards(ExtraDeck, cardId);
+            return HasInCards(this.ExtraDeck, cardId);
         }
 
         public bool HasAttackingMonster()
         {
-            return GetMonsters().Any(card => card.IsAttack());
+            return this.GetMonsters().Any(card => card.IsAttack());
         }
 
         public bool HasDefendingMonster()
         {
-            return GetMonsters().Any(card => card.IsDefense());
+            return this.GetMonsters().Any(card => card.IsDefense());
         }
 
         public bool HasInMonstersZone(int cardId, bool notDisabled = false, bool hasXyzMaterial = false, bool faceUp = false)
         {
-            return HasInCards(MonsterZone, cardId, notDisabled, hasXyzMaterial, faceUp);
+            return HasInCards(this.MonsterZone, cardId, notDisabled, hasXyzMaterial, faceUp);
         }
 
         public bool HasInMonstersZone(IList<int> cardId, bool notDisabled = false, bool hasXyzMaterial = false, bool faceUp = false)
         {
-            return HasInCards(MonsterZone, cardId, notDisabled, hasXyzMaterial, faceUp);
+            return HasInCards(this.MonsterZone, cardId, notDisabled, hasXyzMaterial, faceUp);
         }
 
         public bool HasInSpellZone(int cardId, bool notDisabled = false, bool faceUp = false)
         {
-            return HasInCards(SpellZone, cardId, notDisabled, false, faceUp);
+            return HasInCards(this.SpellZone, cardId, notDisabled, false, faceUp);
         }
 
         public bool HasInSpellZone(IList<int> cardId, bool notDisabled = false, bool faceUp = false)
         {
-            return HasInCards(SpellZone, cardId, notDisabled, false, faceUp);
+            return HasInCards(this.SpellZone, cardId, notDisabled, false, faceUp);
         }
 
         public bool HasInHandOrInSpellZone(int cardId)
         {
-            return HasInHand(cardId) || HasInSpellZone(cardId);
+            return this.HasInHand(cardId) || this.HasInSpellZone(cardId);
         }
 
         public bool HasInHandOrHasInMonstersZone(int cardId)
         {
-            return HasInHand(cardId) || HasInMonstersZone(cardId);
+            return this.HasInHand(cardId) || this.HasInMonstersZone(cardId);
         }
 
         public bool HasInHandOrInGraveyard(int cardId)
         {
-            return HasInHand(cardId) || HasInGraveyard(cardId);
+            return this.HasInHand(cardId) || this.HasInGraveyard(cardId);
         }
 
         public bool HasInMonstersZoneOrInGraveyard(int cardId)
         {
-            return HasInMonstersZone(cardId) || HasInGraveyard(cardId);
+            return this.HasInMonstersZone(cardId) || this.HasInGraveyard(cardId);
         }
 
         public bool HasInSpellZoneOrInGraveyard(int cardId)
         {
-            return HasInSpellZone(cardId) || HasInGraveyard(cardId);
+            return this.HasInSpellZone(cardId) || this.HasInGraveyard(cardId);
         }
 
         public bool HasInHandOrInMonstersZoneOrInGraveyard(int cardId)
         {
-            return HasInHand(cardId) || HasInMonstersZone(cardId) || HasInGraveyard(cardId);
+            return this.HasInHand(cardId) || this.HasInMonstersZone(cardId) || this.HasInGraveyard(cardId);
         }
 
         public bool HasInHandOrInSpellZoneOrInGraveyard(int cardId)
         {
-            return HasInHand(cardId) || HasInSpellZone(cardId) || HasInGraveyard(cardId);
+            return this.HasInHand(cardId) || this.HasInSpellZone(cardId) || this.HasInGraveyard(cardId);
         }
 
         public bool HasInHandOrInSpellZone(IList<int> cardId)
         {
-            return HasInHand(cardId) || HasInSpellZone(cardId);
+            return this.HasInHand(cardId) || this.HasInSpellZone(cardId);
         }
 
         public bool HasInHandOrHasInMonstersZone(IList<int> cardId)
         {
-            return HasInHand(cardId) || HasInMonstersZone(cardId);
+            return this.HasInHand(cardId) || this.HasInMonstersZone(cardId);
         }
 
         public bool HasInHandOrInGraveyard(IList<int> cardId)
         {
-            return HasInHand(cardId) || HasInGraveyard(cardId);
+            return this.HasInHand(cardId) || this.HasInGraveyard(cardId);
         }
 
         public bool HasInMonstersZoneOrInGraveyard(IList<int> cardId)
         {
-            return HasInMonstersZone(cardId) || HasInGraveyard(cardId);
+            return this.HasInMonstersZone(cardId) || this.HasInGraveyard(cardId);
         }
 
         public bool HasInSpellZoneOrInGraveyard(IList<int> cardId)
         {
-            return HasInSpellZone(cardId) || HasInGraveyard(cardId);
+            return this.HasInSpellZone(cardId) || this.HasInGraveyard(cardId);
         }
 
         public bool HasInHandOrInMonstersZoneOrInGraveyard(IList<int> cardId)
         {
-            return HasInHand(cardId) || HasInMonstersZone(cardId) || HasInGraveyard(cardId);
+            return this.HasInHand(cardId) || this.HasInMonstersZone(cardId) || this.HasInGraveyard(cardId);
         }
 
         public bool HasInHandOrInSpellZoneOrInGraveyard(IList<int> cardId)
         {
-            return HasInHand(cardId) || HasInSpellZone(cardId) || HasInGraveyard(cardId);
+            return this.HasInHand(cardId) || this.HasInSpellZone(cardId) || this.HasInGraveyard(cardId);
         }
 
         public int GetRemainingCount(int cardId, int initialCount)
         {
             int remaining = initialCount;
-            remaining = remaining - Hand.Count(card => card != null && card.IsOriginalCode(cardId));
-            remaining = remaining - SpellZone.Count(card => card != null && card.IsOriginalCode(cardId));
-            remaining = remaining - MonsterZone.Count(card => card != null && card.IsOriginalCode(cardId));
-            remaining = remaining - Graveyard.Count(card => card != null && card.IsOriginalCode(cardId));
-            remaining = remaining - Banished.Count(card => card != null && card.IsOriginalCode(cardId));
+            remaining = remaining - this.Hand.Count(card => card != null && card.IsOriginalCode(cardId));
+            remaining = remaining - this.SpellZone.Count(card => card != null && card.IsOriginalCode(cardId));
+            remaining = remaining - this.MonsterZone.Count(card => card != null && card.IsOriginalCode(cardId));
+            remaining = remaining - this.Graveyard.Count(card => card != null && card.IsOriginalCode(cardId));
+            remaining = remaining - this.Banished.Count(card => card != null && card.IsOriginalCode(cardId));
             return (remaining < 0) ? 0 : remaining;
         }
 

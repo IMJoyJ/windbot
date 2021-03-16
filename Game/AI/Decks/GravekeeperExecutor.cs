@@ -41,98 +41,115 @@ namespace WindBot.Game.AI.Decks
         public GravekeeperExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.SpellSet, DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, this.DefaultSpellSet);
 
-            AddExecutor(ExecutorType.Activate, CardId.AllureOfDarkness);
-            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
-            AddExecutor(ExecutorType.Activate, CardId.RoyalTribute);
-            AddExecutor(ExecutorType.Activate, CardId.GravekeepersStele);
-            AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, DefaultMysticalSpaceTyphoon);
-            AddExecutor(ExecutorType.Activate, CardId.BookofMoon, DefaultBookOfMoon);
-            AddExecutor(ExecutorType.Activate, CardId.HiddenTemplesOfNecrovalley, HiddenTemplesOfNecrovalleyEffect);
-            AddExecutor(ExecutorType.Activate, CardId.Necrovalley, NecrovalleyActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.AllureOfDarkness);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkHole, this.DefaultDarkHole);
+            this.AddExecutor(ExecutorType.Activate, CardId.RoyalTribute);
+            this.AddExecutor(ExecutorType.Activate, CardId.GravekeepersStele);
+            this.AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, this.DefaultMysticalSpaceTyphoon);
+            this.AddExecutor(ExecutorType.Activate, CardId.BookofMoon, this.DefaultBookOfMoon);
+            this.AddExecutor(ExecutorType.Activate, CardId.HiddenTemplesOfNecrovalley, this.HiddenTemplesOfNecrovalleyEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.Necrovalley, this.NecrovalleyActivate);
 
-            AddExecutor(ExecutorType.Activate, CardId.BottomlessTrapHole, DefaultUniqueTrap);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnWarning, DefaultSolemnWarning);
-            AddExecutor(ExecutorType.Activate, CardId.DimensionalPrison, DefaultUniqueTrap);
-            AddExecutor(ExecutorType.Activate, CardId.RiteOfSpirit, DefaultUniqueTrap);
-            AddExecutor(ExecutorType.Activate, CardId.ImperialTombsOfNecrovalley, DefaultUniqueTrap);
-            AddExecutor(ExecutorType.Activate, CardId.TorrentialTribute, DefaultTorrentialTribute);
+            this.AddExecutor(ExecutorType.Activate, CardId.BottomlessTrapHole, this.DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnWarning, this.DefaultSolemnWarning);
+            this.AddExecutor(ExecutorType.Activate, CardId.DimensionalPrison, this.DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.RiteOfSpirit, this.DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.ImperialTombsOfNecrovalley, this.DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.TorrentialTribute, this.DefaultTorrentialTribute);
 
-            AddExecutor(ExecutorType.Summon, CardId.GravekeepersOracle);
-            AddExecutor(ExecutorType.SpSummon, CardId.MaleficStardustDragon, MaleficStardustDragonSummon);
-            AddExecutor(ExecutorType.Summon, CardId.GravekeepersVisionary);
-            AddExecutor(ExecutorType.Summon, CardId.GravekeepersChief);
-            AddExecutor(ExecutorType.Summon, CardId.ThunderKingRaiOh);
-            AddExecutor(ExecutorType.Summon, CardId.GravekeepersCommandant, GravekeepersCommandantSummon);
-            AddExecutor(ExecutorType.Summon, CardId.GravekeepersAssailant);
-            AddExecutor(ExecutorType.Summon, CardId.GravekeepersDescendant);
-            AddExecutor(ExecutorType.MonsterSet, CardId.GravekeepersSpy);
-            AddExecutor(ExecutorType.MonsterSet, CardId.GravekeepersRecruiter);
+            this.AddExecutor(ExecutorType.Summon, CardId.GravekeepersOracle);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.MaleficStardustDragon, this.MaleficStardustDragonSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.GravekeepersVisionary);
+            this.AddExecutor(ExecutorType.Summon, CardId.GravekeepersChief);
+            this.AddExecutor(ExecutorType.Summon, CardId.ThunderKingRaiOh);
+            this.AddExecutor(ExecutorType.Summon, CardId.GravekeepersCommandant, this.GravekeepersCommandantSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.GravekeepersAssailant);
+            this.AddExecutor(ExecutorType.Summon, CardId.GravekeepersDescendant);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.GravekeepersSpy);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.GravekeepersRecruiter);
 
-            AddExecutor(ExecutorType.Activate, CardId.GravekeepersOracle);
-            AddExecutor(ExecutorType.Activate, CardId.GravekeepersVisionary);
-            AddExecutor(ExecutorType.Activate, CardId.GravekeepersChief);
-            AddExecutor(ExecutorType.Activate, CardId.GravekeepersCommandant, GravekeepersCommandantEffect);
-            AddExecutor(ExecutorType.Activate, CardId.GravekeepersAssailant, GravekeepersAssailantEffect);
-            AddExecutor(ExecutorType.Activate, CardId.GravekeepersDescendant, GravekeepersDescendantEffect);
-            AddExecutor(ExecutorType.Activate, CardId.GravekeepersSpy, SearchForDescendant);
-            AddExecutor(ExecutorType.Activate, CardId.GravekeepersRecruiter, SearchForDescendant);
+            this.AddExecutor(ExecutorType.Activate, CardId.GravekeepersOracle);
+            this.AddExecutor(ExecutorType.Activate, CardId.GravekeepersVisionary);
+            this.AddExecutor(ExecutorType.Activate, CardId.GravekeepersChief);
+            this.AddExecutor(ExecutorType.Activate, CardId.GravekeepersCommandant, this.GravekeepersCommandantEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.GravekeepersAssailant, this.GravekeepersAssailantEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.GravekeepersDescendant, this.GravekeepersDescendantEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.GravekeepersSpy, this.SearchForDescendant);
+            this.AddExecutor(ExecutorType.Activate, CardId.GravekeepersRecruiter, this.SearchForDescendant);
 
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
         }
 
         private bool HiddenTemplesOfNecrovalleyEffect()
         {
-            if (Card.Location == CardLocation.Hand && Bot.HasInSpellZone((int)Card.Id))
+            if (this.Card.Location == CardLocation.Hand && this.Bot.HasInSpellZone((int)this.Card.Id))
+            {
                 return false;
+            }
+
             return true;
         }
 
         private bool NecrovalleyActivate()
         {
-            if (Bot.SpellZone[5] != null)
+            if (this.Bot.SpellZone[5] != null)
+            {
                 return false;
+            }
+
             return true;
         }
 
         private bool MaleficStardustDragonSummon()
         {
-            if (Bot.SpellZone[5] != null)
+            if (this.Bot.SpellZone[5] != null)
+            {
                 return true;
+            }
+
             return false;
         }
 
         private bool GravekeepersCommandantEffect()
         {
-            if (!Bot.HasInHand(CardId.Necrovalley) && !Bot.HasInSpellZone(CardId.Necrovalley))
+            if (!this.Bot.HasInHand(CardId.Necrovalley) && !this.Bot.HasInSpellZone(CardId.Necrovalley))
+            {
                 return true;
+            }
+
             return false;
         }
 
         private bool GravekeepersCommandantSummon()
         {
-            return !GravekeepersCommandantEffect();
+            return !this.GravekeepersCommandantEffect();
         }
 
         private bool GravekeepersAssailantEffect()
         {
-            if (!Card.IsAttack())
+            if (!this.Card.IsAttack())
+            {
                 return false;
-            foreach (ClientCard card in Enemy.GetMonsters())
+            }
+
+            foreach (ClientCard card in this.Enemy.GetMonsters())
             {
                 if (card.IsDefense() && card.Defense > 1500 && card.Attack < 1500 || card.Attack > 1500 && card.Defense < 1500)
+                {
                     return true;
+                }
             }
             return false;
         }
 
         private bool GravekeepersDescendantEffect()
         {
-            int bestatk = Bot.GetMonsters().GetHighestAttackMonster().Attack;
-            if (Util.IsOneEnemyBetterThanValue(bestatk, true))
+            int bestatk = this.Bot.GetMonsters().GetHighestAttackMonster().Attack;
+            if (this.Util.IsOneEnemyBetterThanValue(bestatk, true))
             {
-                AI.SelectCard(Enemy.GetMonsters().GetHighestAttackMonster());
+                this.AI.SelectCard(this.Enemy.GetMonsters().GetHighestAttackMonster());
                 return true;
             }
             return false;
@@ -140,7 +157,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool SearchForDescendant()
         {
-            AI.SelectCard(CardId.GravekeepersDescendant);
+            this.AI.SelectCard(CardId.GravekeepersDescendant);
             return true;
         }
     }

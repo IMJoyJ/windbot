@@ -58,80 +58,80 @@ namespace WindBot.Game.AI.Decks
         public SkyStrikerExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.Activate, CardId.AshBlossom, DefaultAshBlossomAndJoyousSpring);
-            AddExecutor(ExecutorType.Activate, CardId.GhostRabbit, DefaultGhostOgreAndSnowRabbit);
-            AddExecutor(ExecutorType.Activate, CardId.EffectVeiler, DefaultBreakthroughSkill);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnWarning, DefaultSolemnWarning);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnJudgment, DefaultSolemnJudgment);
+            this.AddExecutor(ExecutorType.Activate, CardId.AshBlossom, this.DefaultAshBlossomAndJoyousSpring);
+            this.AddExecutor(ExecutorType.Activate, CardId.GhostRabbit, this.DefaultGhostOgreAndSnowRabbit);
+            this.AddExecutor(ExecutorType.Activate, CardId.EffectVeiler, this.DefaultBreakthroughSkill);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnWarning, this.DefaultSolemnWarning);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnJudgment, this.DefaultSolemnJudgment);
 
-            AddExecutor(ExecutorType.Activate, CardId.MaxxC, MaxxCEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.MaxxC, this.MaxxCEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.ReinforcementOfTheArmy);
-            AddExecutor(ExecutorType.Activate, CardId.UpstartGoblin);
-            AddExecutor(ExecutorType.Activate, CardId.FoolishBurialGoods, FoolishBurialGoodsEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.ReinforcementOfTheArmy);
+            this.AddExecutor(ExecutorType.Activate, CardId.UpstartGoblin);
+            this.AddExecutor(ExecutorType.Activate, CardId.FoolishBurialGoods, this.FoolishBurialGoodsEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.TwinTwisters, TwinTwistersEffect);
-
-            //
-            AddExecutor(ExecutorType.Activate, CardId.Multirole, MultiroleHandEffect);
-
-            AddExecutor(ExecutorType.Activate, CardId.WidowAnchor, WidowAnchorEffectFirst);
-
-            AddExecutor(ExecutorType.Activate, CardId.Afterburners, AfterburnersEffect);
-            AddExecutor(ExecutorType.Activate, CardId.JammingWave, JammingWaveEffect);
-
-            AddExecutor(ExecutorType.Activate, CardId.Engage, EngageEffectFirst);
-
-            AddExecutor(ExecutorType.Activate, CardId.HornetDrones, HornetDronesEffect);
-
-            AddExecutor(ExecutorType.Activate, CardId.WidowAnchor, WidowAnchorEffect);
-
-            AddExecutor(ExecutorType.Activate, CardId.HerculesBase, HerculesBaseEffect);
-            AddExecutor(ExecutorType.Activate, CardId.AreaZero, AreaZeroEffect);
-            AddExecutor(ExecutorType.Activate, CardId.Multirole, MultiroleEffect);
-
-            AddExecutor(ExecutorType.Activate, CardId.Engage, EngageEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.TwinTwisters, this.TwinTwistersEffect);
 
             //
-            AddExecutor(ExecutorType.Summon, CardId.JetSynchron, TunerSummon);
-            AddExecutor(ExecutorType.Summon, CardId.EffectVeiler, TunerSummon);
-            AddExecutor(ExecutorType.Summon, CardId.GhostRabbit, TunerSummon);
-            AddExecutor(ExecutorType.Summon, CardId.AshBlossom, TunerSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.Multirole, this.MultiroleHandEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.Raye, RayeEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.Kagari, KagariSummon);
-            AddExecutor(ExecutorType.Activate, CardId.Kagari, KagariEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.WidowAnchor, this.WidowAnchorEffectFirst);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.CrystronNeedlefiber, CrystronNeedlefiberSummon);
-            AddExecutor(ExecutorType.Activate, CardId.CrystronNeedlefiber, CrystronNeedlefiberEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.SummonSorceress);
-            AddExecutor(ExecutorType.Activate, CardId.SummonSorceress, SummonSorceressEffect);
-            AddExecutor(ExecutorType.Activate, CardId.JetSynchron, JetSynchronEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.HiSpeedroidChanbara);
+            this.AddExecutor(ExecutorType.Activate, CardId.Afterburners, this.AfterburnersEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.JammingWave, this.JammingWaveEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.Shizuku, ShizukuSummon);
-            AddExecutor(ExecutorType.Activate, CardId.Shizuku, ShizukuEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.Hayate, HayateSummon);
-            AddExecutor(ExecutorType.Activate, CardId.Hayate, HayateEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.Engage, this.EngageEffectFirst);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.TopologicBomberDragon, Util.IsTurn1OrMain2);
+            this.AddExecutor(ExecutorType.Activate, CardId.HornetDrones, this.HornetDronesEffect);
 
-            AddExecutor(ExecutorType.Summon, CardId.Raye, RayeSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.WidowAnchor, this.WidowAnchorEffect);
+
+            this.AddExecutor(ExecutorType.Activate, CardId.HerculesBase, this.HerculesBaseEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.AreaZero, this.AreaZeroEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.Multirole, this.MultiroleEffect);
+
+            this.AddExecutor(ExecutorType.Activate, CardId.Engage, this.EngageEffect);
 
             //
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnJudgment);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnWarning);
-            AddExecutor(ExecutorType.SpellSet, CardId.WidowAnchor);
-            AddExecutor(ExecutorType.SpellSet, CardId.HerculesBase);
+            this.AddExecutor(ExecutorType.Summon, CardId.JetSynchron, this.TunerSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.EffectVeiler, this.TunerSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.GhostRabbit, this.TunerSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.AshBlossom, this.TunerSummon);
 
-            AddExecutor(ExecutorType.SpellSet, CardId.TwinTwisters, HandFull);
-            AddExecutor(ExecutorType.SpellSet, CardId.HornetDrones, HandFull);
+            this.AddExecutor(ExecutorType.Activate, CardId.Raye, this.RayeEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Kagari, this.KagariSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.Kagari, this.KagariEffect);
+
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CrystronNeedlefiber, this.CrystronNeedlefiberSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.CrystronNeedlefiber, this.CrystronNeedlefiberEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.SummonSorceress);
+            this.AddExecutor(ExecutorType.Activate, CardId.SummonSorceress, this.SummonSorceressEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.JetSynchron, this.JetSynchronEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.HiSpeedroidChanbara);
+
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Shizuku, this.ShizukuSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.Shizuku, this.ShizukuEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Hayate, this.HayateSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.Hayate, this.HayateEffect);
+
+            this.AddExecutor(ExecutorType.SpSummon, CardId.TopologicBomberDragon, this.Util.IsTurn1OrMain2);
+
+            this.AddExecutor(ExecutorType.Summon, CardId.Raye, this.RayeSummon);
 
             //
-            AddExecutor(ExecutorType.Activate, CardId.MetalfoesFusion);
-            AddExecutor(ExecutorType.Activate, CardId.Multirole, MultiroleEPEffect);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnJudgment);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnWarning);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.WidowAnchor);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.HerculesBase);
 
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.TwinTwisters, this.HandFull);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.HornetDrones, this.HandFull);
+
+            //
+            this.AddExecutor(ExecutorType.Activate, CardId.MetalfoesFusion);
+            this.AddExecutor(ExecutorType.Activate, CardId.Multirole, this.MultiroleEPEffect);
+
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
         }
 
         public override bool OnSelectHand()
@@ -142,10 +142,10 @@ namespace WindBot.Game.AI.Decks
 
         public override void OnNewTurn()
         {
-            KagariSummoned = false;
-            ShizukuSummoned = false;
-            HayateSummoned = false;
-            WidowAnchorTarget = null;
+            this.KagariSummoned = false;
+            this.ShizukuSummoned = false;
+            this.HayateSummoned = false;
+            this.WidowAnchorTarget = null;
         }
 
         public override bool OnPreBattleBetween(ClientCard attacker, ClientCard defender)
@@ -153,40 +153,55 @@ namespace WindBot.Game.AI.Decks
             if (!defender.IsMonsterHasPreventActivationEffectInBattle())
             {
                 if (attacker.IsCode(CardId.HiSpeedroidChanbara) && !attacker.IsDisabled())
+                {
                     attacker.RealPower = attacker.RealPower + 200;
+                }
             }
             return base.OnPreBattleBetween(attacker, defender);
         }
 
         public override bool OnSelectYesNo(int desc)
         {
-            if (desc == Util.GetStringId(CardId.SummonSorceress, 2)) // summon to the field of opponent?
+            if (desc == this.Util.GetStringId(CardId.SummonSorceress, 2)) // summon to the field of opponent?
+            {
                 return false;
-            if (desc == Util.GetStringId(CardId.Engage, 0)) // draw card?
-                return true;
-            if (desc == Util.GetStringId(CardId.WidowAnchor, 0)) // get control?
-                return true;
-            if (desc == Util.GetStringId(CardId.JammingWave, 0)) // destroy monster?
-            {
-                ClientCard target = Util.GetBestEnemyMonster();
-                if (target != null)
-                {
-                    AI.SelectCard(target);
-                    return true;
-                }
-                else
-                    return false;
             }
-            if (desc == Util.GetStringId(CardId.Afterburners, 0)) // destroy spell & trap?
+
+            if (desc == this.Util.GetStringId(CardId.Engage, 0)) // draw card?
             {
-                ClientCard target = Util.GetBestEnemySpell();
+                return true;
+            }
+
+            if (desc == this.Util.GetStringId(CardId.WidowAnchor, 0)) // get control?
+            {
+                return true;
+            }
+
+            if (desc == this.Util.GetStringId(CardId.JammingWave, 0)) // destroy monster?
+            {
+                ClientCard target = this.Util.GetBestEnemyMonster();
                 if (target != null)
                 {
-                    AI.SelectCard(target);
+                    this.AI.SelectCard(target);
                     return true;
                 }
                 else
+                {
                     return false;
+                }
+            }
+            if (desc == this.Util.GetStringId(CardId.Afterburners, 0)) // destroy spell & trap?
+            {
+                ClientCard target = this.Util.GetBestEnemySpell();
+                if (target != null)
+                {
+                    this.AI.SelectCard(target);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
 
             return base.OnSelectYesNo(desc);
@@ -194,35 +209,48 @@ namespace WindBot.Game.AI.Decks
 
         private bool MaxxCEffect()
         {
-            return Duel.Player == 1;
+            return this.Duel.Player == 1;
         }
 
         private bool TwinTwistersEffect()
         {
-            if (Util.ChainContainsCard(CardId.TwinTwisters))
+            if (this.Util.ChainContainsCard(CardId.TwinTwisters))
+            {
                 return false;
+            }
+
             IList<ClientCard> targets = new List<ClientCard>();
-            foreach (ClientCard target in Enemy.GetSpells())
+            foreach (ClientCard target in this.Enemy.GetSpells())
             {
                 if (target.IsFloodgate())
+                {
                     targets.Add(target);
+                }
+
                 if (targets.Count >= 2)
+                {
                     break;
+                }
             }
             if (targets.Count < 2)
             {
-                foreach (ClientCard target in Enemy.GetSpells())
+                foreach (ClientCard target in this.Enemy.GetSpells())
                 {
                     if (target.IsFacedown() || target.HasType(CardType.Continuous) || target.HasType(CardType.Pendulum))
+                    {
                         targets.Add(target);
+                    }
+
                     if (targets.Count >= 2)
+                    {
                         break;
+                    }
                 }
             }
             if (targets.Count > 0)
             {
-                AI.SelectCard(GetDiscardHand());
-                AI.SelectNextCard(targets);
+                this.AI.SelectCard(this.GetDiscardHand());
+                this.AI.SelectNextCard(targets);
                 return true;
             }
             return false;
@@ -230,7 +258,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool FoolishBurialGoodsEffect()
         {
-            AI.SelectCard(
+            this.AI.SelectCard(
                 CardId.MetalfoesFusion,
                 CardId.WidowAnchor,
                 CardId.Engage,
@@ -241,31 +269,33 @@ namespace WindBot.Game.AI.Decks
 
         private bool MultiroleHandEffect()
         {
-            return Card.Location == CardLocation.Hand;
+            return this.Card.Location == CardLocation.Hand;
         }
 
         private bool MultiroleEPEffect()
         {
-            if (Duel.Phase != DuelPhase.End)
+            if (this.Duel.Phase != DuelPhase.End)
+            {
                 return false;
+            }
 
             IList<int> targets = new[] {
                 CardId.Engage,
                 CardId.HornetDrones,
                 CardId.WidowAnchor
             };
-            AI.SelectCard(targets);
-            AI.SelectNextCard(targets);
-            AI.SelectThirdCard(targets);
+            this.AI.SelectCard(targets);
+            this.AI.SelectNextCard(targets);
+            this.AI.SelectThirdCard(targets);
             return true;
         }
 
         private bool AfterburnersEffect()
         {
-            ClientCard target = Util.GetBestEnemyMonster(true, true);
+            ClientCard target = this.Util.GetBestEnemyMonster(true, true);
             if (target != null)
             {
-                AI.SelectCard(target);
+                this.AI.SelectCard(target);
                 return true;
             }
             return false;
@@ -274,7 +304,7 @@ namespace WindBot.Game.AI.Decks
         private bool JammingWaveEffect()
         {
             ClientCard target = null;
-            foreach(ClientCard card in Enemy.GetSpells())
+            foreach(ClientCard card in this.Enemy.GetSpells())
             {
                 if (card.IsFacedown())
                 {
@@ -284,7 +314,7 @@ namespace WindBot.Game.AI.Decks
             }
             if (target != null)
             {
-                AI.SelectCard(target);
+                this.AI.SelectCard(target);
                 return true;
             }
             return false;
@@ -292,13 +322,16 @@ namespace WindBot.Game.AI.Decks
 
         private bool WidowAnchorEffectFirst()
         {
-            if (Util.ChainContainsCard(CardId.WidowAnchor))
+            if (this.Util.ChainContainsCard(CardId.WidowAnchor))
+            {
                 return false;
-            ClientCard target = Util.GetProblematicEnemyMonster(0, true);
+            }
+
+            ClientCard target = this.Util.GetProblematicEnemyMonster(0, true);
             if (target != null)
             {
-                WidowAnchorTarget = target;
-                AI.SelectCard(target);
+                this.WidowAnchorTarget = target;
+                this.AI.SelectCard(target);
                 return true;
             }
             return false;
@@ -306,20 +339,26 @@ namespace WindBot.Game.AI.Decks
 
         private bool EngageEffectFirst()
         {
-            if (!HaveThreeSpellsInGrave())
+            if (!this.HaveThreeSpellsInGrave())
+            {
                 return false;
+            }
 
-            int target = GetCardToSearch();
+            int target = this.GetCardToSearch();
             if (target > 0)
-                AI.SelectCard(target);
+            {
+                this.AI.SelectCard(target);
+            }
             else
-                AI.SelectCard(
+            {
+                this.AI.SelectCard(
                     CardId.Multirole,
                     CardId.AreaZero,
                     CardId.Afterburners,
                     CardId.JammingWave,
                     CardId.Raye
                     );
+            }
 
             return true;
         }
@@ -327,45 +366,66 @@ namespace WindBot.Game.AI.Decks
 
         private bool EngageEffect()
         {
-            int target = GetCardToSearch();
+            int target = this.GetCardToSearch();
             if (target > 0)
-                AI.SelectCard(target);
+            {
+                this.AI.SelectCard(target);
+            }
             else
-                AI.SelectCard(
+            {
+                this.AI.SelectCard(
                     CardId.Multirole,
                     CardId.AreaZero,
                     CardId.Afterburners,
                     CardId.JammingWave,
                     CardId.Raye
                     );
+            }
 
             return true;
         }
 
         private bool HornetDronesEffect()
         {
-            if (Duel.Player == 1)
+            if (this.Duel.Player == 1)
             {
-                return Duel.Phase == DuelPhase.End;
+                return this.Duel.Phase == DuelPhase.End;
             }
             else
             {
-                if (Duel.Phase != DuelPhase.Main1)
-                    return false;
-                if (Duel.CurrentChain.Count > 0)
-                    return false;
-                if (Bot.GetMonstersExtraZoneCount() == 0)
-                    return true;
-                if (Bot.HasInMonstersZone(CardId.SummonSorceress))
-                    return true;
-                if (Bot.HasInMonstersZone(CardId.TopologicBomberDragon) && Enemy.GetMonsterCount() > 1)
-                    return true;
-                if (!Util.IsTurn1OrMain2())
+                if (this.Duel.Phase != DuelPhase.Main1)
                 {
-                    foreach (ClientCard card in Bot.Hand)
+                    return false;
+                }
+
+                if (this.Duel.CurrentChain.Count > 0)
+                {
+                    return false;
+                }
+
+                if (this.Bot.GetMonstersExtraZoneCount() == 0)
+                {
+                    return true;
+                }
+
+                if (this.Bot.HasInMonstersZone(CardId.SummonSorceress))
+                {
+                    return true;
+                }
+
+                if (this.Bot.HasInMonstersZone(CardId.TopologicBomberDragon) && this.Enemy.GetMonsterCount() > 1)
+                {
+                    return true;
+                }
+
+                if (!this.Util.IsTurn1OrMain2())
+                {
+                    foreach (ClientCard card in this.Bot.Hand)
                     {
                         if (card.IsTuner())
+                        {
                             return true;
+                        }
                     }
                 }
             }
@@ -374,20 +434,22 @@ namespace WindBot.Game.AI.Decks
 
         private bool WidowAnchorEffect()
         {
-            if (DefaultBreakthroughSkill())
+            if (this.DefaultBreakthroughSkill())
             {
-                WidowAnchorTarget = Util.GetLastChainCard();
+                this.WidowAnchorTarget = this.Util.GetLastChainCard();
                 return true;
             }
 
-            if (!HaveThreeSpellsInGrave() || Duel.Player == 1 || Duel.Phase < DuelPhase.Main1 || Duel.Phase >= DuelPhase.Main2 || Util.ChainContainsCard(CardId.WidowAnchor))
+            if (!this.HaveThreeSpellsInGrave() || this.Duel.Player == 1 || this.Duel.Phase < DuelPhase.Main1 || this.Duel.Phase >= DuelPhase.Main2 || this.Util.ChainContainsCard(CardId.WidowAnchor))
+            {
                 return false;
+            }
 
-            ClientCard target = Util.GetBestEnemyMonster(true, true);
+            ClientCard target = this.Util.GetBestEnemyMonster(true, true);
             if (target != null && !target.IsDisabled() && !target.HasType(CardType.Normal))
             {
-                WidowAnchorTarget = target;
-                AI.SelectCard(target);
+                this.WidowAnchorTarget = target;
+                this.AI.SelectCard(target);
                 return true;
             }
             return false;
@@ -395,38 +457,43 @@ namespace WindBot.Game.AI.Decks
 
         private bool HerculesBaseEffect()
         {
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
                 IList<ClientCard> targets = new List<ClientCard>();
-                foreach(ClientCard card in Bot.GetGraveyardMonsters())
+                foreach(ClientCard card in this.Bot.GetGraveyardMonsters())
                 {
                     if (card.IsCode(CardId.Hayate, CardId.Kagari, CardId.Shizuku))
+                    {
                         targets.Add(card);
+                    }
                 }
                 if (targets.Count > 0)
                 {
-                    AI.SelectCard(targets);
+                    this.AI.SelectCard(targets);
                     return true;
                 }
             }
             else
             {
-                if (Util.IsTurn1OrMain2())
+                if (this.Util.IsTurn1OrMain2())
+                {
                     return false;
-                ClientCard bestBotMonster = Util.GetBestBotMonster(true);
+                }
+
+                ClientCard bestBotMonster = this.Util.GetBestBotMonster(true);
                 if (bestBotMonster != null)
                 {
                     int bestPower = bestBotMonster.Attack;
                     int count = 0;
-                    bool have3 = HaveThreeSpellsInGrave();
-                    foreach (ClientCard target in Enemy.GetMonsters())
+                    bool have3 = this.HaveThreeSpellsInGrave();
+                    foreach (ClientCard target in this.Enemy.GetMonsters())
                     {
                         if (target.GetDefensePower() < bestPower && !target.IsMonsterInvincible())
                         {
                             count++;
                             if (count > 1 || have3)
                             {
-                                AI.SelectCard(bestBotMonster);
+                                this.AI.SelectCard(bestBotMonster);
                                 return true;
                             }
                         }
@@ -438,31 +505,31 @@ namespace WindBot.Game.AI.Decks
 
         private bool AreaZeroEffect()
         {
-            if (Card.Location == CardLocation.Hand || Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Hand || this.Card.Location == CardLocation.Grave)
             {
                 return true;
             }
-            foreach (ClientCard target in Bot.GetMonsters())
+            foreach (ClientCard target in this.Bot.GetMonsters())
             {
-                if (target == WidowAnchorTarget && Duel.Phase == DuelPhase.Main2)
+                if (target == this.WidowAnchorTarget && this.Duel.Phase == DuelPhase.Main2)
                 {
-                    AI.SelectCard(target);
+                    this.AI.SelectCard(target);
                     return true;
                 }
             }
-            foreach (ClientCard target in Bot.GetMonsters())
+            foreach (ClientCard target in this.Bot.GetMonsters())
             {
-                if (target.IsCode(CardId.Raye) && Bot.GetMonstersExtraZoneCount() == 0)
+                if (target.IsCode(CardId.Raye) && this.Bot.GetMonstersExtraZoneCount() == 0)
                 {
-                    AI.SelectCard(target);
+                    this.AI.SelectCard(target);
                     return true;
                 }
             }
-            foreach (ClientCard target in Bot.GetSpells())
+            foreach (ClientCard target in this.Bot.GetSpells())
             {
                 if (!target.IsCode(CardId.AreaZero, CardId.Multirole, CardId.WidowAnchor) && target.IsSpell())
                 {
-                    AI.SelectCard(target);
+                    this.AI.SelectCard(target);
                     return true;
                 }
             }
@@ -471,37 +538,37 @@ namespace WindBot.Game.AI.Decks
 
         private bool MultiroleEffect()
         {
-            if (Card.Location == CardLocation.SpellZone)
+            if (this.Card.Location == CardLocation.SpellZone)
             {
-                foreach (ClientCard target in Bot.GetMonsters())
+                foreach (ClientCard target in this.Bot.GetMonsters())
                 {
-                    if (target == WidowAnchorTarget && Duel.Phase == DuelPhase.Main2)
+                    if (target == this.WidowAnchorTarget && this.Duel.Phase == DuelPhase.Main2)
                     {
-                        AI.SelectCard(target);
+                        this.AI.SelectCard(target);
                         return true;
                     }
                 }
-                foreach (ClientCard target in Bot.GetMonsters())
+                foreach (ClientCard target in this.Bot.GetMonsters())
                 {
-                    if (target.IsCode(CardId.Raye) && Bot.GetMonstersExtraZoneCount() == 0)
+                    if (target.IsCode(CardId.Raye) && this.Bot.GetMonstersExtraZoneCount() == 0)
                     {
-                        AI.SelectCard(target);
+                        this.AI.SelectCard(target);
                         return true;
                     }
                 }
-                foreach (ClientCard target in Bot.GetSpells())
+                foreach (ClientCard target in this.Bot.GetSpells())
                 {
                     if (target.IsCode(CardId.AreaZero))
                     {
-                        AI.SelectCard(target);
+                        this.AI.SelectCard(target);
                         return true;
                     }
                 }
-                foreach (ClientCard target in Bot.GetSpells())
+                foreach (ClientCard target in this.Bot.GetSpells())
                 {
                     if (!target.IsCode(CardId.Multirole, CardId.WidowAnchor) && target.IsSpell())
                     {
-                        AI.SelectCard(target);
+                        this.AI.SelectCard(target);
                         return true;
                     }
                 }
@@ -511,7 +578,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool RayeSummon()
         {
-            if (Bot.GetMonstersExtraZoneCount() == 0)
+            if (this.Bot.GetMonstersExtraZoneCount() == 0)
             {
                 return true;
             }
@@ -520,32 +587,32 @@ namespace WindBot.Game.AI.Decks
 
         private bool RayeEffect()
         {
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
                 return true;
             }
-            if (Card.IsDisabled())
+            if (this.Card.IsDisabled())
             {
                 return false;
             }
-            if (Util.IsChainTarget(Card))
+            if (this.Util.IsChainTarget(this.Card))
             {
-                RayeSelectTarget();
+                this.RayeSelectTarget();
                 return true;
             }
-            if (Card.Attacked && Duel.Phase == DuelPhase.BattleStart)
+            if (this.Card.Attacked && this.Duel.Phase == DuelPhase.BattleStart)
             {
-                RayeSelectTarget();
+                this.RayeSelectTarget();
                 return true;
             }
-            if (Card == Bot.BattlingMonster && Duel.Player == 1)
+            if (this.Card == this.Bot.BattlingMonster && this.Duel.Player == 1)
             {
-                RayeSelectTarget();
+                this.RayeSelectTarget();
                 return true;
             }
-            if (Duel.Phase == DuelPhase.Main2)
+            if (this.Duel.Phase == DuelPhase.Main2)
             {
-                RayeSelectTarget();
+                this.RayeSelectTarget();
                 return true;
             }
             return false;
@@ -553,29 +620,29 @@ namespace WindBot.Game.AI.Decks
 
         private void RayeSelectTarget()
         {
-            if (!KagariSummoned && Bot.HasInGraveyard(new[] {
+            if (!this.KagariSummoned && this.Bot.HasInGraveyard(new[] {
                 CardId.Engage,
                 CardId.HornetDrones,
                 CardId.WidowAnchor
             }))
             {
-                AI.SelectCard(CardId.Kagari);
+                this.AI.SelectCard(CardId.Kagari);
             }
             else
             {
-                AI.SelectCard(CardId.Shizuku, CardId.Kagari, CardId.Hayate);
+                this.AI.SelectCard(CardId.Shizuku, CardId.Kagari, CardId.Hayate);
             }
         }
 
         private bool KagariSummon()
         {
-            if (Bot.HasInGraveyard(new[] {
+            if (this.Bot.HasInGraveyard(new[] {
                 CardId.Engage,
                 CardId.HornetDrones,
                 CardId.WidowAnchor
             }))
             {
-                KagariSummoned = true;
+                this.KagariSummoned = true;
                 return true;
             }
             return false;
@@ -583,24 +650,27 @@ namespace WindBot.Game.AI.Decks
 
         private bool KagariEffect()
         {
-            if (EmptyMainMonsterZone() && Util.GetProblematicEnemyMonster() != null && Bot.HasInGraveyard(CardId.Afterburners))
+            if (this.EmptyMainMonsterZone() && this.Util.GetProblematicEnemyMonster() != null && this.Bot.HasInGraveyard(CardId.Afterburners))
             {
-                AI.SelectCard(CardId.Afterburners);
+                this.AI.SelectCard(CardId.Afterburners);
             }
-            else if (EmptyMainMonsterZone() && Util.GetProblematicEnemySpell() != null && Bot.HasInGraveyard(CardId.JammingWave))
+            else if (this.EmptyMainMonsterZone() && this.Util.GetProblematicEnemySpell() != null && this.Bot.HasInGraveyard(CardId.JammingWave))
             {
-                AI.SelectCard(CardId.JammingWave);
+                this.AI.SelectCard(CardId.JammingWave);
             }
             else
-                AI.SelectCard(CardId.Engage, CardId.HornetDrones, CardId.WidowAnchor);
+            {
+                this.AI.SelectCard(CardId.Engage, CardId.HornetDrones, CardId.WidowAnchor);
+            }
+
             return true;
         }
 
         private bool ShizukuSummon()
         {
-            if (Util.IsTurn1OrMain2())
+            if (this.Util.IsTurn1OrMain2())
             {
-                ShizukuSummoned = true;
+                this.ShizukuSummoned = true;
                 return true;
             }
             return false;
@@ -608,69 +678,87 @@ namespace WindBot.Game.AI.Decks
 
         private bool ShizukuEffect()
         {
-            int target = GetCardToSearch();
+            int target = this.GetCardToSearch();
             if (target != 0)
-                AI.SelectCard(target);
+            {
+                this.AI.SelectCard(target);
+            }
             else
-                AI.SelectCard(CardId.Engage, CardId.HornetDrones, CardId.WidowAnchor);
+            {
+                this.AI.SelectCard(CardId.Engage, CardId.HornetDrones, CardId.WidowAnchor);
+            }
+
             return true;
         }
 
         private bool HayateSummon()
         {
-            if (Util.IsTurn1OrMain2())
+            if (this.Util.IsTurn1OrMain2())
+            {
                 return false;
-            HayateSummoned = true;
+            }
+
+            this.HayateSummoned = true;
             return true;
         }
 
         private bool HayateEffect()
         {
-            if (!Bot.HasInGraveyard(CardId.Raye))
-                AI.SelectCard(CardId.Raye);
-            else if (!Bot.HasInGraveyard(CardId.HornetDrones))
-                AI.SelectCard(CardId.HornetDrones);
-            else if (!Bot.HasInGraveyard(CardId.WidowAnchor))
-                AI.SelectCard(CardId.WidowAnchor);
+            if (!this.Bot.HasInGraveyard(CardId.Raye))
+            {
+                this.AI.SelectCard(CardId.Raye);
+            }
+            else if (!this.Bot.HasInGraveyard(CardId.HornetDrones))
+            {
+                this.AI.SelectCard(CardId.HornetDrones);
+            }
+            else if (!this.Bot.HasInGraveyard(CardId.WidowAnchor))
+            {
+                this.AI.SelectCard(CardId.WidowAnchor);
+            }
+
             return true;
         }
 
         private bool TunerSummon()
         {
-            return !Bot.HasInMonstersZone(new[] {
+            return !this.Bot.HasInMonstersZone(new[] {
                 CardId.AshBlossom,
                 CardId.EffectVeiler,
                 CardId.GhostRabbit,
                 CardId.JetSynchron
-            }) && !Util.IsTurn1OrMain2()
-               && Bot.GetMonsterCount() > 0
-               && Bot.HasInExtra(CardId.CrystronNeedlefiber);
+            }) && !this.Util.IsTurn1OrMain2()
+               && this.Bot.GetMonsterCount() > 0
+               && this.Bot.HasInExtra(CardId.CrystronNeedlefiber);
         }
 
         private bool CrystronNeedlefiberSummon()
         {
-            return !Util.IsTurn1OrMain2();
+            return !this.Util.IsTurn1OrMain2();
         }
 
         private bool CrystronNeedlefiberEffect()
         {
-            AI.SelectCard(CardId.JetSynchron);
+            this.AI.SelectCard(CardId.JetSynchron);
             return true;
         }
 
         private bool SummonSorceressEffect()
         {
-            if (ActivateDescription == -1)
+            if (this.ActivateDescription == -1)
+            {
                 return false;
+            }
+
             return true;
         }
 
         private bool JetSynchronEffect()
         {
-            if (Bot.HasInMonstersZone(CardId.Raye) || Bot.HasInMonstersZone(CardId.CrystronNeedlefiber))
+            if (this.Bot.HasInMonstersZone(CardId.Raye) || this.Bot.HasInMonstersZone(CardId.CrystronNeedlefiber))
             {
-                AI.SelectCard(GetDiscardHand());
-                AI.SelectPosition(CardPosition.FaceUpDefence);
+                this.AI.SelectCard(this.GetDiscardHand());
+                this.AI.SelectPosition(CardPosition.FaceUpDefence);
                 return true;
             }
             return false;
@@ -678,47 +766,62 @@ namespace WindBot.Game.AI.Decks
 
         private bool HandFull()
         {
-            return Bot.GetSpellCountWithoutField() < 4 && Bot.Hand.Count > 4;
+            return this.Bot.GetSpellCountWithoutField() < 4 && this.Bot.Hand.Count > 4;
         }
 
         private int GetDiscardHand()
         {
-            if (Bot.HasInHand(CardId.MetalfoesFusion))
+            if (this.Bot.HasInHand(CardId.MetalfoesFusion))
+            {
                 return CardId.MetalfoesFusion;
-            if (Bot.HasInHand(CardId.Raye) && !Bot.HasInGraveyard(CardId.Raye))
+            }
+
+            if (this.Bot.HasInHand(CardId.Raye) && !this.Bot.HasInGraveyard(CardId.Raye))
+            {
                 return CardId.Raye;
-            if (Bot.HasInHand(CardId.JetSynchron))
+            }
+
+            if (this.Bot.HasInHand(CardId.JetSynchron))
+            {
                 return CardId.JetSynchron;
-            if (Bot.HasInHand(CardId.ReinforcementOfTheArmy))
+            }
+
+            if (this.Bot.HasInHand(CardId.ReinforcementOfTheArmy))
+            {
                 return CardId.ReinforcementOfTheArmy;
-            if (Bot.HasInHand(CardId.FoolishBurialGoods))
+            }
+
+            if (this.Bot.HasInHand(CardId.FoolishBurialGoods))
+            {
                 return CardId.FoolishBurialGoods;
+            }
+
             return 0;
         }
 
         private int GetCardToSearch()
         {
-            if (!Bot.HasInHand(CardId.HornetDrones) && Bot.GetRemainingCount(CardId.HornetDrones, 3) > 0)
+            if (!this.Bot.HasInHand(CardId.HornetDrones) && this.Bot.GetRemainingCount(CardId.HornetDrones, 3) > 0)
             {
                 return CardId.HornetDrones;
             }
-            else if (Util.GetProblematicEnemyMonster() != null && Bot.GetRemainingCount(CardId.WidowAnchor, 3) > 0)
+            else if (this.Util.GetProblematicEnemyMonster() != null && this.Bot.GetRemainingCount(CardId.WidowAnchor, 3) > 0)
             {
                 return CardId.WidowAnchor;
             }
-            else if (EmptyMainMonsterZone() && Util.GetProblematicEnemyMonster() != null && Bot.GetRemainingCount(CardId.Afterburners, 1) > 0)
+            else if (this.EmptyMainMonsterZone() && this.Util.GetProblematicEnemyMonster() != null && this.Bot.GetRemainingCount(CardId.Afterburners, 1) > 0)
             {
                 return CardId.Afterburners;
             }
-            else if (EmptyMainMonsterZone() && Util.GetProblematicEnemySpell() != null && Bot.GetRemainingCount(CardId.JammingWave, 1) > 0)
+            else if (this.EmptyMainMonsterZone() && this.Util.GetProblematicEnemySpell() != null && this.Bot.GetRemainingCount(CardId.JammingWave, 1) > 0)
             {
                 return CardId.JammingWave;
             }
-            else if (!Bot.HasInHand(CardId.Raye) && !Bot.HasInMonstersZone(CardId.Raye) && Bot.GetRemainingCount(CardId.Raye, 3) > 0)
+            else if (!this.Bot.HasInHand(CardId.Raye) && !this.Bot.HasInMonstersZone(CardId.Raye) && this.Bot.GetRemainingCount(CardId.Raye, 3) > 0)
             {
                 return CardId.Raye;
             }
-            else if (!Bot.HasInHand(CardId.WidowAnchor) && !Bot.HasInSpellZone(CardId.WidowAnchor) && Bot.GetRemainingCount(CardId.WidowAnchor, 3) > 0)
+            else if (!this.Bot.HasInHand(CardId.WidowAnchor) && !this.Bot.HasInSpellZone(CardId.WidowAnchor) && this.Bot.GetRemainingCount(CardId.WidowAnchor, 3) > 0)
             {
                 return CardId.WidowAnchor;
             }
@@ -730,8 +833,10 @@ namespace WindBot.Game.AI.Decks
         {
             for (int i = 0; i < 5; i++)
             {
-                if (Bot.MonsterZone[i] != null)
+                if (this.Bot.MonsterZone[i] != null)
+                {
                     return false;
+                }
             }
             return true;
         }
@@ -739,7 +844,7 @@ namespace WindBot.Game.AI.Decks
         private bool HaveThreeSpellsInGrave()
         {
             int count = 0;
-            foreach(ClientCard card in Bot.Graveyard)
+            foreach(ClientCard card in this.Bot.Graveyard)
             {
                 if (card.IsSpell())
                 {
@@ -751,10 +856,12 @@ namespace WindBot.Game.AI.Decks
 
         private bool DefaultNoExecutor()
         {
-            foreach (CardExecutor exec in Executors)
+            foreach (CardExecutor exec in this.Executors)
             {
-                if (exec.Type == Type && exec.CardId == Card.Id)
+                if (exec.Type == this.ExecType && exec.CardId == this.Card.Id)
+                {
                     return false;
+                }
             }
             return true;
         }

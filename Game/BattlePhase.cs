@@ -12,9 +12,9 @@ namespace WindBot.Game
 
         public BattlePhase()
         {
-            AttackableCards = new List<ClientCard>();
-            ActivableCards = new List<ClientCard>();
-            ActivableDescs = new List<int>();
+            this.AttackableCards = new List<ClientCard>();
+            this.ActivableCards = new List<ClientCard>();
+            this.ActivableDescs = new List<int>();
         }
     }
 }

@@ -56,91 +56,91 @@ namespace WindBot.Game.AI.Decks
         public ST1732Executor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.Activate, CardId.CosmicCyclone, DefaultCosmicCyclone);
-            AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, DefaultMysticalSpaceTyphoon);
-            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
-            AddExecutor(ExecutorType.Activate, CardId.BookOfMoon, DefaultBookOfMoon);
+            this.AddExecutor(ExecutorType.Activate, CardId.CosmicCyclone, this.DefaultCosmicCyclone);
+            this.AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, this.DefaultMysticalSpaceTyphoon);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkHole, this.DefaultDarkHole);
+            this.AddExecutor(ExecutorType.Activate, CardId.BookOfMoon, this.DefaultBookOfMoon);
 
-            AddExecutor(ExecutorType.Activate, CardId.CynetUniverse, CynetUniverseEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.CynetUniverse, this.CynetUniverseEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.Linkslayer);
-            AddExecutor(ExecutorType.Activate, CardId.Linkslayer, LinkslayerEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Linkslayer);
+            this.AddExecutor(ExecutorType.Activate, CardId.Linkslayer, this.LinkslayerEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.LinkSpider);
-            AddExecutor(ExecutorType.Activate, CardId.LinkSpider);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.LinkSpider);
+            this.AddExecutor(ExecutorType.Activate, CardId.LinkSpider);
 
-            AddExecutor(ExecutorType.Activate, CardId.MindControl, MindControlEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.Backlinker);
-            AddExecutor(ExecutorType.Activate, CardId.Backlinker, BacklinkerEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.MindControl, this.MindControlEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Backlinker);
+            this.AddExecutor(ExecutorType.Activate, CardId.Backlinker, this.BacklinkerEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.BootStagguard, BootStagguardEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.BootStagguard, this.BootStagguardEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, MonsterRebornEffect);
-            AddExecutor(ExecutorType.Activate, CardId.MoonMirrorShield, MoonMirrorShieldEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, this.MonsterRebornEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.MoonMirrorShield, this.MoonMirrorShieldEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.CynetBackdoor, CynetBackdoorEffect);
-            AddExecutor(ExecutorType.Activate, CardId.RecodedAlive);
+            this.AddExecutor(ExecutorType.Activate, CardId.CynetBackdoor, this.CynetBackdoorEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.RecodedAlive);
 
-            AddExecutor(ExecutorType.Summon, CardId.BalancerLord, BalancerLordSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.BalancerLord, this.BalancerLordSummon);
 
-            AddExecutor(ExecutorType.Summon, CardId.ROMCloudia, ROMCloudiaSummon);
-            AddExecutor(ExecutorType.Activate, CardId.ROMCloudia, ROMCloudiaEffect);
+            this.AddExecutor(ExecutorType.Summon, CardId.ROMCloudia, this.ROMCloudiaSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.ROMCloudia, this.ROMCloudiaEffect);
 
-            AddExecutor(ExecutorType.Summon, CardId.Draconnet, DraconnetSummon);
-            AddExecutor(ExecutorType.Activate, CardId.Draconnet, DraconnetEffect);
+            this.AddExecutor(ExecutorType.Summon, CardId.Draconnet, this.DraconnetSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.Draconnet, this.DraconnetEffect);
 
-            AddExecutor(ExecutorType.Summon, CardId.Kleinant);
-            AddExecutor(ExecutorType.Activate, CardId.Kleinant, KleinantEffect);
+            this.AddExecutor(ExecutorType.Summon, CardId.Kleinant);
+            this.AddExecutor(ExecutorType.Activate, CardId.Kleinant, this.KleinantEffect);
 
-            AddExecutor(ExecutorType.Summon, CardId.RAMClouder);
-            AddExecutor(ExecutorType.Activate, CardId.RAMClouder, RAMClouderEffect);
+            this.AddExecutor(ExecutorType.Summon, CardId.RAMClouder);
+            this.AddExecutor(ExecutorType.Activate, CardId.RAMClouder, this.RAMClouderEffect);
 
-            AddExecutor(ExecutorType.SummonOrSet, CardId.DotScaper);
-            AddExecutor(ExecutorType.Activate, CardId.DotScaper, DotScaperEffect);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.DotScaper);
+            this.AddExecutor(ExecutorType.Activate, CardId.DotScaper, this.DotScaperEffect);
 
-            AddExecutor(ExecutorType.Summon, CardId.BalancerLord);
-            AddExecutor(ExecutorType.Summon, CardId.ROMCloudia);
-            AddExecutor(ExecutorType.Summon, CardId.Draconnet);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.Backlinker);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.Digitron);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.Bitron);
+            this.AddExecutor(ExecutorType.Summon, CardId.BalancerLord);
+            this.AddExecutor(ExecutorType.Summon, CardId.ROMCloudia);
+            this.AddExecutor(ExecutorType.Summon, CardId.Draconnet);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.Backlinker);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.Digitron);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.Bitron);
 
-            AddExecutor(ExecutorType.Activate, CardId.BalancerLord, BalancerLordEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.BalancerLord, this.BalancerLordEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.DecodeTalker, LinkSummon);
-            AddExecutor(ExecutorType.Activate, CardId.DecodeTalker);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.DecodeTalker, this.LinkSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.DecodeTalker);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.TriGateWizard, LinkSummon);
-            AddExecutor(ExecutorType.Activate, CardId.TriGateWizard);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.TriGateWizard, this.LinkSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.TriGateWizard);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.EncodeTalker, LinkSummon);
-            AddExecutor(ExecutorType.Activate, CardId.EncodeTalker);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.EncodeTalker, this.LinkSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.EncodeTalker);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.Honeybot, LinkSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.BinarySorceress, LinkSummon);
-            AddExecutor(ExecutorType.Activate, CardId.BinarySorceress);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Honeybot, this.LinkSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.BinarySorceress, this.LinkSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.BinarySorceress);
 
-            AddExecutor(ExecutorType.SpellSet, CardId.CynetBackdoor, DefaultSpellSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.RecodedAlive, DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.CynetBackdoor, this.DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.RecodedAlive, this.DefaultSpellSet);
 
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, DefaultSpellSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.CompulsoryEvacuationDevice, DefaultSpellSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.DimensionalBarrier, DefaultSpellSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.TorrentialTribute, DefaultSpellSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.MirrorForce, DefaultSpellSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.BottomlessTrapHole, DefaultSpellSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.BookOfMoon, DefaultSpellSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.CosmicCyclone, DefaultSpellSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.MysticalSpaceTyphoon, DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, this.DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.CompulsoryEvacuationDevice, this.DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DimensionalBarrier, this.DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.TorrentialTribute, this.DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.MirrorForce, this.DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.BottomlessTrapHole, this.DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.BookOfMoon, this.DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.CosmicCyclone, this.DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.MysticalSpaceTyphoon, this.DefaultSpellSet);
 
-            AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, DefaultSolemnStrike);
-            AddExecutor(ExecutorType.Activate, CardId.CompulsoryEvacuationDevice, DefaultCompulsoryEvacuationDevice);
-            AddExecutor(ExecutorType.Activate, CardId.DimensionalBarrier, DefaultDimensionalBarrier);
-            AddExecutor(ExecutorType.Activate, CardId.TorrentialTribute, DefaultTorrentialTribute);
-            AddExecutor(ExecutorType.Activate, CardId.MirrorForce, DefaultUniqueTrap);
-            AddExecutor(ExecutorType.Activate, CardId.BottomlessTrapHole, DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, this.DefaultSolemnStrike);
+            this.AddExecutor(ExecutorType.Activate, CardId.CompulsoryEvacuationDevice, this.DefaultCompulsoryEvacuationDevice);
+            this.AddExecutor(ExecutorType.Activate, CardId.DimensionalBarrier, this.DefaultDimensionalBarrier);
+            this.AddExecutor(ExecutorType.Activate, CardId.TorrentialTribute, this.DefaultTorrentialTribute);
+            this.AddExecutor(ExecutorType.Activate, CardId.MirrorForce, this.DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.BottomlessTrapHole, this.DefaultUniqueTrap);
 
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
         }
 
         public override bool OnSelectHand()
@@ -152,7 +152,7 @@ namespace WindBot.Game.AI.Decks
         public override void OnNewTurn()
         {
             // reset
-            BalancerLordUsed = false;
+            this.BalancerLordUsed = false;
         }
 
         public override int OnSelectOption(IList<int> options)
@@ -164,24 +164,30 @@ namespace WindBot.Game.AI.Decks
         public override bool OnSelectYesNo(int desc)
         {
             if (desc == 210) // Continue selecting? (Link Summoning)
+            {
                 return false;
+            }
+
             if (desc == 31) // Direct Attack?
+            {
                 return true;
+            }
+
             return base.OnSelectYesNo(desc);
         }
 
         private bool LinkslayerEffect()
         {
-            IList<ClientCard> targets = Enemy.GetSpells();
+            IList<ClientCard> targets = this.Enemy.GetSpells();
             if (targets.Count > 0)
             {
-                AI.SelectCard(
+                this.AI.SelectCard(
                     CardId.DualAssembloom,
                     CardId.Bitron,
                     CardId.Digitron,
                     CardId.RecodedAlive
                     );
-                AI.SelectNextCard(targets);
+                this.AI.SelectNextCard(targets);
                 return true;
             }
             return false;
@@ -189,10 +195,10 @@ namespace WindBot.Game.AI.Decks
 
         private bool MindControlEffect()
         {
-            ClientCard target = Util.GetBestEnemyMonster();
+            ClientCard target = this.Util.GetBestEnemyMonster();
             if (target != null)
             {
-                AI.SelectCard(target);
+                this.AI.SelectCard(target);
                 return true;
             }
             return false;
@@ -200,13 +206,16 @@ namespace WindBot.Game.AI.Decks
 
         private bool BacklinkerEffect()
         {
-            return (Bot.MonsterZone[5] == null) && (Bot.MonsterZone[6] == null);
+            return (this.Bot.MonsterZone[5] == null) && (this.Bot.MonsterZone[6] == null);
         }
 
         private bool BootStagguardEffect()
         {
-            if (Card.Location != CardLocation.Hand)
-                AI.SelectPosition(CardPosition.FaceUpDefence);
+            if (this.Card.Location != CardLocation.Hand)
+            {
+                this.AI.SelectPosition(CardPosition.FaceUpDefence);
+            }
+
             return true;
         }
 
@@ -227,19 +236,19 @@ namespace WindBot.Game.AI.Decks
                     CardId.Backlinker,
                     CardId.Kleinant
                 };
-            if (!Bot.HasInGraveyard(targets))
+            if (!this.Bot.HasInGraveyard(targets))
             {
                 return false;
             }
-            AI.SelectCard(targets);
+            this.AI.SelectCard(targets);
             return true;
         }
 
         private bool MoonMirrorShieldEffect()
         {
-            foreach (ClientCard monster in Bot.GetMonsters())
+            foreach (ClientCard monster in this.Bot.GetMonsters())
             {
-                AI.SelectCard(monster);
+                this.AI.SelectCard(monster);
                 return true;
             }
             return false;
@@ -247,13 +256,16 @@ namespace WindBot.Game.AI.Decks
 
         private bool CynetUniverseEffect()
         {
-            if (Card.Location == CardLocation.Hand)
-                return DefaultField();
-            foreach (ClientCard card in Enemy.Graveyard)
+            if (this.Card.Location == CardLocation.Hand)
+            {
+                return this.DefaultField();
+            }
+
+            foreach (ClientCard card in this.Enemy.Graveyard)
             {
                 if (card.IsMonster())
                 {
-                    AI.SelectCard(card);
+                    this.AI.SelectCard(card);
                     return true;
                 }
             }
@@ -262,31 +274,34 @@ namespace WindBot.Game.AI.Decks
 
         private bool CynetBackdoorEffect()
         {
-            if (!(Duel.Player == 0 && Duel.Phase == DuelPhase.Main2) &&
-                !(Duel.Player == 1 && (Duel.Phase == DuelPhase.BattleStart || Duel.Phase == DuelPhase.End)))
+            if (!(this.Duel.Player == 0 && this.Duel.Phase == DuelPhase.Main2) &&
+                !(this.Duel.Player == 1 && (this.Duel.Phase == DuelPhase.BattleStart || this.Duel.Phase == DuelPhase.End)))
             {
                 return false;
             }
-            if (!UniqueFaceupSpell())
+            if (!this.UniqueFaceupSpell())
+            {
                 return false;
+            }
+
             bool selected = false;
-            foreach (ClientCard monster in Bot.GetMonstersInExtraZone())
+            foreach (ClientCard monster in this.Bot.GetMonstersInExtraZone())
             {
                 if (monster.Attack > 1000)
                 {
-                    AI.SelectCard(monster);
+                    this.AI.SelectCard(monster);
                     selected = true;
                     break;
                 }
             }
             if (!selected)
             {
-                List<ClientCard> monsters = Bot.GetMonsters();
+                List<ClientCard> monsters = this.Bot.GetMonsters();
                 foreach (ClientCard monster in monsters)
                 {
                     if (monster.IsCode(CardId.BalancerLord))
                     {
-                        AI.SelectCard(monster);
+                        this.AI.SelectCard(monster);
                         selected = true;
                         break;
                     }
@@ -297,7 +312,7 @@ namespace WindBot.Game.AI.Decks
                     {
                         if (monster.Attack >= 1700)
                         {
-                            AI.SelectCard(monster);
+                            this.AI.SelectCard(monster);
                             selected = true;
                             break;
                         }
@@ -306,7 +321,7 @@ namespace WindBot.Game.AI.Decks
             }
             if (selected)
             {
-                AI.SelectNextCard(
+                this.AI.SelectNextCard(
                     CardId.ROMCloudia,
                     CardId.BalancerLord,
                     CardId.Kleinant,
@@ -320,14 +335,17 @@ namespace WindBot.Game.AI.Decks
 
         private bool BalancerLordSummon()
         {
-            return !BalancerLordUsed;
+            return !this.BalancerLordUsed;
         }
 
         private bool BalancerLordEffect()
         {
-            if (Card.Location == CardLocation.Removed)
+            if (this.Card.Location == CardLocation.Removed)
+            {
                 return true;
-            bool hastarget = Bot.HasInHand(new[] {
+            }
+
+            bool hastarget = this.Bot.HasInHand(new[] {
                     CardId.Draconnet,
                     CardId.Kleinant,
                     CardId.BalancerLord,
@@ -335,9 +353,9 @@ namespace WindBot.Game.AI.Decks
                     CardId.RAMClouder,
                     CardId.DotScaper
                 });
-            if (hastarget && !BalancerLordUsed)
+            if (hastarget && !this.BalancerLordUsed)
             {
-                BalancerLordUsed = true;
+                this.BalancerLordUsed = true;
                 return true;
             }
             return false;
@@ -345,7 +363,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool ROMCloudiaSummon()
         {
-            return Bot.HasInGraveyard(new[] {
+            return this.Bot.HasInGraveyard(new[] {
                     CardId.BootStagguard,
                     CardId.BalancerLord,
                     CardId.Kleinant,
@@ -357,9 +375,9 @@ namespace WindBot.Game.AI.Decks
 
         private bool ROMCloudiaEffect()
         {
-            if (Card.Location == CardLocation.MonsterZone)
+            if (this.Card.Location == CardLocation.MonsterZone)
             {
-                AI.SelectCard(
+                this.AI.SelectCard(
                     CardId.BootStagguard,
                     CardId.BalancerLord,
                     CardId.Kleinant,
@@ -371,7 +389,7 @@ namespace WindBot.Game.AI.Decks
             }
             else
             {
-                AI.SelectCard(
+                this.AI.SelectCard(
                     CardId.BalancerLord,
                     CardId.Kleinant,
                     CardId.RAMClouder,
@@ -383,13 +401,13 @@ namespace WindBot.Game.AI.Decks
 
         private bool DraconnetSummon()
         {
-            return Bot.GetRemainingCount(CardId.Digitron, 1) > 0
-                || Bot.GetRemainingCount(CardId.Bitron, 1) > 0;
+            return this.Bot.GetRemainingCount(CardId.Digitron, 1) > 0
+                || this.Bot.GetRemainingCount(CardId.Bitron, 1) > 0;
         }
 
         private bool DraconnetEffect()
         {
-            AI.SelectCard(CardId.Bitron);
+            this.AI.SelectCard(CardId.Bitron);
             return true;
         }
 
@@ -401,11 +419,11 @@ namespace WindBot.Game.AI.Decks
                 CardId.Digitron,
                 CardId.DotScaper
             };
-            foreach (ClientCard monster in Bot.Hand)
+            foreach (ClientCard monster in this.Bot.Hand)
             {
                 if (monster.IsCode(targets))
                 {
-                    AI.SelectCard(targets);
+                    this.AI.SelectCard(targets);
                     return true;
                 }
             }
@@ -415,11 +433,11 @@ namespace WindBot.Game.AI.Decks
                 CardId.Digitron,
                 CardId.DotScaper
             };
-            foreach (ClientCard monster in Bot.GetMonsters())
+            foreach (ClientCard monster in this.Bot.GetMonsters())
             {
                 if (monster.IsCode(targets2))
                 {
-                    AI.SelectCard(targets2);
+                    this.AI.SelectCard(targets2);
                     return true;
                 }
             }
@@ -428,7 +446,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool RAMClouderEffect()
         {
-            AI.SelectCard(
+            this.AI.SelectCard(
                 CardId.StagToken,
                 CardId.Bitron,
                 CardId.Digitron,
@@ -437,7 +455,7 @@ namespace WindBot.Game.AI.Decks
                 CardId.Backlinker,
                 CardId.RAMClouder
                 );
-            AI.SelectNextCard(
+            this.AI.SelectNextCard(
                 CardId.DecodeTalker,
                 CardId.EncodeTalker,
                 CardId.TriGateWizard,
@@ -455,14 +473,14 @@ namespace WindBot.Game.AI.Decks
 
         private bool DotScaperEffect()
         {
-            AI.SelectPosition(CardPosition.FaceUpDefence);
+            this.AI.SelectPosition(CardPosition.FaceUpDefence);
             return true;
         }
 
         private bool LinkSummon()
         {
-            return (Util.IsTurn1OrMain2() || Util.IsOneEnemyBetter())
-                && Util.GetBestAttack(Bot) < Card.Attack;
+            return (this.Util.IsTurn1OrMain2() || this.Util.IsOneEnemyBetter())
+                && this.Util.GetBestAttack(this.Bot) < this.Card.Attack;
         }
     }
 }

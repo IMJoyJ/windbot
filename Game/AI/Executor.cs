@@ -10,6 +10,8 @@ namespace WindBot.Game.AI
 {
     public abstract class Executor
     {
+        public Dictionary<int, int> EffectsUsedInTurnEnemy = new Dictionary<int, int>();
+        public Dictionary<int, int> EffectsUsedInTurnSelf = new Dictionary<int, int>();
         public string Deck { get; set; }
         public Duel Duel { get; private set; }
         public IList<CardExecutor> Executors { get; private set; }
@@ -19,7 +21,7 @@ namespace WindBot.Game.AI
         protected MainPhase Main { get; private set; }
         protected BattlePhase Battle { get; private set; }
 
-        protected ExecutorType Type { get; private set; }
+        protected ExecutorType ExecType { get; private set; }
         protected ClientCard Card { get; private set; }
         protected int ActivateDescription { get; private set; }
 
@@ -28,13 +30,13 @@ namespace WindBot.Game.AI
 
         protected Executor(GameAI ai, Duel duel)
         {
-            Duel = duel;
-            AI = ai;
-            Util = new AIUtil(duel);
-            Executors = new List<CardExecutor>();
+            this.Duel = duel;
+            this.AI = ai;
+            this.Util = new AIUtil(duel);
+            this.Executors = new List<CardExecutor>();
 
-            Bot = Duel.Fields[0];
-            Enemy = Duel.Fields[1];
+            this.Bot = this.Duel.Fields[0];
+            this.Enemy = this.Duel.Fields[1];
         }
 
         public virtual int OnRockPaperScissors()
@@ -45,6 +47,15 @@ namespace WindBot.Game.AI
         public virtual bool OnSelectHand()
         {
             return Program.Rand.Next(2) > 0;
+        }
+
+        public virtual bool IsEffectUsedInTurn(int code, bool IsEnemy = false)
+        {
+            if (IsEnemy)
+            {
+                return EffectsUsedInTurnEnemy.ContainsKey(code) && EffectsUsedInTurnEnemy[code] == this.Duel.Turn;
+            }
+            return EffectsUsedInTurnSelf.ContainsKey(code) && EffectsUsedInTurnSelf[code] == this.Duel.Turn;
         }
 
         /// <summary>
@@ -201,12 +212,12 @@ namespace WindBot.Game.AI
 
         public void SetMain(MainPhase main)
         {
-            Main = main;
+            this.Main = main;
         }
 
         public void SetBattle(BattlePhase battle)
         {
-            Battle = battle;
+            this.Battle = battle;
         }
 
         /// <summary>
@@ -214,9 +225,9 @@ namespace WindBot.Game.AI
         /// </summary>
         public void SetCard(ExecutorType type, ClientCard card, int description)
         {
-            Type = type;
-            Card = card;
-            ActivateDescription = description;
+            this.ExecType = type;
+            this.Card = card;
+            this.ActivateDescription = description;
         }
 
         /// <summary>
@@ -224,7 +235,7 @@ namespace WindBot.Game.AI
         /// </summary>
         public void AddExecutor(ExecutorType type, int cardId, Func<bool> func)
         {
-            Executors.Add(new CardExecutor(type, cardId, func));
+            this.Executors.Add(new CardExecutor(type, cardId, func));
         }
 
         /// <summary>
@@ -232,7 +243,7 @@ namespace WindBot.Game.AI
         /// </summary>
         public void AddExecutor(ExecutorType type, int cardId)
         {
-            Executors.Add(new CardExecutor(type, cardId, null));
+            this.Executors.Add(new CardExecutor(type, cardId, null));
         }
 
         /// <summary>
@@ -240,7 +251,7 @@ namespace WindBot.Game.AI
         /// </summary>
         public void AddExecutor(ExecutorType type, Func<bool> func)
         {
-            Executors.Add(new CardExecutor(type, -1, func));
+            this.Executors.Add(new CardExecutor(type, -1, func));
         }
 
         /// <summary>
@@ -248,12 +259,12 @@ namespace WindBot.Game.AI
         /// </summary>
         public void AddExecutor(ExecutorType type)
         {
-            Executors.Add(new CardExecutor(type, -1, DefaultNoExecutor));
+            this.Executors.Add(new CardExecutor(type, -1, this.DefaultNoExecutor));
         }
 
         private bool DefaultNoExecutor()
         {
-            return Executors.All(exec => exec.Type != Type || exec.CardId != Card.Id);
+            return this.Executors.All(exec => exec.Type != this.ExecType || exec.CardId != this.Card.Id);
         }
     }
 }

@@ -37,53 +37,64 @@ namespace WindBot.Game.AI.Decks
 
         public HorusExecutor(GameAI ai, Duel duel) : base(ai, duel)
         {
-            AddExecutor(ExecutorType.SpellSet, DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, this.DefaultSpellSet);
 
-            AddExecutor(ExecutorType.Activate, CardId.HorusTheBlackFlameDragonLv6);
-            AddExecutor(ExecutorType.Activate, CardId.StampingDestruction, DefaultMysticalSpaceTyphoon);
-            AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, DefaultMysticalSpaceTyphoon);
-            AddExecutor(ExecutorType.Activate, CardId.FoolishBurial, FoolishBurial);
-            AddExecutor(ExecutorType.Activate, CardId.Mountain, DefaultField);
-            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
+            this.AddExecutor(ExecutorType.Activate, CardId.HorusTheBlackFlameDragonLv6);
+            this.AddExecutor(ExecutorType.Activate, CardId.StampingDestruction, this.DefaultMysticalSpaceTyphoon);
+            this.AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, this.DefaultMysticalSpaceTyphoon);
+            this.AddExecutor(ExecutorType.Activate, CardId.FoolishBurial, this.FoolishBurial);
+            this.AddExecutor(ExecutorType.Activate, CardId.Mountain, this.DefaultField);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkHole, this.DefaultDarkHole);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.CyberDragon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CyberDragon);
 
-            AddExecutor(ExecutorType.Activate, CardId.Raigeki, DefaultRaigeki);
-            AddExecutor(ExecutorType.Activate, CardId.HammerShot, DefaultHammerShot);
-            AddExecutor(ExecutorType.Activate, CardId.Fissure);
+            this.AddExecutor(ExecutorType.Activate, CardId.Raigeki, this.DefaultRaigeki);
+            this.AddExecutor(ExecutorType.Activate, CardId.HammerShot, this.DefaultHammerShot);
+            this.AddExecutor(ExecutorType.Activate, CardId.Fissure);
 
-            AddExecutor(ExecutorType.Activate, CardId.BellowOfTheSilverDragon, BellowOfTheSilverDragon);
-            AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, MonsterReborn);
+            this.AddExecutor(ExecutorType.Activate, CardId.BellowOfTheSilverDragon, this.BellowOfTheSilverDragon);
+            this.AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, this.MonsterReborn);
 
-            AddExecutor(ExecutorType.Summon, CardId.WhiteNightDragon, WhiteNightDragon);
-            AddExecutor(ExecutorType.Summon, CardId.HorusTheBlackFlameDragonLv6, DefaultTributeSummon);
-            AddExecutor(ExecutorType.Summon, CardId.AlexandriteDragon);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.AxeDragonute);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.DodgerDragon);
-            AddExecutor(ExecutorType.MonsterSet, CardId.GolemDragon);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.LusterDragon);
+            this.AddExecutor(ExecutorType.Summon, CardId.WhiteNightDragon, this.WhiteNightDragon);
+            this.AddExecutor(ExecutorType.Summon, CardId.HorusTheBlackFlameDragonLv6, this.DefaultTributeSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.AlexandriteDragon);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.AxeDragonute);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.DodgerDragon);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.GolemDragon);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.LusterDragon);
 
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
 
-            AddExecutor(ExecutorType.Activate, CardId.HorusTheBlackFlameDragonLv8, HorusTheBlackFlameDragonLv8);
-            AddExecutor(ExecutorType.Activate, CardId.MirrorForce, DefaultTrap);
-            AddExecutor(ExecutorType.Activate, CardId.DimensionalPrison, DefaultTrap);
-            AddExecutor(ExecutorType.Activate, CardId.DragonsRebirth, DragonsRebirth);
+            this.AddExecutor(ExecutorType.Activate, CardId.HorusTheBlackFlameDragonLv8, this.HorusTheBlackFlameDragonLv8);
+            this.AddExecutor(ExecutorType.Activate, CardId.MirrorForce, this.DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.DimensionalPrison, this.DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.DragonsRebirth, this.DragonsRebirth);
         }
 
         private bool FoolishBurial()
         {
-            if (Bot.HasInGraveyard(CardId.WhiteNightDragon))
+            if (this.Bot.HasInGraveyard(CardId.WhiteNightDragon))
+            {
                 return false;
-            if (Bot.HasInHand(CardId.WhiteNightDragon))
+            }
+
+            if (this.Bot.HasInHand(CardId.WhiteNightDragon))
+            {
                 return false;
+            }
+
             int remaining = 2;
-            foreach (ClientCard card in Bot.Banished)
+            foreach (ClientCard card in this.Bot.Banished)
+            {
                 if (card.IsCode(CardId.WhiteNightDragon))
+                {
                     remaining--;
+                }
+            }
+
             if (remaining > 0)
             {
-                AI.SelectCard(CardId.WhiteNightDragon);
+                this.AI.SelectCard(CardId.WhiteNightDragon);
                 return true;
             }
             return false;
@@ -91,21 +102,29 @@ namespace WindBot.Game.AI.Decks
 
         private bool BellowOfTheSilverDragon()
         {
-            if (Duel.Player == 0 && (Duel.Phase == DuelPhase.Draw || Duel.Phase == DuelPhase.Standby))
+            if (this.Duel.Player == 0 && (this.Duel.Phase == DuelPhase.Draw || this.Duel.Phase == DuelPhase.Standby))
+            {
                 return false;
-            if (Duel.Player == 1 && Duel.Phase == DuelPhase.End)
-                return false;
+            }
 
-            List<ClientCard> cards = new List<ClientCard>(Bot.Graveyard);
+            if (this.Duel.Player == 1 && this.Duel.Phase == DuelPhase.End)
+            {
+                return false;
+            }
+
+            List<ClientCard> cards = new List<ClientCard>(this.Bot.Graveyard);
             cards.Sort(CardContainer.CompareCardAttack);
             for (int i = cards.Count - 1; i >= 0; --i)
             {
                 ClientCard card = cards[i];
                 if (card.Attack < 1000)
+                {
                     return false;
+                }
+
                 if (card.IsMonster() && card.HasType(CardType.Normal))
                 {
-                    AI.SelectCard(card);
+                    this.AI.SelectCard(card);
                     return true;
                 }
             }
@@ -114,27 +133,33 @@ namespace WindBot.Game.AI.Decks
 
         private bool MonsterReborn()
         {
-            List<ClientCard> cards = new List<ClientCard>(Bot.Graveyard.GetMatchingCards(card => card.IsCanRevive()));
+            List<ClientCard> cards = new List<ClientCard>(this.Bot.Graveyard.GetMatchingCards(card => card.IsCanRevive()));
             cards.Sort(CardContainer.CompareCardAttack);
             ClientCard selectedCard = null;
             for (int i = cards.Count - 1; i >= 0; --i)
             {
                 ClientCard card = cards[i];
                 if (card.Attack < 1000)
+                {
                     break;
+                }
+
                 if (card.IsMonster())
                 {
                     selectedCard = card;
                     break;
                 }
             }
-            cards = new List<ClientCard>(Enemy.Graveyard.GetMatchingCards(card => card.IsCanRevive()));
+            cards = new List<ClientCard>(this.Enemy.Graveyard.GetMatchingCards(card => card.IsCanRevive()));
             cards.Sort(CardContainer.CompareCardAttack);
             for (int i = cards.Count - 1; i >= 0; --i)
             {
                 ClientCard card = cards[i];
                 if (card.Attack < 1000)
+                {
                     break;
+                }
+
                 if (card.IsMonster() && card.HasType(CardType.Normal) && (selectedCard == null || card.Attack > selectedCard.Attack))
                 {
                     selectedCard = card;
@@ -143,7 +168,7 @@ namespace WindBot.Game.AI.Decks
             }
             if (selectedCard != null)
             {
-                AI.SelectCard(selectedCard);
+                this.AI.SelectCard(selectedCard);
                 return true;
             }
             return false;
@@ -152,30 +177,42 @@ namespace WindBot.Game.AI.Decks
         private bool WhiteNightDragon()
         {
             // We should summon Horus the Black Flame Dragon LV6 if he can lvlup.
-            if (Enemy.GetMonsterCount() != 0 && !Util.IsAllEnemyBetterThanValue(2300 - 1, false))
-                foreach (ClientCard card in Main.SummonableCards)
+            if (this.Enemy.GetMonsterCount() != 0 && !this.Util.IsAllEnemyBetterThanValue(2300 - 1, false))
+            {
+                foreach (ClientCard card in this.Main.SummonableCards)
+                {
                     if (card.IsCode(11224103))
+                    {
                         return false;
+                    }
+                }
+            }
 
-            return DefaultTributeSummon();
+            return this.DefaultTributeSummon();
         }
 
         private bool HorusTheBlackFlameDragonLv8()
         {
-            return Duel.LastChainPlayer == 1;
+            return this.Duel.LastChainPlayer == 1;
         }
 
         private bool DragonsRebirth()
         {
-            List<ClientCard> cards = new List<ClientCard>(Bot.GetMonsters());
+            List<ClientCard> cards = new List<ClientCard>(this.Bot.GetMonsters());
             if (cards.Count == 0)
+            {
                 return false;
+            }
+
             cards.Sort(CardContainer.CompareCardAttack);
             ClientCard tributeCard = null;
             foreach (ClientCard monster in cards)
             {
                 if (monster.Attack > 2000)
+                {
                     return false;
+                }
+
                 if (!monster.IsFacedown() && monster.Race == (int)CardRace.Dragon)
                 {
                     tributeCard = monster;
@@ -184,19 +221,27 @@ namespace WindBot.Game.AI.Decks
             }
 
             if (tributeCard == null)
+            {
                 return false;
+            }
 
-            cards = new List<ClientCard>(Bot.Hand);
-            cards.AddRange(Bot.Graveyard);
+            cards = new List<ClientCard>(this.Bot.Hand);
+            cards.AddRange(this.Bot.Graveyard);
             if (cards.Count == 0)
+            {
                 return false;
+            }
+
             cards.Sort(CardContainer.CompareCardAttack);
             ClientCard summonCard = null;
             for (int i = cards.Count - 1; i >= 0; --i)
             {
                 ClientCard monster = cards[i];
                 if (monster.Attack < 2300)
+                {
                     return false;
+                }
+
                 if (monster.Race == (int)CardRace.Dragon && !monster.IsCode(CardId.HorusTheBlackFlameDragonLv8))
                 {
                     summonCard = monster;
@@ -205,10 +250,12 @@ namespace WindBot.Game.AI.Decks
             }
 
             if (summonCard == null)
+            {
                 return false;
+            }
 
-            AI.SelectCard(tributeCard);
-            AI.SelectNextCard(summonCard);
+            this.AI.SelectCard(tributeCard);
+            this.AI.SelectNextCard(summonCard);
 
             return true;
         }

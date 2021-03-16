@@ -19,25 +19,25 @@
 
         public MainPhaseAction(MainAction action)
         {
-            Action = action;
-            Index = 0;
+            this.Action = action;
+            this.Index = 0;
         }
 
         public MainPhaseAction(MainAction action, int index)
         {
-            Action = action;
-            Index = index;
+            this.Action = action;
+            this.Index = index;
         }
 
         public MainPhaseAction(MainAction action, int[] indexes)
         {
-            Action = action;
-            Index = indexes[(int)action];
+            this.Action = action;
+            this.Index = indexes[(int)action];
         }
 
         public int ToValue()
         {
-            return (Index << 16) + (int)Action;
+            return (this.Index << 16) + (int)this.Action;
         }
     }
 }

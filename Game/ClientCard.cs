@@ -60,28 +60,34 @@ namespace WindBot.Game
 
         public ClientCard(int id, CardLocation loc, int sequence, int position)
         {
-            SetId(id);
-            Sequence = sequence;
-            Position = position;
-            Overlays = new List<int>();
-            EquipCards = new List<ClientCard>();
-            OwnTargets = new List<ClientCard>();
-            TargetCards = new List<ClientCard>();
-            ActionIndex = new int[16];
-            ActionActivateIndex = new Dictionary<int, int>();
-            Location = loc;
+            this.SetId(id);
+            this.Sequence = sequence;
+            this.Position = position;
+            this.Overlays = new List<int>();
+            this.EquipCards = new List<ClientCard>();
+            this.OwnTargets = new List<ClientCard>();
+            this.TargetCards = new List<ClientCard>();
+            this.ActionIndex = new int[16];
+            this.ActionActivateIndex = new Dictionary<int, int>();
+            this.Location = loc;
         }
 
         public void SetId(int id)
         {
-            if (Id == id) return;
-            Id = id;
-            Data = NamedCard.Get(Id);
-            if (Data != null)
+            if (this.Id == id)
             {
-                Name = Data.Name;
-                if (Data.Alias != 0)
-                    Alias = Data.Alias;
+                return;
+            }
+
+            this.Id = id;
+            this.Data = NamedCard.Get(this.Id);
+            if (this.Data != null)
+            {
+                this.Name = this.Data.Name;
+                if (this.Data.Alias != 0)
+                {
+                    this.Alias = this.Data.Alias;
+                }
             }
         }
 
@@ -89,281 +95,394 @@ namespace WindBot.Game
         {
             int flag = packet.ReadInt32();
             if ((flag & (int)Query.Code) != 0)
-                SetId(packet.ReadInt32());
+            {
+                this.SetId(packet.ReadInt32());
+            }
+
             if ((flag & (int)Query.Position) != 0)
             {
-                Controller = duel.GetLocalPlayer(packet.ReadByte());
-                Location = (CardLocation)packet.ReadByte();
-                Sequence = packet.ReadByte();
-                Position = packet.ReadByte();
+                this.Controller = duel.GetLocalPlayer(packet.ReadByte());
+                this.Location = (CardLocation)packet.ReadByte();
+                this.Sequence = packet.ReadByte();
+                this.Position = packet.ReadByte();
             }
             if ((flag & (int)Query.Alias) != 0)
-                Alias = packet.ReadInt32();
+            {
+                this.Alias = packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.Type) != 0)
-                Type = packet.ReadInt32();
+            {
+                this.Type = packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.Level) != 0)
-                Level = packet.ReadInt32();
+            {
+                this.Level = packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.Rank) != 0)
-                Rank = packet.ReadInt32();
+            {
+                this.Rank = packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.Attribute) != 0)
-                Attribute = packet.ReadInt32();
+            {
+                this.Attribute = packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.Race) != 0)
-                Race = packet.ReadInt32();
+            {
+                this.Race = packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.Attack) != 0)
-                Attack = packet.ReadInt32();
+            {
+                this.Attack = packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.Defence) != 0)
-                Defense = packet.ReadInt32();
+            {
+                this.Defense = packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.BaseAttack) != 0)
-                BaseAttack = packet.ReadInt32();
+            {
+                this.BaseAttack = packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.BaseDefence) != 0)
-                BaseDefense = packet.ReadInt32();
+            {
+                this.BaseDefense = packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.Reason) != 0)
+            {
                 packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.ReasonCard) != 0)
+            {
                 packet.ReadInt32(); // Int8 * 4
+            }
+
             if ((flag & (int)Query.EquipCard) != 0)
+            {
                 packet.ReadInt32(); // Int8 * 4
+            }
+
             if ((flag & (int)Query.TargetCard) != 0)
             {
                 int count = packet.ReadInt32();
                 for (int i = 0; i < count; ++i)
+                {
                     packet.ReadInt32(); // Int8 * 4
+                }
             }
             if ((flag & (int)Query.OverlayCard) != 0)
             {
-                Overlays.Clear();
+                this.Overlays.Clear();
                 int count = packet.ReadInt32();
                 for (int i = 0; i < count; ++i)
-                    Overlays.Add(packet.ReadInt32());
+                {
+                    this.Overlays.Add(packet.ReadInt32());
+                }
             }
             if ((flag & (int)Query.Counters) != 0)
             {
                 int count = packet.ReadInt32();
                 for (int i = 0; i < count; ++i)
+                {
                     packet.ReadInt32(); // Int16 * 2
+                }
             }
             if ((flag & (int)Query.Owner) != 0)
-                Owner = duel.GetLocalPlayer(packet.ReadInt32());
+            {
+                this.Owner = duel.GetLocalPlayer(packet.ReadInt32());
+            }
+
             if ((flag & (int)Query.Status) != 0) {
                 int status = packet.ReadInt32();
                 const int STATUS_DISABLED = 0x0001;
                 const int STATUS_PROC_COMPLETE = 0x0008;
-                Disabled = status & STATUS_DISABLED;
-                ProcCompleted = status & STATUS_PROC_COMPLETE;
+                this.Disabled = status & STATUS_DISABLED;
+                this.ProcCompleted = status & STATUS_PROC_COMPLETE;
             }
             if ((flag & (int)Query.LScale) != 0)
-                LScale = packet.ReadInt32();
+            {
+                this.LScale = packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.RScale) != 0)
-                RScale = packet.ReadInt32();
+            {
+                this.RScale = packet.ReadInt32();
+            }
+
             if ((flag & (int)Query.Link) != 0)
             {
-                LinkCount = packet.ReadInt32();
-                LinkMarker = packet.ReadInt32();
+                this.LinkCount = packet.ReadInt32();
+                this.LinkMarker = packet.ReadInt32();
             }
         }
 
         public void ClearCardTargets()
         {
-            foreach (ClientCard card in TargetCards)
+            foreach (ClientCard card in this.TargetCards)
             {
                 card.OwnTargets.Remove(this);
             }
-            foreach (ClientCard card in OwnTargets)
+            foreach (ClientCard card in this.OwnTargets)
             {
                 card.TargetCards.Remove(this);
             }
-            OwnTargets.Clear();
-            TargetCards.Clear();
+            this.OwnTargets.Clear();
+            this.TargetCards.Clear();
         }
 
         public bool HasLinkMarker(int dir)
         {
-            return (LinkMarker & dir) != 0;
+            return (this.LinkMarker & dir) != 0;
         }
 
         public bool HasLinkMarker(CardLinkMarker dir)
         {
-            return (LinkMarker & (int)dir) != 0;
+            return (this.LinkMarker & (int)dir) != 0;
         }
 
         public int GetLinkedZones()
         {
-            if (!HasType(CardType.Link) || Location != CardLocation.MonsterZone)
+            if (!this.HasType(CardType.Link) || this.Location != CardLocation.MonsterZone)
+            {
                 return 0;
-            int zones = 0;
-            if (Sequence > 0 && Sequence <= 4 && HasLinkMarker(CardLinkMarker.Left))
-                zones |= 1 << (Sequence - 1);
-            if (Sequence <= 3 && HasLinkMarker(CardLinkMarker.Right))
-                zones |= 1 << (Sequence + 1);
-            if (Sequence == 0 && HasLinkMarker(CardLinkMarker.TopRight)
-                || Sequence == 1 && HasLinkMarker(CardLinkMarker.Top)
-                || Sequence == 2 && HasLinkMarker(CardLinkMarker.TopLeft))
-                zones |= (1 << 5) | (1 << (16 + 6));
-            if (Sequence == 2 && HasLinkMarker(CardLinkMarker.TopRight)
-                || Sequence == 3 && HasLinkMarker(CardLinkMarker.Top)
-                || Sequence == 4 && HasLinkMarker(CardLinkMarker.TopLeft))
-                zones |= (1 << 6) | (1 << (16 + 5));
-            if (Sequence == 5)
-            {
-                if (HasLinkMarker(CardLinkMarker.BottomLeft))
-                    zones |= 1 << 0;
-                if (HasLinkMarker(CardLinkMarker.Bottom))
-                    zones |= 1 << 1;
-                if (HasLinkMarker(CardLinkMarker.BottomRight))
-                    zones |= 1 << 2;
-                if (HasLinkMarker(CardLinkMarker.TopLeft))
-                    zones |= 1 << (16 + 4);
-                if (HasLinkMarker(CardLinkMarker.Top))
-                    zones |= 1 << (16 + 3);
-                if (HasLinkMarker(CardLinkMarker.TopRight))
-                    zones |= 1 << (16 + 2);
             }
-            if (Sequence == 6)
+
+            int zones = 0;
+            if (this.Sequence > 0 && this.Sequence <= 4 && this.HasLinkMarker(CardLinkMarker.Left))
             {
-                if (HasLinkMarker(CardLinkMarker.BottomLeft))
+                zones |= 1 << (this.Sequence - 1);
+            }
+
+            if (this.Sequence <= 3 && this.HasLinkMarker(CardLinkMarker.Right))
+            {
+                zones |= 1 << (this.Sequence + 1);
+            }
+
+            if (this.Sequence == 0 && this.HasLinkMarker(CardLinkMarker.TopRight)
+                || this.Sequence == 1 && this.HasLinkMarker(CardLinkMarker.Top)
+                || this.Sequence == 2 && this.HasLinkMarker(CardLinkMarker.TopLeft))
+            {
+                zones |= (1 << 5) | (1 << (16 + 6));
+            }
+
+            if (this.Sequence == 2 && this.HasLinkMarker(CardLinkMarker.TopRight)
+                || this.Sequence == 3 && this.HasLinkMarker(CardLinkMarker.Top)
+                || this.Sequence == 4 && this.HasLinkMarker(CardLinkMarker.TopLeft))
+            {
+                zones |= (1 << 6) | (1 << (16 + 5));
+            }
+
+            if (this.Sequence == 5)
+            {
+                if (this.HasLinkMarker(CardLinkMarker.BottomLeft))
+                {
+                    zones |= 1 << 0;
+                }
+
+                if (this.HasLinkMarker(CardLinkMarker.Bottom))
+                {
+                    zones |= 1 << 1;
+                }
+
+                if (this.HasLinkMarker(CardLinkMarker.BottomRight))
+                {
                     zones |= 1 << 2;
-                if (HasLinkMarker(CardLinkMarker.Bottom))
-                    zones |= 1 << 3;
-                if (HasLinkMarker(CardLinkMarker.BottomRight))
-                    zones |= 1 << 4;
-                if (HasLinkMarker(CardLinkMarker.TopLeft))
+                }
+
+                if (this.HasLinkMarker(CardLinkMarker.TopLeft))
+                {
+                    zones |= 1 << (16 + 4);
+                }
+
+                if (this.HasLinkMarker(CardLinkMarker.Top))
+                {
+                    zones |= 1 << (16 + 3);
+                }
+
+                if (this.HasLinkMarker(CardLinkMarker.TopRight))
+                {
                     zones |= 1 << (16 + 2);
-                if (HasLinkMarker(CardLinkMarker.Top))
+                }
+            }
+            if (this.Sequence == 6)
+            {
+                if (this.HasLinkMarker(CardLinkMarker.BottomLeft))
+                {
+                    zones |= 1 << 2;
+                }
+
+                if (this.HasLinkMarker(CardLinkMarker.Bottom))
+                {
+                    zones |= 1 << 3;
+                }
+
+                if (this.HasLinkMarker(CardLinkMarker.BottomRight))
+                {
+                    zones |= 1 << 4;
+                }
+
+                if (this.HasLinkMarker(CardLinkMarker.TopLeft))
+                {
+                    zones |= 1 << (16 + 2);
+                }
+
+                if (this.HasLinkMarker(CardLinkMarker.Top))
+                {
                     zones |= 1 << (16 + 1);
-                if (HasLinkMarker(CardLinkMarker.TopRight))
+                }
+
+                if (this.HasLinkMarker(CardLinkMarker.TopRight))
+                {
                     zones |= 1 << (16 + 0);
+                }
             }
             return zones;
         }
 
         public bool HasType(CardType type)
         {
-            return (Type & (int)type) != 0;
+            return (this.Type & (int)type) != 0;
         }
 
         public bool HasPosition(CardPosition position)
         {
-            return (Position & (int)position) != 0;
+            return (this.Position & (int)position) != 0;
         }
 
         public bool HasAttribute(CardAttribute attribute)
         {
-            return (Attribute & (int)attribute) != 0;
+            return (this.Attribute & (int)attribute) != 0;
         }
 
         public bool HasRace(CardRace race)
         {
-            return (Race & (int)race) != 0;
+            return (this.Race & (int)race) != 0;
         }
 
         public bool HasSetcode(int setcode)
         {
-            if (Data == null) return false;
-            long setcodes = Data.Setcode;
+            if (this.Data == null)
+            {
+                return false;
+            }
+
+            long setcodes = this.Data.Setcode;
             int settype = setcode & 0xfff;
             int setsubtype = setcode & 0xf000;
             while (setcodes > 0)
             {
                 long check_setcode = setcodes & 0xffff;
                 setcodes >>= 16;
-                if ((check_setcode & 0xfff) == settype && (check_setcode & 0xf000 & setsubtype) == setsubtype) return true;
+                if ((check_setcode & 0xfff) == settype && (check_setcode & 0xf000 & setsubtype) == setsubtype)
+                {
+                    return true;
+                }
             }
             return false;
         }
 
         public bool IsMonster()
         {
-            return HasType(CardType.Monster);
+            return this.HasType(CardType.Monster);
         }
 
         public bool IsTuner()
         {
-            return HasType(CardType.Tuner);
+            return this.HasType(CardType.Tuner);
         }
 
         public bool IsSpell()
         {
-            return HasType(CardType.Spell);
+            return this.HasType(CardType.Spell);
         }
 
         public bool IsTrap()
         {
-            return HasType(CardType.Trap);
+            return this.HasType(CardType.Trap);
         }
 
         public bool IsExtraCard()
         {
-            return HasType(CardType.Fusion) || HasType(CardType.Synchro) || HasType(CardType.Xyz) || HasType(CardType.Link);
+            return this.HasType(CardType.Fusion) || this.HasType(CardType.Synchro) || this.HasType(CardType.Xyz) || this.HasType(CardType.Link);
         }
 
         public bool IsFaceup()
         {
-            return HasPosition(CardPosition.FaceUp);
+            return this.HasPosition(CardPosition.FaceUp);
         }
 
         public bool IsFacedown()
         {
-            return HasPosition(CardPosition.FaceDown);
+            return this.HasPosition(CardPosition.FaceDown);
         }
 
         public bool IsAttack()
         {
-            return HasPosition(CardPosition.Attack);
+            return this.HasPosition(CardPosition.Attack);
         }
 
         public bool IsDefense()
         {
-            return HasPosition(CardPosition.Defence);
+            return this.HasPosition(CardPosition.Defence);
         }
 
         public bool IsDisabled()
         {
-            return Disabled != 0;
+            return this.Disabled != 0;
         }
 
         public bool IsCanRevive()
         {
-            return ProcCompleted != 0 || !(IsExtraCard() || HasType(CardType.Ritual) || HasType(CardType.SpSummon));
+            return this.ProcCompleted != 0 || !(this.IsExtraCard() || this.HasType(CardType.Ritual) || this.HasType(CardType.SpSummon));
         }
 
         public bool IsCode(int id)
         {
-            return Id == id || Alias != 0 && Alias == id;
+            return this.Id == id || this.Alias != 0 && this.Alias == id;
         }
 
         public bool IsCode(IList<int> ids)
         {
-            return ids.Contains(Id) || Alias != 0 && ids.Contains(Alias);
+            return ids.Contains(this.Id) || this.Alias != 0 && ids.Contains(this.Alias);
         }
 
         public bool IsCode(params int[] ids)
         {
-            return ids.Contains(Id) || Alias != 0 && ids.Contains(Alias);
+            return ids.Contains(this.Id) || this.Alias != 0 && ids.Contains(this.Alias);
         }
 
         public bool IsOriginalCode(int id)
         {
-            return Id == id || Alias - Id < 10 && Alias == id;
+            return this.Id == id || this.Alias - this.Id < 10 && this.Alias == id;
         }
 
         public bool HasXyzMaterial()
         {
-            return Overlays.Count > 0;
+            return this.Overlays.Count > 0;
         }
 
         public bool HasXyzMaterial(int count)
         {
-            return Overlays.Count >= count;
+            return this.Overlays.Count >= count;
         }
 
         public bool HasXyzMaterial(int count, int cardid)
         {
-            return Overlays.Count >= count && Overlays.Contains(cardid);
+            return this.Overlays.Count >= count && this.Overlays.Contains(cardid);
         }
 
         public int GetDefensePower()
         {
-            return IsAttack() ? Attack : Defense;
+            return this.IsAttack() ? this.Attack : this.Defense;
         }
 
         public bool Equals(ClientCard card)

@@ -20,19 +20,23 @@ namespace WindBot.Game.AI.Decks
         public MokeyMokeyKingExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.SpSummon);
-            AddExecutor(ExecutorType.SummonOrSet);
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
-            AddExecutor(ExecutorType.Activate, DefaultField);
+            this.AddExecutor(ExecutorType.SpSummon);
+            this.AddExecutor(ExecutorType.SummonOrSet);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.Activate, this.DefaultField);
         }
 
         public override int OnRockPaperScissors()
         {
-            RockCount++;
-            if (RockCount <= 3)
+            this.RockCount++;
+            if (this.RockCount <= 3)
+            {
                 return 2;
+            }
             else
+            {
                 return base.OnRockPaperScissors();
+            }
         }
     }
 }

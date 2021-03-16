@@ -18,18 +18,18 @@ namespace WindBot
         public bool Chat { get; set; }
         public WindBotInfo()
         {
-            Name = "WindBot";
-            Deck = null;
-            DeckFile = null;
-            DeckCode = null;
-            Dialog = "default";
-            Host = "127.0.0.1";
-            Port = 7911;
-            HostInfo = "";
-            Version = 0x1352;
-            Hand = 0;
-            Debug = false;
-            Chat = true;
+            this.Name = "WindBot";
+            this.Deck = null;
+            this.DeckFile = null;
+            this.DeckCode = null;
+            this.Dialog = "default";
+            this.Host = "127.0.0.1";
+            this.Port = 7911;
+            this.HostInfo = "";
+            this.Version = 0x1352;
+            this.Hand = 0;
+            this.Debug = false;
+            this.Chat = true;
         }
     }
 }

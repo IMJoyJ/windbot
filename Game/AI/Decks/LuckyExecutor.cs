@@ -12,67 +12,73 @@ namespace WindBot.Game.AI.Decks
         public LuckyExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.SpSummon, ImFeelingLucky);
-            AddExecutor(ExecutorType.Activate, ImFeelingLucky);
-            AddExecutor(ExecutorType.SummonOrSet, ImFeelingLucky);
-            AddExecutor(ExecutorType.SpellSet, ImFeelingLucky);
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.SpSummon, this.ImFeelingLucky);
+            this.AddExecutor(ExecutorType.Activate, this.ImFeelingLucky);
+            this.AddExecutor(ExecutorType.SummonOrSet, this.ImFeelingLucky);
+            this.AddExecutor(ExecutorType.SpellSet, this.ImFeelingLucky);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
 
-            AddExecutor(ExecutorType.Activate, _CardId.MysticalSpaceTyphoon, DefaultMysticalSpaceTyphoon);
-            AddExecutor(ExecutorType.Activate, _CardId.CosmicCyclone, DefaultCosmicCyclone);
-            AddExecutor(ExecutorType.Activate, _CardId.GalaxyCyclone, DefaultGalaxyCyclone);
-            AddExecutor(ExecutorType.Activate, _CardId.BookOfMoon, DefaultBookOfMoon);
-            AddExecutor(ExecutorType.Activate, _CardId.CompulsoryEvacuationDevice, DefaultCompulsoryEvacuationDevice);
-            AddExecutor(ExecutorType.Activate, _CardId.CallOfTheHaunted, DefaultCallOfTheHaunted);
-            AddExecutor(ExecutorType.Activate, _CardId.Scapegoat, DefaultScapegoat);
-            AddExecutor(ExecutorType.Activate, _CardId.MaxxC, DefaultMaxxC);
-            AddExecutor(ExecutorType.Activate, _CardId.AshBlossom, DefaultAshBlossomAndJoyousSpring);
-            AddExecutor(ExecutorType.Activate, _CardId.GhostOgreAndSnowRabbit, DefaultGhostOgreAndSnowRabbit);
-            AddExecutor(ExecutorType.Activate, _CardId.GhostBelle, DefaultGhostBelleAndHauntedMansion);
-            AddExecutor(ExecutorType.Activate, _CardId.EffectVeiler, DefaultEffectVeiler);
-            AddExecutor(ExecutorType.Activate, _CardId.CalledByTheGrave, DefaultCalledByTheGrave);
-            AddExecutor(ExecutorType.Activate, _CardId.InfiniteImpermanence, DefaultInfiniteImpermanence);
-            AddExecutor(ExecutorType.Activate, _CardId.BreakthroughSkill, DefaultBreakthroughSkill);
-            AddExecutor(ExecutorType.Activate, _CardId.SolemnJudgment, DefaultSolemnJudgment);
-            AddExecutor(ExecutorType.Activate, _CardId.SolemnWarning, DefaultSolemnWarning);
-            AddExecutor(ExecutorType.Activate, _CardId.SolemnStrike, DefaultSolemnStrike);
-            AddExecutor(ExecutorType.Activate, _CardId.TorrentialTribute, DefaultTorrentialTribute);
-            AddExecutor(ExecutorType.Activate, _CardId.HeavyStorm, DefaultHeavyStorm);
-            AddExecutor(ExecutorType.Activate, _CardId.HarpiesFeatherDuster, DefaultHarpiesFeatherDusterFirst);
-            AddExecutor(ExecutorType.Activate, _CardId.HammerShot, DefaultHammerShot);
-            AddExecutor(ExecutorType.Activate, _CardId.DarkHole, DefaultDarkHole);
-            AddExecutor(ExecutorType.Activate, _CardId.Raigeki, DefaultRaigeki);
-            AddExecutor(ExecutorType.Activate, _CardId.SmashingGround, DefaultSmashingGround);
-            AddExecutor(ExecutorType.Activate, _CardId.PotOfDesires, DefaultPotOfDesires);
-            AddExecutor(ExecutorType.Activate, _CardId.AllureofDarkness, DefaultAllureofDarkness);
-            AddExecutor(ExecutorType.Activate, _CardId.DimensionalBarrier, DefaultDimensionalBarrier);
-            AddExecutor(ExecutorType.Activate, _CardId.InterruptedKaijuSlumber, DefaultInterruptedKaijuSlumber);
+            this.AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, this.DefaultMysticalSpaceTyphoon);
+            this.AddExecutor(ExecutorType.Activate, CardId.CosmicCyclone, this.DefaultCosmicCyclone);
+            this.AddExecutor(ExecutorType.Activate, CardId.GalaxyCyclone, this.DefaultGalaxyCyclone);
+            this.AddExecutor(ExecutorType.Activate, CardId.BookOfMoon, this.DefaultBookOfMoon);
+            this.AddExecutor(ExecutorType.Activate, CardId.CompulsoryEvacuationDevice, this.DefaultCompulsoryEvacuationDevice);
+            this.AddExecutor(ExecutorType.Activate, CardId.CallOfTheHaunted, this.DefaultCallOfTheHaunted);
+            this.AddExecutor(ExecutorType.Activate, CardId.Scapegoat, this.DefaultScapegoat);
+            this.AddExecutor(ExecutorType.Activate, CardId.MaxxC, this.DefaultMaxxC);
+            this.AddExecutor(ExecutorType.Activate, CardId.AshBlossom, this.DefaultAshBlossomAndJoyousSpring);
+            this.AddExecutor(ExecutorType.Activate, CardId.GhostOgreAndSnowRabbit, this.DefaultGhostOgreAndSnowRabbit);
+            this.AddExecutor(ExecutorType.Activate, CardId.GhostBelle, this.DefaultGhostBelleAndHauntedMansion);
+            this.AddExecutor(ExecutorType.Activate, CardId.EffectVeiler, this.DefaultEffectVeiler);
+            this.AddExecutor(ExecutorType.Activate, CardId.CalledByTheGrave, this.DefaultCalledByTheGrave);
+            this.AddExecutor(ExecutorType.Activate, CardId.InfiniteImpermanence, this.DefaultInfiniteImpermanence);
+            this.AddExecutor(ExecutorType.Activate, CardId.BreakthroughSkill, this.DefaultBreakthroughSkill);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnJudgment, this.DefaultSolemnJudgment);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnWarning, this.DefaultSolemnWarning);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, this.DefaultSolemnStrike);
+            this.AddExecutor(ExecutorType.Activate, CardId.TorrentialTribute, this.DefaultTorrentialTribute);
+            this.AddExecutor(ExecutorType.Activate, CardId.HeavyStorm, this.DefaultHeavyStorm);
+            this.AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster, this.DefaultHarpiesFeatherDusterFirst);
+            this.AddExecutor(ExecutorType.Activate, CardId.HammerShot, this.DefaultHammerShot);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkHole, this.DefaultDarkHole);
+            this.AddExecutor(ExecutorType.Activate, CardId.Raigeki, this.DefaultRaigeki);
+            this.AddExecutor(ExecutorType.Activate, CardId.SmashingGround, this.DefaultSmashingGround);
+            this.AddExecutor(ExecutorType.Activate, CardId.PotOfDesires, this.DefaultPotOfDesires);
+            this.AddExecutor(ExecutorType.Activate, CardId.AllureofDarkness, this.DefaultAllureofDarkness);
+            this.AddExecutor(ExecutorType.Activate, CardId.DimensionalBarrier, this.DefaultDimensionalBarrier);
+            this.AddExecutor(ExecutorType.Activate, CardId.InterruptedKaijuSlumber, this.DefaultInterruptedKaijuSlumber);
 
-            AddExecutor(ExecutorType.SpSummon, _CardId.JizukirutheStarDestroyingKaiju, DefaultKaijuSpsummon);
-            AddExecutor(ExecutorType.SpSummon, _CardId.GadarlatheMysteryDustKaiju, DefaultKaijuSpsummon);
-            AddExecutor(ExecutorType.SpSummon, _CardId.GamecieltheSeaTurtleKaiju, DefaultKaijuSpsummon);
-            AddExecutor(ExecutorType.SpSummon, _CardId.RadiantheMultidimensionalKaiju, DefaultKaijuSpsummon);
-            AddExecutor(ExecutorType.SpSummon, _CardId.KumongoustheStickyStringKaiju, DefaultKaijuSpsummon);
-            AddExecutor(ExecutorType.SpSummon, _CardId.ThunderKingtheLightningstrikeKaiju, DefaultKaijuSpsummon);
-            AddExecutor(ExecutorType.SpSummon, _CardId.DogorantheMadFlameKaiju, DefaultKaijuSpsummon);
-            AddExecutor(ExecutorType.SpSummon, _CardId.SuperAntiKaijuWarMachineMechaDogoran, DefaultKaijuSpsummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.JizukirutheStarDestroyingKaiju, this.DefaultKaijuSpsummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.GadarlatheMysteryDustKaiju, this.DefaultKaijuSpsummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.GamecieltheSeaTurtleKaiju, this.DefaultKaijuSpsummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.RadiantheMultidimensionalKaiju, this.DefaultKaijuSpsummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.KumongoustheStickyStringKaiju, this.DefaultKaijuSpsummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.ThunderKingtheLightningstrikeKaiju, this.DefaultKaijuSpsummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.DogorantheMadFlameKaiju, this.DefaultKaijuSpsummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.SuperAntiKaijuWarMachineMechaDogoran, this.DefaultKaijuSpsummon);
 
-            AddExecutor(ExecutorType.SpSummon, _CardId.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightSummon);
-            AddExecutor(ExecutorType.Activate, _CardId.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.EvilswarmExcitonKnight, this.DefaultEvilswarmExcitonKnightSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.EvilswarmExcitonKnight, this.DefaultEvilswarmExcitonKnightEffect);
         }
-
         public override IList<ClientCard> OnSelectCard(IList<ClientCard> _cards, int min, int max, int hint, bool cancelable)
         {
-            if (Duel.Phase == DuelPhase.BattleStart)
+            if (this.Duel.Phase == DuelPhase.BattleStart)
+            {
                 return null;
-            if (AI.HaveSelectedCards())
+            }
+
+            if (this.AI.HaveSelectedCards())
+            {
                 return null;
+            }
 
             IList<ClientCard> cards = new List<ClientCard>(_cards);
             IList<ClientCard> selected = new List<ClientCard>();
 
             if (max > cards.Count)
+            {
                 max = cards.Count;
+            }
 
             // select random cards
             while (selected.Count < max)
@@ -92,7 +98,15 @@ namespace WindBot.Game.AI.Decks
 
         private bool ImFeelingLucky()
         {
-            return Program.Rand.Next(9) >= 3 && DefaultDontChainMyself();
+            var typ = System.Type.GetType($"WindBot.Game.AI.LuckyCards.C{this.Card.Id}", false);
+            if (typ == null)
+            {
+                typ = System.Type.GetType($"WindBot.Game.AI.LuckyCards.LuckyCard", false);
+            }
+            object o = System.Activator.CreateInstance(typ);
+
+            return ((LuckyCards.LuckyCard)o).ShouldExec(this.Duel, Bot, Enemy,this.Card)
+                && this.DefaultDontChainMyself();
         }
     }
 }

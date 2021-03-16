@@ -10,7 +10,7 @@ namespace WindBot.Game.AI
 {
     public abstract class DefaultExecutor : Executor
     {
-        protected class _CardId
+        protected class CardId
         {
             public const int JizukirutheStarDestroyingKaiju = 63941210;
             public const int ThunderKingtheLightningstrikeKaiju = 48770333;
@@ -102,16 +102,16 @@ namespace WindBot.Game.AI
             public const int NaturiaBeast = 33198837;
             public const int AntiSpellFragrance = 58921041;
 
-            public const int lightningStorm = 14532163;
+            public const int LightningStorm = 14532163;
         }
 
-        int HonestEffectCount = 0;
+        int honestEffectCount = 0;
 
         protected DefaultExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.Activate, _CardId.ChickenGame, DefaultChickenGame);
-            AddExecutor(ExecutorType.Activate, _CardId.SantaClaws);
+            this.AddExecutor(ExecutorType.Activate, CardId.ChickenGame, this.DefaultChickenGame);
+            this.AddExecutor(ExecutorType.Activate, CardId.SantaClaws);
         }
 
         /// <summary>
@@ -126,15 +126,21 @@ namespace WindBot.Game.AI
             {
                 attacker.RealPower = attacker.Attack;
                 defender.RealPower = defender.GetDefensePower();
-                if (!OnPreBattleBetween(attacker, defender))
+                if (!this.OnPreBattleBetween(attacker, defender))
+                {
                     continue;
+                }
 
                 if (attacker.RealPower > defender.RealPower || (attacker.RealPower >= defender.RealPower && attacker.IsLastAttacker && defender.IsAttack()))
-                    return AI.Attack(attacker, defender);
+                {
+                    return this.AI.Attack(attacker, defender);
+                }
             }
 
             if (attacker.CanDirectAttack)
-                return AI.Attack(attacker, null);
+            {
+                return this.AI.Attack(attacker, null);
+            }
 
             return null;
         }
@@ -149,26 +155,32 @@ namespace WindBot.Game.AI
         public override bool OnPreBattleBetween(ClientCard attacker, ClientCard defender)
         {
             if (attacker.RealPower <= 0)
+            {
                 return false;
+            }
 
             if (!attacker.IsMonsterHasPreventActivationEffectInBattle())
             {
                 if (defender.IsMonsterInvincible() && defender.IsDefense())
+                {
                     return false;
+                }
 
                 if (defender.IsMonsterDangerous())
                 {
                     bool canIgnoreIt = !attacker.IsDisabled() && (
-                        attacker.IsCode(_CardId.UltimateConductorTytanno) && defender.IsDefense() || 
-                        attacker.IsCode(_CardId.ElShaddollConstruct) && defender.IsSpecialSummoned ||
-                        attacker.IsCode(_CardId.AllyOfJusticeCatastor) && !defender.HasAttribute(CardAttribute.Dark));
+                        attacker.IsCode(CardId.UltimateConductorTytanno) && defender.IsDefense() || 
+                        attacker.IsCode(CardId.ElShaddollConstruct) && defender.IsSpecialSummoned ||
+                        attacker.IsCode(CardId.AllyOfJusticeCatastor) && !defender.HasAttribute(CardAttribute.Dark));
                     if (!canIgnoreIt)
+                    {
                         return false;
+                    }
                 }
 
                 foreach (ClientCard equip in defender.EquipCards)
                 {
-                    if (equip.IsCode(_CardId.MoonMirrorShield) && !equip.IsDisabled())
+                    if (equip.IsCode(CardId.MoonMirrorShield) && !equip.IsDisabled())
                     {
                         return false;
                     }
@@ -176,57 +188,83 @@ namespace WindBot.Game.AI
 
                 if (!defender.IsDisabled())
                 {
-                    if (defender.IsCode(_CardId.MekkKnightCrusadiaAstram) && defender.IsAttack() && attacker.IsSpecialSummoned)
+                    if (defender.IsCode(CardId.MekkKnightCrusadiaAstram) && defender.IsAttack() && attacker.IsSpecialSummoned)
+                    {
                         return false;
+                    }
 
-                    if (defender.IsCode(_CardId.CrystalWingSynchroDragon) && defender.IsAttack() && attacker.Level >= 5)
+                    if (defender.IsCode(CardId.CrystalWingSynchroDragon) && defender.IsAttack() && attacker.Level >= 5)
+                    {
                         return false;
+                    }
 
-                    if (defender.IsCode(_CardId.AllyOfJusticeCatastor) && !attacker.HasAttribute(CardAttribute.Dark))
+                    if (defender.IsCode(CardId.AllyOfJusticeCatastor) && !attacker.HasAttribute(CardAttribute.Dark))
+                    {
                         return false;
+                    }
 
-                    if (defender.IsCode(_CardId.NumberS39UtopiaTheLightning) && defender.IsAttack() && defender.HasXyzMaterial(2, _CardId.Number39Utopia))
+                    if (defender.IsCode(CardId.NumberS39UtopiaTheLightning) && defender.IsAttack() && defender.HasXyzMaterial(2, CardId.Number39Utopia))
+                    {
                         defender.RealPower = 5000;
+                    }
 
-                    if (defender.IsCode(_CardId.VampireFraeulein))
-                        defender.RealPower += (Enemy.LifePoints > 3000) ? 3000 : (Enemy.LifePoints - 100);
+                    if (defender.IsCode(CardId.VampireFraeulein))
+                    {
+                        defender.RealPower += (this.Enemy.LifePoints > 3000) ? 3000 : (this.Enemy.LifePoints - 100);
+                    }
 
-                    if (defender.IsCode(_CardId.InjectionFairyLily) && Enemy.LifePoints > 2000)
+                    if (defender.IsCode(CardId.InjectionFairyLily) && this.Enemy.LifePoints > 2000)
+                    {
                         defender.RealPower += 3000;
+                    }
                 }
             }
 
             if (!defender.IsMonsterHasPreventActivationEffectInBattle())
             {
-                if (attacker.IsCode(_CardId.NumberS39UtopiaTheLightning) && !attacker.IsDisabled() && attacker.HasXyzMaterial(2, _CardId.Number39Utopia))
+                if (attacker.IsCode(CardId.NumberS39UtopiaTheLightning) && !attacker.IsDisabled() && attacker.HasXyzMaterial(2, CardId.Number39Utopia))
+                {
                     attacker.RealPower = 5000;
+                }
 
                 foreach (ClientCard equip in attacker.EquipCards)
                 {
-                    if (equip.IsCode(_CardId.MoonMirrorShield) && !equip.IsDisabled())
+                    if (equip.IsCode(CardId.MoonMirrorShield) && !equip.IsDisabled())
                     {
                         attacker.RealPower = defender.RealPower + 100;
                     }
                 }
             }
 
-            if (Enemy.HasInMonstersZone(_CardId.MekkKnightCrusadiaAstram, true) && !(defender).IsCode(_CardId.MekkKnightCrusadiaAstram))
+            if (this.Enemy.HasInMonstersZone(CardId.MekkKnightCrusadiaAstram, true) && !(defender).IsCode(CardId.MekkKnightCrusadiaAstram))
+            {
                 return false;
+            }
 
-            if (Enemy.HasInMonstersZone(_CardId.DupeFrog, true) && !(defender).IsCode(_CardId.DupeFrog))
+            if (this.Enemy.HasInMonstersZone(CardId.DupeFrog, true) && !(defender).IsCode(CardId.DupeFrog))
+            {
                 return false;
+            }
 
-            if (Enemy.HasInMonstersZone(_CardId.MaraudingCaptain, true) && !defender.IsCode(_CardId.MaraudingCaptain) && defender.Race == (int)CardRace.Warrior)
+            if (this.Enemy.HasInMonstersZone(CardId.MaraudingCaptain, true) && !defender.IsCode(CardId.MaraudingCaptain) && defender.Race == (int)CardRace.Warrior)
+            {
                 return false;
+            }
 
-            if (defender.IsCode(_CardId.UltimayaTzolkin) && !defender.IsDisabled() && Enemy.GetMonsters().Any(monster => !monster.Equals(defender) && monster.HasType(CardType.Synchro)))
+            if (defender.IsCode(CardId.UltimayaTzolkin) && !defender.IsDisabled() && this.Enemy.GetMonsters().Any(monster => !monster.Equals(defender) && monster.HasType(CardType.Synchro)))
+            {
                 return false;
+            }
 
-            if (Enemy.GetMonsters().Any(monster => !monster.Equals(defender) && monster.IsCode(_CardId.HamonLordofStrikingThunder) && !monster.IsDisabled() && monster.IsDefense()))
+            if (this.Enemy.GetMonsters().Any(monster => !monster.Equals(defender) && monster.IsCode(CardId.HamonLordofStrikingThunder) && !monster.IsDisabled() && monster.IsDefense()))
+            {
                 return false;
+            }
 
-            if (defender.OwnTargets.Any(card => card.IsCode(_CardId.PhantomKnightsFogBlade) && !card.IsDisabled()))
+            if (defender.OwnTargets.Any(card => card.IsCode(CardId.PhantomKnightsFogBlade) && !card.IsDisabled()))
+            {
                 return false;
+            }
 
             return true;
         }
@@ -243,19 +281,24 @@ namespace WindBot.Game.AI
             if (cardData != null)
             {
                 if (cardData.Attack == 0)
+                {
                     return CardPosition.FaceUpDefence;
+                }
             }
             return 0;
         }
 
         public override bool OnSelectBattleReplay()
         {
-            if (Bot.BattlingMonster == null)
+            if (this.Bot.BattlingMonster == null)
+            {
                 return false;
-            List<ClientCard> defenders = new List<ClientCard>(Duel.Fields[1].GetMonsters());
+            }
+
+            List<ClientCard> defenders = new List<ClientCard>(this.Duel.Fields[1].GetMonsters());
             defenders.Sort(CardContainer.CompareDefensePower);
             defenders.Reverse();
-            BattlePhaseAction result = OnSelectAttackTarget(Bot.BattlingMonster, defenders);
+            BattlePhaseAction result = this.OnSelectAttackTarget(this.Bot.BattlingMonster, defenders);
             if (result != null && result.Action == BattlePhaseAction.BattleAction.Attack)
             {
                 return true;
@@ -265,7 +308,7 @@ namespace WindBot.Game.AI
 
         public override void OnNewTurn()
         {
-            HonestEffectCount = 0;
+            this.honestEffectCount = 0;
         }
 
         /// <summary>
@@ -273,28 +316,38 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultMysticalSpaceTyphoon()
         {
-            if (Duel.CurrentChain.Any(card => card.IsCode(_CardId.MysticalSpaceTyphoon)))
+            if (this.Duel.CurrentChain.Any(card => card.IsCode(CardId.MysticalSpaceTyphoon)))
             {
                 return false;
             }
 
-            List<ClientCard> spells = Enemy.GetSpells();
+            List<ClientCard> spells = this.Enemy.GetSpells();
             if (spells.Count == 0)
+            {
                 return false;
+            }
 
-            ClientCard selected = Enemy.SpellZone.GetFloodgate();
+            ClientCard selected = this.Enemy.SpellZone.GetFloodgate();
 
             if (selected == null)
             {
-                if (Duel.Player == 0)
+                if (this.Duel.Player == 0)
+                {
                     selected = spells.FirstOrDefault(card => card.IsFacedown());
-                if (Duel.Player == 1)
+                }
+
+                if (this.Duel.Player == 1)
+                {
                     selected = spells.FirstOrDefault(card => card.HasType(CardType.Continuous) || card.HasType(CardType.Equip) || card.HasType(CardType.Field));
+                }
             }
 
             if (selected == null)
+            {
                 return false;
-            AI.SelectCard(selected);
+            }
+
+            this.AI.SelectCard(selected);
             return true;
         }
 
@@ -303,10 +356,15 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultCosmicCyclone()
         {
-            foreach (ClientCard card in Duel.CurrentChain)
-                if (card.IsCode(_CardId.CosmicCyclone))
+            foreach (ClientCard card in this.Duel.CurrentChain)
+            {
+                if (card.IsCode(CardId.CosmicCyclone))
+                {
                     return false;
-            return (Bot.LifePoints > 1000) && DefaultMysticalSpaceTyphoon();
+                }
+            }
+
+            return (this.Bot.LifePoints > 1000) && this.DefaultMysticalSpaceTyphoon();
         }
 
         /// <summary>
@@ -314,15 +372,17 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultGalaxyCyclone()
         {
-            List<ClientCard> spells = Enemy.GetSpells();
+            List<ClientCard> spells = this.Enemy.GetSpells();
             if (spells.Count == 0)
+            {
                 return false;
+            }
 
             ClientCard selected = null;
 
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
-                selected = Util.GetBestEnemySpell(true);
+                selected = this.Util.GetBestEnemySpell(true);
             }
             else
             {
@@ -330,9 +390,11 @@ namespace WindBot.Game.AI
             }
 
             if (selected == null)
+            {
                 return false;
+            }
 
-            AI.SelectCard(selected);
+            this.AI.SelectCard(selected);
             return true;
         }
 
@@ -341,12 +403,12 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultBookOfMoon()
         {
-            if (Util.IsAllEnemyBetter(true))
+            if (this.Util.IsAllEnemyBetter(true))
             {
-                ClientCard monster = Enemy.GetMonsters().GetHighestAttackMonster(true);
+                ClientCard monster = this.Enemy.GetMonsters().GetHighestAttackMonster(true);
                 if (monster != null && monster.HasType(CardType.Effect) && !monster.HasType(CardType.Link) && (monster.HasType(CardType.Xyz) || monster.Level > 4))
                 {
-                    AI.SelectCard(monster);
+                    this.AI.SelectCard(monster);
                     return true;
                 }
             }
@@ -358,18 +420,18 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultCompulsoryEvacuationDevice()
         {
-            ClientCard target = Util.GetProblematicEnemyMonster(0, true);
+            ClientCard target = this.Util.GetProblematicEnemyMonster(0, true);
             if (target != null)
             {
-                AI.SelectCard(target);
+                this.AI.SelectCard(target);
                 return true;
             }
-            if (Util.IsChainTarget(Card))
+            if (this.Util.IsChainTarget(this.Card))
             {
-                ClientCard monster = Util.GetBestEnemyMonster(false, true);
+                ClientCard monster = this.Util.GetBestEnemyMonster(false, true);
                 if (monster != null)
                 {
-                    AI.SelectCard(monster);
+                    this.AI.SelectCard(monster);
                     return true;
                 }
             }
@@ -381,10 +443,13 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultCallOfTheHaunted()
         {
-            if (!Util.IsAllEnemyBetter(true))
+            if (!this.Util.IsAllEnemyBetter(true))
+            {
                 return false;
-            ClientCard selected = Bot.Graveyard.GetMatchingCards(card => card.IsCanRevive()).OrderByDescending(card => card.Attack).FirstOrDefault();
-            AI.SelectCard(selected);
+            }
+
+            ClientCard selected = this.Bot.Graveyard.GetMatchingCards(card => card.IsCanRevive()).OrderByDescending(card => card.Attack).FirstOrDefault();
+            this.AI.SelectCard(selected);
             return true;
         }
 
@@ -393,21 +458,44 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultScapegoat()
         {
-            if (DefaultSpellWillBeNegated()) return false;
-            if (Duel.Player == 0) return false;
-            if (Duel.Phase == DuelPhase.End) return true;
-            if (DefaultOnBecomeTarget()) return true;
-            if (Duel.Phase > DuelPhase.Main1 && Duel.Phase < DuelPhase.Main2)
+            if (this.DefaultSpellWillBeNegated())
             {
-                if (Enemy.HasInMonstersZone(new[]
+                return false;
+            }
+
+            if (this.Duel.Player == 0)
+            {
+                return false;
+            }
+
+            if (this.Duel.Phase == DuelPhase.End)
+            {
+                return true;
+            }
+
+            if (this.DefaultOnBecomeTarget())
+            {
+                return true;
+            }
+
+            if (this.Duel.Phase > DuelPhase.Main1 && this.Duel.Phase < DuelPhase.Main2)
+            {
+                if (this.Enemy.HasInMonstersZone(new[]
                 {
-                    _CardId.UltimateConductorTytanno,
-                    _CardId.InvokedPurgatrio,
-                    _CardId.ChaosAncientGearGiant,
-                    _CardId.UltimateAncientGearGolem,
-                    _CardId.RedDragonArchfiend
-                }, true)) return false;
-                if (Util.GetTotalAttackingMonsterAttack(1) >= Bot.LifePoints) return true;
+                    CardId.UltimateConductorTytanno,
+                    CardId.InvokedPurgatrio,
+                    CardId.ChaosAncientGearGiant,
+                    CardId.UltimateAncientGearGolem,
+                    CardId.RedDragonArchfiend
+                }, true))
+                {
+                    return false;
+                }
+
+                if (this.Util.GetTotalAttackingMonsterAttack(1) >= this.Bot.LifePoints)
+                {
+                    return true;
+                }
             }
             return false;
         }
@@ -416,7 +504,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultMaxxC()
         {
-            return Duel.Player == 1;
+            return this.Duel.Player == 1;
         }
         /// <summary>
         /// Always disable opponent's effect except some cards like UpstartGoblin
@@ -424,41 +512,57 @@ namespace WindBot.Game.AI
         protected bool DefaultAshBlossomAndJoyousSpring()
         {
             int[] ignoreList = {
-                _CardId.MacroCosmos,
-                _CardId.UpstartGoblin,
-                _CardId.CyberEmergency
+                CardId.MacroCosmos,
+                CardId.UpstartGoblin,
+                CardId.CyberEmergency
             };
-            if (Util.GetLastChainCard().IsCode(ignoreList))
+            if (this.Util.GetLastChainCard().IsCode(ignoreList))
+            {
                 return false;
-            if (Util.GetLastChainCard().HasSetcode(0x11e) && Util.GetLastChainCard().Location == CardLocation.Hand) // Danger! archtype hand effect
+            }
+
+            if (this.Util.GetLastChainCard().HasSetcode(0x11e) && this.Util.GetLastChainCard().Location == CardLocation.Hand) // Danger! archtype hand effect
+            {
                 return false;
-            return Duel.LastChainPlayer == 1;
+            }
+
+            return this.Duel.LastChainPlayer == 1;
         }
         /// <summary>
         /// Always activate unless the activating card is disabled
         /// </summary>
         protected bool DefaultGhostOgreAndSnowRabbit()
         {
-            if (Util.GetLastChainCard() != null && Util.GetLastChainCard().IsDisabled())
+            if (this.Util.GetLastChainCard() != null && this.Util.GetLastChainCard().IsDisabled())
+            {
                 return false;
-            return DefaultTrap();
+            }
+
+            return this.DefaultTrap();
         }
         /// <summary>
         /// Always disable opponent's effect
         /// </summary>
         protected bool DefaultGhostBelleAndHauntedMansion()
         {
-            return DefaultTrap();
+            return this.DefaultTrap();
         }
         /// <summary>
         /// Same as DefaultBreakthroughSkill
         /// </summary>
         protected bool DefaultEffectVeiler()
         {
-            if (Util.GetLastChainCard() != null && Util.GetLastChainCard().IsCode(_CardId.GalaxySoldier) && Enemy.Hand.Count >= 3) return false;
-            if (Util.ChainContainsCard(_CardId.EffectVeiler))
+            if (this.Util.GetLastChainCard() != null && this.Util.GetLastChainCard().IsCode(CardId.GalaxySoldier) && this.Enemy.Hand.Count >= 3)
+            {
                 return false;
-            return DefaultBreakthroughSkill();
+            }
+
+            if (this.Util.ChainContainsCard(CardId.EffectVeiler))
+            {
+                return false;
+            }
+
+            return this.DefaultBreakthroughSkill();
         }
         /// <summary>
         /// Chain common hand traps
@@ -467,22 +571,22 @@ namespace WindBot.Game.AI
         {
             int[] targetList =
             {
-                _CardId.MaxxC,
-                _CardId.LockBird,
-                _CardId.GhostOgreAndSnowRabbit,
-                _CardId.AshBlossom,
-                _CardId.GhostBelle,
-                _CardId.EffectVeiler,
-                _CardId.ArtifactLancea
+                CardId.MaxxC,
+                CardId.LockBird,
+                CardId.GhostOgreAndSnowRabbit,
+                CardId.AshBlossom,
+                CardId.GhostBelle,
+                CardId.EffectVeiler,
+                CardId.ArtifactLancea
             };
-            if (Duel.LastChainPlayer == 1)
+            if (this.Duel.LastChainPlayer == 1)
             {
                 foreach (int id in targetList)
                 {
-                    if (Util.GetLastChainCard().IsCode(id))
+                    if (this.Util.GetLastChainCard().IsCode(id))
                     {
-                        AI.SelectCard(id);
-                        return UniqueFaceupSpell();
+                        this.AI.SelectCard(id);
+                        return this.UniqueFaceupSpell();
                     }
                 }
             }
@@ -494,56 +598,62 @@ namespace WindBot.Game.AI
         protected bool DefaultInfiniteImpermanence()
         {
             // TODO: disable s & t
-            if (!DefaultUniqueTrap())
+            if (!this.DefaultUniqueTrap())
+            {
                 return false;
-            return DefaultDisableMonster();
+            }
+
+            return this.DefaultDisableMonster();
         }
         /// <summary>
         /// Chain the enemy monster, or disable monster like Rescue Rabbit.
         /// </summary>
         protected bool DefaultBreakthroughSkill()
         {
-            if (!DefaultUniqueTrap())
+            if (!this.DefaultUniqueTrap())
+            {
                 return false;
-            return DefaultDisableMonster();
+            }
+
+            return this.DefaultDisableMonster();
         }
         /// <summary>
         /// Chain the enemy monster, or disable monster like Rescue Rabbit.
         /// </summary>
         protected bool DefaultDisableMonster()
         {
-            if (Duel.Player == 1)
+            if (this.Duel.Player == 1)
             {
-                ClientCard target = Enemy.MonsterZone.GetShouldBeDisabledBeforeItUseEffectMonster();
+                ClientCard target = this.Enemy.MonsterZone.GetShouldBeDisabledBeforeItUseEffectMonster();
                 if (target != null)
                 {
-                    AI.SelectCard(target);
+                    this.AI.SelectCard(target);
                     return true;
                 }
             }
 
-            ClientCard LastChainCard = Util.GetLastChainCard();
+            ClientCard LastChainCard = this.Util.GetLastChainCard();
 
             if (LastChainCard != null && LastChainCard.Controller == 1 && LastChainCard.Location == CardLocation.MonsterZone &&
                 !LastChainCard.IsDisabled() && !LastChainCard.IsShouldNotBeTarget() && !LastChainCard.IsShouldNotBeSpellTrapTarget())
             {
-                AI.SelectCard(LastChainCard);
+                this.AI.SelectCard(LastChainCard);
                 return true;
             }
 
-            if (Bot.BattlingMonster != null && Enemy.BattlingMonster != null)
+            if (this.Bot.BattlingMonster != null && this.Enemy.BattlingMonster != null)
             {
-                if (!Enemy.BattlingMonster.IsDisabled() && Enemy.BattlingMonster.IsCode(_CardId.EaterOfMillions))
+                if (!this.Enemy.BattlingMonster.IsDisabled() && this.Enemy.BattlingMonster.IsCode(CardId.EaterOfMillions))
                 {
-                    AI.SelectCard(Enemy.BattlingMonster);
+                    this.AI.SelectCard(this.Enemy.BattlingMonster);
                     return true;
                 }
             }
 
-            if (Duel.Phase == DuelPhase.BattleStart && Duel.Player == 1 &&
-                Enemy.HasInMonstersZone(_CardId.NumberS39UtopiaTheLightning, true))
+            if (this.Duel.Phase == DuelPhase.BattleStart && this.Duel.Player == 1 &&
+                this.Enemy.HasInMonstersZone(CardId.NumberS39UtopiaTheLightning, true))
             {
-                AI.SelectCard(_CardId.NumberS39UtopiaTheLightning);
+                this.AI.SelectCard(CardId.NumberS39UtopiaTheLightning);
                 return true;
             }
 
@@ -555,7 +665,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultSolemnJudgment()
         {
-            return !Util.IsChainTargetOnly(Card) && !(Duel.Player == 0 && Duel.LastChainPlayer == -1) && DefaultTrap();
+            return !this.Util.IsChainTargetOnly(this.Card) && !(this.Duel.Player == 0 && this.Duel.LastChainPlayer == -1) && this.DefaultTrap();
         }
 
         /// <summary>
@@ -563,7 +673,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultSolemnWarning()
         {
-            return (Bot.LifePoints > 2000) && !(Duel.Player == 0 && Duel.LastChainPlayer == -1) && DefaultTrap();
+            return (this.Bot.LifePoints > 2000) && !(this.Duel.Player == 0 && this.Duel.LastChainPlayer == -1) && this.DefaultTrap();
         }
 
         /// <summary>
@@ -571,7 +681,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultSolemnStrike()
         {
-            return (Bot.LifePoints > 1500) && !(Duel.Player == 0 && Duel.LastChainPlayer == -1) && DefaultTrap();
+            return (this.Bot.LifePoints > 1500) && !(this.Duel.Player == 0 && this.Duel.LastChainPlayer == -1) && this.DefaultTrap();
         }
 
         /// <summary>
@@ -579,7 +689,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultTorrentialTribute()
         {
-            return !Util.HasChainedTrap(0) && Util.IsAllEnemyBetter(true);
+            return !this.Util.HasChainedTrap(0) && this.Util.IsAllEnemyBetter(true);
         }
 
         /// <summary>
@@ -587,7 +697,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultHeavyStorm()
         {
-            return Bot.GetSpellCount() < Enemy.GetSpellCount();
+            return this.Bot.GetSpellCount() < this.Enemy.GetSpellCount();
         }
 
         /// <summary>
@@ -595,7 +705,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultHarpiesFeatherDusterFirst()
         {
-            return Enemy.GetSpellCount() >= 2;
+            return this.Enemy.GetSpellCount() >= 2;
         }
 
         /// <summary>
@@ -603,7 +713,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultHammerShot()
         {
-            return Util.IsOneEnemyBetter(true);
+            return this.Util.IsOneEnemyBetter(true);
         }
 
         /// <summary>
@@ -611,7 +721,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultDarkHole()
         {
-            return Util.IsOneEnemyBetter();
+            return this.Util.IsOneEnemyBetter();
         }
 
         /// <summary>
@@ -619,7 +729,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultRaigeki()
         {
-            return Util.IsOneEnemyBetter();
+            return this.Util.IsOneEnemyBetter();
         }
 
         /// <summary>
@@ -627,7 +737,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultSmashingGround()
         {
-            return Util.IsOneEnemyBetter();
+            return this.Util.IsOneEnemyBetter();
         }
 
         /// <summary>
@@ -635,7 +745,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultPotOfDesires()
         {
-            return Bot.Deck.Count > 15;
+            return this.Bot.Deck.Count > 15;
         }
 
         /// <summary>
@@ -643,7 +753,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultSpellSet()
         {
-            return (Card.IsTrap() || Card.HasType(CardType.QuickPlay)) && Bot.GetSpellCountWithoutField() < 4;
+            return (this.Card.IsTrap() || this.Card.HasType(CardType.QuickPlay)) && this.Bot.GetSpellCountWithoutField() < 4;
         }
 
         /// <summary>
@@ -651,15 +761,24 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultTributeSummon()
         {
-            if (!UniqueFaceupMonster())
+            if (!this.UniqueFaceupMonster())
+            {
                 return false;
-            int tributecount = (int)Math.Ceiling((Card.Level - 4.0d) / 2.0d);
+            }
+
+            int tributecount = (int)Math.Ceiling((this.Card.Level - 4.0d) / 2.0d);
             for (int j = 0; j < 7; ++j)
             {
-                ClientCard tributeCard = Bot.MonsterZone[j];
-                if (tributeCard == null) continue;
-                if (tributeCard.GetDefensePower() < Card.Attack)
+                ClientCard tributeCard = this.Bot.MonsterZone[j];
+                if (tributeCard == null)
+                {
+                    continue;
+                }
+
+                if (tributeCard.GetDefensePower() < this.Card.Attack)
+                {
                     tributecount--;
+                }
             }
             return tributecount <= 0;
         }
@@ -669,7 +788,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultField()
         {
-            return Bot.SpellZone[5] == null;
+            return this.Bot.SpellZone[5] == null;
         }
 
         /// <summary>
@@ -677,22 +796,34 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultMonsterRepos()
         {
-            if (Card.IsFaceup() && Card.IsDefense() && Card.Attack == 0)
+            if (this.Card.IsFaceup() && this.Card.IsDefense() && this.Card.Attack == 0)
+            {
                 return false;
+            }
 
-            if (Enemy.HasInMonstersZone(_CardId.BlueEyesChaosMAXDragon, true) &&
-                Card.IsAttack() && (4000 - Card.Defense) * 2 > (4000 - Card.Attack))
+            if (this.Enemy.HasInMonstersZone(CardId.BlueEyesChaosMAXDragon, true) &&
+                this.Card.IsAttack() && (4000 - this.Card.Defense) * 2 > (4000 - this.Card.Attack))
+            {
                 return false;
-            if (Enemy.HasInMonstersZone(_CardId.BlueEyesChaosMAXDragon, true) &&
-                Card.IsDefense() && Card.IsFaceup() &&
-                (4000 - Card.Defense) * 2 > (4000 - Card.Attack))
-                return true;
+            }
 
-            bool enemyBetter = Util.IsAllEnemyBetter(true);
-            if (Card.IsAttack() && enemyBetter)
+            if (this.Enemy.HasInMonstersZone(CardId.BlueEyesChaosMAXDragon, true) &&
+                this.Card.IsDefense() && this.Card.IsFaceup() &&
+                (4000 - this.Card.Defense) * 2 > (4000 - this.Card.Attack))
+            {
                 return true;
-            if (Card.IsDefense() && !enemyBetter && Card.Attack >= Card.Defense)
+            }
+
+            bool enemyBetter = this.Util.IsAllEnemyBetter(true);
+            if (this.Card.IsAttack() && enemyBetter)
+            {
                 return true;
+            }
+
+            if (this.Card.IsDefense() && !enemyBetter && this.Card.Attack >= this.Card.Defense)
+            {
+                return true;
+            }
 
             return false;
         }
@@ -702,7 +833,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultSpellWillBeNegated()
         {
-            return Bot.HasInSpellZone(_CardId.ImperialOrder, true, true) || Enemy.HasInSpellZone(_CardId.ImperialOrder, true) || Enemy.HasInMonstersZone(_CardId.NaturiaBeast, true);
+            return this.Bot.HasInSpellZone(CardId.ImperialOrder, true, true) || this.Enemy.HasInSpellZone(CardId.ImperialOrder, true) || this.Enemy.HasInMonstersZone(CardId.NaturiaBeast, true);
         }
 
         /// <summary>
@@ -711,14 +842,19 @@ namespace WindBot.Game.AI
         protected bool DefaultSpellMustSetFirst()
         {
             ClientCard card = null;
-            foreach (ClientCard check in Bot.GetSpells())
+            foreach (ClientCard check in this.Bot.GetSpells())
             {
-                if (check.IsCode(_CardId.AntiSpellFragrance) && !check.IsDisabled())
+                if (check.IsCode(CardId.AntiSpellFragrance) && !check.IsDisabled())
+                {
                     card = check;
+                }
             }
             if (card != null && card.IsFaceup())
+            {
                 return true;
-            return Bot.HasInSpellZone(_CardId.AntiSpellFragrance, true, true) ||  Enemy.HasInSpellZone(_CardId.AntiSpellFragrance, true);
+            }
+
+            return this.Bot.HasInSpellZone(CardId.AntiSpellFragrance, true, true) || this.Enemy.HasInSpellZone(CardId.AntiSpellFragrance, true);
         }
 
         /// <summary>
@@ -726,22 +862,33 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultOnBecomeTarget()
         {
-            if (Util.IsChainTarget(Card)) return true;
+            if (this.Util.IsChainTarget(this.Card))
+            {
+                return true;
+            }
+
             int[] destroyAllList =
             {
-                _CardId.EvilswarmExcitonKnight,
-                _CardId.BlackRoseDragon,
-                _CardId.JudgmentDragon,
-                _CardId.TopologicTrisbaena
+                CardId.EvilswarmExcitonKnight,
+                CardId.BlackRoseDragon,
+                CardId.JudgmentDragon,
+                CardId.TopologicTrisbaena
             };
             int[] destroyAllOpponentList =
             {
-                _CardId.HarpiesFeatherDuster,
-                _CardId.DarkMagicAttack
+                CardId.HarpiesFeatherDuster,
+                CardId.DarkMagicAttack
             };
 
-            if (Util.ChainContainsCard(destroyAllList)) return true;
-            if (Enemy.HasInSpellZone(destroyAllOpponentList, true)) return true;
+            if (this.Util.ChainContainsCard(destroyAllList))
+            {
+                return true;
+            }
+
+            if (this.Enemy.HasInSpellZone(destroyAllOpponentList, true))
+            {
+                return true;
+            }
             // TODO: ChainContainsCard(id, player)
             return false;
         }
@@ -750,7 +897,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultTrap()
         {
-            return (Duel.LastChainPlayer == -1 && Duel.LastSummonPlayer != 0) || Duel.LastChainPlayer == 1;
+            return (this.Duel.LastChainPlayer == -1 && this.Duel.LastSummonPlayer != 0) || this.Duel.LastChainPlayer == 1;
         }
 
         /// <summary>
@@ -758,10 +905,12 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultUniqueTrap()
         {
-            if (Util.HasChainedTrap(0))
+            if (this.Util.HasChainedTrap(0))
+            {
                 return false;
+            }
 
-            return UniqueFaceupSpell();
+            return this.UniqueFaceupSpell();
         }
 
         /// <summary>
@@ -769,7 +918,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool UniqueFaceupSpell()
         {
-            return !Bot.GetSpells().Any(card => card.IsCode(Card.Id) && card.IsFaceup());
+            return !this.Bot.GetSpells().Any(card => card.IsCode(this.Card.Id) && card.IsFaceup());
         }
 
         /// <summary>
@@ -777,7 +926,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool UniqueFaceupMonster()
         {
-            return !Bot.GetMonsters().Any(card => card.IsCode(Card.Id) && card.IsFaceup());
+            return !this.Bot.GetMonsters().Any(card => card.IsCode(this.Card.Id) && card.IsFaceup());
         }
 
         /// <summary>
@@ -785,9 +934,12 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultDontChainMyself()
         {
-            if (Executors.Any(exec => exec.Type == Type && exec.CardId == Card.Id))
+            if (this.Executors.Any(exec => exec.Type == this.ExecType && exec.CardId == this.Card.Id))
+            {
                 return false;
-            return Duel.LastChainPlayer != 0;
+            }
+
+            return this.Duel.LastChainPlayer != 0;
         }
 
         /// <summary>
@@ -795,14 +947,26 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultChickenGame()
         {
-            if (Executors.Count(exec => exec.Type == Type && exec.CardId == Card.Id) > 1)
+            if (this.Executors.Count(exec => exec.Type == this.ExecType && exec.CardId == this.Card.Id) > 1)
+            {
                 return false;
-            if (Bot.LifePoints <= 1000)
+            }
+
+            if (this.Bot.LifePoints <= 1000)
+            {
                 return false;
-            if (Bot.LifePoints <= Enemy.LifePoints && ActivateDescription == Util.GetStringId(_CardId.ChickenGame, 0))
+            }
+
+            if (this.Bot.LifePoints <= this.Enemy.LifePoints && this.ActivateDescription == this.Util.GetStringId(CardId.ChickenGame, 0))
+            {
                 return true;
-            if (Bot.LifePoints > Enemy.LifePoints && ActivateDescription == Util.GetStringId(_CardId.ChickenGame, 1))
+            }
+
+            if (this.Bot.LifePoints > this.Enemy.LifePoints && this.ActivateDescription == this.Util.GetStringId(CardId.ChickenGame, 1))
+            {
                 return true;
+            }
+
             return false;
         }
 
@@ -811,7 +975,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultAllureofDarkness()
         {
-            ClientCard target = Bot.Hand.FirstOrDefault(card => card.HasAttribute(CardAttribute.Dark));
+            ClientCard target = this.Bot.Hand.FirstOrDefault(card => card.HasAttribute(CardAttribute.Dark));
             return target != null;
         }
 
@@ -825,16 +989,18 @@ namespace WindBot.Game.AI
             const int SYNCHRO = 2;
             const int XYZ = 3;
             const int PENDULUM = 4;
-            if (Duel.Player != 0)
+            if (this.Duel.Player != 0)
             {
-                List<ClientCard> monsters = Enemy.GetMonsters();
+                List<ClientCard> monsters = this.Enemy.GetMonsters();
                 int[] levels = new int[13];
                 bool tuner = false;
                 bool nontuner = false;
                 foreach (ClientCard monster in monsters)
                 {
                     if (monster.HasType(CardType.Tuner))
+                    {
                         tuner = true;
+                    }
                     else if (!monster.HasType(CardType.Xyz) && !monster.HasType(CardType.Link))
                     {
                         nontuner = true;
@@ -843,63 +1009,63 @@ namespace WindBot.Game.AI
 
                     if (monster.IsOneForXyz())
                     {
-                        AI.SelectOption(XYZ);
+                        this.AI.SelectOption(XYZ);
                         return true;
                     }
                 }
                 if (tuner && nontuner)
                 {
-                    AI.SelectOption(SYNCHRO);
+                    this.AI.SelectOption(SYNCHRO);
                     return true;
                 }
                 for (int i=1; i<=12; i++)
                 {
                     if (levels[i]>1)
                     {
-                        AI.SelectOption(XYZ);
+                        this.AI.SelectOption(XYZ);
                         return true;
                     }
                 }
-                ClientCard l = Enemy.SpellZone[6];
-                ClientCard r = Enemy.SpellZone[7];
+                ClientCard l = this.Enemy.SpellZone[6];
+                ClientCard r = this.Enemy.SpellZone[7];
                 if (l != null && r != null && l.LScale != r.RScale)
                 {
-                    AI.SelectOption(PENDULUM);
+                    this.AI.SelectOption(PENDULUM);
                     return true;
                 }
             }
-            ClientCard lastchaincard = Util.GetLastChainCard();
-            if (Duel.LastChainPlayer == 1 && lastchaincard != null && !lastchaincard.IsDisabled())
+            ClientCard lastchaincard = this.Util.GetLastChainCard();
+            if (this.Duel.LastChainPlayer == 1 && lastchaincard != null && !lastchaincard.IsDisabled())
             {
                 if (lastchaincard.HasType(CardType.Ritual))
                 {
-                    AI.SelectOption(RITUAL);
+                    this.AI.SelectOption(RITUAL);
                     return true;
                 }
                 if (lastchaincard.HasType(CardType.Fusion))
                 {
-                    AI.SelectOption(FUSION);
+                    this.AI.SelectOption(FUSION);
                     return true;
                 }
                 if (lastchaincard.HasType(CardType.Synchro))
                 {
-                    AI.SelectOption(SYNCHRO);
+                    this.AI.SelectOption(SYNCHRO);
                     return true;
                 }
                 if (lastchaincard.HasType(CardType.Xyz))
                 {
-                    AI.SelectOption(XYZ);
+                    this.AI.SelectOption(XYZ);
                     return true;
                 }
                 if (lastchaincard.IsFusionSpell())
                 {
-                    AI.SelectOption(FUSION);
+                    this.AI.SelectOption(FUSION);
                     return true;
                 }
             }
-            if (Util.IsChainTarget(Card))
+            if (this.Util.IsChainTarget(this.Card))
             {
-                AI.SelectOption(XYZ);
+                this.AI.SelectOption(XYZ);
                 return true;
             }
             return false;
@@ -910,39 +1076,39 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultInterruptedKaijuSlumber()
         {
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
-                AI.SelectCard(
-                    _CardId.GamecieltheSeaTurtleKaiju,
-                    _CardId.KumongoustheStickyStringKaiju,
-                    _CardId.GadarlatheMysteryDustKaiju,
-                    _CardId.RadiantheMultidimensionalKaiju,
-                    _CardId.DogorantheMadFlameKaiju,
-                    _CardId.ThunderKingtheLightningstrikeKaiju,
-                    _CardId.JizukirutheStarDestroyingKaiju
+                this.AI.SelectCard(
+                    CardId.GamecieltheSeaTurtleKaiju,
+                    CardId.KumongoustheStickyStringKaiju,
+                    CardId.GadarlatheMysteryDustKaiju,
+                    CardId.RadiantheMultidimensionalKaiju,
+                    CardId.DogorantheMadFlameKaiju,
+                    CardId.ThunderKingtheLightningstrikeKaiju,
+                    CardId.JizukirutheStarDestroyingKaiju
                     );
                 return true;
             }
 
-            if (DefaultDarkHole())
+            if (this.DefaultDarkHole())
             {
-                AI.SelectCard(
-                    _CardId.JizukirutheStarDestroyingKaiju,
-                    _CardId.ThunderKingtheLightningstrikeKaiju,
-                    _CardId.DogorantheMadFlameKaiju,
-                    _CardId.RadiantheMultidimensionalKaiju,
-                    _CardId.GadarlatheMysteryDustKaiju,
-                    _CardId.KumongoustheStickyStringKaiju,
-                    _CardId.GamecieltheSeaTurtleKaiju
+                this.AI.SelectCard(
+                    CardId.JizukirutheStarDestroyingKaiju,
+                    CardId.ThunderKingtheLightningstrikeKaiju,
+                    CardId.DogorantheMadFlameKaiju,
+                    CardId.RadiantheMultidimensionalKaiju,
+                    CardId.GadarlatheMysteryDustKaiju,
+                    CardId.KumongoustheStickyStringKaiju,
+                    CardId.GamecieltheSeaTurtleKaiju
                     );
-                AI.SelectNextCard(
-                    _CardId.SuperAntiKaijuWarMachineMechaDogoran,
-                    _CardId.GamecieltheSeaTurtleKaiju,
-                    _CardId.KumongoustheStickyStringKaiju,
-                    _CardId.GadarlatheMysteryDustKaiju,
-                    _CardId.RadiantheMultidimensionalKaiju,
-                    _CardId.DogorantheMadFlameKaiju,
-                    _CardId.ThunderKingtheLightningstrikeKaiju
+                this.AI.SelectNextCard(
+                    CardId.SuperAntiKaijuWarMachineMechaDogoran,
+                    CardId.GamecieltheSeaTurtleKaiju,
+                    CardId.KumongoustheStickyStringKaiju,
+                    CardId.GadarlatheMysteryDustKaiju,
+                    CardId.RadiantheMultidimensionalKaiju,
+                    CardId.DogorantheMadFlameKaiju,
+                    CardId.ThunderKingtheLightningstrikeKaiju
                     );
                 return true;
             }
@@ -956,36 +1122,38 @@ namespace WindBot.Game.AI
         protected bool DefaultKaijuSpsummon()
         {
             IList<int> kaijus = new[] {
-                _CardId.JizukirutheStarDestroyingKaiju,
-                _CardId.GadarlatheMysteryDustKaiju,
-                _CardId.GamecieltheSeaTurtleKaiju,
-                _CardId.RadiantheMultidimensionalKaiju,
-                _CardId.KumongoustheStickyStringKaiju,
-                _CardId.ThunderKingtheLightningstrikeKaiju,
-                _CardId.DogorantheMadFlameKaiju,
-                _CardId.SuperAntiKaijuWarMachineMechaDogoran
+                CardId.JizukirutheStarDestroyingKaiju,
+                CardId.GadarlatheMysteryDustKaiju,
+                CardId.GamecieltheSeaTurtleKaiju,
+                CardId.RadiantheMultidimensionalKaiju,
+                CardId.KumongoustheStickyStringKaiju,
+                CardId.ThunderKingtheLightningstrikeKaiju,
+                CardId.DogorantheMadFlameKaiju,
+                CardId.SuperAntiKaijuWarMachineMechaDogoran
             };
-            foreach (ClientCard monster in Enemy.GetMonsters())
+            foreach (ClientCard monster in this.Enemy.GetMonsters())
             {
                 if (monster.IsCode(kaijus))
-                    return Card.GetDefensePower() > monster.GetDefensePower();
+                {
+                    return this.Card.GetDefensePower() > monster.GetDefensePower();
+                }
             }
-            ClientCard card = Enemy.MonsterZone.GetFloodgate();
+            ClientCard card = this.Enemy.MonsterZone.GetFloodgate();
             if (card != null)
             {
-                AI.SelectCard(card);
+                this.AI.SelectCard(card);
                 return true;
             }
-            card = Enemy.MonsterZone.GetDangerousMonster();
+            card = this.Enemy.MonsterZone.GetDangerousMonster();
             if (card != null)
             {
-                AI.SelectCard(card);
+                this.AI.SelectCard(card);
                 return true;
             }
-            card = Util.GetOneEnemyBetterThanValue(Card.GetDefensePower());
+            card = this.Util.GetOneEnemyBetterThanValue(this.Card.GetDefensePower());
             if (card != null)
             {
-                AI.SelectCard(card);
+                this.AI.SelectCard(card);
                 return true;
             }
             return false;
@@ -996,8 +1164,8 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultNumberS39UtopiaTheLightningSummon()
         {
-            int bestBotAttack = Util.GetBestAttack(Bot);
-            return Util.IsOneEnemyBetterThanValue(bestBotAttack, false);
+            int bestBotAttack = this.Util.GetBestAttack(this.Bot);
+            return this.Util.IsOneEnemyBetterThanValue(bestBotAttack, false);
         }
 
         /// <summary>
@@ -1005,7 +1173,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultNumberS39UtopiaTheLightningEffect()
         {
-            return Card.IsAttack() && Card.Attack < 5000 && (Enemy.BattlingMonster.IsAttack() || Enemy.BattlingMonster.IsFacedown() || Enemy.BattlingMonster.GetDefensePower() >= Card.Attack);
+            return this.Card.IsAttack() && this.Card.Attack < 5000 && (this.Enemy.BattlingMonster.IsAttack() || this.Enemy.BattlingMonster.IsFacedown() || this.Enemy.BattlingMonster.GetDefensePower() >= this.Card.Attack);
         }
 
         /// <summary>
@@ -1013,9 +1181,9 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultEvilswarmExcitonKnightSummon()
         {
-            int selfCount = Bot.GetMonsterCount() + Bot.GetSpellCount() + Bot.GetHandCount();
-            int oppoCount = Enemy.GetMonsterCount() + Enemy.GetSpellCount() + Enemy.GetHandCount();
-            return (selfCount - 1 < oppoCount) && DefaultEvilswarmExcitonKnightEffect();
+            int selfCount = this.Bot.GetMonsterCount() + this.Bot.GetSpellCount() + this.Bot.GetHandCount();
+            int oppoCount = this.Enemy.GetMonsterCount() + this.Enemy.GetSpellCount() + this.Enemy.GetHandCount();
+            return (selfCount - 1 < oppoCount) && this.DefaultEvilswarmExcitonKnightEffect();
         }
 
         /// <summary>
@@ -1023,14 +1191,16 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultEvilswarmExcitonKnightEffect()
         {
-            int selfCount = Bot.GetMonsterCount() + Bot.GetSpellCount();
-            int oppoCount = Enemy.GetMonsterCount() + Enemy.GetSpellCount();
+            int selfCount = this.Bot.GetMonsterCount() + this.Bot.GetSpellCount();
+            int oppoCount = this.Enemy.GetMonsterCount() + this.Enemy.GetSpellCount();
 
             if (selfCount < oppoCount)
+            {
                 return true;
+            }
 
-            int selfAttack = Bot.GetMonsters().Sum(monster => (int?)monster.GetDefensePower()) ?? 0;
-            int oppoAttack = Enemy.GetMonsters().Sum(monster => (int?)monster.GetDefensePower()) ?? 0;
+            int selfAttack = this.Bot.GetMonsters().Sum(monster => (int?)monster.GetDefensePower()) ?? 0;
+            int oppoAttack = this.Enemy.GetMonsters().Sum(monster => (int?)monster.GetDefensePower()) ?? 0;
 
             return selfAttack < oppoAttack;
         }
@@ -1040,9 +1210,9 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultStardustDragonSummon()
         {
-            int selfBestAttack = Util.GetBestAttack(Bot);
-            int oppoBestAttack = Util.GetBestPower(Enemy);
-            return (selfBestAttack <= oppoBestAttack && oppoBestAttack <= 2500) || Util.IsTurn1OrMain2();
+            int selfBestAttack = this.Util.GetBestAttack(this.Bot);
+            int oppoBestAttack = this.Util.GetBestPower(this.Enemy);
+            return (selfBestAttack <= oppoBestAttack && oppoBestAttack <= 2500) || this.Util.IsTurn1OrMain2();
         }
 
         /// <summary>
@@ -1050,7 +1220,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultStardustDragonEffect()
         {
-            return (Card.Location == CardLocation.Grave) || Duel.LastChainPlayer == 1;
+            return (this.Card.Location == CardLocation.Grave) || this.Duel.LastChainPlayer == 1;
         }
 
         /// <summary>
@@ -1058,7 +1228,7 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultCastelTheSkyblasterMusketeerSummon()
         {
-            return Util.GetProblematicEnemyCard() != null;
+            return this.Util.GetProblematicEnemyCard() != null;
         }
 
         /// <summary>
@@ -1066,13 +1236,16 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultCastelTheSkyblasterMusketeerEffect()
         {
-            if (ActivateDescription == Util.GetStringId(_CardId.CastelTheSkyblasterMusketeer, 0))
+            if (this.ActivateDescription == this.Util.GetStringId(CardId.CastelTheSkyblasterMusketeer, 0))
+            {
                 return false;
-            ClientCard target = Util.GetProblematicEnemyCard();
+            }
+
+            ClientCard target = this.Util.GetProblematicEnemyCard();
             if (target != null)
             {
-                AI.SelectCard(0);
-                AI.SelectNextCard(target);
+                this.AI.SelectCard(0);
+                this.AI.SelectNextCard(target);
                 return true;
             }
             return false;
@@ -1083,9 +1256,9 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultScarlightRedDragonArchfiendSummon()
         {
-            int selfBestAttack = Util.GetBestAttack(Bot);
-            int oppoBestAttack = Util.GetBestPower(Enemy);
-            return (selfBestAttack <= oppoBestAttack && oppoBestAttack <= 3000) || DefaultScarlightRedDragonArchfiendEffect();
+            int selfBestAttack = this.Util.GetBestAttack(this.Bot);
+            int oppoBestAttack = this.Util.GetBestPower(this.Enemy);
+            return (selfBestAttack <= oppoBestAttack && oppoBestAttack <= 3000) || this.DefaultScarlightRedDragonArchfiendEffect();
         }
 
         /// <summary>
@@ -1093,8 +1266,8 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultScarlightRedDragonArchfiendEffect()
         {
-            int selfCount = Bot.GetMonsters().Count(monster => !monster.Equals(Card) && monster.IsSpecialSummoned && monster.HasType(CardType.Effect) && monster.Attack <= Card.Attack);
-            int oppoCount = Enemy.GetMonsters().Count(monster => monster.IsSpecialSummoned && monster.HasType(CardType.Effect) && monster.Attack <= Card.Attack);
+            int selfCount = this.Bot.GetMonsters().Count(monster => !monster.Equals(this.Card) && monster.IsSpecialSummoned && monster.HasType(CardType.Effect) && monster.Attack <= this.Card.Attack);
+            int oppoCount = this.Enemy.GetMonsters().Count(monster => monster.IsSpecialSummoned && monster.HasType(CardType.Effect) && monster.Attack <= this.Card.Attack);
             return selfCount <= oppoCount && oppoCount > 0 || oppoCount >= 3;
         }
 
@@ -1103,16 +1276,16 @@ namespace WindBot.Game.AI
         /// </summary>
         protected bool DefaultHonestEffect()
         {
-            if (Card.Location == CardLocation.Hand)
+            if (this.Card.Location == CardLocation.Hand)
             {
-                return Bot.BattlingMonster.IsAttack() &&
-                    (((Bot.BattlingMonster.Attack < Enemy.BattlingMonster.Attack) || Bot.BattlingMonster.Attack >= Enemy.LifePoints)
-                    || ((Bot.BattlingMonster.Attack < Enemy.BattlingMonster.Defense) && (Bot.BattlingMonster.Attack + Enemy.BattlingMonster.Attack > Enemy.BattlingMonster.Defense)));
+                return this.Bot.BattlingMonster.IsAttack() &&
+                    (((this.Bot.BattlingMonster.Attack < this.Enemy.BattlingMonster.Attack) || this.Bot.BattlingMonster.Attack >= this.Enemy.LifePoints)
+                    || ((this.Bot.BattlingMonster.Attack < this.Enemy.BattlingMonster.Defense) && (this.Bot.BattlingMonster.Attack + this.Enemy.BattlingMonster.Attack > this.Enemy.BattlingMonster.Defense)));
             }
 
-            if (Util.IsTurn1OrMain2() && HonestEffectCount <= 5)
+            if (this.Util.IsTurn1OrMain2() && this.honestEffectCount <= 5)
             {
-                HonestEffectCount++;
+                this.honestEffectCount++;
                 return true;
             }
 
@@ -1121,14 +1294,14 @@ namespace WindBot.Game.AI
 
         protected bool DefaultLightingStorm()
         {
-            if ((Enemy.MonsterZone.ToList().Count > Enemy.SpellZone.ToList().Count ) && Enemy.MonsterZone.ToList().Count>3)
+            if ((this.Enemy.MonsterZone.ToList().Count > this.Enemy.SpellZone.ToList().Count ) && this.Enemy.MonsterZone.ToList().Count>3)
             {
-                AI.SelectPlace(Zones.MonsterZones);
+                this.AI.SelectPlace(Zones.MonsterZones);
                 return true;
             }
             else
             {
-                AI.SelectPlace(Zones.SpellZones);
+                this.AI.SelectPlace(Zones.SpellZones);
                 return true;
             }
 

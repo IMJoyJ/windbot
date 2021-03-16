@@ -50,8 +50,11 @@ namespace WindBot
             DecksManager.Init();
             string absolutePath = Path.GetFullPath(databasePath);
             if (!File.Exists(absolutePath))
+            {
                 // In case windbot is placed in a folder under ygopro folder
                 absolutePath = Path.GetFullPath("../" + databasePath);
+            }
+
             if (!File.Exists(absolutePath))
             {
                 Logger.WriteErrorLine("Can't find cards database file.");
@@ -105,31 +108,57 @@ namespace WindBot
                     Info.Host = HttpUtility.ParseQueryString(RawUrl).Get("host");
                     string port = HttpUtility.ParseQueryString(RawUrl).Get("port");
                     if (port != null)
-                        Info.Port = Int32.Parse(port);
+                    {
+                        Info.Port = int.Parse(port);
+                    }
+
                     string deckfile = HttpUtility.ParseQueryString(RawUrl).Get("deckfile");
                     if (deckfile != null)
+                    {
                         Info.DeckFile = deckfile;
+                    }
+
                     string deckcode = HttpUtility.ParseQueryString(RawUrl).Get("deckcode");
                     if (deckcode != null)
+                    {
                         Info.DeckCode = deckcode;
+                    }
+
                     string dialog = HttpUtility.ParseQueryString(RawUrl).Get("dialog");
                     if (dialog != null)
+                    {
                         Info.Dialog = dialog;
+                    }
+
                     string version = HttpUtility.ParseQueryString(RawUrl).Get("version");
                     if (version != null)
-                        Info.Version = Int16.Parse(version);
+                    {
+                        Info.Version = short.Parse(version);
+                    }
+
                     string password = HttpUtility.ParseQueryString(RawUrl).Get("password");
                     if (password != null)
+                    {
                         Info.HostInfo = password;
+                    }
+
                     string hand = HttpUtility.ParseQueryString(RawUrl).Get("hand");
                     if (hand != null)
-                        Info.Hand = Int32.Parse(hand);
+                    {
+                        Info.Hand = int.Parse(hand);
+                    }
+
                     string debug = HttpUtility.ParseQueryString(RawUrl).Get("debug");
                     if (debug != null)
+                    {
                         Info.Debug= bool.Parse(debug);
+                    }
+
                     string chat = HttpUtility.ParseQueryString(RawUrl).Get("chat");
                     if (chat != null)
+                    {
                         Info.Chat = bool.Parse(chat);
+                    }
 
                     if (Info.Name == null || Info.Host == null || port == null)
                     {

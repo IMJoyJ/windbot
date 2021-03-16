@@ -16,13 +16,13 @@ namespace WindBot.Game
 
         public MainPhase()
         {
-            SummonableCards = new List<ClientCard>();
-            SpecialSummonableCards = new List<ClientCard>();
-            ReposableCards = new List<ClientCard>();
-            MonsterSetableCards = new List<ClientCard>();
-            SpellSetableCards = new List<ClientCard>();
-            ActivableCards = new List<ClientCard>();
-            ActivableDescs = new List<int>();
+            this.SummonableCards = new List<ClientCard>();
+            this.SpecialSummonableCards = new List<ClientCard>();
+            this.ReposableCards = new List<ClientCard>();
+            this.MonsterSetableCards = new List<ClientCard>();
+            this.SpellSetableCards = new List<ClientCard>();
+            this.ActivableCards = new List<ClientCard>();
+            this.ActivableDescs = new List<int>();
         }
     }
 }

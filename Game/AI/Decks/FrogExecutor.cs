@@ -35,50 +35,50 @@ namespace WindBot.Game.AI.Decks
         public FrogExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.SpellSet, DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, this.DefaultSpellSet);
 
-            AddExecutor(ExecutorType.Activate, CardId.Solidarity, Solidarity);
-            AddExecutor(ExecutorType.Activate, CardId.Terraforming, Terraforming);
-            AddExecutor(ExecutorType.Activate, CardId.Wetlands, DefaultField);
-            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
-            AddExecutor(ExecutorType.Activate, CardId.Raigeki, DefaultRaigeki);
-            AddExecutor(ExecutorType.Activate, CardId.PotOfDuality, PotOfDuality);
+            this.AddExecutor(ExecutorType.Activate, CardId.Solidarity, this.Solidarity);
+            this.AddExecutor(ExecutorType.Activate, CardId.Terraforming, this.Terraforming);
+            this.AddExecutor(ExecutorType.Activate, CardId.Wetlands, this.DefaultField);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkHole, this.DefaultDarkHole);
+            this.AddExecutor(ExecutorType.Activate, CardId.Raigeki, this.DefaultRaigeki);
+            this.AddExecutor(ExecutorType.Activate, CardId.PotOfDuality, this.PotOfDuality);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.SwapFrog, SwapFrogSummon);
-            AddExecutor(ExecutorType.Activate, CardId.SwapFrog, SwapFrogActivate);
-            AddExecutor(ExecutorType.Activate, CardId.DupeFrog, DupeFrog);
-            AddExecutor(ExecutorType.Activate, CardId.FlipFlopFrog, FlipFlopFrog);
-            AddExecutor(ExecutorType.Activate, CardId.Ronintoadin, Ronintoadin);
-            AddExecutor(ExecutorType.Activate, CardId.TreebornFrog, TreebornFrog);
-            AddExecutor(ExecutorType.Activate, CardId.Unifrog);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.SwapFrog, this.SwapFrogSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.SwapFrog, this.SwapFrogActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.DupeFrog, this.DupeFrog);
+            this.AddExecutor(ExecutorType.Activate, CardId.FlipFlopFrog, this.FlipFlopFrog);
+            this.AddExecutor(ExecutorType.Activate, CardId.Ronintoadin, this.Ronintoadin);
+            this.AddExecutor(ExecutorType.Activate, CardId.TreebornFrog, this.TreebornFrog);
+            this.AddExecutor(ExecutorType.Activate, CardId.Unifrog);
 
-            AddExecutor(ExecutorType.Summon, CardId.CryomancerOfTheIceBarrier, SummonFrog);
-            AddExecutor(ExecutorType.Summon, CardId.DewdarkOfTheIceBarrier, SummonFrog);
-            AddExecutor(ExecutorType.Summon, CardId.SubmarineFrog, SummonFrog);
-            AddExecutor(ExecutorType.Summon, CardId.SwapFrog, SummonFrog);
-            AddExecutor(ExecutorType.Summon, CardId.Unifrog, SummonFrog);
-            AddExecutor(ExecutorType.Summon, CardId.Ronintoadin, SummonFrog);
-            AddExecutor(ExecutorType.Summon, CardId.DupeFrog, SummonFrog);
-            AddExecutor(ExecutorType.Summon, CardId.Tradetoad, SummonFrog);
-            AddExecutor(ExecutorType.Summon, CardId.TreebornFrog, SummonFrog);
-            AddExecutor(ExecutorType.Summon, CardId.FlipFlopFrog, SummonFrog);
+            this.AddExecutor(ExecutorType.Summon, CardId.CryomancerOfTheIceBarrier, this.SummonFrog);
+            this.AddExecutor(ExecutorType.Summon, CardId.DewdarkOfTheIceBarrier, this.SummonFrog);
+            this.AddExecutor(ExecutorType.Summon, CardId.SubmarineFrog, this.SummonFrog);
+            this.AddExecutor(ExecutorType.Summon, CardId.SwapFrog, this.SummonFrog);
+            this.AddExecutor(ExecutorType.Summon, CardId.Unifrog, this.SummonFrog);
+            this.AddExecutor(ExecutorType.Summon, CardId.Ronintoadin, this.SummonFrog);
+            this.AddExecutor(ExecutorType.Summon, CardId.DupeFrog, this.SummonFrog);
+            this.AddExecutor(ExecutorType.Summon, CardId.Tradetoad, this.SummonFrog);
+            this.AddExecutor(ExecutorType.Summon, CardId.TreebornFrog, this.SummonFrog);
+            this.AddExecutor(ExecutorType.Summon, CardId.FlipFlopFrog, this.SummonFrog);
 
-            AddExecutor(ExecutorType.MonsterSet, CardId.FlipFlopFrog);
-            AddExecutor(ExecutorType.MonsterSet, CardId.DupeFrog);
-            AddExecutor(ExecutorType.MonsterSet, CardId.Tradetoad);
-            AddExecutor(ExecutorType.MonsterSet, CardId.Ronintoadin);
-            AddExecutor(ExecutorType.MonsterSet, CardId.TreebornFrog);
-            AddExecutor(ExecutorType.MonsterSet, CardId.Unifrog);
-            AddExecutor(ExecutorType.MonsterSet, CardId.SwapFrog);
-            AddExecutor(ExecutorType.MonsterSet, CardId.SubmarineFrog);
-            AddExecutor(ExecutorType.MonsterSet, CardId.DewdarkOfTheIceBarrier);
-            AddExecutor(ExecutorType.MonsterSet, CardId.CryomancerOfTheIceBarrier);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.FlipFlopFrog);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.DupeFrog);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.Tradetoad);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.Ronintoadin);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.TreebornFrog);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.Unifrog);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.SwapFrog);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.SubmarineFrog);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.DewdarkOfTheIceBarrier);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.CryomancerOfTheIceBarrier);
 
-            AddExecutor(ExecutorType.Repos, FrogMonsterRepos);
+            this.AddExecutor(ExecutorType.Repos, this.FrogMonsterRepos);
 
-            AddExecutor(ExecutorType.Activate, CardId.FroggyForcefield, DefaultTrap);
-            AddExecutor(ExecutorType.Activate, CardId.TheHugeRevolutionIsOver, DefaultTrap);
-            AddExecutor(ExecutorType.Activate, CardId.GravityBind, GravityBind);
+            this.AddExecutor(ExecutorType.Activate, CardId.FroggyForcefield, this.DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.TheHugeRevolutionIsOver, this.DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.GravityBind, this.GravityBind);
         }
 
         private int m_swapFrogSummoned;
@@ -87,55 +87,62 @@ namespace WindBot.Game.AI.Decks
 
         public override void OnNewTurn()
         {
-            m_treebornFrogCount = 0;
+            this.m_treebornFrogCount = 0;
             base.OnNewTurn();
         }
 
         private bool TreebornFrog()
         {
-            m_treebornFrogCount++;
-            return m_treebornFrogCount <= 5;
+            this.m_treebornFrogCount++;
+            return this.m_treebornFrogCount <= 5;
         }
 
         private bool SwapFrogSummon()
         {
-            int atk = Card.Attack + GetSpellBonus();
-            if (Util.IsAllEnemyBetterThanValue(atk, true))
+            int atk = this.Card.Attack + this.GetSpellBonus();
+            if (this.Util.IsAllEnemyBetterThanValue(atk, true))
+            {
                 return false;
+            }
 
-            AI.SelectCard(CardId.Ronintoadin);
-            m_swapFrogSummoned = Duel.Turn;
+            this.AI.SelectCard(CardId.Ronintoadin);
+            this.m_swapFrogSummoned = this.Duel.Turn;
             return true;
         }
 
         private bool SwapFrogActivate()
         {
-            if (m_swapFrogSummoned != Duel.Turn)
+            if (this.m_swapFrogSummoned != this.Duel.Turn)
+            {
                 return false;
-            m_swapFrogSummoned = -1;
+            }
 
-            if (Bot.GetRemainingCount(CardId.Ronintoadin, 2) == 0)
+            this.m_swapFrogSummoned = -1;
+
+            if (this.Bot.GetRemainingCount(CardId.Ronintoadin, 2) == 0)
+            {
                 return false;
+            }
 
-            AI.SelectCard(CardId.Ronintoadin);
+            this.AI.SelectCard(CardId.Ronintoadin);
             return true;
         }
 
         private bool DupeFrog()
         {
-            AI.SelectCard(CardLocation.Deck);
+            this.AI.SelectCard(CardLocation.Deck);
             return true;
         }
 
         private bool FlipFlopFrog()
         {
-            if (Card.IsDefense() || m_flipFlopFrogSummoned == Duel.Turn || Duel.Phase == DuelPhase.Main2)
+            if (this.Card.IsDefense() || this.m_flipFlopFrogSummoned == this.Duel.Turn || this.Duel.Phase == DuelPhase.Main2)
             {
-                m_flipFlopFrogSummoned = -1;
-                List<ClientCard> monsters = Enemy.GetMonsters();
+                this.m_flipFlopFrogSummoned = -1;
+                List<ClientCard> monsters = this.Enemy.GetMonsters();
                 monsters.Sort(CardContainer.CompareCardAttack);
                 monsters.Reverse();
-                AI.SelectCard(monsters);
+                this.AI.SelectCard(monsters);
                 return true;
             }
             return false;
@@ -143,11 +150,14 @@ namespace WindBot.Game.AI.Decks
 
         private bool Ronintoadin()
         {
-            List<ClientCard> monsters = Bot.GetGraveyardMonsters();
+            List<ClientCard> monsters = this.Bot.GetGraveyardMonsters();
             if (monsters.Count > 2)
             {
-                if (GetSpellBonus() == 0)
-                    AI.SelectPosition(CardPosition.FaceUpDefence);
+                if (this.GetSpellBonus() == 0)
+                {
+                    this.AI.SelectPosition(CardPosition.FaceUpDefence);
+                }
+
                 return true;
             }
             return false;
@@ -155,13 +165,18 @@ namespace WindBot.Game.AI.Decks
 
         private bool SummonFrog()
         {
-            int atk = Card.Attack + GetSpellBonus();
+            int atk = this.Card.Attack + this.GetSpellBonus();
 
-            if (Util.IsOneEnemyBetterThanValue(atk, true))
+            if (this.Util.IsOneEnemyBetterThanValue(atk, true))
+            {
                 return false;
+            }
 
-            if (Card.IsCode(CardId.SwapFrog))
-                m_swapFrogSummoned = Duel.Turn;
+            if (this.Card.IsCode(CardId.SwapFrog))
+            {
+                this.m_swapFrogSummoned = this.Duel.Turn;
+            }
+
             return true;
         }
 
@@ -169,12 +184,12 @@ namespace WindBot.Game.AI.Decks
         {
             List<int> cards = new List<int>();
             
-            if (Util.IsOneEnemyBetter())
+            if (this.Util.IsOneEnemyBetter())
             {
                 cards.Add(CardId.FlipFlopFrog);
             }
 
-            if (Bot.SpellZone[5] == null)
+            if (this.Bot.SpellZone[5] == null)
             {
                 cards.Add(CardId.Terraforming);
                 cards.Add(CardId.Wetlands);
@@ -186,7 +201,7 @@ namespace WindBot.Game.AI.Decks
 
             if (cards.Count > 0)
             {
-                AI.SelectCard(cards);
+                this.AI.SelectCard(cards);
                 return true;
             }
 
@@ -195,51 +210,76 @@ namespace WindBot.Game.AI.Decks
 
         private bool Terraforming()
         {
-            if (Bot.HasInHand(CardId.Wetlands))
+            if (this.Bot.HasInHand(CardId.Wetlands))
+            {
                 return false;
-            if (Bot.SpellZone[5] != null)
+            }
+
+            if (this.Bot.SpellZone[5] != null)
+            {
                 return false;
+            }
+
             return true;
         }
 
         private bool Solidarity()
         {
-            List<ClientCard> monsters = Bot.GetGraveyardMonsters();
+            List<ClientCard> monsters = this.Bot.GetGraveyardMonsters();
             return monsters.Count != 0;
         }
 
         private bool GravityBind()
         {
-            List<ClientCard> spells = Bot.GetSpells();
+            List<ClientCard> spells = this.Bot.GetSpells();
             foreach (ClientCard spell in spells)
             {
                 if (spell.IsCode(CardId.GravityBind) && !spell.IsFacedown())
+                {
                     return false;
+                }
             }
             return true;
         }
 
         private bool FrogMonsterRepos()
         {
-            if (Card.IsCode(CardId.Unifrog))
-                return Card.IsDefense();
-            if (Card.IsCode(CardId.DewdarkOfTheIceBarrier))
-                return Card.IsDefense();
+            if (this.Card.IsCode(CardId.Unifrog))
+            {
+                return this.Card.IsDefense();
+            }
 
-            bool enemyBetter = Util.IsOneEnemyBetterThanValue(Card.Attack + (Card.IsFacedown() ? GetSpellBonus() : 0), true);
-            if (Card.Attack < 800)
+            if (this.Card.IsCode(CardId.DewdarkOfTheIceBarrier))
+            {
+                return this.Card.IsDefense();
+            }
+
+            bool enemyBetter = this.Util.IsOneEnemyBetterThanValue(this.Card.Attack + (this.Card.IsFacedown() ? this.GetSpellBonus() : 0), true);
+            if (this.Card.Attack < 800)
+            {
                 enemyBetter = true;
+            }
+
             bool result = false;
-            if (Card.IsAttack() && enemyBetter)
+            if (this.Card.IsAttack() && enemyBetter)
+            {
                 result =  true;
-            if (Card.IsDefense() && !enemyBetter)
-                result = true;
+            }
 
-            if (!result && Card.IsCode(CardId.FlipFlopFrog) && Enemy.GetMonsterCount() > 0 && Card.IsFacedown())
+            if (this.Card.IsDefense() && !enemyBetter)
+            {
                 result = true;
+            }
 
-            if (Card.IsCode(CardId.FlipFlopFrog) && Card.IsFacedown() && result)
-                m_flipFlopFrogSummoned = Duel.Turn;
+            if (!result && this.Card.IsCode(CardId.FlipFlopFrog) && this.Enemy.GetMonsterCount() > 0 && this.Card.IsFacedown())
+            {
+                result = true;
+            }
+
+            if (this.Card.IsCode(CardId.FlipFlopFrog) && this.Card.IsFacedown() && result)
+            {
+                this.m_flipFlopFrogSummoned = this.Duel.Turn;
+            }
 
             return result;
         }
@@ -247,16 +287,20 @@ namespace WindBot.Game.AI.Decks
         private int GetSpellBonus()
         {
             int atk = 0;
-            if (Bot.SpellZone[5] != null)
+            if (this.Bot.SpellZone[5] != null)
+            {
                 atk += 1200;
+            }
 
-            List<ClientCard> monsters = Bot.GetGraveyardMonsters();
+            List<ClientCard> monsters = this.Bot.GetGraveyardMonsters();
             if (monsters.Count != 0)
             {
-                foreach (ClientCard card in Bot.GetSpells())
+                foreach (ClientCard card in this.Bot.GetSpells())
                 {
                     if (card.IsCode(CardId.Solidarity))
+                    {
                         atk += 800;
+                    }
                 }
             }
 

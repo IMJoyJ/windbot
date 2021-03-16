@@ -77,63 +77,63 @@ namespace WindBot.Game.AI.Decks
         {
             // executors
             //Spell activate
-            AddExecutor(ExecutorType.Activate, Spells.Raigeki, DefaultDarkHole);
-            AddExecutor(ExecutorType.Activate, Spells.FoolishBurial, FoolishBurialTarget);
-            AddExecutor(ExecutorType.Activate, Spells.TimeThiefStartup, TimeThiefStartupEffect);
-            AddExecutor(ExecutorType.Activate, Spells.TimeThiefHack);
-            AddExecutor(ExecutorType.Activate, Spells.PotofExtravagance, PotofExtravaganceActivate);
-            AddExecutor(ExecutorType.Activate, Spells.HarpieFeatherDuster, DefaultHarpiesFeatherDusterFirst);
-            AddExecutor(ExecutorType.Activate, Spells.PotOfDesires, PotOfDesireseff);
+            this.AddExecutor(ExecutorType.Activate, Spells.Raigeki, this.DefaultDarkHole);
+            this.AddExecutor(ExecutorType.Activate, Spells.FoolishBurial, this.FoolishBurialTarget);
+            this.AddExecutor(ExecutorType.Activate, Spells.TimeThiefStartup, this.TimeThiefStartupEffect);
+            this.AddExecutor(ExecutorType.Activate, Spells.TimeThiefHack);
+            this.AddExecutor(ExecutorType.Activate, Spells.PotofExtravagance, this.PotofExtravaganceActivate);
+            this.AddExecutor(ExecutorType.Activate, Spells.HarpieFeatherDuster, this.DefaultHarpiesFeatherDusterFirst);
+            this.AddExecutor(ExecutorType.Activate, Spells.PotOfDesires, this.PotOfDesireseff);
             // trap executors set
-            AddExecutor(ExecutorType.SpellSet, Traps.PhantomKnightsShade);
-            AddExecutor(ExecutorType.SpellSet, Traps.TimeThiefRetrograte);
-            AddExecutor(ExecutorType.SpellSet, Traps.TimeThiefFlyBack);
-            AddExecutor(ExecutorType.SpellSet, Traps.SolemnWarning);
-            AddExecutor(ExecutorType.SpellSet, Traps.SolemStrike);
-            AddExecutor(ExecutorType.SpellSet, Traps.SolemnJudgment);
-            AddExecutor(ExecutorType.SpellSet, Traps.Crackdown);
+            this.AddExecutor(ExecutorType.SpellSet, Traps.PhantomKnightsShade);
+            this.AddExecutor(ExecutorType.SpellSet, Traps.TimeThiefRetrograte);
+            this.AddExecutor(ExecutorType.SpellSet, Traps.TimeThiefFlyBack);
+            this.AddExecutor(ExecutorType.SpellSet, Traps.SolemnWarning);
+            this.AddExecutor(ExecutorType.SpellSet, Traps.SolemStrike);
+            this.AddExecutor(ExecutorType.SpellSet, Traps.SolemnJudgment);
+            this.AddExecutor(ExecutorType.SpellSet, Traps.Crackdown);
             //normal summons
-            AddExecutor(ExecutorType.Summon, Monsters.TimeThiefRegulator);
-            AddExecutor(ExecutorType.SpSummon, Monsters.PhotonTrasher, SummonToDef);
-            AddExecutor(ExecutorType.Summon, Monsters.TimeThiefWinder);
-            AddExecutor(ExecutorType.Summon, Monsters.TimeThiefBezelShip);
-            AddExecutor(ExecutorType.Summon, Monsters.PerformTrickClown);
-            AddExecutor(ExecutorType.Summon, Monsters.TimeThiefCronocorder);
-            AddExecutor(ExecutorType.Summon, Monsters.ThunderKingRaiOh, ThunderKingRaiOhsummon);
+            this.AddExecutor(ExecutorType.Summon, Monsters.TimeThiefRegulator);
+            this.AddExecutor(ExecutorType.SpSummon, Monsters.PhotonTrasher, this.SummonToDef);
+            this.AddExecutor(ExecutorType.Summon, Monsters.TimeThiefWinder);
+            this.AddExecutor(ExecutorType.Summon, Monsters.TimeThiefBezelShip);
+            this.AddExecutor(ExecutorType.Summon, Monsters.PerformTrickClown);
+            this.AddExecutor(ExecutorType.Summon, Monsters.TimeThiefCronocorder);
+            this.AddExecutor(ExecutorType.Summon, Monsters.ThunderKingRaiOh, this.ThunderKingRaiOhsummon);
             //xyz summons
-            AddExecutor(ExecutorType.SpSummon, XYZs.TimeThiefRedoer);
-            AddExecutor(ExecutorType.SpSummon, XYZs.TimeThiefPerpetua);
-            AddExecutor(ExecutorType.SpSummon, XYZs.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightSummon);
-            AddExecutor(ExecutorType.SpSummon, XYZs.GagagaCowboy, GagagaCowboySummon);
-            AddExecutor(ExecutorType.SpSummon, XYZs.Number39Utopia, DefaultNumberS39UtopiaTheLightningSummon);
-            AddExecutor(ExecutorType.SpSummon, XYZs.NumberS39UtopiaOne);
-            AddExecutor(ExecutorType.SpSummon, XYZs.NumberS39UtopiatheLightning);
-            AddExecutor(ExecutorType.SpSummon, XYZs.DarkRebellionXyzDragon, DarkRebellionXyzDragonSummon);
+            this.AddExecutor(ExecutorType.SpSummon, XYZs.TimeThiefRedoer);
+            this.AddExecutor(ExecutorType.SpSummon, XYZs.TimeThiefPerpetua);
+            this.AddExecutor(ExecutorType.SpSummon, XYZs.EvilswarmExcitonKnight, this.DefaultEvilswarmExcitonKnightSummon);
+            this.AddExecutor(ExecutorType.SpSummon, XYZs.GagagaCowboy, this.GagagaCowboySummon);
+            this.AddExecutor(ExecutorType.SpSummon, XYZs.Number39Utopia, this.DefaultNumberS39UtopiaTheLightningSummon);
+            this.AddExecutor(ExecutorType.SpSummon, XYZs.NumberS39UtopiaOne);
+            this.AddExecutor(ExecutorType.SpSummon, XYZs.NumberS39UtopiatheLightning);
+            this.AddExecutor(ExecutorType.SpSummon, XYZs.DarkRebellionXyzDragon, this.DarkRebellionXyzDragonSummon);
             //activate trap
-            AddExecutor(ExecutorType.Activate, Traps.PhantomKnightsShade);
-            AddExecutor(ExecutorType.Activate, Traps.TimeThiefRetrograte, RetrograteEffect);
-            AddExecutor(ExecutorType.Activate, Traps.TimeThiefFlyBack);
-            AddExecutor(ExecutorType.Activate, Traps.SolemnWarning, DefaultSolemnWarning);
-            AddExecutor(ExecutorType.Activate, Traps.SolemStrike, DefaultSolemnStrike);
-            AddExecutor(ExecutorType.Activate, Traps.SolemnJudgment, DefaultSolemnJudgment);
-            AddExecutor(ExecutorType.Activate, Traps.Crackdown, Crackdowneff);
+            this.AddExecutor(ExecutorType.Activate, Traps.PhantomKnightsShade);
+            this.AddExecutor(ExecutorType.Activate, Traps.TimeThiefRetrograte, this.RetrograteEffect);
+            this.AddExecutor(ExecutorType.Activate, Traps.TimeThiefFlyBack);
+            this.AddExecutor(ExecutorType.Activate, Traps.SolemnWarning, this.DefaultSolemnWarning);
+            this.AddExecutor(ExecutorType.Activate, Traps.SolemStrike, this.DefaultSolemnStrike);
+            this.AddExecutor(ExecutorType.Activate, Traps.SolemnJudgment, this.DefaultSolemnJudgment);
+            this.AddExecutor(ExecutorType.Activate, Traps.Crackdown, this.Crackdowneff);
             //xyz effects
-            AddExecutor(ExecutorType.Activate, XYZs.TimeThiefRedoer, RedoerEffect);
-            AddExecutor(ExecutorType.Activate, XYZs.TimeThiefPerpetua, PerpertuaEffect);
-            AddExecutor(ExecutorType.Activate, XYZs.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightEffect);
-            AddExecutor(ExecutorType.Activate, XYZs.GagagaCowboy);
-            AddExecutor(ExecutorType.Activate, XYZs.NumberS39UtopiatheLightning, DefaultNumberS39UtopiaTheLightningEffect);
-            AddExecutor(ExecutorType.Activate, XYZs.DarkRebellionXyzDragon, DarkRebellionXyzDragonEffect);
+            this.AddExecutor(ExecutorType.Activate, XYZs.TimeThiefRedoer, this.RedoerEffect);
+            this.AddExecutor(ExecutorType.Activate, XYZs.TimeThiefPerpetua, this.PerpertuaEffect);
+            this.AddExecutor(ExecutorType.Activate, XYZs.EvilswarmExcitonKnight, this.DefaultEvilswarmExcitonKnightEffect);
+            this.AddExecutor(ExecutorType.Activate, XYZs.GagagaCowboy);
+            this.AddExecutor(ExecutorType.Activate, XYZs.NumberS39UtopiatheLightning, this.DefaultNumberS39UtopiaTheLightningEffect);
+            this.AddExecutor(ExecutorType.Activate, XYZs.DarkRebellionXyzDragon, this.DarkRebellionXyzDragonEffect);
 
             //monster effects
-            AddExecutor(ExecutorType.Activate, Monsters.TimeThiefRegulator, RegulatorEffect);
-            AddExecutor(ExecutorType.Activate, Monsters.TimeThiefWinder);
-            AddExecutor(ExecutorType.Activate, Monsters.TimeThiefCronocorder);
-            AddExecutor(ExecutorType.Activate, Monsters.PerformTrickClown, TrickClownEffect);
-            AddExecutor(ExecutorType.Activate, Monsters.TimeThiefBezelShip);
-            AddExecutor(ExecutorType.Activate, Monsters.ThunderKingRaiOh, ThunderKingRaiOheff);
-            AddExecutor(ExecutorType.Activate, Monsters.AshBlossomAndJoyousSpring, DefaultAshBlossomAndJoyousSpring);
-            AddExecutor(ExecutorType.Activate, Monsters.MaxxC, DefaultMaxxC);
+            this.AddExecutor(ExecutorType.Activate, Monsters.TimeThiefRegulator, this.RegulatorEffect);
+            this.AddExecutor(ExecutorType.Activate, Monsters.TimeThiefWinder);
+            this.AddExecutor(ExecutorType.Activate, Monsters.TimeThiefCronocorder);
+            this.AddExecutor(ExecutorType.Activate, Monsters.PerformTrickClown, this.TrickClownEffect);
+            this.AddExecutor(ExecutorType.Activate, Monsters.TimeThiefBezelShip);
+            this.AddExecutor(ExecutorType.Activate, Monsters.ThunderKingRaiOh, this.ThunderKingRaiOheff);
+            this.AddExecutor(ExecutorType.Activate, Monsters.AshBlossomAndJoyousSpring, this.DefaultAshBlossomAndJoyousSpring);
+            this.AddExecutor(ExecutorType.Activate, Monsters.MaxxC, this.DefaultMaxxC);
         }
 
         public void SelectSTPlace(ClientCard card = null, bool avoid_Impermanence = false, List<int> avoid_list = null)
@@ -150,54 +150,86 @@ namespace WindBot.Game.AI.Decks
             foreach (int seq in list)
             {
                 int zone = (int)System.Math.Pow(2, seq);
-                if (Bot.SpellZone[seq] == null)
+                if (this.Bot.SpellZone[seq] == null)
                 {
-                    if (card != null && card.Location == CardLocation.Hand && avoid_Impermanence) continue;
-                    if (avoid_list != null && avoid_list.Contains(seq)) continue;
-                    AI.SelectPlace(zone);
+                    if (card != null && card.Location == CardLocation.Hand && avoid_Impermanence)
+                    {
+                        continue;
+                    }
+
+                    if (avoid_list != null && avoid_list.Contains(seq))
+                    {
+                        continue;
+                    }
+
+                    this.AI.SelectPlace(zone);
                     return;
                 };
             }
-            AI.SelectPlace(0);
+            this.AI.SelectPlace(0);
         }
 
         public bool SpellNegatable(bool isCounter = false, ClientCard target = null)
         {
             // target default set
-            if (target == null) target = Card;
+            if (target == null)
+            {
+                target = this.Card;
+            }
             // won't negate if not on field
-            if (target.Location != CardLocation.SpellZone && target.Location != CardLocation.Hand) return false;
+            if (target.Location != CardLocation.SpellZone && target.Location != CardLocation.Hand)
+            {
+                return false;
+            }
 
             // negate judge
-            if (Enemy.HasInMonstersZone(CardId.NaturalExterio, true) && !isCounter) return true;
+            if (this.Enemy.HasInMonstersZone(CardId.NaturalExterio, true) && !isCounter)
+            {
+                return true;
+            }
+
             if (target.IsSpell())
             {
-                if (Enemy.HasInMonstersZone(CardId.NaturalBeast, true)) return true;
-                if (Enemy.HasInSpellZone(CardId.ImperialOrder, true) || Bot.HasInSpellZone(CardId.ImperialOrder, true)) return true;
-                if (Enemy.HasInMonstersZone(CardId.SwordsmanLV7, true) || Bot.HasInMonstersZone(CardId.SwordsmanLV7, true)) return true;
+                if (this.Enemy.HasInMonstersZone(CardId.NaturalBeast, true))
+                {
+                    return true;
+                }
+
+                if (this.Enemy.HasInSpellZone(CardId.ImperialOrder, true) || this.Bot.HasInSpellZone(CardId.ImperialOrder, true))
+                {
+                    return true;
+                }
+
+                if (this.Enemy.HasInMonstersZone(CardId.SwordsmanLV7, true) || this.Bot.HasInMonstersZone(CardId.SwordsmanLV7, true))
+                {
+                    return true;
+                }
             }
             if (target.IsTrap())
             {
-                if (Enemy.HasInSpellZone(CardId.RoyalDecreel, true) || Bot.HasInSpellZone(CardId.RoyalDecreel, true)) return true;
+                if (this.Enemy.HasInSpellZone(CardId.RoyalDecreel, true) || this.Bot.HasInSpellZone(CardId.RoyalDecreel, true))
+                {
+                    return true;
+                }
             }
             // how to get here?
             return false;
         }
         private bool SummonToDef()
         {
-            AI.SelectPosition(CardPosition.Defence);
+            this.AI.SelectPosition(CardPosition.Defence);
             return true;
         }
         private bool RegulatorEffect()
         {
-            if (Card.Location == CardLocation.MonsterZone)
+            if (this.Card.Location == CardLocation.MonsterZone)
             {
-                AI.SelectCard(Monsters.TimeThiefCronocorder);
-                AI.SelectCard(Monsters.TimeThiefWinder);
+                this.AI.SelectCard(Monsters.TimeThiefCronocorder);
+                this.AI.SelectCard(Monsters.TimeThiefWinder);
                 return true;
             }
 
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
                 return true;
             }
@@ -207,16 +239,16 @@ namespace WindBot.Game.AI.Decks
 
         private bool PerpertuaEffect()
         {
-            if (Bot.HasInGraveyard(XYZs.TimeThiefRedoer))
+            if (this.Bot.HasInGraveyard(XYZs.TimeThiefRedoer))
             {
-                AI.SelectCard(XYZs.TimeThiefRedoer);
+                this.AI.SelectCard(XYZs.TimeThiefRedoer);
                 return true;
             }
 
-            if (Bot.HasInMonstersZone(XYZs.TimeThiefRedoer))
+            if (this.Bot.HasInMonstersZone(XYZs.TimeThiefRedoer))
             {
-                AI.SelectCard(Monsters.TimeThiefBezelShip);
-                AI.SelectNextCard(XYZs.TimeThiefRedoer);
+                this.AI.SelectCard(Monsters.TimeThiefBezelShip);
+                this.AI.SelectNextCard(XYZs.TimeThiefRedoer);
                 return true;
             }
 
@@ -228,10 +260,10 @@ namespace WindBot.Game.AI.Decks
         private bool RedoerEffect()
         {
 
-            List<ClientCard> enemy = Enemy.GetMonstersInMainZone();
-            List<int> units = Card.Overlays;
-            if (Duel.Phase == DuelPhase.Standby && (AI.Executor.Util.GetStringId(XYZs.TimeThiefRedoer, 0) ==
-                                                    ActivateDescription))
+            List<ClientCard> enemy = this.Enemy.GetMonstersInMainZone();
+            List<int> units = this.Card.Overlays;
+            if (this.Duel.Phase == DuelPhase.Standby && (this.AI.Executor.Util.GetStringId(XYZs.TimeThiefRedoer, 0) ==
+                                                    this.ActivateDescription))
             {
 
                 return true;
@@ -241,15 +273,15 @@ namespace WindBot.Game.AI.Decks
             {
                 for (int i = 0; i < enemy.Count; i++)
                 {
-                    _totalAttack += enemy[i].Attack;
+                    this._totalAttack += enemy[i].Attack;
                 }
 
-                foreach (var t in Bot.GetMonsters())
+                foreach (var t in this.Bot.GetMonsters())
                 {
-                    _totalBotAttack += t.Attack;
+                    this._totalBotAttack += t.Attack;
                 }
 
-                if (_totalAttack > Bot.LifePoints + _totalBotAttack)
+                if (this._totalAttack > this.Bot.LifePoints + this._totalBotAttack)
                 {
                     return false;
                 }
@@ -258,11 +290,15 @@ namespace WindBot.Game.AI.Decks
 
                 foreach (var t in enemy)
                 {
-                    if (t.Attack < 2400 || !t.IsAttack()) continue;
+                    if (t.Attack < 2400 || !t.IsAttack())
+                    {
+                        continue;
+                    }
+
                     try
                     {
-                        AI.SelectCard(t.Id);
-                        AI.SelectCard(t.Id);
+                        this.AI.SelectCard(t.Id);
+                        this.AI.SelectCard(t.Id);
                     }
                     catch { }
 
@@ -271,7 +307,7 @@ namespace WindBot.Game.AI.Decks
             }
             catch { }
 
-            if (Bot.UnderAttack)
+            if (this.Bot.UnderAttack)
             {
                 //AI.SelectCard(Util.GetBestEnemyMonster());
                 return true;
@@ -282,7 +318,7 @@ namespace WindBot.Game.AI.Decks
         }
         private bool RetrograteEffect()
         {
-            if (Card.Owner == 1)
+            if (this.Card.Owner == 1)
             {
                 return true;
             }
@@ -291,26 +327,26 @@ namespace WindBot.Game.AI.Decks
         }
         private bool TimeThiefStartupEffect()
         {
-            if (Card.Location == CardLocation.Hand)
+            if (this.Card.Location == CardLocation.Hand)
             {
-                if (Bot.HasInHand(Monsters.TimeThiefRegulator) && !(Bot.GetMonsterCount() > 0))
+                if (this.Bot.HasInHand(Monsters.TimeThiefRegulator) && !(this.Bot.GetMonsterCount() > 0))
                 {
-                    AI.SelectCard(Monsters.TimeThiefRegulator);
+                    this.AI.SelectCard(Monsters.TimeThiefRegulator);
                     return true;
                 }
-                if (Bot.HasInHand(Monsters.TimeThiefWinder) && Bot.GetMonsterCount() > 1)
+                if (this.Bot.HasInHand(Monsters.TimeThiefWinder) && this.Bot.GetMonsterCount() > 1)
                 {
-                    AI.SelectCard(Monsters.TimeThiefWinder);
+                    this.AI.SelectCard(Monsters.TimeThiefWinder);
                     return true;
                 }
                 return true;
 
             }
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
-                AI.SelectCard(Monsters.TimeThiefCronocorder);
-                AI.SelectCard(Spells.TimeThiefHack);
-                AI.SelectCard(Traps.TimeThiefFlyBack);
+                this.AI.SelectCard(Monsters.TimeThiefCronocorder);
+                this.AI.SelectCard(Spells.TimeThiefHack);
+                this.AI.SelectCard(Traps.TimeThiefFlyBack);
                 return true;
             }
 
@@ -319,24 +355,24 @@ namespace WindBot.Game.AI.Decks
         }
         private bool FoolishBurialTarget()
         {
-            AI.SelectCard(Monsters.PerformTrickClown);
+            this.AI.SelectCard(Monsters.PerformTrickClown);
             return true;
         }
 
         private bool TrickClownEffect()
         {
-            if (Bot.LifePoints <= 1000)
+            if (this.Bot.LifePoints <= 1000)
             {
                 return false;
             }
-            AI.SelectPosition(CardPosition.FaceUpDefence);
+            this.AI.SelectPosition(CardPosition.FaceUpDefence);
             return true;
         }
         private bool GagagaCowboySummon()
         {
-            if (Enemy.LifePoints <= 800 || (Bot.GetMonsterCount() >= 4 && Enemy.LifePoints <= 1600))
+            if (this.Enemy.LifePoints <= 800 || (this.Bot.GetMonsterCount() >= 4 && this.Enemy.LifePoints <= 1600))
             {
-                AI.SelectPosition(CardPosition.FaceUpDefence);
+                this.AI.SelectPosition(CardPosition.FaceUpDefence);
                 return true;
             }
             return false;
@@ -344,60 +380,74 @@ namespace WindBot.Game.AI.Decks
 
         private bool DarkRebellionXyzDragonSummon()
         {
-            int selfBestAttack = Util.GetBestAttack(Bot);
-            int oppoBestAttack = Util.GetBestAttack(Enemy);
+            int selfBestAttack = this.Util.GetBestAttack(this.Bot);
+            int oppoBestAttack = this.Util.GetBestAttack(this.Enemy);
             return selfBestAttack <= oppoBestAttack;
         }
 
         private bool DarkRebellionXyzDragonEffect()
         {
-            int oppoBestAttack = Util.GetBestAttack(Enemy);
-            ClientCard target = Util.GetOneEnemyBetterThanValue(oppoBestAttack, true);
+            int oppoBestAttack = this.Util.GetBestAttack(this.Enemy);
+            ClientCard target = this.Util.GetOneEnemyBetterThanValue(oppoBestAttack, true);
             if (target != null)
             {
-                AI.SelectCard(0);
-                AI.SelectNextCard(target);
+                this.AI.SelectCard(0);
+                this.AI.SelectNextCard(target);
             }
             return true;
         }
         private bool ThunderKingRaiOhsummon()
         {
-            if (Bot.MonsterZone[0] == null)
-                AI.SelectPlace(Zones.z0);
+            if (this.Bot.MonsterZone[0] == null)
+            {
+                this.AI.SelectPlace(Zones.MonsterZone1);
+            }
             else
-                AI.SelectPlace(Zones.z4);
+            {
+                this.AI.SelectPlace(Zones.MonsterZone5);
+            }
+
             return true;
         }
         private bool ThunderKingRaiOheff()
         {
-            if (Duel.SummoningCards.Count > 0)
+            if (this.Duel.SummoningCards.Count > 0)
             {
-                foreach (ClientCard m in Duel.SummoningCards)
+                foreach (ClientCard m in this.Duel.SummoningCards)
                 {
                     if (m.Attack >= 1900)
+                    {
                         return true;
+                    }
                 }
             }
             return false;
         }
         private bool Crackdowneff()
         {
-            if (Util.GetOneEnemyBetterThanMyBest(true, true) != null && Bot.UnderAttack)
-                AI.SelectCard(Util.GetOneEnemyBetterThanMyBest(true, true));
-            return Util.GetOneEnemyBetterThanMyBest(true, true) != null && Bot.UnderAttack;
+            if (this.Util.GetOneEnemyBetterThanMyBest(true, true) != null && this.Bot.UnderAttack)
+            {
+                this.AI.SelectCard(this.Util.GetOneEnemyBetterThanMyBest(true, true));
+            }
+
+            return this.Util.GetOneEnemyBetterThanMyBest(true, true) != null && this.Bot.UnderAttack;
         }
         private bool PotOfDesireseff()
         {
-            return Bot.Deck.Count > 14 && !DefaultSpellWillBeNegated();
+            return this.Bot.Deck.Count > 14 && !this.DefaultSpellWillBeNegated();
         }
 
         // activate of PotofExtravagance
         public bool PotofExtravaganceActivate()
         {
             // won't activate if it'll be negate
-            if (SpellNegatable()) return false;
-            SelectSTPlace(Card, true);
-            AI.SelectOption(1);
+            if (this.SpellNegatable())
+            {
+                return false;
+            }
+
+            this.SelectSTPlace(this.Card, true);
+            this.AI.SelectOption(1);
             return true;
         }
 

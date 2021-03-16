@@ -50,64 +50,64 @@ namespace WindBot.Game.AI.Decks
             : base(ai, duel)
         {
             // counter
-            AddExecutor(ExecutorType.Activate, CardId.AshBlossomJoyousSpring, DefaultAshBlossomAndJoyousSpring);
-            AddExecutor(ExecutorType.Activate, CardId.CalledbyTheGrave, DefaultCalledByTheGrave);
-            AddExecutor(ExecutorType.Activate, CardId.InfiniteImpermanence, DefaultInfiniteImpermanence);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, DefaultSolemnStrike);
-            AddExecutor(ExecutorType.Activate, CardId.DragunofRedEyes, DragunofRedEyesCounter);
+            this.AddExecutor(ExecutorType.Activate, CardId.AshBlossomJoyousSpring, this.DefaultAshBlossomAndJoyousSpring);
+            this.AddExecutor(ExecutorType.Activate, CardId.CalledbyTheGrave, this.DefaultCalledByTheGrave);
+            this.AddExecutor(ExecutorType.Activate, CardId.InfiniteImpermanence, this.DefaultInfiniteImpermanence);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, this.DefaultSolemnStrike);
+            this.AddExecutor(ExecutorType.Activate, CardId.DragunofRedEyes, this.DragunofRedEyesCounter);
 
-            AddExecutor(ExecutorType.Activate, CardId.MaxxC, DefaultMaxxC);
-            AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster);
+            this.AddExecutor(ExecutorType.Activate, CardId.MaxxC, this.DefaultMaxxC);
+            this.AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster);
 
-            AddExecutor(ExecutorType.Activate, CardId.DragunofRedEyes, DragunofRedEyesDestroy);
-            AddExecutor(ExecutorType.Activate, CardId.ThousandEyesRestrict, ThousandEyesRestrictEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.DragunofRedEyes, this.DragunofRedEyesDestroy);
+            this.AddExecutor(ExecutorType.Activate, CardId.ThousandEyesRestrict, this.ThousandEyesRestrictEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.RedEyesInsight, RedEyesInsightEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.RedEyesInsight, this.RedEyesInsightEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.RedEyesFusion, RedEyesFusionEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.RedEyesFusion, this.RedEyesFusionEffect);
 
-            AddExecutor(ExecutorType.Repos, MonsterRepos);
+            this.AddExecutor(ExecutorType.Repos, this.MonsterRepos);
 
-            AddExecutor(ExecutorType.Summon, CardId.TourGuideFromTheUnderworld, TourGuideFromTheUnderworldSummon);
-            AddExecutor(ExecutorType.Activate, CardId.TourGuideFromTheUnderworld, TourGuideFromTheUnderworldEffect);
-            AddExecutor(ExecutorType.Summon, CardId.Sangan, SanganSummon);
-            AddExecutor(ExecutorType.Activate, CardId.Sangan, SanganEffect);
+            this.AddExecutor(ExecutorType.Summon, CardId.TourGuideFromTheUnderworld, this.TourGuideFromTheUnderworldSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.TourGuideFromTheUnderworld, this.TourGuideFromTheUnderworldEffect);
+            this.AddExecutor(ExecutorType.Summon, CardId.Sangan, this.SanganSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.Sangan, this.SanganEffect);
 
-            AddExecutor(ExecutorType.Summon, CardId.MechaPhantomBeastOLion);
-            AddExecutor(ExecutorType.Activate, CardId.MechaPhantomBeastOLion, MechaPhantomBeastOLionEffect);
+            this.AddExecutor(ExecutorType.Summon, CardId.MechaPhantomBeastOLion);
+            this.AddExecutor(ExecutorType.Activate, CardId.MechaPhantomBeastOLion, this.MechaPhantomBeastOLionEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.SalamangreatAlmiraj, SalamangreatAlmirajSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.ImdukTheWorldChaliceDragon, ImdukTheWorldChaliceDragonSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.LinkSpider, LinkSpiderSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.SalamangreatAlmiraj, this.SalamangreatAlmirajSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.ImdukTheWorldChaliceDragon, this.ImdukTheWorldChaliceDragonSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.LinkSpider, this.LinkSpiderSummon);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.CrusadiaArboria);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CrusadiaArboria);
 
-            AddExecutor(ExecutorType.Activate, CardId.InstantFusion, InstantFusionEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.InstantFusion, this.InstantFusionEffect);
 
-            AddExecutor(ExecutorType.Summon, CardId.RedEyesWyvern);
-            AddExecutor(ExecutorType.Summon, CardId.CrusadiaArboria, SummonForMaterial);
-            AddExecutor(ExecutorType.Summon, CardId.AshBlossomJoyousSpring, SummonForMaterial);
-            AddExecutor(ExecutorType.Summon, CardId.MaxxC, SummonForMaterial);
+            this.AddExecutor(ExecutorType.Summon, CardId.RedEyesWyvern);
+            this.AddExecutor(ExecutorType.Summon, CardId.CrusadiaArboria, this.SummonForMaterial);
+            this.AddExecutor(ExecutorType.Summon, CardId.AshBlossomJoyousSpring, this.SummonForMaterial);
+            this.AddExecutor(ExecutorType.Summon, CardId.MaxxC, this.SummonForMaterial);
 
-            AddExecutor(ExecutorType.Activate, CardId.FoolishBurial, FoolishBurialEffect);
-            AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, MonsterRebornEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.FoolishBurial, this.FoolishBurialEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, this.MonsterRebornEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.MagiciansSouls, MagiciansSoulsEffect);
-            AddExecutor(ExecutorType.Summon, CardId.MagiciansSouls, SummonForMaterial);
+            this.AddExecutor(ExecutorType.Activate, CardId.MagiciansSouls, this.MagiciansSoulsEffect);
+            this.AddExecutor(ExecutorType.Summon, CardId.MagiciansSouls, this.SummonForMaterial);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.CrystronHalqifibrax, CrystronNeedlefiberSummon);
-            AddExecutor(ExecutorType.Activate, CardId.CrystronHalqifibrax, CrystronNeedlefiberEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CrystronHalqifibrax, this.CrystronNeedlefiberSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.CrystronHalqifibrax, this.CrystronNeedlefiberEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.PredaplantVerteAnaconda, PredaplantVerteAnacondaSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.PredaplantVerteAnaconda, this.PredaplantVerteAnacondaSummon);
 
-            AddExecutor(ExecutorType.Activate, CardId.MagicalizedFusion, MagicalizedFusionEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.MagicalizedFusion, this.MagicalizedFusionEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.PredaplantVerteAnaconda, PredaplantVerteAnacondaEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.PredaplantVerteAnaconda, this.PredaplantVerteAnacondaEffect);
 
-            AddExecutor(ExecutorType.SpellSet, CardId.InfiniteImpermanence, TrapSet);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, TrapSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.InfiniteImpermanence, this.TrapSet);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, this.TrapSet);
 
-            AddExecutor(ExecutorType.MonsterSet, CardId.Sangan);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.Sangan);
 
         }
 
@@ -121,8 +121,8 @@ namespace WindBot.Game.AI.Decks
 
         public override void OnNewTurn()
         {
-            BeastOLionUsed = false;
-            RedEyesFusionUsed = false;
+            this.BeastOLionUsed = false;
+            this.RedEyesFusionUsed = false;
         }
 
         public override CardPosition OnSelectPosition(int cardId, IList<CardPosition> positions)
@@ -131,7 +131,9 @@ namespace WindBot.Game.AI.Decks
             if (cardData != null)
             {
                 if (cardData.Attack <= 1000)
+                {
                     return CardPosition.FaceUpDefence;
+                }
             }
             return 0;
         }
@@ -140,18 +142,24 @@ namespace WindBot.Game.AI.Decks
         {
             if (location == CardLocation.MonsterZone)
             {
-                return available & ~Bot.GetLinkedZones();
+                return available & ~this.Bot.GetLinkedZones();
             }
             return 0;
         }
 
         private bool DragunofRedEyesCounter()
         {
-            if (ActivateDescription != -1 && ActivateDescription != Util.GetStringId(CardId.DragunofRedEyes, 1))
+            if (this.ActivateDescription != -1 && this.ActivateDescription != this.Util.GetStringId(CardId.DragunofRedEyes, 1))
+            {
                 return false;
-            if (Duel.LastChainPlayer != 1)
+            }
+
+            if (this.Duel.LastChainPlayer != 1)
+            {
                 return false;
-            AI.SelectCard(new[] {
+            }
+
+            this.AI.SelectCard(new[] {
                 CardId.RedEyesWyvern,
                 CardId.MechaPhantomBeastOLion
             });
@@ -160,52 +168,69 @@ namespace WindBot.Game.AI.Decks
 
         private bool DragunofRedEyesDestroy()
         {
-            if (ActivateDescription == -1 || ActivateDescription == Util.GetStringId(CardId.DragunofRedEyes, 1))
+            if (this.ActivateDescription == -1 || this.ActivateDescription == this.Util.GetStringId(CardId.DragunofRedEyes, 1))
+            {
                 return false;
-            AI.SelectCard(Util.GetBestEnemyMonster());
+            }
+
+            this.AI.SelectCard(this.Util.GetBestEnemyMonster());
             return true;
         }
 
         private bool ThousandEyesRestrictEffect()
         {
-            AI.SelectCard(Util.GetBestEnemyMonster());
+            this.AI.SelectCard(this.Util.GetBestEnemyMonster());
             return true;
         }
 
         private bool RedEyesInsightEffect()
         {
-            if (Bot.HasInHand(CardId.RedEyesFusion))
+            if (this.Bot.HasInHand(CardId.RedEyesFusion))
+            {
                 return false;
-            if (Bot.GetRemainingCount(CardId.RedEyesWyvern, 1) == 0 && Bot.GetRemainingCount(CardId.RedEyesBDragon, 2) == 1 && !Bot.HasInHand(CardId.RedEyesBDragon))
+            }
+
+            if (this.Bot.GetRemainingCount(CardId.RedEyesWyvern, 1) == 0 && this.Bot.GetRemainingCount(CardId.RedEyesBDragon, 2) == 1 && !this.Bot.HasInHand(CardId.RedEyesBDragon))
+            {
                 return false;
-            AI.SelectCard(CardId.RedEyesWyvern);
+            }
+
+            this.AI.SelectCard(CardId.RedEyesWyvern);
             return true;
         }
 
         private bool RedEyesFusionEffect()
         {
-            if (Bot.HasInMonstersZone(new[] { CardId.DragunofRedEyes, CardId.RedEyesBDragon }))
+            if (this.Bot.HasInMonstersZone(new[] { CardId.DragunofRedEyes, CardId.RedEyesBDragon }))
             { // you don't want to use DragunofRedEyes which is treated as RedEyesBDragon as fusion material
-                if (Util.GetBotAvailZonesFromExtraDeck() == 0)
+                if (this.Util.GetBotAvailZonesFromExtraDeck() == 0)
+                {
                     return false;
-                if (Bot.GetRemainingCount(CardId.RedEyesBDragon, 2) == 0 && !Bot.HasInHand(CardId.RedEyesBDragon))
+                }
+
+                if (this.Bot.GetRemainingCount(CardId.RedEyesBDragon, 2) == 0 && !this.Bot.HasInHand(CardId.RedEyesBDragon))
+                {
                     return false;
+                }
             }
-            AI.SelectMaterials(CardLocation.Deck);
-            RedEyesFusionUsed = true;
+            this.AI.SelectMaterials(CardLocation.Deck);
+            this.RedEyesFusionUsed = true;
             return true;
         }
 
         private bool TourGuideFromTheUnderworldSummon()
         {
-            if (Bot.GetRemainingCount(CardId.TourGuideFromTheUnderworld, 2) == 0 && Bot.GetRemainingCount(CardId.Sangan, 2) == 0)
+            if (this.Bot.GetRemainingCount(CardId.TourGuideFromTheUnderworld, 2) == 0 && this.Bot.GetRemainingCount(CardId.Sangan, 2) == 0)
+            {
                 return false;
+            }
+
             return true;
         }
 
         private bool TourGuideFromTheUnderworldEffect()
         {
-            AI.SelectCard(CardId.Sangan);
+            this.AI.SelectCard(CardId.Sangan);
             return true;
         }
 
@@ -216,22 +241,35 @@ namespace WindBot.Game.AI.Decks
 
         private bool SanganEffect()
         {
-            if (Bot.HasInMonstersZone(CardId.SalamangreatAlmiraj) && !Bot.HasInHand(CardId.CrusadiaArboria))
-                AI.SelectCard(CardId.CrusadiaArboria);
-            else if (!Bot.HasInHand(CardId.MaxxC))
-                AI.SelectCard(CardId.MaxxC);
-            else if (!Bot.HasInHand(CardId.AshBlossomJoyousSpring))
-                AI.SelectCard(CardId.AshBlossomJoyousSpring);
-            else if (!Bot.HasInHand(CardId.MagiciansSouls))
-                AI.SelectCard(CardId.MagiciansSouls);
-            else if (!Bot.HasInHand(CardId.CrusadiaArboria))
-                AI.SelectCard(CardId.CrusadiaArboria);
+            if (this.Bot.HasInMonstersZone(CardId.SalamangreatAlmiraj) && !this.Bot.HasInHand(CardId.CrusadiaArboria))
+            {
+                this.AI.SelectCard(CardId.CrusadiaArboria);
+            }
+            else if (!this.Bot.HasInHand(CardId.MaxxC))
+            {
+                this.AI.SelectCard(CardId.MaxxC);
+            }
+            else if (!this.Bot.HasInHand(CardId.AshBlossomJoyousSpring))
+            {
+                this.AI.SelectCard(CardId.AshBlossomJoyousSpring);
+            }
+            else if (!this.Bot.HasInHand(CardId.MagiciansSouls))
+            {
+                this.AI.SelectCard(CardId.MagiciansSouls);
+            }
+            else if (!this.Bot.HasInHand(CardId.CrusadiaArboria))
+            {
+                this.AI.SelectCard(CardId.CrusadiaArboria);
+            }
             else
-                AI.SelectCard(new[] {
+            {
+                this.AI.SelectCard(new[] {
                     CardId.AshBlossomJoyousSpring,
                     CardId.MaxxC,
                     CardId.CrusadiaArboria
                 });
+            }
+
             return true;
         }
 
@@ -241,80 +279,131 @@ namespace WindBot.Game.AI.Decks
                 CardId.Sangan,
                 CardId.MechaPhantomBeastOLion
             };
-            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(materials) && !card.IsSpecialSummoned) == 0)
+            if (this.Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(materials) && !card.IsSpecialSummoned) == 0)
+            {
                 return false;
-            AI.SelectMaterials(materials);
+            }
+
+            this.AI.SelectMaterials(materials);
             return true;
         }
 
         private bool ImdukTheWorldChaliceDragonSummon()
         {
-            if (Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true) || !Bot.HasInExtra(CardId.PredaplantVerteAnaconda))
+            if (this.Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true) || !this.Bot.HasInExtra(CardId.PredaplantVerteAnaconda))
+            {
                 return false;
-            if (Bot.Graveyard.GetMatchingCardsCount(card => (card.Race & (int)CardRace.Dragon) > 0) >= 0)
+            }
+
+            if (this.Bot.Graveyard.GetMatchingCardsCount(card => (card.Race & (int)CardRace.Dragon) > 0) >= 0)
+            {
                 return false;
-            if (Bot.GetMonsterCount() == 1 && Bot.Hand.GetMatchingCardsCount(card => card.Level <= 4) == 0 && !Util.IsTurn1OrMain2())
+            }
+
+            if (this.Bot.GetMonsterCount() == 1 && this.Bot.Hand.GetMatchingCardsCount(card => card.Level <= 4) == 0 && !this.Util.IsTurn1OrMain2())
+            {
                 return false;
-            if (Bot.GetMonsterCount() >= 2 && Bot.MonsterZone.GetMatchingCardsCount(card => card.Level >= 8) > 0)
+            }
+
+            if (this.Bot.GetMonsterCount() >= 2 && this.Bot.MonsterZone.GetMatchingCardsCount(card => card.Level >= 8) > 0)
+            {
                 return false;
+            }
+
             return true;
         }
 
         private bool LinkSpiderSummon()
         {
-            if (!Bot.HasInMonstersZone(CardId.MechaPhantomBeastOLionToken))
+            if (!this.Bot.HasInMonstersZone(CardId.MechaPhantomBeastOLionToken))
+            {
                 return false;
-            AI.SelectMaterials(CardId.MechaPhantomBeastOLionToken);
+            }
+
+            this.AI.SelectMaterials(CardId.MechaPhantomBeastOLionToken);
             return true;
         }
 
         private bool NeedMonster()
         {
-            if (Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true) || !Bot.HasInExtra(CardId.PredaplantVerteAnaconda))
+            if (this.Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true) || !this.Bot.HasInExtra(CardId.PredaplantVerteAnaconda))
+            {
                 return false;
-            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.Level >= 8) > 0)
+            }
+
+            if (this.Bot.MonsterZone.GetMatchingCardsCount(card => card.Level >= 8) > 0)
+            {
                 return false;
-            if (Bot.GetMonsterCount() == 0 && Bot.Hand.GetMatchingCardsCount(card => card.Level <= 4) == 0)
+            }
+
+            if (this.Bot.GetMonsterCount() == 0 && this.Bot.Hand.GetMatchingCardsCount(card => card.Level <= 4) == 0)
+            {
                 return false;
-            if (Bot.GetMonsterCount() >= 2)
+            }
+
+            if (this.Bot.GetMonsterCount() >= 2)
+            {
                 return false;
+            }
 
             return true;
         }
 
         private bool InstantFusionEffect()
         {
-            if (!NeedMonster())
+            if (!this.NeedMonster())
+            {
                 return false;
+            }
 
-            if (Enemy.GetMonsterCount() > 0)
-                AI.SelectCard(CardId.ThousandEyesRestrict);
+            if (this.Enemy.GetMonsterCount() > 0)
+            {
+                this.AI.SelectCard(CardId.ThousandEyesRestrict);
+            }
             else
-                AI.SelectCard(CardId.SeaMonsterofTheseus);
+            {
+                this.AI.SelectCard(CardId.SeaMonsterofTheseus);
+            }
+
             return true;
         }
 
         private bool SummonForMaterial()
         {
-            if (Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true) || !Bot.HasInExtra(CardId.PredaplantVerteAnaconda))
+            if (this.Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true) || !this.Bot.HasInExtra(CardId.PredaplantVerteAnaconda))
+            {
                 return false;
-            if (Bot.MonsterZone.GetMatchingCardsCount(card => (card.HasType(CardType.Effect) || card.IsTuner()) && card.Level < 8) == 1)
+            }
+
+            if (this.Bot.MonsterZone.GetMatchingCardsCount(card => (card.HasType(CardType.Effect) || card.IsTuner()) && card.Level < 8) == 1)
+            {
                 return true;
-            if (Bot.HasInHand(CardId.MagiciansSouls))
+            }
+
+            if (this.Bot.HasInHand(CardId.MagiciansSouls))
+            {
                 return true;
+            }
+
             return false;
         }
 
         private bool MagiciansSoulsEffect()
         {
-            if (Card.Location == CardLocation.Hand)
+            if (this.Card.Location == CardLocation.Hand)
             {
-                if (RedEyesFusionUsed)
+                if (this.RedEyesFusionUsed)
+                {
                     return false;
-                if (Bot.GetMonsterCount() >= 2)
+                }
+
+                if (this.Bot.GetMonsterCount() >= 2)
+                {
                     return false;
-                AI.SelectOption(1);
-                AI.SelectYesNo(true);
+                }
+
+                this.AI.SelectOption(1);
+                this.AI.SelectYesNo(true);
                 return true;
             }
             else
@@ -323,9 +412,9 @@ namespace WindBot.Game.AI.Decks
                     CardId.RedEyesInsight,
                     CardId.RedEyesFusion
                 };
-                if (Bot.HasInHand(costs))
+                if (this.Bot.HasInHand(costs))
                 {
-                    AI.SelectCard(costs);
+                    this.AI.SelectCard(costs);
                     return true;
                 }
                 return false;
@@ -334,8 +423,10 @@ namespace WindBot.Game.AI.Decks
 
         private bool PredaplantVerteAnacondaSummon()
         {
-            if (Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true))
+            if (this.Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true))
+            {
                 return false;
+            }
 
             int[] materials = new[] {
                 CardId.ImdukTheWorldChaliceDragon,
@@ -352,9 +443,9 @@ namespace WindBot.Game.AI.Decks
                 CardId.RedEyesWyvern,
                 CardId.CrystronHalqifibrax
             };
-            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(materials)) >= 2)
+            if (this.Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(materials)) >= 2)
             {
-                AI.SelectMaterials(materials);
+                this.AI.SelectMaterials(materials);
                 return true;
             }
             return false;
@@ -362,53 +453,65 @@ namespace WindBot.Game.AI.Decks
 
         private bool MagicalizedFusionEffect()
         {
-            if (Bot.HasInMonstersZone(new[] { CardId.DragunofRedEyes, CardId.RedEyesBDragon }))
+            if (this.Bot.HasInMonstersZone(new[] { CardId.DragunofRedEyes, CardId.RedEyesBDragon }))
             { // you don't want to use DragunofRedEyes which is treated as RedEyesBDragon as fusion material
-                if (Util.GetBotAvailZonesFromExtraDeck() == 0)
+                if (this.Util.GetBotAvailZonesFromExtraDeck() == 0)
+                {
                     return false;
-                if (Bot.Graveyard.GetMatchingCardsCount(card => (card.Race & (int)CardRace.Dragon) > 0) == 0)
+                }
+
+                if (this.Bot.Graveyard.GetMatchingCardsCount(card => (card.Race & (int)CardRace.Dragon) > 0) == 0)
+                {
                     return false;
+                }
             }
-            AI.SelectMaterials(CardLocation.Grave);
+            this.AI.SelectMaterials(CardLocation.Grave);
             return true;
         }
 
         private bool PredaplantVerteAnacondaEffect()
         {
-            if (ActivateDescription == Util.GetStringId(CardId.PredaplantVerteAnaconda, 0))
+            if (this.ActivateDescription == this.Util.GetStringId(CardId.PredaplantVerteAnaconda, 0))
+            {
                 return false;
-            AI.SelectCard(CardId.RedEyesFusion);
-            AI.SelectMaterials(CardLocation.Deck);
+            }
+
+            this.AI.SelectCard(CardId.RedEyesFusion);
+            this.AI.SelectMaterials(CardLocation.Deck);
             return true;
         }
 
         private bool FoolishBurialEffect()
         {
-            if (RedEyesFusionUsed)
-                return false;
-
-            if (Bot.HasInHand(CardId.MagicalizedFusion))
+            if (this.RedEyesFusionUsed)
             {
-                if (Bot.HasInGraveyard(CardId.DarkMagician) && Bot.Graveyard.GetMatchingCardsCount(card => (card.Race & (int)CardRace.Dragon) > 0) == 0)
+                return false;
+            }
+
+            if (this.Bot.HasInHand(CardId.MagicalizedFusion))
+            {
+                if (this.Bot.HasInGraveyard(CardId.DarkMagician) && this.Bot.Graveyard.GetMatchingCardsCount(card => (card.Race & (int)CardRace.Dragon) > 0) == 0)
                 {
-                    AI.SelectCard(new[]
+                    this.AI.SelectCard(new[]
                     {
                         CardId.RedEyesWyvern,
                         CardId.RedEyesBDragon
                     });
                     return true;
                 }
-                if (!Bot.HasInGraveyard(CardId.DarkMagician) && Bot.Graveyard.GetMatchingCardsCount(card => (card.Race & (int)CardRace.Dragon) > 0) > 0)
+                if (!this.Bot.HasInGraveyard(CardId.DarkMagician) && this.Bot.Graveyard.GetMatchingCardsCount(card => (card.Race & (int)CardRace.Dragon) > 0) > 0)
                 {
-                    AI.SelectCard(CardId.DarkMagician);
+                    this.AI.SelectCard(CardId.DarkMagician);
                     return true;
                 }
             }
 
-            if (!NeedMonster())
+            if (!this.NeedMonster())
+            {
                 return false;
+            }
 
-            AI.SelectCard(new[] {
+            this.AI.SelectCard(new[] {
                 CardId.MechaPhantomBeastOLion
             });
             return true;
@@ -416,17 +519,19 @@ namespace WindBot.Game.AI.Decks
 
         private bool MonsterRebornEffect()
         {
-            if (Bot.HasInGraveyard(CardId.DragunofRedEyes))
+            if (this.Bot.HasInGraveyard(CardId.DragunofRedEyes))
             {
-                AI.SelectCard(CardId.DragunofRedEyes);
+                this.AI.SelectCard(CardId.DragunofRedEyes);
                 return true;
             }
             else
             {
-                if (!NeedMonster())
+                if (!this.NeedMonster())
+                {
                     return false;
+                }
 
-                AI.SelectCard(new[] {
+                this.AI.SelectCard(new[] {
                     CardId.PredaplantVerteAnaconda,
                     CardId.Sangan,
                     CardId.ThousandEyesRestrict,
@@ -440,19 +545,21 @@ namespace WindBot.Game.AI.Decks
 
         private bool MechaPhantomBeastOLionEffect()
         {
-            if (ActivateDescription == -1)
+            if (this.ActivateDescription == -1)
             {
-                BeastOLionUsed = true;
+                this.BeastOLionUsed = true;
                 return true;
             }
-            return !BeastOLionUsed;
+            return !this.BeastOLionUsed;
         }
 
 
         private bool CrystronNeedlefiberSummon()
         {
-            if (Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true))
+            if (this.Bot.HasInMonstersZone(CardId.PredaplantVerteAnaconda, true))
+            {
                 return false;
+            }
 
             int[] materials = new[] {
                 CardId.CrusadiaArboria,
@@ -472,9 +579,9 @@ namespace WindBot.Game.AI.Decks
                 CardId.MaxxC,
                 CardId.RedEyesWyvern
             };
-            if (Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(materials)) >= 2)
+            if (this.Bot.MonsterZone.GetMatchingCardsCount(card => card.IsCode(materials)) >= 2)
             {
-                AI.SelectMaterials(materials);
+                this.AI.SelectMaterials(materials);
                 return true;
             }
             return false;
@@ -482,9 +589,9 @@ namespace WindBot.Game.AI.Decks
 
         private bool CrystronNeedlefiberEffect()
         {
-            if (Duel.Player == 0)
+            if (this.Duel.Player == 0)
             {
-                AI.SelectCard(CardId.MechaPhantomBeastOLion);
+                this.AI.SelectCard(CardId.MechaPhantomBeastOLion);
                 return true;
             }
             else
@@ -495,17 +602,23 @@ namespace WindBot.Game.AI.Decks
 
         private bool TrapSet()
         {
-            if (Bot.HasInMonstersZone(new[] { CardId.DragunofRedEyes, CardId.RedEyesBDragon }) && Bot.GetHandCount() == 1)
+            if (this.Bot.HasInMonstersZone(new[] { CardId.DragunofRedEyes, CardId.RedEyesBDragon }) && this.Bot.GetHandCount() == 1)
+            {
                 return false;
-            AI.SelectPlace(Zones.z0 + Zones.z1 + Zones.z3 + Zones.z4);
+            }
+
+            this.AI.SelectPlace(Zones.MonsterZone1 + Zones.MonsterZone2 + Zones.MonsterZone4 + Zones.MonsterZone5);
             return true;
         }
 
         private bool MonsterRepos()
         {
-            if (Card.IsFacedown())
+            if (this.Card.IsFacedown())
+            {
                 return true;
-            return DefaultMonsterRepos();
+            }
+
+            return this.DefaultMonsterRepos();
         }
     }
 }

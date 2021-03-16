@@ -43,122 +43,159 @@ namespace WindBot.Game.AI.Decks
             : base(ai, duel)
         {
             // Set traps
-            AddExecutor(ExecutorType.SpellSet, DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, this.DefaultSpellSet);
 
             // Execute spells
-            AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, DefaultMysticalSpaceTyphoon);
-            AddExecutor(ExecutorType.Activate, CardId.AssaultTeleport);
-            AddExecutor(ExecutorType.Activate, CardId.UpstartGoblin);
-            AddExecutor(ExecutorType.Activate, CardId.DragonRavine, DragonRavineField);
-            AddExecutor(ExecutorType.Activate, CardId.Terraforming, Terraforming);
-            AddExecutor(ExecutorType.Activate, CardId.FoolishBurial, FoolishBurial);
-            AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, MonsterReborn);
+            this.AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, this.DefaultMysticalSpaceTyphoon);
+            this.AddExecutor(ExecutorType.Activate, CardId.AssaultTeleport);
+            this.AddExecutor(ExecutorType.Activate, CardId.UpstartGoblin);
+            this.AddExecutor(ExecutorType.Activate, CardId.DragonRavine, this.DragonRavineField);
+            this.AddExecutor(ExecutorType.Activate, CardId.Terraforming, this.Terraforming);
+            this.AddExecutor(ExecutorType.Activate, CardId.FoolishBurial, this.FoolishBurial);
+            this.AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, this.MonsterReborn);
 
             // Execute monsters
-            AddExecutor(ExecutorType.Activate, CardId.ScrapDragon, ScrapDragonEffect);
-            AddExecutor(ExecutorType.Activate, CardId.CrystalWingSynchroDragon, CrystalWingSynchroDragonEffect);
-            AddExecutor(ExecutorType.Activate, CardId.DragunityPhalanx);
-            AddExecutor(ExecutorType.Activate, CardId.DragunityKnightVajrayana);
-            AddExecutor(ExecutorType.Activate, CardId.DragunityArmaMysletainn, DragunityArmaMysletainnEffect);
-            AddExecutor(ExecutorType.Activate, CardId.DragunityDux);
+            this.AddExecutor(ExecutorType.Activate, CardId.ScrapDragon, this.ScrapDragonEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.CrystalWingSynchroDragon, this.CrystalWingSynchroDragonEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.DragunityPhalanx);
+            this.AddExecutor(ExecutorType.Activate, CardId.DragunityKnightVajrayana);
+            this.AddExecutor(ExecutorType.Activate, CardId.DragunityArmaMysletainn, this.DragunityArmaMysletainnEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.DragunityDux);
 
             // Summon
-            AddExecutor(ExecutorType.Activate, CardId.DragonsMirror, DragonsMirror);
-            AddExecutor(ExecutorType.SpSummon, CardId.ScrapDragon, ScrapDragonSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.CrystalWingSynchroDragon, CrystalWingSynchroDragonSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.StardustDragon);
-            AddExecutor(ExecutorType.SpSummon, CardId.DragunityKnightVajrayana);
-            AddExecutor(ExecutorType.SpSummon, CardId.DragunityKnightGaeDearg);
-            AddExecutor(ExecutorType.Summon, CardId.DragunityPhalanx, DragunityPhalanxSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.DragunityArmaMysletainn, DragunityArmaMysletainn);
-            AddExecutor(ExecutorType.Summon, CardId.DragunityArmaMysletainn, DragunityArmaMysletainnTribute);
+            this.AddExecutor(ExecutorType.Activate, CardId.DragonsMirror, this.DragonsMirror);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.ScrapDragon, this.ScrapDragonSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CrystalWingSynchroDragon, this.CrystalWingSynchroDragonSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.StardustDragon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.DragunityKnightVajrayana);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.DragunityKnightGaeDearg);
+            this.AddExecutor(ExecutorType.Summon, CardId.DragunityPhalanx, this.DragunityPhalanxSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.DragunityArmaMysletainn, this.DragunityArmaMysletainn);
+            this.AddExecutor(ExecutorType.Summon, CardId.DragunityArmaMysletainn, this.DragunityArmaMysletainnTribute);
 
             // Use draw effects if we can't do anything else
-            AddExecutor(ExecutorType.Activate, CardId.CardsOfConsonance);
-            AddExecutor(ExecutorType.Activate, CardId.DragonRavine, DragonRavineEffect);
-            AddExecutor(ExecutorType.Activate, CardId.FireFormationTenki, FireFormationTenki);
-            AddExecutor(ExecutorType.Activate, CardId.DragunitySpearOfDestiny);
+            this.AddExecutor(ExecutorType.Activate, CardId.CardsOfConsonance);
+            this.AddExecutor(ExecutorType.Activate, CardId.DragonRavine, this.DragonRavineEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.FireFormationTenki, this.FireFormationTenki);
+            this.AddExecutor(ExecutorType.Activate, CardId.DragunitySpearOfDestiny);
 
             // Summon
-            AddExecutor(ExecutorType.Summon, CardId.DragunityDux, DragunityDux);
-            AddExecutor(ExecutorType.MonsterSet, CardId.DragunityPhalanx, DragunityPhalanxSet);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.AssaultBeast);
+            this.AddExecutor(ExecutorType.Summon, CardId.DragunityDux, this.DragunityDux);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.DragunityPhalanx, this.DragunityPhalanxSet);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.AssaultBeast);
 
             // Draw assault mode if we don't have one
-            AddExecutor(ExecutorType.Activate, CardId.AssaultBeast, AssaultBeast);
+            this.AddExecutor(ExecutorType.Activate, CardId.AssaultBeast, this.AssaultBeast);
 
             // Set useless cards
-            AddExecutor(ExecutorType.SpellSet, CardId.DragonsMirror, SetUselessCards);
-            AddExecutor(ExecutorType.SpellSet, CardId.Terraforming, SetUselessCards);
-            AddExecutor(ExecutorType.SpellSet, CardId.AssaultTeleport, SetUselessCards);
-            AddExecutor(ExecutorType.SpellSet, CardId.CardsOfConsonance, SetUselessCards);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DragonsMirror, this.SetUselessCards);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.Terraforming, this.SetUselessCards);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.AssaultTeleport, this.SetUselessCards);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.CardsOfConsonance, this.SetUselessCards);
 
             // Chain traps and monsters
-            AddExecutor(ExecutorType.Activate, CardId.StardustDragonAssaultMode, DefaultStardustDragonEffect);
-            AddExecutor(ExecutorType.Activate, CardId.StardustDragon, DefaultStardustDragonEffect);
-            AddExecutor(ExecutorType.Activate, CardId.StarlightRoad, DefaultTrap);
-            AddExecutor(ExecutorType.Activate, CardId.MirrorForce, DefaultTrap);
-            AddExecutor(ExecutorType.Activate, CardId.DimensionalPrison, DefaultTrap);
-            AddExecutor(ExecutorType.Activate, CardId.AssaultModeActivate, AssaultModeActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.StardustDragonAssaultMode, this.DefaultStardustDragonEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.StardustDragon, this.DefaultStardustDragonEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.StarlightRoad, this.DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.MirrorForce, this.DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.DimensionalPrison, this.DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.AssaultModeActivate, this.AssaultModeActivate);
 
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
         }
 
         private bool DragonRavineField()
         {
-            if (Card.Location == CardLocation.Hand)
-                return DefaultField();
+            if (this.Card.Location == CardLocation.Hand)
+            {
+                return this.DefaultField();
+            }
+
             return false;
         }
 
         private bool DragonRavineEffect()
         {
-            if (Card.Location != CardLocation.SpellZone)
+            if (this.Card.Location != CardLocation.SpellZone)
+            {
                 return false;
+            }
 
             int tributeId = -1;
-            if (Bot.HasInHand(CardId.DragunityPhalanx))
+            if (this.Bot.HasInHand(CardId.DragunityPhalanx))
+            {
                 tributeId = CardId.DragunityPhalanx;
-            else if (Bot.HasInHand(CardId.FireFormationTenki))
+            }
+            else if (this.Bot.HasInHand(CardId.FireFormationTenki))
+            {
                 tributeId = CardId.FireFormationTenki;
-            else if (Bot.HasInHand(CardId.Terraforming))
+            }
+            else if (this.Bot.HasInHand(CardId.Terraforming))
+            {
                 tributeId = CardId.Terraforming;
-            else if (Bot.HasInHand(CardId.DragonRavine))
+            }
+            else if (this.Bot.HasInHand(CardId.DragonRavine))
+            {
                 tributeId = CardId.DragonRavine;
-            else if (Bot.HasInHand(CardId.AssaultTeleport))
+            }
+            else if (this.Bot.HasInHand(CardId.AssaultTeleport))
+            {
                 tributeId = CardId.AssaultTeleport;
-            else if (Bot.HasInHand(CardId.AssaultBeast))
+            }
+            else if (this.Bot.HasInHand(CardId.AssaultBeast))
+            {
                 tributeId = CardId.AssaultBeast;
-            else if (Bot.HasInHand((int) CardId.DragunityArmaMysletainn))
+            }
+            else if (this.Bot.HasInHand((int) CardId.DragunityArmaMysletainn))
+            {
                 tributeId = CardId.DragunityArmaMysletainn;
+            }
             else
             {
                 int count = 0;
-                foreach (ClientCard card in Bot.Hand)
+                foreach (ClientCard card in this.Bot.Hand)
                 {
                     if (card.IsCode(CardId.DragunityDux))
+                    {
                         ++count;
+                    }
                 }
                 if (count >= 2)
+                {
                     tributeId = CardId.DragunityDux;
+                }
             }
-            if (tributeId == -1 && Bot.HasInHand(CardId.StardustDragonAssaultMode))
+            if (tributeId == -1 && this.Bot.HasInHand(CardId.StardustDragonAssaultMode))
+            {
                 tributeId = CardId.StardustDragonAssaultMode;
-            if (tributeId == -1 && Bot.HasInHand(CardId.DragunitySpearOfDestiny))
+            }
+
+            if (tributeId == -1 && this.Bot.HasInHand(CardId.DragunitySpearOfDestiny))
+            {
                 tributeId = CardId.StardustDragonAssaultMode;
-            if (tributeId == -1 && Bot.HasInHand(CardId.DragonsMirror)
-                && Bot.GetMonsterCount() == 0)
+            }
+
+            if (tributeId == -1 && this.Bot.HasInHand(CardId.DragonsMirror)
+                && this.Bot.GetMonsterCount() == 0)
+            {
                 tributeId = CardId.StardustDragonAssaultMode;
+            }
 
             if (tributeId == -1)
+            {
                 return false;
+            }
 
             int needId = -1;
-            if (!Bot.HasInMonstersZone(CardId.DragunityPhalanx) &&
-                !Bot.HasInGraveyard(CardId.DragunityPhalanx))
+            if (!this.Bot.HasInMonstersZone(CardId.DragunityPhalanx) &&
+                !this.Bot.HasInGraveyard(CardId.DragunityPhalanx))
+            {
                 needId = CardId.DragunityPhalanx;
-            else if (Bot.GetMonsterCount() == 0)
+            }
+            else if (this.Bot.GetMonsterCount() == 0)
+            {
                 needId = CardId.DragunityDux;
+            }
             else
             {
                 /*bool hasRealMonster = false;
@@ -175,75 +212,122 @@ namespace WindBot.Game.AI.Decks
             }
 
             if (needId == -1)
+            {
                 return false;
+            }
 
             int option;
 
             if (tributeId == CardId.DragunityPhalanx)
+            {
                 needId = CardId.DragunityDux;
+            }
 
             int remaining = 3;
-            foreach (ClientCard card in Bot.Hand)
+            foreach (ClientCard card in this.Bot.Hand)
+            {
                 if (card.IsCode(needId))
+                {
                     remaining--;
-            foreach (ClientCard card in Bot.Graveyard)
+                }
+            }
+
+            foreach (ClientCard card in this.Bot.Graveyard)
+            {
                 if (card.IsCode(needId))
+                {
                     remaining--;
-            foreach (ClientCard card in Bot.Banished)
+                }
+            }
+
+            foreach (ClientCard card in this.Bot.Banished)
+            {
                 if (card.IsCode(needId))
+                {
                     remaining--;
+                }
+            }
+
             if (remaining <= 0)
+            {
                 return false;
+            }
 
             if (needId == CardId.DragunityPhalanx)
+            {
                 option = 2;
+            }
             else
+            {
                 option = 1;
+            }
 
-            if (ActivateDescription != Util.GetStringId(CardId.DragonRavine, option))
+            if (this.ActivateDescription != this.Util.GetStringId(CardId.DragonRavine, option))
+            {
                 return false;
+            }
 
-            AI.SelectCard(tributeId);
-            AI.SelectNextCard(needId);
+            this.AI.SelectCard(tributeId);
+            this.AI.SelectNextCard(needId);
 
             return true;
         }
 
         private bool Terraforming()
         {
-            if (Bot.HasInHand(CardId.DragonRavine))
+            if (this.Bot.HasInHand(CardId.DragonRavine))
+            {
                 return false;
-            if (Bot.SpellZone[5] != null)
+            }
+
+            if (this.Bot.SpellZone[5] != null)
+            {
                 return false;
+            }
+
             return true;
         }
 
         private bool SetUselessCards()
         {
-            ClientField field = Bot;
+            ClientField field = this.Bot;
 
             if (field.HasInSpellZone(CardId.FireFormationTenki))
+            {
                 return false;
-            if (field.HasInSpellZone(CardId.AssaultTeleport))
-                return false;
-            if (field.HasInSpellZone(CardId.CardsOfConsonance))
-                return false;
-            if (field.HasInSpellZone(CardId.DragonsMirror))
-                return false;
+            }
 
-            return Bot.GetSpellCountWithoutField() < 4;
+            if (field.HasInSpellZone(CardId.AssaultTeleport))
+            {
+                return false;
+            }
+
+            if (field.HasInSpellZone(CardId.CardsOfConsonance))
+            {
+                return false;
+            }
+
+            if (field.HasInSpellZone(CardId.DragonsMirror))
+            {
+                return false;
+            }
+
+            return this.Bot.GetSpellCountWithoutField() < 4;
         }
 
         private bool FireFormationTenki()
         {
-            if (Card.Location == CardLocation.Hand)
-                return Bot.GetSpellCountWithoutField() < 4;
+            if (this.Card.Location == CardLocation.Hand)
+            {
+                return this.Bot.GetSpellCountWithoutField() < 4;
+            }
+
             return true;
         }
 
         private bool FoolishBurial()
         {
-            AI.SelectCard(
+            this.AI.SelectCard(
                 CardId.DragunityPhalanx,
                 CardId.AssaultBeast,
                 CardId.StardustDragonAssaultMode
@@ -253,29 +337,38 @@ namespace WindBot.Game.AI.Decks
 
         private bool MonsterReborn()
         {
-            List<ClientCard> cards = new List<ClientCard>(Bot.Graveyard.GetMatchingCards(card => card.IsCanRevive()));
+            List<ClientCard> cards = new List<ClientCard>(this.Bot.Graveyard.GetMatchingCards(card => card.IsCanRevive()));
             cards.Sort(CardContainer.CompareCardAttack);
             ClientCard selectedCard = null;
             for (int i = cards.Count - 1; i >= 0; --i)
             {
                 ClientCard card = cards[i];
                 if (card.Attack < 2000)
+                {
                     break;
+                }
+
                 if (card.IsCode(CardId.StardustDragonAssaultMode, CardId.FiveHeadedDragon))
+                {
                     continue;
+                }
+
                 if (card.IsMonster())
                 {
                     selectedCard = card;
                     break;
                 }
             }
-            cards = new List<ClientCard>(Enemy.Graveyard.GetMatchingCards(card => card.IsCanRevive()));
+            cards = new List<ClientCard>(this.Enemy.Graveyard.GetMatchingCards(card => card.IsCanRevive()));
             cards.Sort(CardContainer.CompareCardAttack);
             for (int i = cards.Count - 1; i >= 0; --i)
             {
                 ClientCard card = cards[i];
                 if (card.Attack < 2000)
+                {
                     break;
+                }
+
                 if (card.IsMonster() && card.HasType(CardType.Normal) && (selectedCard == null || card.Attack > selectedCard.Attack))
                 {
                     selectedCard = card;
@@ -284,7 +377,7 @@ namespace WindBot.Game.AI.Decks
             }
             if (selectedCard != null)
             {
-                AI.SelectCard(selectedCard);
+                this.AI.SelectCard(selectedCard);
                 return true;
             }
             return false;
@@ -294,7 +387,7 @@ namespace WindBot.Game.AI.Decks
         {
             IList<ClientCard> tributes = new List<ClientCard>();
             int phalanxCount = 0;
-            foreach (ClientCard card in Bot.Graveyard)
+            foreach (ClientCard card in this.Bot.Graveyard)
             {
                 if (card.IsCode(CardId.DragunityPhalanx))
                 {
@@ -302,32 +395,41 @@ namespace WindBot.Game.AI.Decks
                     break;
                 }
                 if (card.Race == (int) CardRace.Dragon)
+                {
                     tributes.Add(card);
+                }
+
                 if (tributes.Count == 5)
+                {
                     break;
+                }
             }
 
             // We can tribute one or two phalanx if needed, but only
             // if we have more than one in the graveyard.
             if (tributes.Count < 5 && phalanxCount > 1)
             {
-                foreach (ClientCard card in Bot.Graveyard)
+                foreach (ClientCard card in this.Bot.Graveyard)
                 {
                     if (card.IsCode(CardId.DragunityPhalanx))
                     {
                         phalanxCount--;
                         tributes.Add(card);
                         if (phalanxCount <= 1)
+                        {
                             break;
+                        }
                     }
                 }
             }
 
             if (tributes.Count < 5)
+            {
                 return false;
+            }
 
-            AI.SelectCard(CardId.FiveHeadedDragon);
-            AI.SelectNextCard(tributes);
+            this.AI.SelectCard(CardId.FiveHeadedDragon);
+            this.AI.SelectNextCard(tributes);
             return true;
         }
 
@@ -335,33 +437,49 @@ namespace WindBot.Game.AI.Decks
         {
             //if (Util.IsOneEnemyBetterThanValue(2500, true))
             //    return true;
-            ClientCard invincible = Util.GetProblematicEnemyCard(3000);
+            ClientCard invincible = this.Util.GetProblematicEnemyCard(3000);
             return invincible != null;
         }
 
         private bool ScrapDragonEffect()
         {
-            ClientCard invincible = Util.GetProblematicEnemyCard(3000);
-            if (invincible == null && !Util.IsOneEnemyBetterThanValue(2800 - 1, false))
+            ClientCard invincible = this.Util.GetProblematicEnemyCard(3000);
+            if (invincible == null && !this.Util.IsOneEnemyBetterThanValue(2800 - 1, false))
+            {
                 return false;
+            }
 
             int tributeId = -1;
-            if (Bot.HasInSpellZone(CardId.FireFormationTenki))
+            if (this.Bot.HasInSpellZone(CardId.FireFormationTenki))
+            {
                 tributeId = CardId.FireFormationTenki;
-            else if (Bot.HasInSpellZone(CardId.Terraforming))
+            }
+            else if (this.Bot.HasInSpellZone(CardId.Terraforming))
+            {
                 tributeId = CardId.Terraforming;
-            else if (Bot.HasInSpellZone(CardId.DragonsMirror))
+            }
+            else if (this.Bot.HasInSpellZone(CardId.DragonsMirror))
+            {
                 tributeId = CardId.DragonsMirror;
-            else if (Bot.HasInSpellZone(CardId.CardsOfConsonance))
+            }
+            else if (this.Bot.HasInSpellZone(CardId.CardsOfConsonance))
+            {
                 tributeId = CardId.CardsOfConsonance;
-            else if (Bot.HasInSpellZone(CardId.AssaultTeleport))
+            }
+            else if (this.Bot.HasInSpellZone(CardId.AssaultTeleport))
+            {
                 tributeId = CardId.AssaultTeleport;
-            else if (Bot.HasInSpellZone(CardId.AssaultModeActivate))
+            }
+            else if (this.Bot.HasInSpellZone(CardId.AssaultModeActivate))
+            {
                 tributeId = CardId.AssaultModeActivate;
-            else if (Bot.HasInSpellZone(CardId.DragonRavine))
+            }
+            else if (this.Bot.HasInSpellZone(CardId.DragonRavine))
+            {
                 tributeId = CardId.DragonRavine;
+            }
 
-            List<ClientCard> monsters = Enemy.GetMonsters();
+            List<ClientCard> monsters = this.Enemy.GetMonsters();
             monsters.Sort(CardContainer.CompareCardAttack);
 
             ClientCard destroyCard = invincible;
@@ -378,41 +496,43 @@ namespace WindBot.Game.AI.Decks
             }
 
             if (destroyCard == null)
+            {
                 return false;
+            }
 
-            AI.SelectCard(tributeId);
-            AI.SelectNextCard(destroyCard);
+            this.AI.SelectCard(tributeId);
+            this.AI.SelectNextCard(destroyCard);
 
             return true;
         }
 
         private bool CrystalWingSynchroDragonSummon()
         {
-            return !Bot.HasInHand(CardId.AssaultModeActivate)
-                && !Bot.HasInHand(CardId.AssaultBeast)
-                && !Bot.HasInSpellZone(CardId.AssaultModeActivate);
+            return !this.Bot.HasInHand(CardId.AssaultModeActivate)
+                && !this.Bot.HasInHand(CardId.AssaultBeast)
+                && !this.Bot.HasInSpellZone(CardId.AssaultModeActivate);
         }
 
         private bool CrystalWingSynchroDragonEffect()
         {
-            return Duel.LastChainPlayer != 0;
+            return this.Duel.LastChainPlayer != 0;
         }
 
         private bool DragunityPhalanxSummon()
         {
-            return Bot.HasInHand(CardId.DragunityArmaMysletainn);
+            return this.Bot.HasInHand(CardId.DragunityArmaMysletainn);
         }
 
         private bool DragunityArmaMysletainn()
         {
-            if (Bot.HasInMonstersZone(CardId.DragunityPhalanx))
+            if (this.Bot.HasInMonstersZone(CardId.DragunityPhalanx))
             {
-                AI.SelectCard(CardId.DragunityPhalanx);
+                this.AI.SelectCard(CardId.DragunityPhalanx);
                 return true;
             }
-            if (Bot.HasInMonstersZone(CardId.DragunityDux))
+            if (this.Bot.HasInMonstersZone(CardId.DragunityDux))
             {
-                AI.SelectCard(CardId.DragunityDux);
+                this.AI.SelectCard(CardId.DragunityDux);
                 return true;
             }
             return false;
@@ -420,22 +540,22 @@ namespace WindBot.Game.AI.Decks
 
         private bool DragunityArmaMysletainnEffect()
         {
-            AI.SelectCard(CardId.DragunityPhalanx);
+            this.AI.SelectCard(CardId.DragunityPhalanx);
             return true;
         }
 
         private bool DragunityArmaMysletainnTribute()
         {
-            if ((Bot.HasInMonstersZone(CardId.AssaultBeast)
-                && Bot.HasInGraveyard(CardId.DragunityPhalanx))
-                || Bot.HasInMonstersZone(CardId.DragunityPhalanx)
-                || Bot.HasInHand(CardId.DragunitySpearOfDestiny))
+            if ((this.Bot.HasInMonstersZone(CardId.AssaultBeast)
+                && this.Bot.HasInGraveyard(CardId.DragunityPhalanx))
+                || this.Bot.HasInMonstersZone(CardId.DragunityPhalanx)
+                || this.Bot.HasInHand(CardId.DragunitySpearOfDestiny))
             {
-                List<ClientCard> monster_sorted = Bot.GetMonsters();
+                List<ClientCard> monster_sorted = this.Bot.GetMonsters();
                 monster_sorted.Sort(CardContainer.CompareCardAttack);
                 foreach (ClientCard monster in monster_sorted)
                 {
-                    AI.SelectMaterials(monster);
+                    this.AI.SelectMaterials(monster);
                     return true;
                 }
             }
@@ -444,38 +564,41 @@ namespace WindBot.Game.AI.Decks
 
         private bool DragunityDux()
         {
-            return Bot.HasInGraveyard(CardId.DragunityPhalanx) ||
-                (Bot.GetMonsterCount() == 0 && Bot.HasInHand(CardId.DragunityArmaMysletainn) ||
-                Bot.HasInHand(CardId.DragunitySpearOfDestiny));
+            return this.Bot.HasInGraveyard(CardId.DragunityPhalanx) ||
+                (this.Bot.GetMonsterCount() == 0 && this.Bot.HasInHand(CardId.DragunityArmaMysletainn) ||
+                this.Bot.HasInHand(CardId.DragunitySpearOfDestiny));
         }
 
         private bool DragunityPhalanxSet()
         {
-            return Bot.GetMonsterCount() == 0 || !Bot.HasInGraveyard(CardId.DragunityPhalanx);
+            return this.Bot.GetMonsterCount() == 0 || !this.Bot.HasInGraveyard(CardId.DragunityPhalanx);
         }
 
         private bool AssaultBeast()
         {
-            if (!Bot.HasInSpellZone(CardId.AssaultModeActivate))
+            if (!this.Bot.HasInSpellZone(CardId.AssaultModeActivate))
+            {
                 return true;
+            }
+
             return false;
         }
 
         private bool AssaultModeActivate()
         {
-            if (Duel.Player == 0 && Duel.Phase == DuelPhase.BattleStart)
+            if (this.Duel.Player == 0 && this.Duel.Phase == DuelPhase.BattleStart)
             {
-                List<ClientCard> monsters = Bot.GetMonsters();
+                List<ClientCard> monsters = this.Bot.GetMonsters();
                 foreach (ClientCard monster in monsters)
                 {
                     if (monster.IsCode(CardId.StardustDragon) && monster.Attacked)
                     {
-                        AI.SelectCard(monster);
+                        this.AI.SelectCard(monster);
                         return true;
                     }
                 }
             }
-            return Duel.Player == 1;
+            return this.Duel.Player == 1;
         }
     }
 }

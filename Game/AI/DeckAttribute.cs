@@ -11,12 +11,14 @@ namespace WindBot.Game.AI
 
         public DeckAttribute(string name, string file = null, string level = "Normal")
         {
-            if (String.IsNullOrEmpty(file))
+            if (string.IsNullOrEmpty(file))
+            {
                 file = name;
+            }
 
-            Name = name;
-            File = file;
-            Level = level;
+            this.Name = name;
+            this.File = file;
+            this.Level = level;
         }
     }
 }

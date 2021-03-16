@@ -12,9 +12,9 @@ namespace WindBot.Game.AI
 
         public AIUtil(Duel duel)
         {
-            Duel = duel;
-            Bot = Duel.Fields[0];
-            Enemy = Duel.Fields[1];
+            this.Duel = duel;
+            this.Bot = this.Duel.Fields[0];
+            this.Enemy = this.Duel.Fields[1];
         }
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace WindBot.Game.AI
         /// </summary>
         public int GetTotalAttackingMonsterAttack(int player)
         {
-            return Duel.Fields[player].GetMonsters().Where(m => m.IsAttack()).Sum(m => (int?)m.Attack) ?? 0;
+            return this.Duel.Fields[player].GetMonsters().Where(m => m.IsAttack()).Sum(m => (int?)m.Attack) ?? 0;
         }
         /// <summary>
         /// Get the best ATK or DEF power of the field.
@@ -38,18 +38,18 @@ namespace WindBot.Game.AI
 
         public int GetBestAttack(ClientField field)
         {
-            return GetBestPower(field, true);
+            return this.GetBestPower(field, true);
         }
 
         public bool IsOneEnemyBetterThanValue(int value, bool onlyATK)
         {
-            return Enemy.MonsterZone.GetMonsters()
+            return this.Enemy.MonsterZone.GetMonsters()
                 .Any(card => card.GetDefensePower() > value && (!onlyATK || card.IsAttack()));
         }
 
         public bool IsAllEnemyBetterThanValue(int value, bool onlyATK)
         {
-            List<ClientCard> monsters = Enemy.MonsterZone.GetMonsters();
+            List<ClientCard> monsters = this.Enemy.MonsterZone.GetMonsters();
             return monsters.Count > 0 && monsters
                 .All(card => card.GetDefensePower() > value && (!onlyATK || card.IsAttack()));
         }
@@ -60,9 +60,13 @@ namespace WindBot.Game.AI
         public bool IsEnemyBetter(bool onlyATK, bool all)
         {
             if (all)
-                return IsAllEnemyBetter(onlyATK);
+            {
+                return this.IsAllEnemyBetter(onlyATK);
+            }
             else
-                return IsOneEnemyBetter(onlyATK);
+            {
+                return this.IsOneEnemyBetter(onlyATK);
+            }
         }
 
         /// <summary>
@@ -71,8 +75,8 @@ namespace WindBot.Game.AI
         /// <param name="onlyATK">Only calculate attack.</param>
         public bool IsOneEnemyBetter(bool onlyATK = false)
         {
-            int bestBotPower = GetBestPower(Bot, onlyATK);
-            return IsOneEnemyBetterThanValue(bestBotPower, onlyATK);
+            int bestBotPower = this.GetBestPower(this.Bot, onlyATK);
+            return this.IsOneEnemyBetterThanValue(bestBotPower, onlyATK);
         }
 
         /// <summary>
@@ -81,13 +85,13 @@ namespace WindBot.Game.AI
         /// <param name="onlyATK">Only calculate attack.</param>
         public bool IsAllEnemyBetter(bool onlyATK = false)
         {
-            int bestBotPower = GetBestPower(Bot, onlyATK);
-            return IsAllEnemyBetterThanValue(bestBotPower, onlyATK);
+            int bestBotPower = this.GetBestPower(this.Bot, onlyATK);
+            return this.IsAllEnemyBetterThanValue(bestBotPower, onlyATK);
         }
 
         public ClientCard GetBestBotMonster(bool onlyATK = false)
         {
-            return Bot.MonsterZone.GetMonsters()
+            return this.Bot.MonsterZone.GetMonsters()
                 .Where(card => !onlyATK || card.IsAttack())
                 .OrderByDescending(card => card.GetDefensePower())
                 .FirstOrDefault();
@@ -95,7 +99,7 @@ namespace WindBot.Game.AI
 
         public ClientCard GetWorstBotMonster(bool onlyATK = false)
         {
-            return Bot.MonsterZone.GetMonsters()
+            return this.Bot.MonsterZone.GetMonsters()
                 .Where(card => !onlyATK || card.IsAttack())
                 .OrderBy(card => card.GetDefensePower())
                 .FirstOrDefault();
@@ -103,99 +107,129 @@ namespace WindBot.Game.AI
 
         public ClientCard GetOneEnemyBetterThanValue(int value, bool onlyATK = false, bool canBeTarget = false)
         {
-            return Enemy.MonsterZone.GetMonsters()
+            return this.Enemy.MonsterZone.GetMonsters()
                 .FirstOrDefault(card => card.GetDefensePower() >= value && (!onlyATK || card.IsAttack()) && (!canBeTarget || !card.IsShouldNotBeTarget()));
         }
 
         public ClientCard GetOneEnemyBetterThanMyBest(bool onlyATK = false, bool canBeTarget = false)
         {
-            int bestBotPower = GetBestPower(Bot, onlyATK);
-            return GetOneEnemyBetterThanValue(bestBotPower, onlyATK, canBeTarget);
+            int bestBotPower = this.GetBestPower(this.Bot, onlyATK);
+            return this.GetOneEnemyBetterThanValue(bestBotPower, onlyATK, canBeTarget);
         }
 
         public ClientCard GetProblematicEnemyCard(int attack = 0, bool canBeTarget = false)
         {
-            ClientCard card = Enemy.MonsterZone.GetFloodgate(canBeTarget);
+            ClientCard card = this.Enemy.MonsterZone.GetFloodgate(canBeTarget);
             if (card != null)
+            {
                 return card;
+            }
 
-            card = Enemy.SpellZone.GetFloodgate(canBeTarget);
+            card = this.Enemy.SpellZone.GetFloodgate(canBeTarget);
             if (card != null)
+            {
                 return card;
+            }
 
-            card = Enemy.MonsterZone.GetDangerousMonster(canBeTarget);
+            card = this.Enemy.MonsterZone.GetDangerousMonster(canBeTarget);
             if (card != null)
+            {
                 return card;
+            }
 
-            card = Enemy.MonsterZone.GetInvincibleMonster(canBeTarget);
+            card = this.Enemy.MonsterZone.GetInvincibleMonster(canBeTarget);
             if (card != null)
+            {
                 return card;
+            }
 
             if (attack == 0)
-                attack = GetBestAttack(Bot);
-            return GetOneEnemyBetterThanValue(attack, true, canBeTarget);
+            {
+                attack = this.GetBestAttack(this.Bot);
+            }
+
+            return this.GetOneEnemyBetterThanValue(attack, true, canBeTarget);
         }
 
         public ClientCard GetProblematicEnemyMonster(int attack = 0, bool canBeTarget = false)
         {
-            ClientCard card = Enemy.MonsterZone.GetFloodgate(canBeTarget);
+            ClientCard card = this.Enemy.MonsterZone.GetFloodgate(canBeTarget);
             if (card != null)
+            {
                 return card;
+            }
 
-            card = Enemy.MonsterZone.GetDangerousMonster(canBeTarget);
+            card = this.Enemy.MonsterZone.GetDangerousMonster(canBeTarget);
             if (card != null)
+            {
                 return card;
+            }
 
-            card = Enemy.MonsterZone.GetInvincibleMonster(canBeTarget);
+            card = this.Enemy.MonsterZone.GetInvincibleMonster(canBeTarget);
             if (card != null)
+            {
                 return card;
+            }
 
             if (attack == 0)
-                attack = GetBestAttack(Bot);
-            return GetOneEnemyBetterThanValue(attack, true, canBeTarget);
+            {
+                attack = this.GetBestAttack(this.Bot);
+            }
+
+            return this.GetOneEnemyBetterThanValue(attack, true, canBeTarget);
         }
 
         public ClientCard GetProblematicEnemySpell()
         {
-            ClientCard card = Enemy.SpellZone.GetFloodgate();
+            ClientCard card = this.Enemy.SpellZone.GetFloodgate();
             return card;
         }
 
         public ClientCard GetBestEnemyCard(bool onlyFaceup = false, bool canBeTarget = false)
         {
-            ClientCard card = GetBestEnemyMonster(onlyFaceup, canBeTarget);
+            ClientCard card = this.GetBestEnemyMonster(onlyFaceup, canBeTarget);
             if (card != null)
+            {
                 return card;
+            }
 
-            card = GetBestEnemySpell(onlyFaceup);
+            card = this.GetBestEnemySpell(onlyFaceup);
             if (card != null)
+            {
                 return card;
+            }
 
             return null;
         }
 
         public ClientCard GetBestEnemyMonster(bool onlyFaceup = false, bool canBeTarget = false)
         {
-            ClientCard card = GetProblematicEnemyMonster(0, canBeTarget);
+            ClientCard card = this.GetProblematicEnemyMonster(0, canBeTarget);
             if (card != null)
+            {
                 return card;
+            }
 
-            card = Enemy.MonsterZone.GetHighestAttackMonster(canBeTarget);
+            card = this.Enemy.MonsterZone.GetHighestAttackMonster(canBeTarget);
             if (card != null)
+            {
                 return card;
+            }
 
-            List<ClientCard> monsters = Enemy.GetMonsters();
+            List<ClientCard> monsters = this.Enemy.GetMonsters();
 
             // after GetHighestAttackMonster, the left monsters must be face-down.
             if (monsters.Count > 0 && !onlyFaceup)
+            {
                 return monsters[0];
+            }
 
             return null;
         }
 
         public ClientCard GetWorstEnemyMonster(bool onlyATK = false)
         {
-            return Enemy.MonsterZone.GetMonsters()
+            return this.Enemy.MonsterZone.GetMonsters()
                 .Where(card => !onlyATK || card.IsAttack())
                 .OrderBy(card => card.GetDefensePower())
                 .FirstOrDefault();
@@ -203,31 +237,37 @@ namespace WindBot.Game.AI
 
         public ClientCard GetBestEnemySpell(bool onlyFaceup = false)
         {
-            ClientCard card = GetProblematicEnemySpell();
+            ClientCard card = this.GetProblematicEnemySpell();
             if (card != null)
+            {
                 return card;
+            }
 
-            var spells = Enemy.GetSpells();
+            var spells = this.Enemy.GetSpells();
 
             card = spells.FirstOrDefault(ecard => ecard.IsFaceup() && (ecard.HasType(CardType.Continuous) || ecard.HasType(CardType.Field)));
             if (card != null)
+            {
                 return card;
+            }
 
             if (spells.Count > 0 && !onlyFaceup)
+            {
                 return spells[0];
+            }
 
             return null;
         }
 
         public ClientCard GetPZone(int player, int id)
         {
-            if (Duel.IsNewRule)
+            if (this.Duel.IsNewRule)
             {
-                return Duel.Fields[player].SpellZone[id * 4];
+                return this.Duel.Fields[player].SpellZone[id * 4];
             }
             else
             {
-                return Duel.Fields[player].SpellZone[6 + id];
+                return this.Duel.Fields[player].SpellZone[6 + id];
             }
         }
 
@@ -238,44 +278,62 @@ namespace WindBot.Game.AI
 
         public bool IsTurn1OrMain2()
         {
-            return Duel.Turn == 1 || Duel.Phase == DuelPhase.Main2;
+            return this.Duel.Turn == 1 || this.Duel.Phase == DuelPhase.Main2;
         }
 
         public int GetBotAvailZonesFromExtraDeck(IList<ClientCard> remove)
         {
-            ClientCard[] BotMZone = (ClientCard[])Bot.MonsterZone.Clone();
-            ClientCard[] EnemyMZone = (ClientCard[])Enemy.MonsterZone.Clone();
+            ClientCard[] BotMZone = (ClientCard[])this.Bot.MonsterZone.Clone();
+            ClientCard[] EnemyMZone = (ClientCard[])this.Enemy.MonsterZone.Clone();
             for (int i = 0; i < 7; i++)
             {
-                if (remove.Contains(BotMZone[i])) BotMZone[i] = null;
-                if (remove.Contains(EnemyMZone[i])) EnemyMZone[i] = null;
+                if (remove.Contains(BotMZone[i]))
+                {
+                    BotMZone[i] = null;
+                }
+
+                if (remove.Contains(EnemyMZone[i]))
+                {
+                    EnemyMZone[i] = null;
+                }
             }
 
-            if (!Duel.IsNewRule || Duel.IsNewRule2020)
+            if (!this.Duel.IsNewRule || this.Duel.IsNewRule2020)
+            {
                 return Zones.MainMonsterZones;
+            }
 
             int result = 0;
 
             if (BotMZone[5] == null && BotMZone[6] == null)
             {
                 if (EnemyMZone[5] == null)
-                    result |= Zones.z6;
+                {
+                    result |= Zones.ExtraZone2;
+                }
+
                 if (EnemyMZone[6] == null)
-                    result |= Zones.z5;
+                {
+                    result |= Zones.ExtraZone1;
+                }
             }
 
             if (BotMZone[0] == null &&
                 ((BotMZone[1]?.HasLinkMarker(CardLinkMarker.Left) ?? false) ||
                  (BotMZone[5]?.HasLinkMarker(CardLinkMarker.BottomLeft) ?? false) ||
                  (EnemyMZone[6]?.HasLinkMarker(CardLinkMarker.TopRight) ?? false)))
-                result |= Zones.z0;
+            {
+                result |= Zones.MonsterZone1;
+            }
 
             if (BotMZone[1] == null &&
                 ((BotMZone[0]?.HasLinkMarker(CardLinkMarker.Right) ?? false) ||
                  (BotMZone[2]?.HasLinkMarker(CardLinkMarker.Left) ?? false) ||
                  (BotMZone[5]?.HasLinkMarker(CardLinkMarker.Bottom) ?? false) ||
                  (EnemyMZone[6]?.HasLinkMarker(CardLinkMarker.Top) ?? false)))
-                result |= Zones.z1;
+            {
+                result |= Zones.MonsterZone2;
+            }
 
             if (BotMZone[2] == null &&
                 ((BotMZone[1]?.HasLinkMarker(CardLinkMarker.Right) ?? false) ||
@@ -284,72 +342,78 @@ namespace WindBot.Game.AI
                  (EnemyMZone[6]?.HasLinkMarker(CardLinkMarker.TopLeft) ?? false) ||
                  (BotMZone[6]?.HasLinkMarker(CardLinkMarker.BottomLeft) ?? false) ||
                  (EnemyMZone[5]?.HasLinkMarker(CardLinkMarker.TopRight) ?? false)))
-                result |= Zones.z2;
+            {
+                result |= Zones.MonsterZone3;
+            }
 
             if (BotMZone[3] == null &&
                 ((BotMZone[2]?.HasLinkMarker(CardLinkMarker.Right) ?? false) ||
                  (BotMZone[4]?.HasLinkMarker(CardLinkMarker.Left) ?? false) ||
                  (BotMZone[6]?.HasLinkMarker(CardLinkMarker.Bottom) ?? false) ||
                  (EnemyMZone[5]?.HasLinkMarker(CardLinkMarker.Top) ?? false)))
-                result |= Zones.z3;
+            {
+                result |= Zones.MonsterZone4;
+            }
 
             if (BotMZone[4] == null &&
                 ((BotMZone[3]?.HasLinkMarker(CardLinkMarker.Right) ?? false) ||
                  (BotMZone[6]?.HasLinkMarker(CardLinkMarker.BottomRight) ?? false) ||
                  (EnemyMZone[5]?.HasLinkMarker(CardLinkMarker.TopLeft) ?? false)))
-                result |= Zones.z4;
+            {
+                result |= Zones.MonsterZone5;
+            }
 
             return result;
         }
 
         public int GetBotAvailZonesFromExtraDeck(ClientCard remove)
         {
-            return GetBotAvailZonesFromExtraDeck(new[] { remove });
+            return this.GetBotAvailZonesFromExtraDeck(new[] { remove });
         }
 
         public int GetBotAvailZonesFromExtraDeck()
         {
-            return GetBotAvailZonesFromExtraDeck(new List<ClientCard>());
+            return this.GetBotAvailZonesFromExtraDeck(new List<ClientCard>());
         }
 
         public bool IsChainTarget(ClientCard card)
         {
-            return Duel.ChainTargets.Any(card.Equals);
+            return this.Duel.ChainTargets.Any(card.Equals);
         }
 
         public bool IsChainTargetOnly(ClientCard card)
         {
-            return Duel.ChainTargetOnly.Count == 1 && card.Equals(Duel.ChainTargetOnly[0]);
+            return this.Duel.ChainTargetOnly.Count == 1 && card.Equals(this.Duel.ChainTargetOnly[0]);
         }
 
         public bool ChainContainsCard(int id)
         {
-            return Duel.CurrentChain.Any(card => card.IsCode(id));
+            return this.Duel.CurrentChain.Any(card => card.IsCode(id));
         }
 
         public bool ChainContainsCard(int[] ids)
         {
-            return Duel.CurrentChain.Any(card => card.IsCode(ids));
+            return this.Duel.CurrentChain.Any(card => card.IsCode(ids));
         }
 
         public int ChainCountPlayer(int player)
         {
-            return Duel.CurrentChain.Count(card => card.Controller == player);
+            return this.Duel.CurrentChain.Count(card => card.Controller == player);
         }
 
         public bool ChainContainPlayer(int player)
         {
-            return Duel.CurrentChain.Any(card => card.Controller == player);
+            return this.Duel.CurrentChain.Any(card => card.Controller == player);
         }
 
         public bool HasChainedTrap(int player)
         {
-            return Duel.CurrentChain.Any(card => card.Controller == player && card.HasType(CardType.Trap));
+            return this.Duel.CurrentChain.Any(card => card.Controller == player && card.HasType(CardType.Trap));
         }
 
         public ClientCard GetLastChainCard()
         {
-            return Duel.CurrentChain.LastOrDefault();
+            return this.Duel.CurrentChain.LastOrDefault();
         }
 
         /// <summary>
@@ -375,7 +439,9 @@ namespace WindBot.Game.AI
             foreach (ClientCard card in cards)
             {
                 if (card.IsCode(preferred) && selected.Count < max)
+                {
                     selected.Add(card);
+                }
             }
 
             return selected;
@@ -410,10 +476,14 @@ namespace WindBot.Game.AI
                 foreach (ClientCard card in cards)
                 {
                     if (card.IsCode(id) && selected.Count < max && selected.IndexOf(card) <= 0)
+                    {
                         selected.Add(card);
+                    }
                 }
                 if (selected.Count >= max)
+                {
                     break;
+                }
             }
 
             return selected;
@@ -430,9 +500,14 @@ namespace WindBot.Game.AI
                 foreach (ClientCard card in cards)
                 {
                     if (!selected.Contains(card))
+                    {
                         selected.Add(card);
+                    }
+
                     if (selected.Count >= max)
+                    {
                         break;
+                    }
                 }
             }
             while (selected.Count > max)

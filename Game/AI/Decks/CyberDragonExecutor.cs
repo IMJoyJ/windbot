@@ -46,53 +46,53 @@ namespace WindBot.Game.AI.Decks
         public CyberDragonExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.SpellSet, CardId.DeFusion);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DeFusion);
 
-            AddExecutor(ExecutorType.Activate, CardId.DifferentDimensionCapsule, Capsule);
-            AddExecutor(ExecutorType.Activate, CardId.Raigeki, DefaultRaigeki);
-            AddExecutor(ExecutorType.Activate, CardId.Polymerization, PolymerizationEffect);
-            AddExecutor(ExecutorType.Activate, CardId.PowerBond, PowerBondEffect);
-            AddExecutor(ExecutorType.Activate, CardId.EvolutionBurst, EvolutionBurstEffect);
-            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
-            AddExecutor(ExecutorType.Activate, CardId.PhotonGeneratorUnit);
-            AddExecutor(ExecutorType.Activate, CardId.DeFusion, DeFusionEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.DifferentDimensionCapsule, this.Capsule);
+            this.AddExecutor(ExecutorType.Activate, CardId.Raigeki, this.DefaultRaigeki);
+            this.AddExecutor(ExecutorType.Activate, CardId.Polymerization, this.PolymerizationEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.PowerBond, this.PowerBondEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.EvolutionBurst, this.EvolutionBurstEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkHole, this.DefaultDarkHole);
+            this.AddExecutor(ExecutorType.Activate, CardId.PhotonGeneratorUnit);
+            this.AddExecutor(ExecutorType.Activate, CardId.DeFusion, this.DeFusionEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.BottomlessTrapHole, DefaultUniqueTrap);
-            AddExecutor(ExecutorType.Activate, CardId.MirrorForce, DefaultUniqueTrap);
-            AddExecutor(ExecutorType.Activate, CardId.AttackReflectorUnit);
-            AddExecutor(ExecutorType.Activate, CardId.SevenToolsOfTheBandit, DefaultTrap);
-            AddExecutor(ExecutorType.Activate, CardId.CallOfTheHaunted, DefaultCallOfTheHaunted);
+            this.AddExecutor(ExecutorType.Activate, CardId.BottomlessTrapHole, this.DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.MirrorForce, this.DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.AttackReflectorUnit);
+            this.AddExecutor(ExecutorType.Activate, CardId.SevenToolsOfTheBandit, this.DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.CallOfTheHaunted, this.DefaultCallOfTheHaunted);
 
-            AddExecutor(ExecutorType.SummonOrSet, CardId.CyberDragonDrei, NoCyberDragonSpsummon);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.CyberPhoenix, NoCyberDragonSpsummon);
-            AddExecutor(ExecutorType.Summon, CardId.CyberValley, NoCyberDragonSpsummon);
-            AddExecutor(ExecutorType.MonsterSet, CardId.CyberDragonCore, NoCyberDragonSpsummon);
-            AddExecutor(ExecutorType.MonsterSet, CardId.ArmoredCybern, ArmoredCybernSet);
-            AddExecutor(ExecutorType.SummonOrSet, CardId.ProtoCyberDragon, ProtoCyberDragonSummon);
-            AddExecutor(ExecutorType.Summon, CardId.CyberKirin, CyberKirinSummon);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.CyberDragonDrei, this.NoCyberDragonSpsummon);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.CyberPhoenix, this.NoCyberDragonSpsummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.CyberValley, this.NoCyberDragonSpsummon);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.CyberDragonCore, this.NoCyberDragonSpsummon);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.ArmoredCybern, this.ArmoredCybernSet);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.ProtoCyberDragon, this.ProtoCyberDragonSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.CyberKirin, this.CyberKirinSummon);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.CyberDragon);
-            AddExecutor(ExecutorType.SpSummon, CardId.CyberEndDragon);
-            AddExecutor(ExecutorType.SpSummon, CardId.CyberTwinDragon);
-            AddExecutor(ExecutorType.SpSummon, CardId.CyberBarrierDragon);
-            AddExecutor(ExecutorType.SpSummon, CardId.CyberLaserDragon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CyberDragon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CyberEndDragon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CyberTwinDragon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CyberBarrierDragon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CyberLaserDragon);
 
-            AddExecutor(ExecutorType.Activate, CardId.CyberBarrierDragon);
-            AddExecutor(ExecutorType.Activate, CardId.CyberLaserDragon);
-            AddExecutor(ExecutorType.Activate, CardId.CyberDragonDrei);
-            AddExecutor(ExecutorType.Activate, CardId.CyberPhoenix);
-            AddExecutor(ExecutorType.Activate, CardId.CyberKirin);
-            AddExecutor(ExecutorType.Activate, CardId.ArmoredCybern, ArmoredCybernEffect);
-            AddExecutor(ExecutorType.Activate, CardId.CyberValley);
+            this.AddExecutor(ExecutorType.Activate, CardId.CyberBarrierDragon);
+            this.AddExecutor(ExecutorType.Activate, CardId.CyberLaserDragon);
+            this.AddExecutor(ExecutorType.Activate, CardId.CyberDragonDrei);
+            this.AddExecutor(ExecutorType.Activate, CardId.CyberPhoenix);
+            this.AddExecutor(ExecutorType.Activate, CardId.CyberKirin);
+            this.AddExecutor(ExecutorType.Activate, CardId.ArmoredCybern, this.ArmoredCybernEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.CyberValley);
 
-            AddExecutor(ExecutorType.SpellSet, DefaultSpellSet);
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.SpellSet, this.DefaultSpellSet);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
         }
 
-        private bool CyberDragonInHand()  { return Bot.HasInHand(CardId.CyberDragon); }
-        private bool CyberDragonInGraveyard()  { return Bot.HasInGraveyard(CardId.CyberDragon); }
-        private bool CyberDragonInMonsterZone() { return Bot.HasInMonstersZone(CardId.CyberDragon); }
-        private bool CyberDragonIsBanished() { return Bot.HasInBanished(CardId.CyberDragon); }
+        private bool CyberDragonInHand()  { return this.Bot.HasInHand(CardId.CyberDragon); }
+        private bool CyberDragonInGraveyard()  { return this.Bot.HasInGraveyard(CardId.CyberDragon); }
+        private bool CyberDragonInMonsterZone() { return this.Bot.HasInMonstersZone(CardId.CyberDragon); }
+        private bool CyberDragonIsBanished() { return this.Bot.HasInBanished(CardId.CyberDragon); }
 
         private bool Capsule()
         {
@@ -100,76 +100,110 @@ namespace WindBot.Game.AI.Decks
             SelectedCard.Add(CardId.PowerBond);
             SelectedCard.Add(CardId.DarkHole);
             SelectedCard.Add(CardId.Raigeki);
-            AI.SelectCard(SelectedCard);
+            this.AI.SelectCard(SelectedCard);
             return true;
         }
 
         private bool PolymerizationEffect()
         {
-            if (Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.ProtoCyberDragon) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragonDrei) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragonDrei) + Bot.GetCountCardInZone(Bot.Hand, CardId.CyberDragon) >= 3)
-                AI.SelectCard(CardId.CyberEndDragon);
+            if (this.Bot.GetCountCardInZone(this.Bot.MonsterZone, CardId.CyberDragon) + this.Bot.GetCountCardInZone(this.Bot.MonsterZone, CardId.ProtoCyberDragon) + this.Bot.GetCountCardInZone(this.Bot.MonsterZone, CardId.CyberDragonDrei) + this.Bot.GetCountCardInZone(this.Bot.MonsterZone, CardId.CyberDragonDrei) + this.Bot.GetCountCardInZone(this.Bot.Hand, CardId.CyberDragon) >= 3)
+            {
+                this.AI.SelectCard(CardId.CyberEndDragon);
+            }
             else
-                AI.SelectCard(CardId.CyberTwinDragon);
+            {
+                this.AI.SelectCard(CardId.CyberTwinDragon);
+            }
+
             return true;
         }
 
         private bool PowerBondEffect()
         {
-            PowerBondUsed = true;
-            if (Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.ProtoCyberDragon) + Bot.GetCountCardInZone(Bot.Hand, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.Graveyard, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.Hand, CardId.CyberDragonCore) + Bot.GetCountCardInZone(Bot.Graveyard, CardId.CyberDragonCore) + Bot.GetCountCardInZone(Bot.Graveyard, CardId.CyberDragonDrei) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragonDrei) >= 3)
-                AI.SelectCard(CardId.CyberEndDragon);
+            this.PowerBondUsed = true;
+            if (this.Bot.GetCountCardInZone(this.Bot.MonsterZone, CardId.CyberDragon) + this.Bot.GetCountCardInZone(this.Bot.MonsterZone, CardId.ProtoCyberDragon) + this.Bot.GetCountCardInZone(this.Bot.Hand, CardId.CyberDragon) + this.Bot.GetCountCardInZone(this.Bot.Graveyard, CardId.CyberDragon) + this.Bot.GetCountCardInZone(this.Bot.Hand, CardId.CyberDragonCore) + this.Bot.GetCountCardInZone(this.Bot.Graveyard, CardId.CyberDragonCore) + this.Bot.GetCountCardInZone(this.Bot.Graveyard, CardId.CyberDragonDrei) + this.Bot.GetCountCardInZone(this.Bot.MonsterZone, CardId.CyberDragonDrei) >= 3)
+            {
+                this.AI.SelectCard(CardId.CyberEndDragon);
+            }
             else
-                AI.SelectCard(CardId.CyberTwinDragon);
+            {
+                this.AI.SelectCard(CardId.CyberTwinDragon);
+            }
+
             return true;
         }
 
         private bool EvolutionBurstEffect()
         {
-            ClientCard bestMy = Bot.GetMonsters().GetHighestAttackMonster();
-            if (bestMy == null || !Util.IsOneEnemyBetterThanValue(bestMy.Attack, false))
+            ClientCard bestMy = this.Bot.GetMonsters().GetHighestAttackMonster();
+            if (bestMy == null || !this.Util.IsOneEnemyBetterThanValue(bestMy.Attack, false))
+            {
                 return false;
+            }
             else
-                AI.SelectCard(Enemy.MonsterZone.GetHighestAttackMonster());
+            {
+                this.AI.SelectCard(this.Enemy.MonsterZone.GetHighestAttackMonster());
+            }
+
             return true;
         }
 
         private bool NoCyberDragonSpsummon()
         {
-            if (CyberDragonInHand() && (Bot.GetMonsterCount() == 0 && Enemy.GetMonsterCount() != 0))
+            if (this.CyberDragonInHand() && (this.Bot.GetMonsterCount() == 0 && this.Enemy.GetMonsterCount() != 0))
+            {
                 return false;
+            }
+
             return true;
         }
 
         private bool ArmoredCybernSet()
         {
-            if (CyberDragonInHand() && (Bot.GetMonsterCount() == 0 && Enemy.GetMonsterCount() != 0) || (Bot.HasInHand(CardId.CyberDragonDrei) || Bot.HasInHand(CardId.CyberPhoenix)) && !Util.IsOneEnemyBetterThanValue(1800,true))
+            if (this.CyberDragonInHand() && (this.Bot.GetMonsterCount() == 0 && this.Enemy.GetMonsterCount() != 0) || (this.Bot.HasInHand(CardId.CyberDragonDrei) || this.Bot.HasInHand(CardId.CyberPhoenix)) && !this.Util.IsOneEnemyBetterThanValue(1800,true))
+            {
                 return false;
+            }
+
             return true;
         }
 
         private bool ProtoCyberDragonSummon()
         {
-            if (Bot.GetCountCardInZone(Bot.Hand, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragonCore) >= 1 && Bot.HasInHand(CardId.Polymerization) || Bot.GetCountCardInZone(Bot.Hand, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.MonsterZone, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.Graveyard, CardId.CyberDragon) + Bot.GetCountCardInZone(Bot.Graveyard, CardId.CyberDragonCore) >= 1 && Bot.HasInHand(CardId.PowerBond))
+            if (this.Bot.GetCountCardInZone(this.Bot.Hand, CardId.CyberDragon) + this.Bot.GetCountCardInZone(this.Bot.MonsterZone, CardId.CyberDragon) + this.Bot.GetCountCardInZone(this.Bot.MonsterZone, CardId.CyberDragonCore) >= 1 && this.Bot.HasInHand(CardId.Polymerization) || this.Bot.GetCountCardInZone(this.Bot.Hand, CardId.CyberDragon) + this.Bot.GetCountCardInZone(this.Bot.MonsterZone, CardId.CyberDragon) + this.Bot.GetCountCardInZone(this.Bot.Graveyard, CardId.CyberDragon) + this.Bot.GetCountCardInZone(this.Bot.Graveyard, CardId.CyberDragonCore) >= 1 && this.Bot.HasInHand(CardId.PowerBond))
+            {
                 return true;
-            if (CyberDragonInHand() && (Bot.GetMonsterCount() == 0 && Enemy.GetMonsterCount() != 0) || (Bot.HasInHand(CardId.CyberDragonDrei) || Bot.HasInHand(CardId.CyberPhoenix)) && !Util.IsOneEnemyBetterThanValue(1800, true))
+            }
+
+            if (this.CyberDragonInHand() && (this.Bot.GetMonsterCount() == 0 && this.Enemy.GetMonsterCount() != 0) || (this.Bot.HasInHand(CardId.CyberDragonDrei) || this.Bot.HasInHand(CardId.CyberPhoenix)) && !this.Util.IsOneEnemyBetterThanValue(1800, true))
+            {
                 return false;
+            }
+
             return true;
         }
 
         private bool CyberKirinSummon()
         {
-            return PowerBondUsed;
+            return this.PowerBondUsed;
         }
 
         private bool ArmoredCybernEffect()
         {
-            if (Card.Location == CardLocation.Hand)
-                return true;
-            else if (Card.Location == CardLocation.SpellZone)
+            if (this.Card.Location == CardLocation.Hand)
             {
-                if (Util.IsOneEnemyBetterThanValue(Bot.GetMonsters().GetHighestAttackMonster().Attack, true))
-                    if (ActivateDescription == Util.GetStringId(CardId.ArmoredCybern, 2))
+                return true;
+            }
+            else if (this.Card.Location == CardLocation.SpellZone)
+            {
+                if (this.Util.IsOneEnemyBetterThanValue(this.Bot.GetMonsters().GetHighestAttackMonster().Attack, true))
+                {
+                    if (this.ActivateDescription == this.Util.GetStringId(CardId.ArmoredCybern, 2))
+                    {
                         return true;
+                    }
+                }
+
                 return false;
             }
             return false;
@@ -177,10 +211,12 @@ namespace WindBot.Game.AI.Decks
 
         private bool DeFusionEffect()
         {
-            if (Duel.Phase == DuelPhase.Battle)
+            if (this.Duel.Phase == DuelPhase.Battle)
             {
-                if (!Bot.HasAttackingMonster())
+                if (!this.Bot.HasAttackingMonster())
+                {
                     return true;
+                }
             }
             return false;
         }

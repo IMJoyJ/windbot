@@ -10,9 +10,9 @@ namespace WindBot.Game.AI
 
         public CardExecutor(ExecutorType type, int cardId, Func<bool> func)
         {
-            CardId = cardId;
-            Type = type;
-            Func = func;
+            this.CardId = cardId;
+            this.Type = type;
+            this.Func = func;
         }
     }
 }

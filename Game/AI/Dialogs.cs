@@ -10,161 +10,170 @@ namespace WindBot.Game.AI
     public class DialogsData
     {
         [DataMember]
-        public string[] welcome { get; set; }
+        public string[] Welcome { get; set; }
         [DataMember]
-        public string[] deckerror { get; set; }
+        public string[] DeckError { get; set; }
         [DataMember]
-        public string[] duelstart { get; set; }
+        public string[] DuelStart { get; set; }
         [DataMember]
-        public string[] newturn { get; set; }
+        public string[] NewTurn { get; set; }
         [DataMember]
-        public string[] endturn { get; set; }
+        public string[] EndTurn { get; set; }
         [DataMember]
-        public string[] directattack { get; set; }
+        public string[] DirectAttack { get; set; }
         [DataMember]
-        public string[] attack { get; set; }
+        public string[] Attack { get; set; }
         [DataMember]
-        public string[] ondirectattack { get; set; }
+        public string[] OnDirectAttack { get; set; }
         [DataMember]
-        public string facedownmonstername { get; set; }
+        public string FacedownMonsterName { get; set; }
         [DataMember]
-        public string[] activate { get; set; }
+        public string[] Activate { get; set; }
         [DataMember]
-        public string[] summon { get; set; }
+        public string[] Summon { get; set; }
         [DataMember]
-        public string[] setmonster { get; set; }
+        public string[] SetMonster { get; set; }
         [DataMember]
-        public string[] chaining { get; set; }                                          
+        public string[] Chaining { get; set; }                                          
     }
     public class Dialogs
     {
-        private GameClient _game;
+        private GameClient game;
 
-        private string[] _welcome;
-        private string[] _deckerror;
-        private string[] _duelstart;
-        private string[] _newturn;
-        private string[] _endturn;
-        private string[] _directattack;
-        private string[] _attack;
-        private string[] _ondirectattack;
-        private string _facedownmonstername;
-        private string[] _activate;
-        private string[] _summon;
-        private string[] _setmonster;
-        private string[] _chaining;
+        private string[] welcome;
+        private string[] deckError;
+        private string[] duelStart;
+        private string[] newTurn;
+        private string[] endTurn;
+        private string[] directAttack;
+        private string[] attack;
+        private string[] onDirectAttack;
+        private string facedownMonsterName;
+        private string[] activate;
+        private string[] summon;
+        private string[] setMonster;
+        private string[] chaining;
         
         public Dialogs(GameClient game)
         {
-            _game = game;
+            this.game = game;
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(DialogsData));
             string dialogfilename = game.Dialog;
             using (FileStream fs = File.OpenRead("Dialogs/" + dialogfilename + ".json"))
             {
                 DialogsData data = (DialogsData)serializer.ReadObject(fs);
-                _welcome = data.welcome;
-                _deckerror = data.deckerror;
-                _duelstart = data.duelstart;
-                _newturn = data.newturn;
-                _endturn = data.endturn;
-                _directattack = data.directattack;
-                _attack = data.attack;
-                _ondirectattack = data.ondirectattack;
-                _facedownmonstername = data.facedownmonstername;
-                _activate = data.activate;
-                _summon = data.summon;
-                _setmonster = data.setmonster;
-                _chaining = data.chaining;
+                this.welcome = data.Welcome;
+                this.deckError = data.DeckError;
+                this.duelStart = data.DuelStart;
+                this.newTurn = data.NewTurn;
+                this.endTurn = data.EndTurn;
+                this.directAttack = data.DirectAttack;
+                this.attack = data.Attack;
+                this.onDirectAttack = data.OnDirectAttack;
+                this.facedownMonsterName = data.FacedownMonsterName;
+                this.activate = data.Activate;
+                this.summon = data.Summon;
+                this.setMonster = data.SetMonster;
+                this.chaining = data.Chaining;
             }
         }
 
         public void SendSorry()
         {
-            InternalSendMessageForced(new[] { "Sorry, an error occurs." });
+            this.InternalSendMessageForced(new[] { "Sorry, an error occurs." });
         }
 
         public void SendDeckSorry(string card)
         {
             if (card == "DECK")
-                InternalSendMessageForced(new[] { "Deck illegal. Please check the database of your YGOPro and WindBot." });
+            {
+                this.InternalSendMessageForced(new[] { "Deck illegal. Please check the database of your YGOPro and WindBot." });
+            }
             else
-                InternalSendMessageForced(_deckerror, card);
+            {
+                this.InternalSendMessageForced(this.deckError, card);
+            }
         }
 
         public void SendWelcome()
         {
-            InternalSendMessage(_welcome);
+            this.InternalSendMessage(this.welcome);
         }
 
         public void SendDuelStart()
         {
-            InternalSendMessage(_duelstart);
+            this.InternalSendMessage(this.duelStart);
         }
 
         public void SendNewTurn()
         {
-            InternalSendMessage(_newturn);
+            this.InternalSendMessage(this.newTurn);
         }
 
         public void SendEndTurn()
         {
-            InternalSendMessage(_endturn);
+            this.InternalSendMessage(this.endTurn);
         }
 
         public void SendDirectAttack(string attacker)
         {
-            InternalSendMessage(_directattack, attacker);
+            this.InternalSendMessage(this.directAttack, attacker);
         }
 
         public void SendAttack(string attacker, string defender)
         {
             if (defender=="monster")
             {
-                defender = _facedownmonstername;
+                defender = this.facedownMonsterName;
             }
-            InternalSendMessage(_attack, attacker, defender);
+            this.InternalSendMessage(this.attack, attacker, defender);
         }
 
         public void SendOnDirectAttack(string attacker)
         {
             if (string.IsNullOrEmpty(attacker))
             {
-                attacker = _facedownmonstername;
+                attacker = this.facedownMonsterName;
             }
-            InternalSendMessage(_ondirectattack, attacker);
+            this.InternalSendMessage(this.onDirectAttack, attacker);
         }
         public void SendOnDirectAttack()
         {
-            InternalSendMessage(_ondirectattack);
+            this.InternalSendMessage(this.onDirectAttack);
         }
 
         public void SendActivate(string spell)
         {
-            InternalSendMessage(_activate, spell);
+            this.InternalSendMessage(this.activate, spell);
         }
 
         public void SendSummon(string monster)
         {
-            InternalSendMessage(_summon, monster);
+            this.InternalSendMessage(this.summon, monster);
         }
 
         public void SendSetMonster()
         {
-            InternalSendMessage(_setmonster);
+            this.InternalSendMessage(this.setMonster);
         }
 
         public void SendChaining(string card)
         {
-            InternalSendMessage(_chaining, card);
+            this.InternalSendMessage(this.chaining, card);
         }
 
         private void InternalSendMessage(IList<string> array, params object[] opts)
         {
-            if (!_game._chat)
+            if (!this.game._chat)
+            {
                 return;
+            }
+
             string message = string.Format(array[Program.Rand.Next(array.Count)], opts);
             if (message != "")
-                _game.Chat(message);
+            {
+                this.game.Chat(message);
+            }
         }
 
         private void InternalSendMessageForced(IList<string> array, params object[] opts)
@@ -172,7 +181,7 @@ namespace WindBot.Game.AI
             string message = string.Format(array[Program.Rand.Next(array.Count)], opts);
             if (message != "")
 			{
-                _game.Chat(message);
+                this.game.Chat(message);
 				Logger.WriteLine("Error: " + message);
 			}
         }

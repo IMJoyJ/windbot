@@ -27,27 +27,29 @@ namespace WindBot.Game
 
         public Duel()
         {
-            Fields = new ClientField[2];
-            Fields[0] = new ClientField();
-            Fields[1] = new ClientField();
-            LastChainPlayer = -1;
-            CurrentChain = new List<ClientCard>();
-            ChainTargets = new List<ClientCard>();
-            ChainTargetOnly = new List<ClientCard>();
-            LastSummonPlayer = -1;
-            SummoningCards = new List<ClientCard>();
-            LastSummonedCards = new List<ClientCard>();
+            this.Fields = new ClientField[2];
+            this.Fields[0] = new ClientField();
+            this.Fields[1] = new ClientField();
+            this.LastChainPlayer = -1;
+            this.CurrentChain = new List<ClientCard>();
+            this.ChainTargets = new List<ClientCard>();
+            this.ChainTargetOnly = new List<ClientCard>();
+            this.LastSummonPlayer = -1;
+            this.SummoningCards = new List<ClientCard>();
+            this.LastSummonedCards = new List<ClientCard>();
         }
 
         public ClientCard GetCard(int player, CardLocation loc, int seq)
         {
-            return GetCard(player, (int)loc, seq, 0);
+            return this.GetCard(player, (int)loc, seq, 0);
         }
 
         public ClientCard GetCard(int player, int loc, int seq, int subSeq)
         {
             if (player < 0 || player > 1)
+            {
                 return null;
+            }
 
             bool isXyz = (loc & 0x80) != 0;
             CardLocation location = (CardLocation)(loc & 0x7f);
@@ -56,38 +58,45 @@ namespace WindBot.Game
             switch (location)
             {
                 case CardLocation.Deck:
-                    cards = Fields[player].Deck;
+                    cards = this.Fields[player].Deck;
                     break;
                 case CardLocation.Hand:
-                    cards = Fields[player].Hand;
+                    cards = this.Fields[player].Hand;
                     break;
                 case CardLocation.MonsterZone:
-                    cards = Fields[player].MonsterZone;
+                    cards = this.Fields[player].MonsterZone;
                     break;
                 case CardLocation.SpellZone:
-                    cards = Fields[player].SpellZone;
+                    cards = this.Fields[player].SpellZone;
                     break;
                 case CardLocation.Grave:
-                    cards = Fields[player].Graveyard;
+                    cards = this.Fields[player].Graveyard;
                     break;
                 case CardLocation.Removed:
-                    cards = Fields[player].Banished;
+                    cards = this.Fields[player].Banished;
                     break;
                 case CardLocation.Extra:
-                    cards = Fields[player].ExtraDeck;
+                    cards = this.Fields[player].ExtraDeck;
                     break;
             }
             if (cards == null)
+            {
                 return null;
+            }
 
             if (seq >= cards.Count)
+            {
                 return null;
+            }
 
             if (isXyz)
             {
                 ClientCard card = cards[seq];
                 if (card == null || subSeq >= card.Overlays.Count)
+                {
                     return null;
+                }
+
                 return null; // TODO card.Overlays[subSeq]
             }
 
@@ -99,25 +108,25 @@ namespace WindBot.Game
             switch (loc)
             {
                 case CardLocation.Hand:
-                    Fields[player].Hand.Add(new ClientCard(cardId, loc, -1, pos));
+                    this.Fields[player].Hand.Add(new ClientCard(cardId, loc, -1, pos));
                     break;
                 case CardLocation.Grave:
-                    Fields[player].Graveyard.Add(new ClientCard(cardId, loc,-1, pos));
+                    this.Fields[player].Graveyard.Add(new ClientCard(cardId, loc,-1, pos));
                     break;
                 case CardLocation.Removed:
-                    Fields[player].Banished.Add(new ClientCard(cardId, loc, -1, pos));
+                    this.Fields[player].Banished.Add(new ClientCard(cardId, loc, -1, pos));
                     break;
                 case CardLocation.MonsterZone:
-                    Fields[player].MonsterZone[seq] = new ClientCard(cardId, loc, seq, pos);
+                    this.Fields[player].MonsterZone[seq] = new ClientCard(cardId, loc, seq, pos);
                     break;
                 case CardLocation.SpellZone:
-                    Fields[player].SpellZone[seq] = new ClientCard(cardId, loc, seq, pos);
+                    this.Fields[player].SpellZone[seq] = new ClientCard(cardId, loc, seq, pos);
                     break;
                 case CardLocation.Deck:
-                    Fields[player].Deck.Add(new ClientCard(cardId, loc, -1, pos));
+                    this.Fields[player].Deck.Add(new ClientCard(cardId, loc, -1, pos));
                     break;
                 case CardLocation.Extra:
-                    Fields[player].ExtraDeck.Add(new ClientCard(cardId, loc, -1, pos));
+                    this.Fields[player].ExtraDeck.Add(new ClientCard(cardId, loc, -1, pos));
                     break;
             }
         }
@@ -131,25 +140,25 @@ namespace WindBot.Game
             switch (loc)
             {
                 case CardLocation.Hand:
-                    Fields[player].Hand.Add(card);
+                    this.Fields[player].Hand.Add(card);
                     break;
                 case CardLocation.Grave:
-                    Fields[player].Graveyard.Add(card);
+                    this.Fields[player].Graveyard.Add(card);
                     break;
                 case CardLocation.Removed:
-                    Fields[player].Banished.Add(card);
+                    this.Fields[player].Banished.Add(card);
                     break;
                 case CardLocation.MonsterZone:
-                    Fields[player].MonsterZone[seq] = card;
+                    this.Fields[player].MonsterZone[seq] = card;
                     break;
                 case CardLocation.SpellZone:
-                    Fields[player].SpellZone[seq] = card;
+                    this.Fields[player].SpellZone[seq] = card;
                     break;
                 case CardLocation.Deck:
-                    Fields[player].Deck.Add(card);
+                    this.Fields[player].Deck.Add(card);
                     break;
                 case CardLocation.Extra:
-                    Fields[player].ExtraDeck.Add(card);
+                    this.Fields[player].ExtraDeck.Add(card);
                     break;
             }
         }
@@ -159,32 +168,32 @@ namespace WindBot.Game
             switch (loc)
             {
                 case CardLocation.Hand:
-                    Fields[player].Hand.Remove(card);
+                    this.Fields[player].Hand.Remove(card);
                     break;
                 case CardLocation.Grave:
-                    Fields[player].Graveyard.Remove(card);
+                    this.Fields[player].Graveyard.Remove(card);
                     break;
                 case CardLocation.Removed:
-                    Fields[player].Banished.Remove(card);
+                    this.Fields[player].Banished.Remove(card);
                     break;
                 case CardLocation.MonsterZone:
-                    Fields[player].MonsterZone[seq] = null;
+                    this.Fields[player].MonsterZone[seq] = null;
                     break;
                 case CardLocation.SpellZone:
-                    Fields[player].SpellZone[seq] = null;
+                    this.Fields[player].SpellZone[seq] = null;
                     break;
                 case CardLocation.Deck:
-                    Fields[player].Deck.Remove(card);
+                    this.Fields[player].Deck.Remove(card);
                     break;
                 case CardLocation.Extra:
-                    Fields[player].ExtraDeck.Remove(card);
+                    this.Fields[player].ExtraDeck.Remove(card);
                     break;
             }
         }
 
         public int GetLocalPlayer(int player)
         {
-            return IsFirst ? player : 1 - player;
+            return this.IsFirst ? player : 1 - player;
         }
     }
 }

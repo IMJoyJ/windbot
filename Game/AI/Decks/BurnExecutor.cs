@@ -39,42 +39,42 @@ namespace WindBot.Game.AI.Decks
             : base(ai, duel)
         {
             // Set traps
-            AddExecutor(ExecutorType.SpellSet, DefaultSpellSet);
+            this.AddExecutor(ExecutorType.SpellSet, this.DefaultSpellSet);
 
             // Activate Spells
-            AddExecutor(ExecutorType.Activate, CardId.DarkRoomofNightmare);
-            AddExecutor(ExecutorType.Activate, CardId.Ookazi);
-            AddExecutor(ExecutorType.Activate, CardId.GoblinThief);
-            AddExecutor(ExecutorType.Activate, CardId.TremendousFire);
-            AddExecutor(ExecutorType.Activate, CardId.SwordsOfRevealingLight, SwordsOfRevealingLight);
-            AddExecutor(ExecutorType.Activate, CardId.SupremacyBerry, SupremacyBerry);
-            AddExecutor(ExecutorType.Activate, CardId.PoisonOfTheOldMan, PoisonOfTheOldMan);
-            AddExecutor(ExecutorType.Activate, CardId.ThunderShort, ThunderShort);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkRoomofNightmare);
+            this.AddExecutor(ExecutorType.Activate, CardId.Ookazi);
+            this.AddExecutor(ExecutorType.Activate, CardId.GoblinThief);
+            this.AddExecutor(ExecutorType.Activate, CardId.TremendousFire);
+            this.AddExecutor(ExecutorType.Activate, CardId.SwordsOfRevealingLight, this.SwordsOfRevealingLight);
+            this.AddExecutor(ExecutorType.Activate, CardId.SupremacyBerry, this.SupremacyBerry);
+            this.AddExecutor(ExecutorType.Activate, CardId.PoisonOfTheOldMan, this.PoisonOfTheOldMan);
+            this.AddExecutor(ExecutorType.Activate, CardId.ThunderShort, this.ThunderShort);
 
             // Hello, my name is Lava Golem
-            AddExecutor(ExecutorType.SpSummon, CardId.LavaGolem, LavaGolem);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.LavaGolem, this.LavaGolem);
 
             // Set an invincible monster
-            AddExecutor(ExecutorType.MonsterSet, CardId.Marshmallon, SetInvincibleMonster);
-            AddExecutor(ExecutorType.MonsterSet, CardId.SpiritReaper, SetInvincibleMonster);
-            AddExecutor(ExecutorType.MonsterSet, CardId.BlastSphere);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.Marshmallon, this.SetInvincibleMonster);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.SpiritReaper, this.SetInvincibleMonster);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.BlastSphere);
 
             // Set other monsters
-            AddExecutor(ExecutorType.SummonOrSet, CardId.FencingFireFerret);
-            AddExecutor(ExecutorType.Summon, CardId.ReflectBounder);
-            AddExecutor(ExecutorType.MonsterSet, CardId.NaturiaBeans);
+            this.AddExecutor(ExecutorType.SummonOrSet, CardId.FencingFireFerret);
+            this.AddExecutor(ExecutorType.Summon, CardId.ReflectBounder);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.NaturiaBeans);
 
             // We're a coward
-            AddExecutor(ExecutorType.Repos, ReposEverything);
+            this.AddExecutor(ExecutorType.Repos, this.ReposEverything);
 
             // Chain traps
-            AddExecutor(ExecutorType.Activate, CardId.MagicCylinder, DefaultTrap);
-            AddExecutor(ExecutorType.Activate, CardId.Ceasefire, Ceasefire);
-            AddExecutor(ExecutorType.Activate, CardId.OjamaTrio);
-            AddExecutor(ExecutorType.Activate, CardId.MinorGoblinOfficial);
-            AddExecutor(ExecutorType.Activate, CardId.ChainBurst);
-            AddExecutor(ExecutorType.Activate, CardId.SkullInvitation);
-            AddExecutor(ExecutorType.Activate, CardId.ChainEnergy);
+            this.AddExecutor(ExecutorType.Activate, CardId.MagicCylinder, this.DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.Ceasefire, this.Ceasefire);
+            this.AddExecutor(ExecutorType.Activate, CardId.OjamaTrio);
+            this.AddExecutor(ExecutorType.Activate, CardId.MinorGoblinOfficial);
+            this.AddExecutor(ExecutorType.Activate, CardId.ChainBurst);
+            this.AddExecutor(ExecutorType.Activate, CardId.SkullInvitation);
+            this.AddExecutor(ExecutorType.Activate, CardId.ChainEnergy);
         }
 
         public override bool OnSelectHand()
@@ -84,29 +84,29 @@ namespace WindBot.Game.AI.Decks
 
         private bool SwordsOfRevealingLight()
         {
-            int count = Bot.SpellZone.GetCardCount(CardId.SwordsOfRevealingLight);
+            int count = this.Bot.SpellZone.GetCardCount(CardId.SwordsOfRevealingLight);
             return count == 0;
         }
 
         private bool SupremacyBerry()
         {
-            return Bot.LifePoints < Enemy.LifePoints;
+            return this.Bot.LifePoints < this.Enemy.LifePoints;
         }
 
         private bool PoisonOfTheOldMan()
         {
-            AI.SelectOption(1);
+            this.AI.SelectOption(1);
             return true;
         }
 
         private bool ThunderShort()
         {
-            return Enemy.GetMonsterCount() >= 3;
+            return this.Enemy.GetMonsterCount() >= 3;
         }
 
         private bool SetInvincibleMonster()
         {
-            foreach (ClientCard card in Bot.GetMonsters())
+            foreach (ClientCard card in this.Bot.GetMonsters())
             {
                 if (card.IsCode(CardId.Marshmallon, CardId.SpiritReaper))
                 {
@@ -119,27 +119,38 @@ namespace WindBot.Game.AI.Decks
         private bool LavaGolem()
         {
             bool found = false;
-            foreach (ClientCard card in Enemy.GetMonsters())
+            foreach (ClientCard card in this.Enemy.GetMonsters())
             {
                 if (card.Attack > 2000)
+                {
                     found = true;
+                }
             }
             return found;
         }
 
         private bool Ceasefire()
         {
-            return Bot.GetMonsterCount() + Enemy.GetMonsterCount() >= 3;
+            return this.Bot.GetMonsterCount() + this.Enemy.GetMonsterCount() >= 3;
         }
 
         private bool ReposEverything()
         {
-            if (Card.IsCode(CardId.ReflectBounder))
-                return Card.IsDefense();
-            if (Card.IsCode(CardId.FencingFireFerret))
-                return DefaultMonsterRepos();
-            if (Card.IsAttack())
+            if (this.Card.IsCode(CardId.ReflectBounder))
+            {
+                return this.Card.IsDefense();
+            }
+
+            if (this.Card.IsCode(CardId.FencingFireFerret))
+            {
+                return this.DefaultMonsterRepos();
+            }
+
+            if (this.Card.IsAttack())
+            {
                 return true;
+            }
+
             return false;
         }
     }

@@ -14,73 +14,98 @@ namespace WindBot.Game.AI
             Location
         }
 
-        private SelectType _type;
-        private ClientCard _card;
-        private IList<ClientCard> _cards;
-        private int _id;
-        private IList<int> _ids;
-        private CardLocation _location;
+        private SelectType type;
+        private ClientCard card;
+        private IList<ClientCard> cards;
+        private int id;
+        private IList<int> ids;
+        private CardLocation location;
 
         public CardSelector(ClientCard card)
         {
-            _type = SelectType.Card;
-            _card = card;
+            this.type = SelectType.Card;
+            this.card = card;
         }
 
         public CardSelector(IList<ClientCard> cards)
         {
-            _type = SelectType.Cards;
-            _cards = cards;
+            this.type = SelectType.Cards;
+            this.cards = cards;
         }
 
         public CardSelector(int cardId)
         {
-            _type = SelectType.Id;
-            _id = cardId;
+            this.type = SelectType.Id;
+            this.id = cardId;
         }
 
         public CardSelector(IList<int> ids)
         {
-            _type = SelectType.Ids;
-            _ids = ids;
+            this.type = SelectType.Ids;
+            this.ids = ids;
         }
 
         public CardSelector(CardLocation location)
         {
-            _type = SelectType.Location;
-            _location = location;
+            this.type = SelectType.Location;
+            this.location = location;
         }
 
         public IList<ClientCard> Select(IList<ClientCard> cards, int min, int max)
         {
             IList<ClientCard> result = new List<ClientCard>();
 
-            switch (_type)
+            switch (this.type)
             {
                 case SelectType.Card:
-                    if (cards.Contains(_card))
-                        result.Add(_card);
+                    if (cards.Contains(this.card))
+                    {
+                        result.Add(this.card);
+                    }
+
                     break;
                 case SelectType.Cards:
-                    foreach (ClientCard card in _cards)
+                    foreach (ClientCard card in this.cards)
+                    {
                         if (cards.Contains(card) && !result.Contains(card))
+                        {
                             result.Add(card);
+                        }
+                    }
+
                     break;
                 case SelectType.Id:
                     foreach (ClientCard card in cards)
-                        if (card.IsCode(_id))
+                    {
+                        if (card.IsCode(this.id))
+                        {
                             result.Add(card);
+                        }
+                    }
+
                     break;
                 case SelectType.Ids:
-                    foreach (int id in _ids)
+                    foreach (int id in this.ids)
+                    {
                         foreach (ClientCard card in cards)
+                        {
                             if (card.IsCode(id) && !result.Contains(card))
+                            {
                                 result.Add(card);
+                            }
+                        }
+                    }
+
                     break;
                 case SelectType.Location:
                     foreach (ClientCard card in cards)
-                        if (card.Location == _location)
+                    {
+                        if (card.Location == this.location)
+                        {
                             result.Add(card);
+                        }
+                    }
+
                     break;
             }
 
@@ -89,14 +114,21 @@ namespace WindBot.Game.AI
                 foreach (ClientCard card in cards)
                 {
                     if (!result.Contains(card))
+                    {
                         result.Add(card);
+                    }
+
                     if (result.Count >= min)
+                    {
                         break;
+                    }
                 }
             }
 
             while (result.Count > max)
+            {
                 result.RemoveAt(result.Count - 1);
+            }
 
             return result;
         }

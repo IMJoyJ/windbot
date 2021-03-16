@@ -51,75 +51,75 @@ namespace WindBot.Game.AI.Decks
             : base(ai, duel)
         {
 
-            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
-            AddExecutor(ExecutorType.Activate, CardId.SummonersArt);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkHole, this.DefaultDarkHole);
+            this.AddExecutor(ExecutorType.Activate, CardId.SummonersArt);
 
-            AddExecutor(ExecutorType.Activate, CardId.Scout, ScoutActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Scout, ScoutEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.Scout, this.ScoutActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Scout, this.ScoutEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.Stealth, ScaleActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Shell, ScaleActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Helix, ScaleActivate);
-            AddExecutor(ExecutorType.Activate, CardId.Carrier, ScaleActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Stealth, this.ScaleActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Shell, this.ScaleActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Helix, this.ScaleActivate);
+            this.AddExecutor(ExecutorType.Activate, CardId.Carrier, this.ScaleActivate);
 
-            AddExecutor(ExecutorType.Summon, NormalSummon);
-            AddExecutor(ExecutorType.SpSummon);
+            this.AddExecutor(ExecutorType.Summon, this.NormalSummon);
+            this.AddExecutor(ExecutorType.SpSummon);
 
-            AddExecutor(ExecutorType.Activate, CardId.Saqlifice, SaqlificeEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.Saqlifice, this.SaqlificeEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.Stealth, StealthEffect);
-            AddExecutor(ExecutorType.Activate, CardId.Helix, HelixEffect);
-            AddExecutor(ExecutorType.Activate, CardId.Carrier, CarrierEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.Stealth, this.StealthEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.Helix, this.HelixEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.Carrier, this.CarrierEffect);
 
-            AddExecutor(ExecutorType.SpellSet, CardId.SkillDrain, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.VanitysEmptiness, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.DimensionalBarrier, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.TorrentialTribute, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.MirrorForce, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.CompulsoryEvacuationDevice, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.TheHugeRevolutionIsOver, TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SkillDrain, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.VanitysEmptiness, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DimensionalBarrier, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.TorrentialTribute, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.MirrorForce, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.CompulsoryEvacuationDevice, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.TheHugeRevolutionIsOver, this.TrapSetUnique);
 
-            AddExecutor(ExecutorType.SpellSet, CardId.Saqlifice, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.SkillDrain, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.VanitysEmptiness, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.DimensionalBarrier, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.TorrentialTribute, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.MirrorForce, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.CompulsoryEvacuationDevice, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.TheHugeRevolutionIsOver, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.DarkHole, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.SummonersArt, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.PotOfDuality, TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.Saqlifice, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SkillDrain, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.VanitysEmptiness, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DimensionalBarrier, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.TorrentialTribute, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.MirrorForce, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.CompulsoryEvacuationDevice, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.TheHugeRevolutionIsOver, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DarkHole, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SummonersArt, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.PotOfDuality, this.TrapSetWhenZoneFree);
 
-            AddExecutor(ExecutorType.Activate, CardId.PotOfDuality, PotOfDualityEffect);
-            AddExecutor(ExecutorType.SpellSet, CardId.CardOfDemise);
-            AddExecutor(ExecutorType.Activate, CardId.CardOfDemise, CardOfDemiseEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.PotOfDuality, this.PotOfDualityEffect);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.CardOfDemise);
+            this.AddExecutor(ExecutorType.Activate, CardId.CardOfDemise, this.CardOfDemiseEffect);
 
-            AddExecutor(ExecutorType.SpellSet, CardId.Saqlifice, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.SkillDrain, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.VanitysEmptiness, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.DimensionalBarrier, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.TorrentialTribute, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.MirrorForce, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.CompulsoryEvacuationDevice, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.TheHugeRevolutionIsOver, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.DarkHole, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.SummonersArt, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.PotOfDuality, CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.Saqlifice, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SkillDrain, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.VanitysEmptiness, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DimensionalBarrier, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.TorrentialTribute, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.MirrorForce, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.CompulsoryEvacuationDevice, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.TheHugeRevolutionIsOver, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DarkHole, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SummonersArt, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.PotOfDuality, this.CardOfDemiseAcivated);
 
-            AddExecutor(ExecutorType.Activate, CardId.TheHugeRevolutionIsOver, DefaultTrap);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, DefaultSolemnStrike);
-            AddExecutor(ExecutorType.Activate, CardId.SkillDrain, SkillDrainEffect);
-            AddExecutor(ExecutorType.Activate, CardId.VanitysEmptiness, DefaultUniqueTrap);
-            AddExecutor(ExecutorType.Activate, CardId.CompulsoryEvacuationDevice, DefaultCompulsoryEvacuationDevice);
-            AddExecutor(ExecutorType.Activate, CardId.DimensionalBarrier, DefaultDimensionalBarrier);
-            AddExecutor(ExecutorType.Activate, CardId.MirrorForce, DefaultUniqueTrap);
-            AddExecutor(ExecutorType.Activate, CardId.TorrentialTribute, DefaultTorrentialTribute);
+            this.AddExecutor(ExecutorType.Activate, CardId.TheHugeRevolutionIsOver, this.DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, this.DefaultSolemnStrike);
+            this.AddExecutor(ExecutorType.Activate, CardId.SkillDrain, this.SkillDrainEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.VanitysEmptiness, this.DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.CompulsoryEvacuationDevice, this.DefaultCompulsoryEvacuationDevice);
+            this.AddExecutor(ExecutorType.Activate, CardId.DimensionalBarrier, this.DefaultDimensionalBarrier);
+            this.AddExecutor(ExecutorType.Activate, CardId.MirrorForce, this.DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.TorrentialTribute, this.DefaultTorrentialTribute);
 
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
         }
 
         public override bool OnSelectHand()
@@ -129,7 +129,7 @@ namespace WindBot.Game.AI.Decks
 
         public override void OnNewTurn()
         {
-            CardOfDemiseUsed = false;
+            this.CardOfDemiseUsed = false;
         }
 
         public override IList<ClientCard> OnSelectPendulumSummon(IList<ClientCard> cards, int max)
@@ -141,32 +141,42 @@ namespace WindBot.Game.AI.Decks
             for (int i = 1; i <= max; ++i)
             {
                 ClientCard card = cards[cards.Count - i];
-                if (!card.IsCode(CardId.Scout) || (card.Location == CardLocation.Extra && !Duel.IsNewRule))
+                if (!card.IsCode(CardId.Scout) || (card.Location == CardLocation.Extra && !this.Duel.IsNewRule))
+                {
                     selected.Add(card);
+                }
             }
             if (selected.Count == 0)
+            {
                 selected.Add(cards[cards.Count - 1]);
+            }
 
             return selected;
         }
 
         private bool NormalSummon()
         {
-            if (Card.IsCode(CardId.Scout))
+            if (this.Card.IsCode(CardId.Scout))
+            {
                 return false;
-            if (Card.Level < 8)
-                AI.SelectOption(1);
+            }
+
+            if (this.Card.Level < 8)
+            {
+                this.AI.SelectOption(1);
+            }
+
             return true;
         }
 
         private bool SkillDrainEffect()
         {
-            return (Bot.LifePoints > 1000) && DefaultUniqueTrap();
+            return (this.Bot.LifePoints > 1000) && this.DefaultUniqueTrap();
         }
 
         private bool PotOfDualityEffect()
         {
-            AI.SelectCard(
+            this.AI.SelectCard(
                 CardId.Scout,
                 CardId.SkillDrain,
                 CardId.VanitysEmptiness,
@@ -178,14 +188,14 @@ namespace WindBot.Game.AI.Decks
                 CardId.SolemnStrike,
                 CardId.CardOfDemise
                 );
-            return !ShouldPendulum();
+            return !this.ShouldPendulum();
         }
 
         private bool CardOfDemiseEffect()
         {
-            if (Util.IsTurn1OrMain2() && !ShouldPendulum())
+            if (this.Util.IsTurn1OrMain2() && !this.ShouldPendulum())
             {
-                CardOfDemiseUsed = true;
+                this.CardOfDemiseUsed = true;
                 return true;
             }
             return false;
@@ -193,75 +203,99 @@ namespace WindBot.Game.AI.Decks
 
         private bool TrapSetUnique()
         {
-            foreach (ClientCard card in Bot.GetSpells())
+            foreach (ClientCard card in this.Bot.GetSpells())
             {
-                if (card.IsCode(Card.Id))
+                if (card.IsCode(this.Card.Id))
+                {
                     return false;
+                }
             }
-            return TrapSetWhenZoneFree();
+            return this.TrapSetWhenZoneFree();
         }
 
         private bool TrapSetWhenZoneFree()
         {
-            return Bot.GetSpellCountWithoutField() < 4;
+            return this.Bot.GetSpellCountWithoutField() < 4;
         }
 
         private bool CardOfDemiseAcivated()
         {
-            return CardOfDemiseUsed;
+            return this.CardOfDemiseUsed;
         }
 
         private bool SaqlificeEffect()
         {
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
-                ClientCard l = Util.GetPZone(0, 0);
-                ClientCard r = Util.GetPZone(0, 1);
+                ClientCard l = this.Util.GetPZone(0, 0);
+                ClientCard r = this.Util.GetPZone(0, 1);
                 if (l == null && r == null)
-                    AI.SelectCard(CardId.Scout);
+                {
+                    this.AI.SelectCard(CardId.Scout);
+                }
             }
             return true;
         }
 
         private bool ScoutActivate()
         {
-            if (Card.Location != CardLocation.Hand)
+            if (this.Card.Location != CardLocation.Hand)
+            {
                 return false;
-            ClientCard l = Util.GetPZone(0, 0);
-            ClientCard r = Util.GetPZone(0, 1);
+            }
+
+            ClientCard l = this.Util.GetPZone(0, 0);
+            ClientCard r = this.Util.GetPZone(0, 1);
             if (l == null && r == null)
+            {
                 return true;
-            if (l == null && r.RScale != Card.LScale)
+            }
+
+            if (l == null && r.RScale != this.Card.LScale)
+            {
                 return true;
-            if (r == null && l.LScale != Card.RScale)
+            }
+
+            if (r == null && l.LScale != this.Card.RScale)
+            {
                 return true;
+            }
+
             return false;
         }
 
         private bool ScaleActivate()
         {
-            if (!Card.HasType(CardType.Pendulum) || Card.Location != CardLocation.Hand)
-                return false;
-            int count = 0;
-            foreach (ClientCard card in Bot.Hand.GetMonsters())
+            if (!this.Card.HasType(CardType.Pendulum) || this.Card.Location != CardLocation.Hand)
             {
-                if (!Card.Equals(card))
-                    count++;
+                return false;
             }
-            foreach (ClientCard card in Bot.ExtraDeck.GetFaceupPendulumMonsters())
+
+            int count = 0;
+            foreach (ClientCard card in this.Bot.Hand.GetMonsters())
+            {
+                if (!this.Card.Equals(card))
+                {
+                    count++;
+                }
+            }
+            foreach (ClientCard card in this.Bot.ExtraDeck.GetFaceupPendulumMonsters())
             {
                 count++;
             }
-            ClientCard l = Util.GetPZone(0, 0);
-            ClientCard r = Util.GetPZone(0, 1);
+            ClientCard l = this.Util.GetPZone(0, 0);
+            ClientCard r = this.Util.GetPZone(0, 1);
             if (l == null && r == null)
             {
-                if (CardOfDemiseUsed)
-                    return true;
-                bool pair = false;
-                foreach (ClientCard card in Bot.Hand.GetMonsters())
+                if (this.CardOfDemiseUsed)
                 {
-                    if (card.RScale != Card.LScale)
+                    return true;
+                }
+
+                bool pair = false;
+                foreach (ClientCard card in this.Bot.Hand.GetMonsters())
+                {
+                    if (card.RScale != this.Card.LScale)
                     {
                         pair = true;
                         count--;
@@ -270,56 +304,68 @@ namespace WindBot.Game.AI.Decks
                 }
                 return pair && count>1;
             }
-            if (l == null && r.RScale != Card.LScale)
-                return count > 1 || CardOfDemiseUsed;
-            if (r == null && l.LScale != Card.RScale)
-                return count > 1 || CardOfDemiseUsed;
+            if (l == null && r.RScale != this.Card.LScale)
+            {
+                return count > 1 || this.CardOfDemiseUsed;
+            }
+
+            if (r == null && l.LScale != this.Card.RScale)
+            {
+                return count > 1 || this.CardOfDemiseUsed;
+            }
+
             return false;
         }
 
         private bool ScoutEffect()
         {
-            if (Card.Location == CardLocation.Hand)
+            if (this.Card.Location == CardLocation.Hand)
+            {
                 return false;
+            }
+
             int count = 0;
             int handcount = 0;
             int fieldcount = 0;
-            foreach (ClientCard card in Bot.Hand.GetMonsters())
+            foreach (ClientCard card in this.Bot.Hand.GetMonsters())
             {
                 count++;
                 handcount++;
             }
-            foreach (ClientCard card in Bot.MonsterZone.GetMonsters())
+            foreach (ClientCard card in this.Bot.MonsterZone.GetMonsters())
             {
                 fieldcount++;
             }
-            foreach (ClientCard card in Bot.ExtraDeck.GetFaceupPendulumMonsters())
+            foreach (ClientCard card in this.Bot.ExtraDeck.GetFaceupPendulumMonsters())
             {
                 count++;
             }
-            if (count>0 && !Bot.HasInHand(LowScaleCards))
+            if (count>0 && !this.Bot.HasInHand(this.LowScaleCards))
             {
-                AI.SelectCard(LowScaleCards);
+                this.AI.SelectCard(this.LowScaleCards);
             }
             else if (handcount>0 || fieldcount>0)
             {
-                AI.SelectCard(CardId.Saqlifice, CardId.Shell, CardId.Helix);
+                this.AI.SelectCard(CardId.Saqlifice, CardId.Shell, CardId.Helix);
             }
             else
             {
-                AI.SelectCard(HighScaleCards);
+                this.AI.SelectCard(this.HighScaleCards);
             }
-            return Bot.LifePoints > 800;
+            return this.Bot.LifePoints > 800;
         }
 
         private bool StealthEffect()
         {
-            if (Card.Location == CardLocation.Hand)
+            if (this.Card.Location == CardLocation.Hand)
+            {
                 return false;
-            ClientCard target = Util.GetBestEnemyCard();
+            }
+
+            ClientCard target = this.Util.GetBestEnemyCard();
             if (target != null)
             {
-                AI.SelectCard(target);
+                this.AI.SelectCard(target);
                 return true;
             }
             return false;
@@ -327,12 +373,15 @@ namespace WindBot.Game.AI.Decks
 
         private bool CarrierEffect()
         {
-            if (Card.Location == CardLocation.Hand)
+            if (this.Card.Location == CardLocation.Hand)
+            {
                 return false;
-            ClientCard target = Util.GetBestEnemyMonster();
+            }
+
+            ClientCard target = this.Util.GetBestEnemyMonster();
             if (target != null)
             {
-                AI.SelectCard(target);
+                this.AI.SelectCard(target);
                 return true;
             }
             return false;
@@ -340,12 +389,15 @@ namespace WindBot.Game.AI.Decks
 
         private bool HelixEffect()
         {
-            if (Card.Location == CardLocation.Hand)
+            if (this.Card.Location == CardLocation.Hand)
+            {
                 return false;
-            ClientCard target = Util.GetBestEnemySpell();
+            }
+
+            ClientCard target = this.Util.GetBestEnemySpell();
             if (target != null)
             {
-                AI.SelectCard(target);
+                this.AI.SelectCard(target);
                 return true;
             }
             return false;
@@ -353,16 +405,16 @@ namespace WindBot.Game.AI.Decks
 
         private bool ShouldPendulum()
         {
-            ClientCard l = Util.GetPZone(0, 0);
-            ClientCard r = Util.GetPZone(0, 1);
+            ClientCard l = this.Util.GetPZone(0, 0);
+            ClientCard r = this.Util.GetPZone(0, 1);
             if (l != null && r != null && l.LScale != r.RScale)
             {
                 int count = 0;
-                foreach (ClientCard card in Bot.Hand.GetMonsters())
+                foreach (ClientCard card in this.Bot.Hand.GetMonsters())
                 {
                     count++;
                 }
-                foreach (ClientCard card in Bot.ExtraDeck.GetFaceupPendulumMonsters())
+                foreach (ClientCard card in this.Bot.ExtraDeck.GetFaceupPendulumMonsters())
                 {
                     count++;
                 }

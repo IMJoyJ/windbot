@@ -23,17 +23,17 @@ namespace WindBot.Game.AI.Decks
         public EvilswarmExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
-            AddExecutor(ExecutorType.Activate, CardId.CosmicCyclone, DefaultCosmicCyclone);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnJudgment, DefaultSolemnJudgment);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnWarning, DefaultSolemnWarning);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, DefaultSolemnStrike);
-            AddExecutor(ExecutorType.SpellSet, CardId.InfestationPandemic);
-            AddExecutor(ExecutorType.Activate, DefaultDontChainMyself);
-            AddExecutor(ExecutorType.Summon);
-            AddExecutor(ExecutorType.SpSummon);
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
-            AddExecutor(ExecutorType.SpellSet);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkHole, this.DefaultDarkHole);
+            this.AddExecutor(ExecutorType.Activate, CardId.CosmicCyclone, this.DefaultCosmicCyclone);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnJudgment, this.DefaultSolemnJudgment);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnWarning, this.DefaultSolemnWarning);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, this.DefaultSolemnStrike);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.InfestationPandemic);
+            this.AddExecutor(ExecutorType.Activate, this.DefaultDontChainMyself);
+            this.AddExecutor(ExecutorType.Summon);
+            this.AddExecutor(ExecutorType.SpSummon);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.SpellSet);
         }
 
         // will be added soon...?

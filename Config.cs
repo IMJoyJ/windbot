@@ -28,7 +28,9 @@ namespace WindBot
                 foreach (var pair in fileFields)
                 {
                     if (!_fields.ContainsKey(pair.Key))
+                    {
                         _fields.Add(pair.Key, pair.Value);
+                    }
                 }
             }
         }
@@ -43,13 +45,17 @@ namespace WindBot
                 int position = option.IndexOf(SEPARATOR_CHAR);
 
                 if (position == -1)
+                {
                     throw new Exception("Invalid argument '" + option + "': no key/value separator");
+                }
 
                 string key = option.Substring(0, position).Trim().ToUpper();
                 string value = option.Substring(position + 1).Trim();
 
                 if (fields.ContainsKey(key))
+                {
                     throw new Exception("Invalid argument '" + option + "': duplicate key '" + key + "'");
+                }
 
                 fields.Add(key, value);
             }
@@ -69,18 +75,24 @@ namespace WindBot
 
                     // Ignore empty lines and comments
                     if (line.Length == 0 || line[0] == COMMENT_CHAR)
+                    {
                         continue;
+                    }
 
                     int position = line.IndexOf(SEPARATOR_CHAR);
 
                     if (position == -1)
+                    {
                         throw new Exception("Invalid configuration file: no key/value separator line " + lineNumber);
+                    }
 
                     string key = line.Substring(0, position).Trim().ToUpper();
                     string value = line.Substring(position + 1).Trim();
 
                     if (fields.ContainsKey(key))
+                    {
                         throw new Exception("Invalid configuration file: duplicate key '" + key + "' line " + lineNumber);
+                    }
 
                     fields.Add(key, value);
                 }
@@ -92,7 +104,10 @@ namespace WindBot
         {
             key = key.ToUpper();
             if (_fields.ContainsKey(key))
+            {
                 return _fields[key];
+            }
+
             return defaultValue;
         }
 
@@ -102,15 +117,21 @@ namespace WindBot
 
             // Use a cache to prevent doing the string to int conversion over and over
             if (_integerCache.ContainsKey(key))
+            {
                 return _integerCache[key];
+            }
 
             int value = defaultValue;
             if (_fields.ContainsKey(key))
             {
                 if (_fields[key].StartsWith("0x"))
+                {
                     value = Convert.ToInt32(_fields[key], 16);
+                }
                 else
+                {
                     value = Convert.ToInt32(_fields[key]);
+                }
             }
             _integerCache.Add(key, value);
             return value;
@@ -127,7 +148,9 @@ namespace WindBot
 
             // Same here, prevent from redoing the string to bool conversion
             if (_booleanCache.ContainsKey(key))
+            {
                 return _booleanCache[key];
+            }
 
             bool value = defaultValue;
             if (_fields.ContainsKey(key))

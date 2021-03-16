@@ -45,66 +45,66 @@ namespace WindBot.Game.AI.Decks
         public ToadallyAwesomeExecutor(GameAI ai, Duel duel)
             : base(ai, duel)
         {
-            AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster, DefaultHarpiesFeatherDusterFirst);
-            AddExecutor(ExecutorType.Activate, CardId.GalaxyCyclone, DefaultGalaxyCyclone);
-            AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster);
-            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
+            this.AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster, this.DefaultHarpiesFeatherDusterFirst);
+            this.AddExecutor(ExecutorType.Activate, CardId.GalaxyCyclone, this.DefaultGalaxyCyclone);
+            this.AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkHole, this.DefaultDarkHole);
 
-            AddExecutor(ExecutorType.Activate, CardId.AquariumStage, AquariumStageEffect);
-            AddExecutor(ExecutorType.Activate, CardId.MedallionOfTheIceBarrier, MedallionOfTheIceBarrierEffect);
-            AddExecutor(ExecutorType.Activate, CardId.FoolishBurial, FoolishBurialEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.AquariumStage, this.AquariumStageEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.MedallionOfTheIceBarrier, this.MedallionOfTheIceBarrierEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.FoolishBurial, this.FoolishBurialEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.PriorOfTheIceBarrier);
-            AddExecutor(ExecutorType.Summon, CardId.GraydleSlimeJr, GraydleSlimeJrSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.SwapFrog, SwapFrogSpsummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.PriorOfTheIceBarrier);
+            this.AddExecutor(ExecutorType.Summon, CardId.GraydleSlimeJr, this.GraydleSlimeJrSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.SwapFrog, this.SwapFrogSpsummon);
 
-            AddExecutor(ExecutorType.Activate, CardId.SwapFrog, SwapFrogEffect);
-            AddExecutor(ExecutorType.Activate, CardId.GraydleSlimeJr, GraydleSlimeJrEffect);
-            AddExecutor(ExecutorType.Activate, CardId.Ronintoadin, RonintoadinEffect);
-            AddExecutor(ExecutorType.Activate, CardId.PriorOfTheIceBarrier);
-            AddExecutor(ExecutorType.Activate, CardId.DupeFrog);
+            this.AddExecutor(ExecutorType.Activate, CardId.SwapFrog, this.SwapFrogEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.GraydleSlimeJr, this.GraydleSlimeJrEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.Ronintoadin, this.RonintoadinEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.PriorOfTheIceBarrier);
+            this.AddExecutor(ExecutorType.Activate, CardId.DupeFrog);
 
-            AddExecutor(ExecutorType.Activate, CardId.Surface, SurfaceEffect);
-            AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, SurfaceEffect);
-            AddExecutor(ExecutorType.Activate, CardId.Salvage, SalvageEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.Surface, this.SurfaceEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.MonsterReborn, this.SurfaceEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.Salvage, this.SalvageEffect);
 
-            AddExecutor(ExecutorType.Summon, CardId.SwapFrog);
-            AddExecutor(ExecutorType.Summon, CardId.DewdarkOfTheIceBarrier, IceBarrierSummon);
-            AddExecutor(ExecutorType.Summon, CardId.CryomancerOfTheIceBarrier, IceBarrierSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.SwapFrog);
+            this.AddExecutor(ExecutorType.Summon, CardId.DewdarkOfTheIceBarrier, this.IceBarrierSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.CryomancerOfTheIceBarrier, this.IceBarrierSummon);
 
-            AddExecutor(ExecutorType.Activate, CardId.CardDestruction);
+            this.AddExecutor(ExecutorType.Activate, CardId.CardDestruction);
 
-            AddExecutor(ExecutorType.Summon, CardId.GraydleSlimeJr, NormalSummon);
-            AddExecutor(ExecutorType.Summon, CardId.PriorOfTheIceBarrier, NormalSummon);
-            AddExecutor(ExecutorType.Summon, CardId.Ronintoadin, NormalSummon);
-            AddExecutor(ExecutorType.Summon, CardId.DupeFrog, NormalSummon);
-            AddExecutor(ExecutorType.Summon, CardId.PriorOfTheIceBarrier, PriorOfTheIceBarrierSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.GraydleSlimeJr, this.NormalSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.PriorOfTheIceBarrier, this.NormalSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.Ronintoadin, this.NormalSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.DupeFrog, this.NormalSummon);
+            this.AddExecutor(ExecutorType.Summon, CardId.PriorOfTheIceBarrier, this.PriorOfTheIceBarrierSummon);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.CatShark, CatSharkSummon);
-            AddExecutor(ExecutorType.Activate, CardId.CatShark, CatSharkEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.SkyCavalryCentaurea, SkyCavalryCentaureaSummon);
-            AddExecutor(ExecutorType.Activate, CardId.SkyCavalryCentaurea);
-            AddExecutor(ExecutorType.SpSummon, CardId.DaigustoPhoenix, DaigustoPhoenixSummon);
-            AddExecutor(ExecutorType.Activate, CardId.DaigustoPhoenix);
-            AddExecutor(ExecutorType.SpSummon, CardId.ToadallyAwesome);
-            AddExecutor(ExecutorType.Activate, CardId.ToadallyAwesome, ToadallyAwesomeEffect);
-            AddExecutor(ExecutorType.SpSummon, CardId.HeraldOfTheArcLight, HeraldOfTheArcLightSummon);
-            AddExecutor(ExecutorType.Activate, CardId.HeraldOfTheArcLight);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.CatShark, this.CatSharkSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.CatShark, this.CatSharkEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.SkyCavalryCentaurea, this.SkyCavalryCentaureaSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.SkyCavalryCentaurea);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.DaigustoPhoenix, this.DaigustoPhoenixSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.DaigustoPhoenix);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.ToadallyAwesome);
+            this.AddExecutor(ExecutorType.Activate, CardId.ToadallyAwesome, this.ToadallyAwesomeEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.HeraldOfTheArcLight, this.HeraldOfTheArcLightSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.HeraldOfTheArcLight);
 
-            AddExecutor(ExecutorType.MonsterSet, CardId.GraydleSlimeJr);
-            AddExecutor(ExecutorType.MonsterSet, CardId.DupeFrog);
-            AddExecutor(ExecutorType.MonsterSet, CardId.Ronintoadin);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.GraydleSlimeJr);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.DupeFrog);
+            this.AddExecutor(ExecutorType.MonsterSet, CardId.Ronintoadin);
 
-            AddExecutor(ExecutorType.Repos, Repos);
+            this.AddExecutor(ExecutorType.Repos, this.Repos);
 
             // cards got by Toadally Awesome
-            AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, DefaultMysticalSpaceTyphoon);
-            AddExecutor(ExecutorType.Activate, CardId.BookOfMoon, DefaultBookOfMoon);
-            AddExecutor(ExecutorType.Activate, CardId.CallOfTheHaunted, SurfaceEffect);
-            AddExecutor(ExecutorType.Activate, CardId.TorrentialTribute, DefaultTorrentialTribute);
-            AddExecutor(ExecutorType.Activate, OtherSpellEffect);
-            AddExecutor(ExecutorType.Activate, OtherTrapEffect);
-            AddExecutor(ExecutorType.Activate, OtherMonsterEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.MysticalSpaceTyphoon, this.DefaultMysticalSpaceTyphoon);
+            this.AddExecutor(ExecutorType.Activate, CardId.BookOfMoon, this.DefaultBookOfMoon);
+            this.AddExecutor(ExecutorType.Activate, CardId.CallOfTheHaunted, this.SurfaceEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.TorrentialTribute, this.DefaultTorrentialTribute);
+            this.AddExecutor(ExecutorType.Activate, this.OtherSpellEffect);
+            this.AddExecutor(ExecutorType.Activate, this.OtherTrapEffect);
+            this.AddExecutor(ExecutorType.Activate, this.OtherMonsterEffect);
         }
 
         public override bool OnSelectHand()
@@ -117,28 +117,30 @@ namespace WindBot.Game.AI.Decks
             if (!defender.IsMonsterHasPreventActivationEffectInBattle())
             {
                 if (attacker.IsCode(CardId.SkyCavalryCentaurea) && !attacker.IsDisabled() && attacker.HasXyzMaterial())
-                    attacker.RealPower = Bot.LifePoints + attacker.Attack;
+                {
+                    attacker.RealPower = this.Bot.LifePoints + attacker.Attack;
+                }
             }
             return base.OnPreBattleBetween(attacker, defender);
         }
 
         private bool MedallionOfTheIceBarrierEffect()
         {
-            if (Bot.HasInHand(new[]
+            if (this.Bot.HasInHand(new[]
                 {
                     CardId.CryomancerOfTheIceBarrier,
                     CardId.DewdarkOfTheIceBarrier
-                }) || Bot.HasInMonstersZone(new[]
+                }) || this.Bot.HasInMonstersZone(new[]
                 {
                     CardId.CryomancerOfTheIceBarrier,
                     CardId.DewdarkOfTheIceBarrier
                 }))
             {
-                AI.SelectCard(CardId.PriorOfTheIceBarrier);
+                this.AI.SelectCard(CardId.PriorOfTheIceBarrier);
             }
             else
             {
-                AI.SelectCard(
+                this.AI.SelectCard(
                     CardId.CryomancerOfTheIceBarrier,
                     CardId.DewdarkOfTheIceBarrier
                     );
@@ -148,7 +150,7 @@ namespace WindBot.Game.AI.Decks
 
         private bool SurfaceEffect()
         {
-            AI.SelectCard(
+            this.AI.SelectCard(
                 CardId.ToadallyAwesome,
                 CardId.HeraldOfTheArcLight,
                 CardId.SwapFrog,
@@ -163,24 +165,31 @@ namespace WindBot.Game.AI.Decks
 
         private bool AquariumStageEffect()
         {
-            if (Card.Location == CardLocation.Grave)
+            if (this.Card.Location == CardLocation.Grave)
             {
-                AI.SelectPosition(CardPosition.FaceUpDefence);
-                return SurfaceEffect();
+                this.AI.SelectPosition(CardPosition.FaceUpDefence);
+                return this.SurfaceEffect();
             }
             return true;
         }
 
         private bool FoolishBurialEffect()
         {
-            if (Bot.HasInHand(CardId.GraydleSlimeJr) && !Bot.HasInGraveyard(CardId.GraydleSlimeJr))
-                AI.SelectCard(CardId.GraydleSlimeJr);
-            else if (Bot.HasInGraveyard(CardId.Ronintoadin) && !Bot.HasInGraveyard(CardId.DupeFrog))
-                AI.SelectCard(CardId.DupeFrog);
-            else if (Bot.HasInGraveyard(CardId.DupeFrog) && !Bot.HasInGraveyard(CardId.Ronintoadin))
-                AI.SelectCard(CardId.Ronintoadin);
+            if (this.Bot.HasInHand(CardId.GraydleSlimeJr) && !this.Bot.HasInGraveyard(CardId.GraydleSlimeJr))
+            {
+                this.AI.SelectCard(CardId.GraydleSlimeJr);
+            }
+            else if (this.Bot.HasInGraveyard(CardId.Ronintoadin) && !this.Bot.HasInGraveyard(CardId.DupeFrog))
+            {
+                this.AI.SelectCard(CardId.DupeFrog);
+            }
+            else if (this.Bot.HasInGraveyard(CardId.DupeFrog) && !this.Bot.HasInGraveyard(CardId.Ronintoadin))
+            {
+                this.AI.SelectCard(CardId.Ronintoadin);
+            }
             else
-                AI.SelectCard(
+            {
+                this.AI.SelectCard(
                     CardId.GraydleSlimeJr,
                     CardId.Ronintoadin,
                     CardId.DupeFrog,
@@ -189,12 +198,14 @@ namespace WindBot.Game.AI.Decks
                     CardId.PriorOfTheIceBarrier,
                     CardId.SwapFrog
                     );
+            }
+
             return true;
         }
 
         private bool SalvageEffect()
         {
-            AI.SelectCard(
+            this.AI.SelectCard(
                 CardId.SwapFrog,
                 CardId.PriorOfTheIceBarrier,
                 CardId.GraydleSlimeJr
@@ -204,14 +215,21 @@ namespace WindBot.Game.AI.Decks
 
         private bool SwapFrogSpsummon()
         {
-            if (Bot.GetCountCardInZone(Bot.Hand, CardId.GraydleSlimeJr)>=2 && !Bot.HasInGraveyard(CardId.GraydleSlimeJr))
-                AI.SelectCard(CardId.GraydleSlimeJr);
-            else if (Bot.HasInGraveyard(CardId.Ronintoadin) && !Bot.HasInGraveyard(CardId.DupeFrog))
-                AI.SelectCard(CardId.DupeFrog);
-            else if (Bot.HasInGraveyard(CardId.DupeFrog) && !Bot.HasInGraveyard(CardId.Ronintoadin))
-                AI.SelectCard(CardId.Ronintoadin);
+            if (this.Bot.GetCountCardInZone(this.Bot.Hand, CardId.GraydleSlimeJr)>=2 && !this.Bot.HasInGraveyard(CardId.GraydleSlimeJr))
+            {
+                this.AI.SelectCard(CardId.GraydleSlimeJr);
+            }
+            else if (this.Bot.HasInGraveyard(CardId.Ronintoadin) && !this.Bot.HasInGraveyard(CardId.DupeFrog))
+            {
+                this.AI.SelectCard(CardId.DupeFrog);
+            }
+            else if (this.Bot.HasInGraveyard(CardId.DupeFrog) && !this.Bot.HasInGraveyard(CardId.Ronintoadin))
+            {
+                this.AI.SelectCard(CardId.Ronintoadin);
+            }
             else
-                AI.SelectCard(
+            {
+                this.AI.SelectCard(
                     CardId.Ronintoadin,
                     CardId.DupeFrog,
                     CardId.CryomancerOfTheIceBarrier,
@@ -220,20 +238,22 @@ namespace WindBot.Game.AI.Decks
                     CardId.GraydleSlimeJr,
                     CardId.SwapFrog
                     );
+            }
+
             return true;
         }
 
         private bool SwapFrogEffect()
         {
-            if (ActivateDescription == -1)
+            if (this.ActivateDescription == -1)
             {
-                return FoolishBurialEffect();
+                return this.FoolishBurialEffect();
             }
             else
             {
-                if (Bot.HasInHand(CardId.DupeFrog))
+                if (this.Bot.HasInHand(CardId.DupeFrog))
                 {
-                    AI.SelectCard(
+                    this.AI.SelectCard(
                         CardId.PriorOfTheIceBarrier,
                         CardId.GraydleSlimeJr,
                         CardId.SwapFrog
@@ -246,14 +266,14 @@ namespace WindBot.Game.AI.Decks
 
         private bool GraydleSlimeJrSummon()
         {
-            return Bot.HasInGraveyard(CardId.GraydleSlimeJr);
+            return this.Bot.HasInGraveyard(CardId.GraydleSlimeJr);
         }
 
         private bool GraydleSlimeJrEffect()
         {
-            AI.SelectCard(CardId.GraydleSlimeJr);
-            AI.SelectPosition(CardPosition.FaceUpDefence);
-            AI.SelectNextCard(
+            this.AI.SelectCard(CardId.GraydleSlimeJr);
+            this.AI.SelectPosition(CardPosition.FaceUpDefence);
+            this.AI.SelectNextCard(
                 CardId.SwapFrog,
                 CardId.CryomancerOfTheIceBarrier,
                 CardId.DewdarkOfTheIceBarrier,
@@ -267,13 +287,13 @@ namespace WindBot.Game.AI.Decks
 
         private bool RonintoadinEffect()
         {
-            AI.SelectPosition(CardPosition.FaceUpDefence);
+            this.AI.SelectPosition(CardPosition.FaceUpDefence);
             return true;
         }
 
         private bool NormalSummon()
         {
-            foreach (ClientCard monster in Bot.GetMonsters())
+            foreach (ClientCard monster in this.Bot.GetMonsters())
             {
                 if (monster.Level==2)
                 {
@@ -285,20 +305,20 @@ namespace WindBot.Game.AI.Decks
 
         private bool IceBarrierSummon()
         {
-            return Bot.GetCountCardInZone(Bot.Hand, CardId.PriorOfTheIceBarrier) > 0;
+            return this.Bot.GetCountCardInZone(this.Bot.Hand, CardId.PriorOfTheIceBarrier) > 0;
         }
 
         private bool PriorOfTheIceBarrierSummon()
         {
-            return Bot.GetCountCardInZone(Bot.Hand, CardId.PriorOfTheIceBarrier) >= 2;
+            return this.Bot.GetCountCardInZone(this.Bot.Hand, CardId.PriorOfTheIceBarrier) >= 2;
         }
 
         private bool ToadallyAwesomeEffect()
         {
-            if (Duel.CurrentChain.Count > 0)
+            if (this.Duel.CurrentChain.Count > 0)
             {
                 // negate effect, select a cost for it
-                List<ClientCard> monsters = Bot.GetMonsters();
+                List<ClientCard> monsters = this.Bot.GetMonsters();
                 IList<int> suitableCost = new[] {
                     CardId.SwapFrog,
                     CardId.Ronintoadin,
@@ -310,40 +330,40 @@ namespace WindBot.Game.AI.Decks
                 {
                     if (monster.IsCode(suitableCost))
                     {
-                        AI.SelectCard(monster);
+                        this.AI.SelectCard(monster);
                         return true;
                     }
                 }
-                if (!Bot.HasInSpellZone(CardId.AquariumStage, true))
+                if (!this.Bot.HasInSpellZone(CardId.AquariumStage, true))
                 {
                     foreach (ClientCard monster in monsters)
                     {
                         if (monster.IsCode(CardId.DupeFrog))
                         {
-                            AI.SelectCard(monster);
+                            this.AI.SelectCard(monster);
                             return true;
                         }
                     }
                 }
-                List<ClientCard> hands = Bot.Hand.GetMonsters();
-                if (Bot.GetCountCardInZone(Bot.Hand, CardId.GraydleSlimeJr) >= 2)
+                List<ClientCard> hands = this.Bot.Hand.GetMonsters();
+                if (this.Bot.GetCountCardInZone(this.Bot.Hand, CardId.GraydleSlimeJr) >= 2)
                 {
                     foreach (ClientCard monster in hands)
                     {
                         if (monster.IsCode(CardId.GraydleSlimeJr))
                         {
-                            AI.SelectCard(monster);
+                            this.AI.SelectCard(monster);
                             return true;
                         }
                     }
                 }
-                if (Bot.HasInGraveyard(CardId.Ronintoadin) && !Bot.HasInGraveyard(CardId.DupeFrog) && !Bot.HasInGraveyard(CardId.SwapFrog))
+                if (this.Bot.HasInGraveyard(CardId.Ronintoadin) && !this.Bot.HasInGraveyard(CardId.DupeFrog) && !this.Bot.HasInGraveyard(CardId.SwapFrog))
                 {
                     foreach (ClientCard monster in hands)
                     {
                         if (monster.IsCode(CardId.DupeFrog))
                         {
-                            AI.SelectCard(monster);
+                            this.AI.SelectCard(monster);
                             return true;
                         }
                     }
@@ -352,26 +372,26 @@ namespace WindBot.Game.AI.Decks
                 {
                     if (monster.IsCode(CardId.Ronintoadin, CardId.DupeFrog))
                     {
-                        AI.SelectCard(monster);
+                        this.AI.SelectCard(monster);
                         return true;
                     }
                 }
                 foreach (ClientCard monster in hands)
                 {
-                    AI.SelectCard(monster);
+                    this.AI.SelectCard(monster);
                     return true;
                 }
                 return true;
             }
-            else if (Card.Location == CardLocation.Grave)
+            else if (this.Card.Location == CardLocation.Grave)
             {
-                if (!Bot.HasInExtra(CardId.ToadallyAwesome))
+                if (!this.Bot.HasInExtra(CardId.ToadallyAwesome))
                 {
-                    AI.SelectCard(CardId.ToadallyAwesome);
+                    this.AI.SelectCard(CardId.ToadallyAwesome);
                 }
                 else
                 {
-                    AI.SelectCard(
+                    this.AI.SelectCard(
                         CardId.SwapFrog,
                         CardId.PriorOfTheIceBarrier,
                         CardId.GraydleSlimeJr
@@ -379,12 +399,12 @@ namespace WindBot.Game.AI.Decks
                 }
                 return true;
             }
-            else if (Duel.Phase == DuelPhase.Standby)
+            else if (this.Duel.Phase == DuelPhase.Standby)
             {
-                SelectXYZDetach(Card.Overlays);
-                if (Duel.Player == 0)
+                this.SelectXYZDetach(this.Card.Overlays);
+                if (this.Duel.Player == 0)
                 {
-                    AI.SelectNextCard(
+                    this.AI.SelectNextCard(
                         CardId.SwapFrog,
                         CardId.CryomancerOfTheIceBarrier,
                         CardId.DewdarkOfTheIceBarrier,
@@ -395,7 +415,7 @@ namespace WindBot.Game.AI.Decks
                 }
                 else
                 {
-                    AI.SelectNextCard(
+                    this.AI.SelectNextCard(
                         CardId.DupeFrog,
                         CardId.SwapFrog,
                         CardId.Ronintoadin,
@@ -403,7 +423,7 @@ namespace WindBot.Game.AI.Decks
                         CardId.CryomancerOfTheIceBarrier,
                         CardId.DewdarkOfTheIceBarrier
                         );
-                    AI.SelectPosition(CardPosition.FaceUpDefence);
+                    this.AI.SelectPosition(CardPosition.FaceUpDefence);
                 }
                 return true;
             }
@@ -412,16 +432,16 @@ namespace WindBot.Game.AI.Decks
 
         private bool CatSharkSummon()
         {
-            if (Bot.HasInMonstersZone(CardId.ToadallyAwesome)
-                && ((Util.IsOneEnemyBetter(true)
-                    && !Bot.HasInMonstersZone(new[]
+            if (this.Bot.HasInMonstersZone(CardId.ToadallyAwesome)
+                && ((this.Util.IsOneEnemyBetter(true)
+                    && !this.Bot.HasInMonstersZone(new[]
                         {
                             CardId.CatShark,
                             CardId.SkyCavalryCentaurea
                         }, true, true))
-                    || !Bot.HasInExtra(CardId.ToadallyAwesome)))
+                    || !this.Bot.HasInExtra(CardId.ToadallyAwesome)))
             {
-                AI.SelectPosition(CardPosition.FaceUpDefence);
+                this.AI.SelectPosition(CardPosition.FaceUpDefence);
                 return true;
             }
             return false;
@@ -429,13 +449,13 @@ namespace WindBot.Game.AI.Decks
 
         private bool CatSharkEffect()
         {
-            List<ClientCard> monsters = Bot.GetMonsters();
+            List<ClientCard> monsters = this.Bot.GetMonsters();
             foreach (ClientCard monster in monsters)
             {
                 if (monster.IsCode(CardId.ToadallyAwesome) && monster.Attack <= 2200)
                 {
-                    SelectXYZDetach(Card.Overlays);
-                    AI.SelectNextCard(monster);
+                    this.SelectXYZDetach(this.Card.Overlays);
+                    this.AI.SelectNextCard(monster);
                     return true;
                 }
             }
@@ -443,8 +463,8 @@ namespace WindBot.Game.AI.Decks
             {
                 if (monster.IsCode(CardId.SkyCavalryCentaurea) && monster.Attack <= 2000)
                 {
-                    SelectXYZDetach(Card.Overlays);
-                    AI.SelectNextCard(monster);
+                    this.SelectXYZDetach(this.Card.Overlays);
+                    this.AI.SelectNextCard(monster);
                     return true;
                 }
             }
@@ -452,8 +472,8 @@ namespace WindBot.Game.AI.Decks
             {
                 if (monster.IsCode(CardId.DaigustoPhoenix) && monster.Attack <= 1500)
                 {
-                    SelectXYZDetach(Card.Overlays);
-                    AI.SelectNextCard(monster);
+                    this.SelectXYZDetach(this.Card.Overlays);
+                    this.AI.SelectNextCard(monster);
                     return true;
                 }
             }
@@ -463,17 +483,17 @@ namespace WindBot.Game.AI.Decks
         private bool SkyCavalryCentaureaSummon()
         {
             int num = 0;
-            foreach (ClientCard monster in Bot.GetMonsters())
+            foreach (ClientCard monster in this.Bot.GetMonsters())
             {
                 if (monster.Level ==2)
                 {
                     num++;
                 }
             }
-            return Util.IsOneEnemyBetter(true)
-                   && Util.GetBestAttack(Enemy) > 2200
+            return this.Util.IsOneEnemyBetter(true)
+                   && this.Util.GetBestAttack(this.Enemy) > 2200
                    && num < 4
-                   && !Bot.HasInMonstersZone(new[]
+                   && !this.Bot.HasInMonstersZone(new[]
                         {
                             CardId.SkyCavalryCentaurea
                         }, true, true);
@@ -481,82 +501,103 @@ namespace WindBot.Game.AI.Decks
 
         private bool DaigustoPhoenixSummon()
         {
-            if (Duel.Turn != 1)
+            if (this.Duel.Turn != 1)
             {
                 int attack = 0;
                 int defence = 0;
-                foreach (ClientCard monster in Bot.GetMonsters())
+                foreach (ClientCard monster in this.Bot.GetMonsters())
                 {
                     if (!monster.IsDefense())
                     {
                         attack += monster.Attack;
                     }
                 }
-                foreach (ClientCard monster in Enemy.GetMonsters())
+                foreach (ClientCard monster in this.Enemy.GetMonsters())
                 {
                     defence += monster.GetDefensePower();
                 }
-                if (attack - 2000 - defence > Enemy.LifePoints && !Util.IsOneEnemyBetter(true))
+                if (attack - 2000 - defence > this.Enemy.LifePoints && !this.Util.IsOneEnemyBetter(true))
+                {
                     return true;
+                }
             }
             return false;
         }
 
         private bool HeraldOfTheArcLightSummon()
         {
-            AI.SelectPosition(CardPosition.FaceUpDefence);
+            this.AI.SelectPosition(CardPosition.FaceUpDefence);
             return true;
         }
 
         private bool Repos()
         {
-            if (Card.IsFacedown())
+            if (this.Card.IsFacedown())
+            {
                 return true;
-            if (Card.IsDefense() && !Util.IsAllEnemyBetter(true) && Card.Attack >= Card.Defense)
+            }
+
+            if (this.Card.IsDefense() && !this.Util.IsAllEnemyBetter(true) && this.Card.Attack >= this.Card.Defense)
+            {
                 return true;
+            }
+
             return false;
         }
 
         private bool OtherSpellEffect()
         {
-            foreach (CardExecutor exec in Executors)
+            foreach (CardExecutor exec in this.Executors)
             {
-                if (exec.Type == Type && exec.CardId == Card.Id)
+                if (exec.Type == this.ExecType && exec.CardId == this.Card.Id)
+                {
                     return false;
+                }
             }
-            return Card.IsSpell();
+            return this.Card.IsSpell();
         }
 
         private bool OtherTrapEffect()
         {
-            foreach (CardExecutor exec in Executors)
+            foreach (CardExecutor exec in this.Executors)
             {
-                if (exec.Type == Type && exec.CardId == Card.Id)
+                if (exec.Type == this.ExecType && exec.CardId == this.Card.Id)
+                {
                     return false;
+                }
             }
-            return Card.IsTrap() && DefaultTrap();
+            return this.Card.IsTrap() && this.DefaultTrap();
         }
 
         private bool OtherMonsterEffect()
         {
-            foreach (CardExecutor exec in Executors)
+            foreach (CardExecutor exec in this.Executors)
             {
-                if (exec.Type == Type && exec.CardId == Card.Id)
+                if (exec.Type == this.ExecType && exec.CardId == this.Card.Id)
+                {
                     return false;
+                }
             }
-            return Card.IsMonster();
+            return this.Card.IsMonster();
         }
 
         private void SelectXYZDetach(List<int> Overlays)
         {
-            if (Overlays.Contains(CardId.GraydleSlimeJr) && Bot.HasInHand(CardId.GraydleSlimeJr) && !Bot.HasInGraveyard(CardId.GraydleSlimeJr))
-                AI.SelectCard(CardId.GraydleSlimeJr);
-            else if (Overlays.Contains(CardId.DupeFrog) && Bot.HasInGraveyard(CardId.Ronintoadin) && !Bot.HasInGraveyard(CardId.DupeFrog))
-                AI.SelectCard(CardId.DupeFrog);
-            else if (Overlays.Contains(CardId.Ronintoadin) && Bot.HasInGraveyard(CardId.DupeFrog) && !Bot.HasInGraveyard(CardId.Ronintoadin))
-                AI.SelectCard(CardId.Ronintoadin);
+            if (Overlays.Contains(CardId.GraydleSlimeJr) && this.Bot.HasInHand(CardId.GraydleSlimeJr) && !this.Bot.HasInGraveyard(CardId.GraydleSlimeJr))
+            {
+                this.AI.SelectCard(CardId.GraydleSlimeJr);
+            }
+            else if (Overlays.Contains(CardId.DupeFrog) && this.Bot.HasInGraveyard(CardId.Ronintoadin) && !this.Bot.HasInGraveyard(CardId.DupeFrog))
+            {
+                this.AI.SelectCard(CardId.DupeFrog);
+            }
+            else if (Overlays.Contains(CardId.Ronintoadin) && this.Bot.HasInGraveyard(CardId.DupeFrog) && !this.Bot.HasInGraveyard(CardId.Ronintoadin))
+            {
+                this.AI.SelectCard(CardId.Ronintoadin);
+            }
             else
-                AI.SelectCard(
+            {
+                this.AI.SelectCard(
                     CardId.GraydleSlimeJr,
                     CardId.Ronintoadin,
                     CardId.DupeFrog,
@@ -565,6 +606,7 @@ namespace WindBot.Game.AI.Decks
                     CardId.PriorOfTheIceBarrier,
                     CardId.SwapFrog
                     );
+            }
         }
     }
 }

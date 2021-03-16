@@ -53,97 +53,97 @@ namespace WindBot.Game.AI.Decks
             : base(ai, duel)
         {
             // do the end phase effect of Card Of Demise before Yosenjus return to hand
-            AddExecutor(ExecutorType.Activate, CardId.CardOfDemise, CardOfDemiseEPEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.CardOfDemise, this.CardOfDemiseEPEffect);
 
             // burn if enemy's LP is below 800
-            AddExecutor(ExecutorType.SpSummon, CardId.GagagaCowboy, GagagaCowboySummon);
-            AddExecutor(ExecutorType.Activate, CardId.GagagaCowboy);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.GagagaCowboy, this.GagagaCowboySummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.GagagaCowboy);
 
-            AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster, DefaultHarpiesFeatherDusterFirst);
-            AddExecutor(ExecutorType.Activate, CardId.CosmicCyclone, DefaultCosmicCyclone);
-            AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster);
-            AddExecutor(ExecutorType.Activate, CardId.DarkHole, DefaultDarkHole);
+            this.AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster, this.DefaultHarpiesFeatherDusterFirst);
+            this.AddExecutor(ExecutorType.Activate, CardId.CosmicCyclone, this.DefaultCosmicCyclone);
+            this.AddExecutor(ExecutorType.Activate, CardId.HarpiesFeatherDuster);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkHole, this.DefaultDarkHole);
 
-            AddExecutor(ExecutorType.Activate, CardId.PotOfDuality, PotOfDualityEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.PotOfDuality, this.PotOfDualityEffect);
 
-            AddExecutor(ExecutorType.Summon, CardId.YosenjuKama1, HaveAnotherYosenjuWithSameNameInHand);
-            AddExecutor(ExecutorType.Summon, CardId.YosenjuKama2, HaveAnotherYosenjuWithSameNameInHand);
-            AddExecutor(ExecutorType.Summon, CardId.YosenjuKama3, HaveAnotherYosenjuWithSameNameInHand);
-            AddExecutor(ExecutorType.Summon, CardId.YosenjuKama1);
-            AddExecutor(ExecutorType.Summon, CardId.YosenjuKama2);
-            AddExecutor(ExecutorType.Summon, CardId.YosenjuKama3);
-            AddExecutor(ExecutorType.Summon, CardId.YosenjuTsujik);
+            this.AddExecutor(ExecutorType.Summon, CardId.YosenjuKama1, this.HaveAnotherYosenjuWithSameNameInHand);
+            this.AddExecutor(ExecutorType.Summon, CardId.YosenjuKama2, this.HaveAnotherYosenjuWithSameNameInHand);
+            this.AddExecutor(ExecutorType.Summon, CardId.YosenjuKama3, this.HaveAnotherYosenjuWithSameNameInHand);
+            this.AddExecutor(ExecutorType.Summon, CardId.YosenjuKama1);
+            this.AddExecutor(ExecutorType.Summon, CardId.YosenjuKama2);
+            this.AddExecutor(ExecutorType.Summon, CardId.YosenjuKama3);
+            this.AddExecutor(ExecutorType.Summon, CardId.YosenjuTsujik);
 
-            AddExecutor(ExecutorType.Activate, CardId.YosenjuKama1, YosenjuEffect);
-            AddExecutor(ExecutorType.Activate, CardId.YosenjuKama2, YosenjuEffect);
-            AddExecutor(ExecutorType.Activate, CardId.YosenjuKama3, YosenjuEffect);
-            AddExecutor(ExecutorType.Activate, CardId.YosenjuTsujik, YosenjuEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.YosenjuKama1, this.YosenjuEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.YosenjuKama2, this.YosenjuEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.YosenjuKama3, this.YosenjuEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.YosenjuTsujik, this.YosenjuEffect);
 
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnJudgment, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnWarning, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.MacroCosmos, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.VanitysEmptiness, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.MagicDrain, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.DrowningMirrorForce, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.QuakingMirrorForce, TrapSetUnique);
-            AddExecutor(ExecutorType.SpellSet, CardId.StarlightRoad, TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnJudgment, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnWarning, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.MacroCosmos, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.VanitysEmptiness, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.MagicDrain, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DrowningMirrorForce, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.QuakingMirrorForce, this.TrapSetUnique);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.StarlightRoad, this.TrapSetUnique);
 
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnJudgment, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnWarning, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.MacroCosmos, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.VanitysEmptiness, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.MagicDrain, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.DrowningMirrorForce, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.QuakingMirrorForce, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.StarlightRoad, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.HarpiesFeatherDuster, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.DarkHole, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.PotOfDuality, TrapSetWhenZoneFree);
-            AddExecutor(ExecutorType.SpellSet, CardId.CosmicCyclone, TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnJudgment, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnWarning, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.MacroCosmos, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.VanitysEmptiness, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.MagicDrain, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DrowningMirrorForce, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.QuakingMirrorForce, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.StarlightRoad, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.HarpiesFeatherDuster, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DarkHole, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.PotOfDuality, this.TrapSetWhenZoneFree);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.CosmicCyclone, this.TrapSetWhenZoneFree);
 
-            AddExecutor(ExecutorType.SpellSet, CardId.CardOfDemise);
-            AddExecutor(ExecutorType.Activate, CardId.CardOfDemise, CardOfDemiseEffect);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.CardOfDemise);
+            this.AddExecutor(ExecutorType.Activate, CardId.CardOfDemise, this.CardOfDemiseEffect);
 
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnJudgment, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.SolemnWarning, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.MacroCosmos, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.VanitysEmptiness, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.MagicDrain, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.DrowningMirrorForce, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.QuakingMirrorForce, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.StarlightRoad, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.HarpiesFeatherDuster, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.DarkHole, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.PotOfDuality, CardOfDemiseAcivated);
-            AddExecutor(ExecutorType.SpellSet, CardId.CosmicCyclone, CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnJudgment, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnStrike, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.SolemnWarning, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.MacroCosmos, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.VanitysEmptiness, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.MagicDrain, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DrowningMirrorForce, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.QuakingMirrorForce, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.StarlightRoad, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.HarpiesFeatherDuster, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.DarkHole, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.PotOfDuality, this.CardOfDemiseAcivated);
+            this.AddExecutor(ExecutorType.SpellSet, CardId.CosmicCyclone, this.CardOfDemiseAcivated);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightSummon);
-            AddExecutor(ExecutorType.Activate, CardId.EvilswarmExcitonKnight, DefaultEvilswarmExcitonKnightEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.EvilswarmExcitonKnight, this.DefaultEvilswarmExcitonKnightSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.EvilswarmExcitonKnight, this.DefaultEvilswarmExcitonKnightEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.DarkRebellionXyzDragon, DarkRebellionXyzDragonSummon);
-            AddExecutor(ExecutorType.Activate, CardId.DarkRebellionXyzDragon, DarkRebellionXyzDragonEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.DarkRebellionXyzDragon, this.DarkRebellionXyzDragonSummon);
+            this.AddExecutor(ExecutorType.Activate, CardId.DarkRebellionXyzDragon, this.DarkRebellionXyzDragonEffect);
 
-            AddExecutor(ExecutorType.SpSummon, CardId.Number39Utopia, DefaultNumberS39UtopiaTheLightningSummon);
-            AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiaOne);
-            AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiatheLightning);
-            AddExecutor(ExecutorType.Activate, CardId.NumberS39UtopiatheLightning, DefaultNumberS39UtopiaTheLightningEffect);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.Number39Utopia, this.DefaultNumberS39UtopiaTheLightningSummon);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiaOne);
+            this.AddExecutor(ExecutorType.SpSummon, CardId.NumberS39UtopiatheLightning);
+            this.AddExecutor(ExecutorType.Activate, CardId.NumberS39UtopiatheLightning, this.DefaultNumberS39UtopiaTheLightningEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.StardustDragon, DefaultStardustDragonEffect);
+            this.AddExecutor(ExecutorType.Activate, CardId.StardustDragon, this.DefaultStardustDragonEffect);
 
-            AddExecutor(ExecutorType.Activate, CardId.StarlightRoad, DefaultTrap);
-            AddExecutor(ExecutorType.Activate, CardId.MagicDrain);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnWarning, DefaultSolemnWarning);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, DefaultSolemnStrike);
-            AddExecutor(ExecutorType.Activate, CardId.SolemnJudgment, DefaultSolemnJudgment);
-            AddExecutor(ExecutorType.Activate, CardId.MacroCosmos, DefaultUniqueTrap);
-            AddExecutor(ExecutorType.Activate, CardId.VanitysEmptiness, DefaultUniqueTrap);
-            AddExecutor(ExecutorType.Activate, CardId.DrowningMirrorForce, DefaultUniqueTrap);
-            AddExecutor(ExecutorType.Activate, CardId.QuakingMirrorForce, DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.StarlightRoad, this.DefaultTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.MagicDrain);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnWarning, this.DefaultSolemnWarning);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnStrike, this.DefaultSolemnStrike);
+            this.AddExecutor(ExecutorType.Activate, CardId.SolemnJudgment, this.DefaultSolemnJudgment);
+            this.AddExecutor(ExecutorType.Activate, CardId.MacroCosmos, this.DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.VanitysEmptiness, this.DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.DrowningMirrorForce, this.DefaultUniqueTrap);
+            this.AddExecutor(ExecutorType.Activate, CardId.QuakingMirrorForce, this.DefaultUniqueTrap);
 
-            AddExecutor(ExecutorType.Repos, DefaultMonsterRepos);
+            this.AddExecutor(ExecutorType.Repos, this.DefaultMonsterRepos);
         }
 
         public override bool OnSelectHand()
@@ -154,42 +154,50 @@ namespace WindBot.Game.AI.Decks
 
         public override void OnNewTurn()
         {
-            CardOfDemiseUsed = false;
+            this.CardOfDemiseUsed = false;
         }
 
         public override bool OnSelectYesNo(int desc)
         {
             // Yosenju Kama 2 shouldn't attack directly at most times
-            if (Card == null)
+            if (this.Card == null)
+            {
                 return true;
+            }
             // Logger.DebugWriteLine(Card.Name);
-            if (Card.IsCode(CardId.YosenjuKama2))
-                return Card.ShouldDirectAttack;
+            if (this.Card.IsCode(CardId.YosenjuKama2))
+            {
+                return this.Card.ShouldDirectAttack;
+            }
             else
+            {
                 return true;
+            }
         }
 
         public override bool OnPreBattleBetween(ClientCard attacker, ClientCard defender)
         {
             if (!defender.IsMonsterHasPreventActivationEffectInBattle())
             {
-                if (attacker.Attribute == (int)CardAttribute.Wind && Bot.HasInHand(CardId.YosenjuTsujik))
+                if (attacker.Attribute == (int)CardAttribute.Wind && this.Bot.HasInHand(CardId.YosenjuTsujik))
+                {
                     attacker.RealPower = attacker.RealPower + 1000;
+                }
             }
             return base.OnPreBattleBetween(attacker, defender);
         }
 
         public override IList<ClientCard> OnSelectXyzMaterial(IList<ClientCard> cards, int min, int max)
         {
-            IList<ClientCard> result = Util.SelectPreferredCards(CardId.YosenjuTsujik, cards, min, max);
-            return Util.CheckSelectCount(result, cards, min, max);
+            IList<ClientCard> result = this.Util.SelectPreferredCards(CardId.YosenjuTsujik, cards, min, max);
+            return this.Util.CheckSelectCount(result, cards, min, max);
         }
 
         private bool PotOfDualityEffect()
         {
-            if (CardOfDemiseUsed)
+            if (this.CardOfDemiseUsed)
             {
-                AI.SelectCard(
+                this.AI.SelectCard(
                     CardId.StarlightRoad,
                     CardId.MagicDrain,
                     CardId.SolemnJudgment,
@@ -205,7 +213,7 @@ namespace WindBot.Game.AI.Decks
             }
             else
             {
-                AI.SelectCard(
+                this.AI.SelectCard(
                     CardId.YosenjuKama3,
                     CardId.YosenjuKama1,
                     CardId.YosenjuKama2,
@@ -227,9 +235,9 @@ namespace WindBot.Game.AI.Decks
 
         private bool CardOfDemiseEffect()
         {
-            if (Util.IsTurn1OrMain2())
+            if (this.Util.IsTurn1OrMain2())
             {
-                CardOfDemiseUsed = true;
+                this.CardOfDemiseUsed = true;
                 return true;
             }
             return false;
@@ -237,54 +245,61 @@ namespace WindBot.Game.AI.Decks
 
         private bool HaveAnotherYosenjuWithSameNameInHand()
         {
-            foreach (ClientCard card in Bot.Hand.GetMonsters())
+            foreach (ClientCard card in this.Bot.Hand.GetMonsters())
             {
-                if (!card.Equals(Card) && card.IsCode(Card.Id))
+                if (!card.Equals(this.Card) && card.IsCode(this.Card.Id))
+                {
                     return true;
+                }
             }
             return false;
         }
 
         private bool TrapSetUnique()
         {
-            foreach (ClientCard card in Bot.GetSpells())
+            foreach (ClientCard card in this.Bot.GetSpells())
             {
-                if (card.IsCode(Card.Id))
+                if (card.IsCode(this.Card.Id))
+                {
                     return false;
+                }
             }
-            return TrapSetWhenZoneFree();
+            return this.TrapSetWhenZoneFree();
         }
 
         private bool TrapSetWhenZoneFree()
         {
-            return Bot.GetSpellCountWithoutField() < 4;
+            return this.Bot.GetSpellCountWithoutField() < 4;
         }
 
         private bool CardOfDemiseAcivated()
         {
-            return CardOfDemiseUsed;
+            return this.CardOfDemiseUsed;
         }
 
         private bool YosenjuEffect()
         {
             // Don't activate the return to hand effect first
-            if (Duel.Phase == DuelPhase.End)
+            if (this.Duel.Phase == DuelPhase.End)
+            {
                 return false;
-            AI.SelectCard(CardId.YosenjuKama1, CardId.YosenjuKama2, CardId.YosenjuKama3);
+            }
+
+            this.AI.SelectCard(CardId.YosenjuKama1, CardId.YosenjuKama2, CardId.YosenjuKama3);
             return true;
         }
 
         private bool CardOfDemiseEPEffect()
         {
             // do the end phase effect of Card Of Demise before Yosenjus return to hand
-            return Duel.Phase == DuelPhase.End;
+            return this.Duel.Phase == DuelPhase.End;
         }
 
         private bool GagagaCowboySummon()
         {
-            if (Enemy.LifePoints <= 800 || (Bot.GetMonsterCount()>=4 && Enemy.LifePoints <= 1600))
+            if (this.Enemy.LifePoints <= 800 || (this.Bot.GetMonsterCount()>=4 && this.Enemy.LifePoints <= 1600))
             {
-                AI.SelectPosition(CardPosition.FaceUpDefence);
+                this.AI.SelectPosition(CardPosition.FaceUpDefence);
                 return true;
             }
             return false;
@@ -292,19 +307,19 @@ namespace WindBot.Game.AI.Decks
 
         private bool DarkRebellionXyzDragonSummon()
         {
-            int selfBestAttack = Util.GetBestAttack(Bot);
-            int oppoBestAttack = Util.GetBestAttack(Enemy);
+            int selfBestAttack = this.Util.GetBestAttack(this.Bot);
+            int oppoBestAttack = this.Util.GetBestAttack(this.Enemy);
             return selfBestAttack <= oppoBestAttack;
         }
 
         private bool DarkRebellionXyzDragonEffect()
         {
-            int oppoBestAttack = Util.GetBestAttack(Enemy);
-            ClientCard target = Util.GetOneEnemyBetterThanValue(oppoBestAttack, true);
+            int oppoBestAttack = this.Util.GetBestAttack(this.Enemy);
+            ClientCard target = this.Util.GetOneEnemyBetterThanValue(oppoBestAttack, true);
             if (target != null)
             {
-                AI.SelectCard(0);
-                AI.SelectNextCard(target);
+                this.AI.SelectCard(0);
+                this.AI.SelectNextCard(target);
             }
             return true;
         }

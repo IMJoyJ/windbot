@@ -14,9 +14,9 @@ namespace WindBot.Game.AI
 
             public DeckInstance(string deck, Type type, string level)
             {
-                Deck = deck;
-                Type = type;
-                Level = level;
+                this.Deck = deck;
+                this.Type = type;
+                this.Level = level;
             }
         }
 
@@ -59,7 +59,9 @@ namespace WindBot.Game.AI
             string deck = ai.Game.Deck;
 
             if (deck != null && _decks.ContainsKey(deck))
+            {
                 infos = _decks[deck];
+            }
             else
             {
                 do
