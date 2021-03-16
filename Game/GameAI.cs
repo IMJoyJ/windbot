@@ -94,15 +94,15 @@ namespace WindBot.Game
         /// </summary>
         public void OnNewPhase()
         {
-            this.m_selector.Clear();
-            this.m_position.Clear();
-            this.m_selector_pointer = -1;
-            this.m_materialSelector = null;
-            this.m_option = -1;
-            this.m_yesno = -1;
-            this.m_announce = 0;
+            this.selector.Clear();
+            this.position.Clear();
+            this.selector_pointer = -1;
+            this.materialSelector = null;
+            this.option = -1;
+            this.yesno = -1;
+            this.announce = 0;
 
-            this.m_place = 0;
+            this.place = 0;
             if (this.Duel.Player == 0 && this.Duel.Phase == DuelPhase.Draw)
             {
                 this.dialogs.SendNewTurn();
@@ -151,8 +151,8 @@ namespace WindBot.Game
         /// </summary>
         public void OnChainEnd()
         {
-            this.m_selector.Clear();
-            this.m_selector_pointer = -1;
+            this.selector.Clear();
+            this.selector_pointer = -1;
             this.Executor.OnChainEnd();
         }
 
@@ -284,10 +284,10 @@ namespace WindBot.Game
             CardSelector selector = null;
             if (hint == HINTMSG_FMATERIAL || hint == HINTMSG_SMATERIAL || hint == HINTMSG_XMATERIAL || hint == HINTMSG_LMATERIAL)
             {
-                if (this.m_materialSelector != null)
+                if (this.materialSelector != null)
                 {
                     //Logger.DebugWriteLine("m_materialSelector");
-                    selector = this.m_materialSelector;
+                    selector = this.materialSelector;
                 }
                 else
                 {
@@ -535,9 +535,9 @@ namespace WindBot.Game
         /// <returns>Index of the selected option.</returns>
         public int OnSelectOption(IList<int> options)
         {
-            if (this.m_option != -1 && this.m_option < options.Count)
+            if (this.option != -1 && this.option < options.Count)
             {
-                return this.m_option;
+                return this.option;
             }
 
             int result = this.Executor.OnSelectOption(options);
@@ -551,8 +551,8 @@ namespace WindBot.Game
 
         public int OnSelectPlace(int cardId, int player, CardLocation location, int available)
         {
-            int selector_selected = this.m_place;
-            this.m_place = 0;
+            int selector_selected = this.place;
+            this.place = 0;
 
             int executor_selected = this.Executor.OnSelectPlace(cardId, player, location, available);
 
@@ -643,9 +643,9 @@ namespace WindBot.Game
 
             if (hint == HINTMSG_RELEASE || hint == HINTMSG_SMATERIAL)
             {
-                if (this.m_materialSelector != null)
+                if (this.materialSelector != null)
                 {
-                    selected = this.m_materialSelector.Select(cards, min, max);
+                    selected = this.materialSelector.Select(cards, min, max);
                 }
                 else
                 {
@@ -823,9 +823,9 @@ namespace WindBot.Game
         /// <returns>True for yes, false for no.</returns>
         public bool OnSelectYesNo(int desc)
         {
-            if (this.m_yesno != -1)
+            if (this.yesno != -1)
             {
-                return this.m_yesno > 0;
+                return this.yesno > 0;
             }
 
             return this.Executor.OnSelectYesNo(desc);
@@ -853,13 +853,13 @@ namespace WindBot.Game
                 return selected;
             }
 
-            if (avail.Contains(this.m_announce))
+            if (avail.Contains(this.announce))
             {
-                return this.m_announce;
+                return this.announce;
             }
-            else if (this.m_announce > 0)
+            else if (this.announce > 0)
             {
-                Logger.WriteErrorLine("Pre-announced card cant be used: " + this.m_announce);
+                Logger.WriteErrorLine("Pre-announced card cant be used: " + this.announce);
             }
 
             return avail[0];
@@ -869,216 +869,216 @@ namespace WindBot.Game
         // Those functions are used by the AI behavior.
 
         
-        private CardSelector m_materialSelector;
-        private int m_place;
-        private int m_option;
-        private int m_number;
-        private int m_announce;
-        private int m_yesno;
-        private readonly IList<CardAttribute> m_attributes = new List<CardAttribute>();
-        private readonly IList<CardSelector> m_selector = new List<CardSelector>();
-        private readonly IList<CardPosition> m_position = new List<CardPosition>();
-        private int m_selector_pointer = -1;
-        private readonly IList<CardRace> m_races = new List<CardRace>();
+        private CardSelector materialSelector;
+        private int place;
+        private int option;
+        private int number;
+        private int announce;
+        private int yesno;
+        private readonly IList<CardAttribute> attributes = new List<CardAttribute>();
+        private readonly IList<CardSelector> selector = new List<CardSelector>();
+        private readonly IList<CardPosition> position = new List<CardPosition>();
+        private int selector_pointer = -1;
+        private readonly IList<CardRace> races = new List<CardRace>();
 
         public void SelectCard(ClientCard card)
         {
-            this.m_selector_pointer = this.m_selector.Count();
-            this.m_selector.Add(new CardSelector(card));
+            this.selector_pointer = this.selector.Count();
+            this.selector.Add(new CardSelector(card));
         }
 
         public void SelectCard(IList<ClientCard> cards)
         {
-            this.m_selector_pointer = this.m_selector.Count();
-            this.m_selector.Add(new CardSelector(cards));
+            this.selector_pointer = this.selector.Count();
+            this.selector.Add(new CardSelector(cards));
         }
 
         public void SelectCard(int cardId)
         {
-            this.m_selector_pointer = this.m_selector.Count();
-            this.m_selector.Add(new CardSelector(cardId));
+            this.selector_pointer = this.selector.Count();
+            this.selector.Add(new CardSelector(cardId));
         }
 
         public void SelectCard(IList<int> ids)
         {
-            this.m_selector_pointer = this.m_selector.Count();
-            this.m_selector.Add(new CardSelector(ids));
+            this.selector_pointer = this.selector.Count();
+            this.selector.Add(new CardSelector(ids));
         }
 
         public void SelectCard(params int[] ids)
         {
-            this.m_selector_pointer = this.m_selector.Count();
-            this.m_selector.Add(new CardSelector(ids));
+            this.selector_pointer = this.selector.Count();
+            this.selector.Add(new CardSelector(ids));
         }
 
         public void SelectCard(CardLocation loc)
         {
-            this.m_selector_pointer = this.m_selector.Count();
-            this.m_selector.Add(new CardSelector(loc));
+            this.selector_pointer = this.selector.Count();
+            this.selector.Add(new CardSelector(loc));
         }
 
         public void SelectNextCard(ClientCard card)
         {
-            if (this.m_selector_pointer == -1)
+            if (this.selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectNextCard() before SelectCard()");
-                this.m_selector_pointer = 0;
+                this.selector_pointer = 0;
             }
-            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(card));
+            this.selector.Insert(this.selector_pointer, new CardSelector(card));
         }
 
         public void SelectNextCard(IList<ClientCard> cards)
         {
-            if (this.m_selector_pointer == -1)
+            if (this.selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectNextCard() before SelectCard()");
-                this.m_selector_pointer = 0;
+                this.selector_pointer = 0;
             }
-            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(cards));
+            this.selector.Insert(this.selector_pointer, new CardSelector(cards));
         }
 
         public void SelectNextCard(int cardId)
         {
-            if (this.m_selector_pointer == -1)
+            if (this.selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectNextCard() before SelectCard()");
-                this.m_selector_pointer = 0;
+                this.selector_pointer = 0;
             }
-            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(cardId));
+            this.selector.Insert(this.selector_pointer, new CardSelector(cardId));
         }
 
         public void SelectNextCard(IList<int> ids)
         {
-            if (this.m_selector_pointer == -1)
+            if (this.selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectNextCard() before SelectCard()");
-                this.m_selector_pointer = 0;
+                this.selector_pointer = 0;
             }
-            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(ids));
+            this.selector.Insert(this.selector_pointer, new CardSelector(ids));
         }
 
         public void SelectNextCard(params int[] ids)
         {
-            if (this.m_selector_pointer == -1)
+            if (this.selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectNextCard() before SelectCard()");
-                this.m_selector_pointer = 0;
+                this.selector_pointer = 0;
             }
-            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(ids));
+            this.selector.Insert(this.selector_pointer, new CardSelector(ids));
         }
 
         public void SelectNextCard(CardLocation loc)
         {
-            if (this.m_selector_pointer == -1)
+            if (this.selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectNextCard() before SelectCard()");
-                this.m_selector_pointer = 0;
+                this.selector_pointer = 0;
             }
-            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(loc));
+            this.selector.Insert(this.selector_pointer, new CardSelector(loc));
         }
 
         public void SelectThirdCard(ClientCard card)
         {
-            if (this.m_selector_pointer == -1)
+            if (this.selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectThirdCard() before SelectCard()");
-                this.m_selector_pointer = 0;
+                this.selector_pointer = 0;
             }
-            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(card));
+            this.selector.Insert(this.selector_pointer, new CardSelector(card));
         }
 
         public void SelectThirdCard(IList<ClientCard> cards)
         {
-            if (this.m_selector_pointer == -1)
+            if (this.selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectThirdCard() before SelectCard()");
-                this.m_selector_pointer = 0;
+                this.selector_pointer = 0;
             }
-            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(cards));
+            this.selector.Insert(this.selector_pointer, new CardSelector(cards));
         }
 
         public void SelectThirdCard(int cardId)
         {
-            if (this.m_selector_pointer == -1)
+            if (this.selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectThirdCard() before SelectCard()");
-                this.m_selector_pointer = 0;
+                this.selector_pointer = 0;
             }
-            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(cardId));
+            this.selector.Insert(this.selector_pointer, new CardSelector(cardId));
         }
 
         public void SelectThirdCard(IList<int> ids)
         {
-            if (this.m_selector_pointer == -1)
+            if (this.selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectThirdCard() before SelectCard()");
-                this.m_selector_pointer = 0;
+                this.selector_pointer = 0;
             }
-            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(ids));
+            this.selector.Insert(this.selector_pointer, new CardSelector(ids));
         }
 
         public void SelectThirdCard(params int[] ids)
         {
-            if (this.m_selector_pointer == -1)
+            if (this.selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectThirdCard() before SelectCard()");
-                this.m_selector_pointer = 0;
+                this.selector_pointer = 0;
             }
-            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(ids));
+            this.selector.Insert(this.selector_pointer, new CardSelector(ids));
         }
 
         public void SelectThirdCard(CardLocation loc)
         {
-            if (this.m_selector_pointer == -1)
+            if (this.selector_pointer == -1)
             {
                 Logger.WriteErrorLine("Error: Call SelectThirdCard() before SelectCard()");
-                this.m_selector_pointer = 0;
+                this.selector_pointer = 0;
             }
-            this.m_selector.Insert(this.m_selector_pointer, new CardSelector(loc));
+            this.selector.Insert(this.selector_pointer, new CardSelector(loc));
         }
 
         public void SelectMaterials(ClientCard card)
         {
-            this.m_materialSelector = new CardSelector(card);
+            this.materialSelector = new CardSelector(card);
         }
 
         public void SelectMaterials(IList<ClientCard> cards)
         {
-            this.m_materialSelector = new CardSelector(cards);
+            this.materialSelector = new CardSelector(cards);
         }
 
         public void SelectMaterials(int cardId)
         {
-            this.m_materialSelector = new CardSelector(cardId);
+            this.materialSelector = new CardSelector(cardId);
         }
 
         public void SelectMaterials(IList<int> ids)
         {
-            this.m_materialSelector = new CardSelector(ids);
+            this.materialSelector = new CardSelector(ids);
         }
 
         public void SelectMaterials(CardLocation loc)
         {
-            this.m_materialSelector = new CardSelector(loc);
+            this.materialSelector = new CardSelector(loc);
         }
 
         public void CleanSelectMaterials()
         {
-            this.m_materialSelector = null;
+            this.materialSelector = null;
         }
 
         public bool HaveSelectedCards()
         {
-            return this.m_selector.Count > 0 || this.m_materialSelector != null;
+            return this.selector.Count > 0 || this.materialSelector != null;
         }
 
         public CardSelector GetSelectedCards()
         {
             CardSelector selected = null;
-            if (this.m_selector.Count > 0)
+            if (this.selector.Count > 0)
             {
-                selected = this.m_selector[this.m_selector.Count - 1];
-                this.m_selector.RemoveAt(this.m_selector.Count - 1);
+                selected = this.selector[this.selector.Count - 1];
+                this.selector.RemoveAt(this.selector.Count - 1);
             }
             return selected;
         }
@@ -1086,72 +1086,72 @@ namespace WindBot.Game
         public CardPosition GetSelectedPosition()
         {
             CardPosition selected = CardPosition.FaceUpAttack;
-            if (this.m_position.Count > 0)
+            if (this.position.Count > 0)
             {
-                selected = this.m_position[0];
-                this.m_position.RemoveAt(0);
+                selected = this.position[0];
+                this.position.RemoveAt(0);
             }
             return selected;
         }
 
         public void SelectPosition(CardPosition pos)
         {
-            this.m_position.Add(pos);
+            this.position.Add(pos);
         }
 
         public void SelectPlace(int zones)
         {
-            this.m_place = zones;
+            this.place = zones;
         }
 
         public void SelectOption(int opt)
         {
-            this.m_option = opt;
+            this.option = opt;
         }
 
         public void SelectNumber(int number)
         {
-            this.m_number = number;
+            this.number = number;
         }
 
         public void SelectAttribute(CardAttribute attribute)
         {
-            this.m_attributes.Clear();
-            this.m_attributes.Add(attribute);
+            this.attributes.Clear();
+            this.attributes.Add(attribute);
         }
 
         public void SelectAttributes(CardAttribute[] attributes)
         {
-            this.m_attributes.Clear();
+            this.attributes.Clear();
             foreach (CardAttribute attribute in attributes)
             {
-                this.m_attributes.Add(attribute);
+                this.attributes.Add(attribute);
             }
         }
 
         public void SelectRace(CardRace race)
         {
-            this.m_races.Clear();
-            this.m_races.Add(race);
+            this.races.Clear();
+            this.races.Add(race);
         }
 
         public void SelectRaces(CardRace[] races)
         {
-            this.m_races.Clear();
+            this.races.Clear();
             foreach (CardRace race in races)
             {
-                this.m_races.Add(race);
+                this.races.Add(race);
             }
         }
 
         public void SelectAnnounceID(int id)
         {
-            this.m_announce = id;
+            this.announce = id;
         }
 
         public void SelectYesNo(bool opt)
         {
-            this.m_yesno = opt ? 1 : 0;
+            this.yesno = opt ? 1 : 0;
         }
 
         /// <summary>
@@ -1161,9 +1161,9 @@ namespace WindBot.Game
         /// <returns>Index of the selected number.</returns>
         public int OnAnnounceNumber(IList<int> numbers)
         {
-            if (numbers.Contains(this.m_number))
+            if (numbers.Contains(this.number))
             {
-                return numbers.IndexOf(this.m_number);
+                return numbers.IndexOf(this.number);
             }
 
             return Program._rand.Next(0, numbers.Count); // Returns a random number.
@@ -1177,7 +1177,7 @@ namespace WindBot.Game
         /// <returns>A list of the selected attributes.</returns>
         public virtual IList<CardAttribute> OnAnnounceAttrib(int count, IList<CardAttribute> attributes)
         {
-            IList<CardAttribute> foundAttributes = this.m_attributes.Where(attributes.Contains).ToList();
+            IList<CardAttribute> foundAttributes = this.attributes.Where(attributes.Contains).ToList();
             if (foundAttributes.Count > 0)
             {
                 return foundAttributes;
@@ -1194,7 +1194,7 @@ namespace WindBot.Game
         /// <returns>A list of the selected races.</returns>
         public virtual IList<CardRace> OnAnnounceRace(int count, IList<CardRace> races)
         {
-            IList<CardRace> foundRaces = this.m_races.Where(races.Contains).ToList();
+            IList<CardRace> foundRaces = this.races.Where(races.Contains).ToList();
             if (foundRaces.Count > 0)
             {
                 return foundRaces;

@@ -1,6 +1,6 @@
 ﻿namespace WindBot.Game.AI.Enums
 {
-    public enum Pierce
+    public enum PierceMonsters
     {
         c1546123   = 1546123,
         c1546124   = 1546124,

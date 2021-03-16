@@ -11,7 +11,7 @@ namespace WindBot.Game.AI
         /// </summary>
         public static bool IsMonsterInvincible(this ClientCard card)
         {
-            return !card.IsDisabled() && Enum.IsDefined(typeof(InvincibleMonster), card.Id);
+            return !card.IsDisabled() && Enum.IsDefined(typeof(BattleInvincibleMonsters), card.Id);
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace WindBot.Game.AI
 
         public static bool IsMonsterCanPierce(this ClientCard card)
         {
-            return Enum.IsDefined(typeof(Pierce), card.Id)
+            return Enum.IsDefined(typeof(PierceMonsters), card.Id)
                 || card.EquipCards.ContainsCardWithId(47819246,48308134,48716139,
                     49328340,55046718,60879050,65079854,82270047,88540324)
                 || card.UserData.ContainsKey("Pierce");

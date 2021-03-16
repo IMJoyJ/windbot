@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using WindBot.Game.AI.Enums;
 using YGOSharp.OCGWrapper;
 using YGOSharp.OCGWrapper.Enums;
 
@@ -29,6 +31,7 @@ namespace WindBot.Game
         public int RScale { get; private set; }
         public int LinkCount { get; private set; }
         public int LinkMarker { get; private set; }
+
         public int BaseAttack { get; private set; }
         public int BaseDefense { get; private set; }
         public int RealPower { get; set; }
@@ -490,6 +493,19 @@ namespace WindBot.Game
         public bool Equals(ClientCard card)
         {
             return ReferenceEquals(this, card);
+        }
+
+        internal bool IsCanBeDestroyed(Reason effect, ClientCard fromCard = null)
+        {
+            if (effect == Reason.Battle)
+            {
+                return !Enum.IsDefined(typeof(BattleInvincibleMonsters), this.Id) || this.IsDisabled();
+            }
+            if (effect == Reason.Effect)
+            {
+                return !Enum.IsDefined(typeof(EffectInvincibleMonsters), this.Id) || this.IsDisabled();
+            }
+            return true;
         }
     }
 }

@@ -120,16 +120,6 @@ namespace WindBot.Game.AI.Decks
         {
             var lc = this.GetLuckyCardByCardId(this.Card.Id);
             return lc.GetAppearPlace(this, this.AI, this.Duel, Bot, Enemy, cardId, player, location, available);
-
-            if (location == CardLocation.SpellZone)
-            {
-                return 0;
-            }
-            else if (location == CardLocation.MonsterZone)
-            {
-                return available & ~this.Bot.GetLinkedZones();
-            }
-            return 0;
         }
     }
 }
