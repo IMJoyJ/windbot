@@ -130,6 +130,7 @@
     <Compile Include="Game\AI\Executor.cs" />
     <Compile Include="Game\AI\LuckyCards\C27551.cs" />
     <Compile Include="Game\AI\LuckyCards\C35699.cs" />
+    <Compile Include="Game\AI\LuckyCards\C39015.cs" />
     <Compile Include="Game\AI\LuckyCards\C67696066.cs" />
     <Compile Include="Game\AI\LuckyCards\LuckyCard.cs" />
     <Compile Include="Game\AI\Opcodes.cs" />

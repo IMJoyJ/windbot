@@ -10,8 +10,6 @@ namespace WindBot.Game.AI
 {
     public abstract class Executor
     {
-        public Dictionary<int, int> EffectsUsedInTurnEnemy = new Dictionary<int, int>();
-        public Dictionary<int, int> EffectsUsedInTurnSelf = new Dictionary<int, int>();
         public string Deck { get; set; }
         public Duel Duel { get; private set; }
         public IList<CardExecutor> Executors { get; private set; }
@@ -47,15 +45,6 @@ namespace WindBot.Game.AI
         public virtual bool OnSelectHand()
         {
             return Program._rand.Next(2) > 0;
-        }
-
-        public virtual bool IsEffectUsedInTurn(int code, bool IsEnemy = false)
-        {
-            if (IsEnemy)
-            {
-                return EffectsUsedInTurnEnemy.ContainsKey(code) && EffectsUsedInTurnEnemy[code] == this.Duel.Turn;
-            }
-            return EffectsUsedInTurnSelf.ContainsKey(code) && EffectsUsedInTurnSelf[code] == this.Duel.Turn;
         }
 
         /// <summary>

@@ -87,7 +87,37 @@ namespace WindBot.Game.AI.Decks
 
             return selected;
         }
+        public override void OnChaining(int player, ClientCard card)
+        {
+            if (player != card.Owner)
+            {
 
+            }
+        }
+        public int GetEffectUsedCountByCardId(int cardId, bool IsEnemy = false)
+        {
+            if (IsEnemy)
+            {
+                if (EffectsUsedInTurnEnemy.ContainsKey(cardId))
+                {
+                    return EffectsUsedInTurnEnemy[cardId];
+                }
+            }
+            if (EffectsUsedInTurnSelf.ContainsKey(cardId))
+            {
+                return EffectsUsedInTurnSelf[cardId];
+            }
+            return 0;
+        }
+
+        public Dictionary<int, int> EffectsUsedInTurnEnemy = new Dictionary<int, int>();
+        public Dictionary<int, int> EffectsUsedInTurnSelf = new Dictionary<int, int>();
+        public override void OnNewTurn()
+        {
+            EffectsUsedInTurnEnemy.Clear();
+            EffectsUsedInTurnSelf.Clear();
+            // Some AI need do something on new turn
+        }
         public override int OnSelectOption(IList<int> options)
         {
             return Program._rand.Next(options.Count);
@@ -115,7 +145,6 @@ namespace WindBot.Game.AI.Decks
             var lc = this.GetLuckyCardByCardId(this.Card.Id);
             return lc.GetSummonPosition(this, this.AI, this.Duel, Bot, Enemy, this.Card);
         }
-
         public override int OnSelectPlace(int cardId, int player, CardLocation location, int available)
         {
             var lc = this.GetLuckyCardByCardId(this.Card.Id);

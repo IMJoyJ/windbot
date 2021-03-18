@@ -31,7 +31,6 @@ namespace WindBot.Game.AI.LuckyCards
                 return available;
             }
         }
-
         public virtual CardPosition GetSummonPosition(Executor exec, GameAI ai, Duel duel, ClientField bot, ClientField enemy, ClientCard card)
         {
             int atk = 0;
